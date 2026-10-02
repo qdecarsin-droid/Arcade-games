@@ -49,6 +49,8 @@ canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-wid
 #pad.stickmode .stick{display:block}
 #pad.stickmode .dp{display:none}
 #pad .knob{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;background:var(--hot);pointer-events:none}
+.ejs_virtualGamepad_button,.ejs_dpad_main,.ejs_dpad_main *{transition:none!important;-webkit-tap-highlight-color:transparent;touch-action:none}
+#game,#game *{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 </style>
 </head>
 <body>
@@ -270,7 +272,7 @@ function bindTouch(){
   },{passive:false});
   const end=e=>{
     if(!down)return;e.preventDefault();down=false;const t=e.changedTouches[0];
-    setTimeout(()=>fire('mouseup',t,0),Math.max(0,80-(Date.now()-t0)));
+    setTimeout(()=>fire('mouseup',t,0),Math.max(0,34-(Date.now()-t0)));
   };
   g.addEventListener('touchend',end,{passive:false});
   g.addEventListener('touchcancel',end,{passive:false});
@@ -372,7 +374,7 @@ function applyMode(){
       const kn=document.createElement('div');
       kn.style.cssText='position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.5);pointer-events:none';
       ejsStick.appendChild(kn);dp.parentElement.appendChild(ejsStick);
-      bindStick(ejsStick,kn,45,16);
+      bindStick(ejsStick,kn,45,11);
     }
     dp.style.display='none';ejsStick.style.display='block';
   }else{
