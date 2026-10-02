@@ -45,6 +45,10 @@ canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-wid
 #pad .sh{height:44px;min-width:84px;font-size:15px}
 #pad .ss button{height:38px;min-width:84px;font-size:13px}
 #pad .round{border-radius:50%}
+#pad .stick{display:none;width:160px;height:160px;border-radius:50%;background:var(--panel);border:2px solid var(--line);position:relative;touch-action:none;margin:0 20px}
+#pad.stickmode .stick{display:block}
+#pad.stickmode .dp{display:none}
+#pad .knob{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;background:var(--hot);pointer-events:none}
 </style>
 </head>
 <body>
@@ -106,7 +110,7 @@ canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-wid
     <label class="btn primary">Choisir une ROM<input type="file" id="rom" hidden></label>
     <button class="btn" id="fs">Plein écran</button>
     <button class="btn" id="sndBtn">Activer le son</button>
-    <button class="btn" id="padBtn">Boutons tactiles</button>
+    <button class="btn" id="padBtn">Manette : émulateur</button>
     <button class="btn" id="diag">Tester ma connexion</button>
   </div>
   <div id="stage">
@@ -119,6 +123,7 @@ canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-wid
         <button data-b="6" aria-label="Gauche">◀</button><span></span><button data-b="7" aria-label="Droite">▶</button>
         <span></span><button data-b="5" aria-label="Bas">▼</button><span></span>
       </div>
+      <div class="stick" id="stick" aria-label="Joystick"><div class="knob" id="knob"></div></div>
       <div class="ss"><button data-b="3">START</button><button data-b="2">SELECT</button></div>
       <div class="ab">
         <span></span><button class="round" data-b="9">X</button><span></span>
@@ -298,7 +303,7 @@ function launch(f,core){
   window.EJS_startOnLoaded=true;window.EJS_color='#ff5d8f';
   window.EJS_threads=false;
   window.EJS_defaultOptions={'desmume_pointer_type':'touch','melonds_touch_mode':'Touch'};
-  window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.'};
+  window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.';applyMode()};
   info.dataset.hint='1';
   const sc=document.createElement('script');
   sc.src='https://cdn.emulatorjs.org/stable/data/loader.js';
@@ -336,7 +341,32 @@ document.getElementById('diag').onclick=async()=>{
 
 const pad=document.getElementById('pad');
 document.getElementById('sndBtn').onclick=()=>{resumeAudio();info.textContent='Son relancé ('+audioCtxs.length+' flux audio détecté'+(audioCtxs.length>1?'s':'')+'). Vérifie le volume et le mode silencieux.'};
-document.getElementById('padBtn').onclick=()=>pad.classList.toggle('on');
+const modes=[['emu','Manette : émulateur'],['cross','Manette : croix'],['stick','Manette : joystick']];
+let mode=0;
+function applyMode(){
+  const m=modes[mode][0];
+  pad.classList.toggle('on',m!=='emu');
+  pad.classList.toggle('stickmode',m==='stick');
+  document.getElementById('padBtn').textContent=modes[mode][1];
+  try{window.EJS_emulator.menuOptionChanged('virtual-gamepad',m==='emu'?'enabled':'disabled')}catch(e){}
+}
+document.getElementById('padBtn').onclick=()=>{mode=(mode+1)%modes.length;applyMode()};
+(function(){
+  const st=document.getElementById('stick'),kn=document.getElementById('knob');
+  const R=50,DZ=18,cur={4:0,5:0,6:0,7:0};let id=null;
+  const set=(b,v)=>{if(cur[b]!==v){cur[b]=v;press(b,v)}};
+  const move=e=>{
+    const r=st.getBoundingClientRect();
+    let dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
+    const d=Math.hypot(dx,dy);if(d>R){dx*=R/d;dy*=R/d}
+    kn.style.transform='translate('+dx+'px,'+dy+'px)';
+    set(6,dx<-DZ?1:0);set(7,dx>DZ?1:0);set(4,dy<-DZ?1:0);set(5,dy>DZ?1:0);
+  };
+  const stop=()=>{id=null;kn.style.transform='';[4,5,6,7].forEach(b=>set(b,0))};
+  st.addEventListener('pointerdown',e=>{e.preventDefault();id=e.pointerId;st.setPointerCapture(id);move(e)});
+  st.addEventListener('pointermove',e=>{if(e.pointerId===id)move(e)});
+  ['pointerup','pointercancel','lostpointercapture'].forEach(t=>st.addEventListener(t,stop));
+})();
 function press(b,v){try{window.EJS_emulator.gameManager.simulateInput(0,+b,v)}catch(e){}}
 pad.querySelectorAll('button').forEach(el=>{
   const b=el.dataset.b;
