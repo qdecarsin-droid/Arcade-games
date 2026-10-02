@@ -282,6 +282,7 @@ function launch(f,core){
   window.EJS_pathtodata='https://cdn.emulatorjs.org/stable/data/';
   window.EJS_startOnLoaded=true;window.EJS_color='#ff5d8f';
   window.EJS_threads=false;
+  window.EJS_defaultOptions={'desmume_pointer_type':'touch','melonds_touch_mode':'Touch'};
   window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.'};
   const sc=document.createElement('script');
   sc.src='https://cdn.emulatorjs.org/stable/data/loader.js';
