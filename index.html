@@ -290,7 +290,7 @@ function launch(f,core){
   document.body.appendChild(sc);
   info.textContent='Chargement de '+f.name+' ('+document.getElementById('sys').selectedOptions[0].text+')… le premier lancement peut durer 1 minute.';
 }
-addEventListener('error',e=>{if(started)info.textContent='Erreur : '+e.message});
+addEventListener('error',e=>{if(started&&!/ResizeObserver/.test(e.message))info.textContent='Erreur : '+e.message});
 rom.onchange=async()=>{
   const f=rom.files[0];if(!f)return;
   const ext=await innerExt(f),sel=document.getElementById('sys');
