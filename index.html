@@ -319,7 +319,6 @@ document.getElementById('diag').onclick=async()=>{
 };
 
 const pad=document.getElementById('pad');
-if(('ontouchstart' in window)||navigator.maxTouchPoints>0)pad.classList.add('on');
 document.getElementById('padBtn').onclick=()=>pad.classList.toggle('on');
 function press(b,v){try{window.EJS_emulator.gameManager.simulateInput(0,+b,v)}catch(e){}}
 pad.querySelectorAll('button').forEach(el=>{
