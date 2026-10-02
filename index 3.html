@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salle d'arcade</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1e1b4b;--panel:#2b2780;--line:#4640b8;--text:#f1efff;--muted:#b4b0ee;--hot:#ff5d8f;--sun:#ffd23f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,sans-serif;min-height:100vh}
+header{padding:28px 20px 12px;text-align:center}
+h1{font:22px/1.4 'Press Start 2P',monospace;margin:0;color:var(--sun);text-shadow:3px 3px 0 var(--hot)}
+header p{color:var(--muted);margin:10px 0 0}
+nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:14px}
+nav button,.btn,select{font:inherit;background:var(--panel);color:var(--text);border:2px solid var(--line);border-radius:6px;padding:9px 16px;cursor:pointer}
+nav button[aria-selected=true],.btn.primary{background:var(--hot);border-color:var(--hot);color:#fff;font-weight:700}
+button:focus-visible,select:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+main{max-width:760px;margin:0 auto;padding:10px 16px 50px}
+section{display:none;text-align:center}
+section.on{display:block}
+canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-width:100%;touch-action:none}
+.info{color:var(--muted);margin:10px 0}
+.score{font:12px 'Press Start 2P',monospace;color:var(--sun);margin:12px 0}
+.grid{display:grid;gap:8px;margin:14px auto;max-width:360px}
+.cell{aspect-ratio:1;background:var(--panel);border:2px solid var(--line);border-radius:8px;font:28px 'Press Start 2P',monospace;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cell.flip{background:var(--sun);color:#1e1b4b}
+.dpad{display:grid;grid-template-columns:repeat(3,56px);gap:6px;justify-content:center;margin-top:12px}
+.dpad button{height:56px;font-size:22px;background:var(--panel);color:var(--text);border:2px solid var(--line);border-radius:8px}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:14px 0}
+#emuBox{width:100%;height:min(75vh,640px);border:3px solid var(--line);border-radius:8px;background:#120f33;display:none}
+.note{background:var(--panel);border-left:4px solid var(--sun);padding:10px 14px;text-align:left;border-radius:4px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header>
+  <h1>SALLE D'ARCADE</h1>
+  <p>Trois jeux rapides et un émulateur pour tes propres ROMs.</p>
+</header>
+<nav role="tablist" id="tabs">
+  <button role="tab" data-t="snake" aria-selected="true">Snake</button>
+  <button role="tab" data-t="ttt" aria-selected="false">Morpion</button>
+  <button role="tab" data-t="mem" aria-selected="false">Memory</button>
+  <button role="tab" data-t="emu" aria-selected="false">Émulateur</button>
+</nav>
+<main>
+
+<section id="snake" class="on">
+  <div class="score">Score : <span id="sScore">0</span></div>
+  <canvas id="cv" width="360" height="360"></canvas>
+  <p class="info">Flèches du clavier ou boutons ci-dessous.</p>
+  <div class="dpad">
+    <span></span><button data-d="u" aria-label="Haut">▲</button><span></span>
+    <button data-d="l" aria-label="Gauche">◀</button><button data-d="d" aria-label="Bas">▼</button><button data-d="r" aria-label="Droite">▶</button>
+  </div>
+  <div class="row"><button class="btn primary" id="sStart">Lancer la partie</button></div>
+</section>
+
+<section id="ttt">
+  <div class="score" id="tMsg">À toi de jouer (X)</div>
+  <div class="grid" id="tGrid" style="grid-template-columns:repeat(3,1fr)"></div>
+  <div class="row"><button class="btn primary" id="tReset">Nouvelle partie</button></div>
+</section>
+
+<section id="mem">
+  <div class="score">Coups : <span id="mMoves">0</span></div>
+  <div class="grid" id="mGrid" style="grid-template-columns:repeat(4,1fr)"></div>
+  <div class="row"><button class="btn primary" id="mReset">Mélanger les cartes</button></div>
+</section>
+
+<section id="emu">
+  <div class="row">
+    <select id="sys" aria-label="Console">
+      <option value="nes">NES</option>
+      <option value="snes">Super Nintendo</option>
+      <option value="gb">Game Boy</option>
+      <option value="gbc">Game Boy Color</option>
+      <option value="gba">Game Boy Advance</option>
+      <option value="n64">Nintendo 64</option>
+      <option value="desmume2015">Nintendo DS (léger)</option>
+      <option value="melonds">Nintendo DS (melonDS)</option>
+      <option value="segaMD">Mega Drive / Genesis</option>
+      <option value="segaMS">Master System</option>
+      <option value="segaGG">Game Gear</option>
+      <option value="segaSaturn">Saturn</option>
+      <option value="psx">PlayStation</option>
+      <option value="atari2600">Atari 2600</option>
+      <option value="pce">PC Engine</option>
+      <option value="arcade">Arcade (MAME)</option>
+    </select>
+    <label class="btn primary">Choisir une ROM<input type="file" id="rom" hidden></label>
+    <button class="btn" id="fs">Plein écran</button>
+    <button class="btn" id="diag">Tester ma connexion</button>
+  </div>
+  <div id="game" style="display:none;width:100%;height:min(75vh,640px);background:#000;border-radius:8px;overflow:hidden"></div>
+  <p class="info" id="emuInfo">Charge une ROM (.zip accepté) : la console est détectée automatiquement.</p>
+  <pre id="diagOut" class="note" style="display:none;white-space:pre-wrap;margin-bottom:12px"></pre>
+  <div class="note">Utilise uniquement des ROMs de jeux que tu possèdes. Cette page n'en fournit aucune. L'émulateur (EmulatorJS) se télécharge depuis internet au premier lancement. Manette et clavier sont reconnus.</div>
+</section>
+
+</main>
+<script>
+// Onglets
+const tabs=document.querySelectorAll('#tabs button');
+tabs.forEach(b=>b.onclick=()=>{
+  tabs.forEach(x=>x.setAttribute('aria-selected',x===b));
+  document.querySelectorAll('main section').forEach(s=>s.classList.toggle('on',s.id===b.dataset.t));
+  if(b.dataset.t!=='snake')stopSnake();
+});
+
+// SNAKE
+const cv=document.getElementById('cv'),cx=cv.getContext('2d'),N=18,S=20;
+let sn,dir,nd,food,score,timer=null;
+function stopSnake(){clearInterval(timer);timer=null}
+function startSnake(){
+  stopSnake();sn=[{x:9,y:9},{x:8,y:9},{x:7,y:9}];dir=nd={x:1,y:0};score=0;
+  document.getElementById('sScore').textContent=0;placeFood();
+  timer=setInterval(tick,120);
+}
+function placeFood(){do{food={x:Math.random()*N|0,y:Math.random()*N|0}}while(sn.some(p=>p.x==food.x&&p.y==food.y))}
+function tick(){
+  dir=nd;const h={x:sn[0].x+dir.x,y:sn[0].y+dir.y};
+  if(h.x<0||h.y<0||h.x>=N||h.y>=N||sn.some(p=>p.x==h.x&&p.y==h.y)){stopSnake();draw(true);return}
+  sn.unshift(h);
+  if(h.x==food.x&&h.y==food.y){score+=10;document.getElementById('sScore').textContent=score;placeFood()}else sn.pop();
+  draw();
+}
+function draw(over){
+  cx.fillStyle='#120f33';cx.fillRect(0,0,360,360);
+  cx.fillStyle='#ff5d8f';cx.fillRect(food.x*S+3,food.y*S+3,S-6,S-6);
+  sn.forEach((p,i)=>{cx.fillStyle=i?'#ffd23f':'#fff';cx.fillRect(p.x*S+1,p.y*S+1,S-2,S-2)});
+  if(over){cx.fillStyle='rgba(18,15,51,.8)';cx.fillRect(0,140,360,80);cx.fillStyle='#ffd23f';cx.font="14px 'Press Start 2P',monospace";cx.textAlign='center';cx.fillText('PERDU — '+score+' pts',180,186)}
+}
+const dirs={u:{x:0,y:-1},d:{x:0,y:1},l:{x:-1,y:0},r:{x:1,y:0}};
+function turn(k){const n=dirs[k];if(n&&!(n.x==-dir.x&&n.y==-dir.y))nd=n}
+document.querySelectorAll('.dpad button').forEach(b=>b.onclick=()=>sn&&turn(b.dataset.d));
+addEventListener('keydown',e=>{
+  const m={ArrowUp:'u',ArrowDown:'d',ArrowLeft:'l',ArrowRight:'r'}[e.key];
+  if(m&&timer){e.preventDefault();turn(m)}
+});
+document.getElementById('sStart').onclick=startSnake;
+sn=[{x:9,y:9}];food={x:12,y:9};draw();
+
+// MORPION
+const tg=document.getElementById('tGrid'),tm=document.getElementById('tMsg');
+let tb,tOver;
+const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+const win=b=>{for(const[a,c,d]of L)if(b[a]&&b[a]==b[c]&&b[a]==b[d])return b[a];return b.every(Boolean)?'=':null};
+function tRender(){tg.innerHTML='';tb.forEach((v,i)=>{const c=document.createElement('button');c.className='cell';c.textContent=v;c.onclick=()=>tPlay(i);tg.appendChild(c)})}
+function tReset(){tb=Array(9).fill('');tOver=false;tm.textContent='À toi de jouer (X)';tRender()}
+function tEnd(){const w=win(tb);if(!w)return false;tOver=true;tm.textContent=w=='='?'Égalité':w=='X'?'Tu as gagné !':'L\'ordinateur gagne';return true}
+function tPlay(i){
+  if(tOver||tb[i])return;tb[i]='X';if(tEnd())return tRender();
+  const free=tb.map((v,k)=>v?null:k).filter(k=>k!==null);
+  const tryLine=p=>{for(const l of L){const v=l.map(k=>tb[k]);if(v.filter(x=>x==p).length==2&&v.includes(''))return l[v.indexOf('')]}return null};
+  let m=tryLine('O');if(m===null)m=tryLine('X');if(m===null)m=tb[4]?free[Math.random()*free.length|0]:4;
+  tb[m]='O';tEnd();tRender();
+}
+document.getElementById('tReset').onclick=tReset;tReset();
+
+// MEMORY
+const mg=document.getElementById('mGrid'),mv=document.getElementById('mMoves');
+let open=[],lock=false,moves=0;
+function mReset(){
+  const sy='★♥♦♣☀☾⚑♪'.split('');const d=[...sy,...sy].sort(()=>Math.random()-.5);
+  mg.innerHTML='';open=[];lock=false;moves=0;mv.textContent=0;
+  d.forEach(s=>{const c=document.createElement('button');c.className='cell';c.dataset.s=s;c.setAttribute('aria-label','Carte cachée');
+    c.onclick=()=>{
+      if(lock||c.classList.contains('flip'))return;
+      c.classList.add('flip');c.textContent=s;open.push(c);
+      if(open.length==2){
+        mv.textContent=++moves;
+        if(open[0].dataset.s==open[1].dataset.s){open=[];if(!mg.querySelector('.cell:not(.flip)'))mv.textContent=moves+' — gagné !'}
+        else{lock=true;setTimeout(()=>{open.forEach(x=>{x.classList.remove('flip');x.textContent=''});open=[];lock=false},800)}
+      }
+    };mg.appendChild(c)});
+}
+document.getElementById('mReset').onclick=mReset;mReset();
+
+// ÉMULATEUR (EmulatorJS)
+const rom=document.getElementById('rom'),info=document.getElementById('emuInfo');
+const EXT={nes:'nes',sfc:'snes',smc:'snes',gb:'gb',gbc:'gbc',gba:'gba',nds:'desmume2015',n64:'n64',z64:'n64',v64:'n64',md:'segaMD',gen:'segaMD',smd:'segaMD',sms:'segaMS',gg:'segaGG',a26:'atari2600',pce:'pce',cue:'psx',pbp:'psx',chd:'psx'};
+async function innerExt(f){
+  const n=f.name.split('.').pop().toLowerCase();
+  if(n!=='zip')return n;
+  try{
+    const tail=new DataView(await f.slice(Math.max(0,f.size-70000)).arrayBuffer());
+    for(let i=tail.byteLength-22;i>=0;i--){
+      if(tail.getUint32(i,true)===0x06054b50){
+        const off=tail.getUint32(i+16,true);
+        const e=new DataView(await f.slice(off,off+400).arrayBuffer());
+        const len=e.getUint16(28,true);
+        const name=new TextDecoder().decode(new Uint8Array(e.buffer,46,len));
+        return name.split('.').pop().toLowerCase();
+      }
+    }
+  }catch(x){}
+  return n;
+}
+function mirrorCores(){
+  const V='4.2.3',B='https://cdn.jsdelivr.net/npm/@emulatorjs/core-';
+  const remap=u=>{
+    const s=String(u);let m=s.match(/\/cores\/reports\/([a-z0-9_]+)\.json/);
+    if(m)return B+m[1]+'@'+V+'/reports/'+m[1]+'.json';
+    m=s.match(/\/cores\/(([a-z0-9_]+?)(?:-thread)?(?:-legacy)?-wasm\.data)/);
+    return m?B+m[2]+'@'+V+'/'+m[1]:u;
+  };
+  const f=window.fetch;
+  window.fetch=function(u,o){
+    const r=remap(typeof u==='string'?u:(u&&u.url)||u);
+    if(r!==u)return f.call(this,r,o).catch(()=>f.call(this,u,o));
+    return f.call(this,u,o);
+  };
+  const open=XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open=function(m,u,...a){return open.call(this,m,remap(u),...a)};
+}
+let started=false;
+function launch(f,core){
+  if(started){location.reload();return}
+  started=true;
+  mirrorCores();
+  const url=URL.createObjectURL(f);
+  const g=document.getElementById('game');g.style.display='block';
+  window.EJS_player='#game';window.EJS_core=core;window.EJS_gameUrl=url;
+  window.EJS_gameName=f.name.replace(/\.[^.]+$/,'');
+  window.EJS_pathtodata='https://cdn.emulatorjs.org/stable/data/';
+  window.EJS_startOnLoaded=true;window.EJS_color='#ff5d8f';
+  window.EJS_threads=false;
+  window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.'};
+  const sc=document.createElement('script');
+  sc.src='https://cdn.emulatorjs.org/stable/data/loader.js';
+  sc.onerror=()=>{info.textContent='Impossible de charger l\'émulateur : vérifie ta connexion internet, et ouvre le fichier dans Chrome ou Safari (pas dans un aperçu).'};
+  document.body.appendChild(sc);
+  info.textContent='Chargement de '+f.name+' ('+document.getElementById('sys').selectedOptions[0].text+')… le premier lancement peut durer 1 minute.';
+}
+addEventListener('error',e=>{if(started)info.textContent='Erreur : '+e.message});
+rom.onchange=async()=>{
+  const f=rom.files[0];if(!f)return;
+  const ext=await innerExt(f),sel=document.getElementById('sys');
+  if(EXT[ext])sel.value=EXT[ext];
+  else if(ext==='bin'||ext==='iso')info.textContent='Format '+ext+' : vérifie que la console choisie est la bonne.';
+  launch(f,sel.value);
+  rom.value='';
+};
+document.getElementById('diag').onclick=async()=>{
+  const o=document.getElementById('diagOut');o.style.display='block';o.textContent='Test en cours…\n';
+  const log=t=>o.textContent+=t+'\n';
+  log('WebGL2 : '+(!!document.createElement('canvas').getContext('webgl2')?'oui':'non'));
+  log('SharedArrayBuffer : '+(typeof SharedArrayBuffer==='function'?'oui':'non'));
+  log('Page sécurisée (https) : '+(isSecureContext?'oui':'non'));
+  const tests=[
+    ['Serveur émulateur (petit fichier)','https://cdn.emulatorjs.org/stable/data/version.json'],
+    ['Serveur émulateur (moteur DS)','https://cdn.emulatorjs.org/stable/data/cores/desmume2015-legacy-wasm.data'],
+    ['Serveur jsDelivr (moteur DS)','https://cdn.jsdelivr.net/npm/@emulatorjs/core-desmume2015@4.2.3/desmume2015-legacy-wasm.data']
+  ];
+  for(const[n,u]of tests){
+    const t0=Date.now();
+    try{const r=await fetch(u);const b=await r.arrayBuffer();log('• '+n+' : HTTP '+r.status+', '+(b.byteLength/1048576).toFixed(1)+' Mo, '+((Date.now()-t0)/1000).toFixed(1)+' s')}
+    catch(e){log('• '+n+' : ÉCHEC ('+e.message+')')}
+  }
+  log('Fin du test. Envoie-moi une capture de ce cadre.');
+};
+document.getElementById('fs').onclick=()=>{const g=document.getElementById('game');(g.requestFullscreen||g.webkitRequestFullscreen).call(g)};
+</script>
+</body>
+</html>
