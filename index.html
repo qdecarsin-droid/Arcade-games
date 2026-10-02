@@ -248,11 +248,33 @@ function mirrorCores(){
   const open=XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open=function(m,u,...a){return open.call(this,m,remap(u),...a)};
 }
+function bindTouch(){
+  const g=document.getElementById('game');let down=false,t0=0;
+  const fire=(type,t,btns)=>{
+    const c=g.querySelector('canvas')||document.querySelector('canvas');if(!c)return;
+    c.dispatchEvent(new MouseEvent(type,{bubbles:true,cancelable:true,view:window,clientX:t.clientX,clientY:t.clientY,screenX:t.screenX,screenY:t.screenY,button:0,buttons:btns}));
+  };
+  const onCanvas=e=>e.target&&e.target.tagName==='CANVAS';
+  g.addEventListener('touchstart',e=>{
+    if(!onCanvas(e))return;e.preventDefault();
+    down=true;t0=Date.now();const t=e.changedTouches[0];fire('mousemove',t,0);fire('mousedown',t,1);
+  },{passive:false});
+  g.addEventListener('touchmove',e=>{
+    if(!down)return;e.preventDefault();fire('mousemove',e.changedTouches[0],1);
+  },{passive:false});
+  const end=e=>{
+    if(!down)return;e.preventDefault();down=false;const t=e.changedTouches[0];
+    setTimeout(()=>fire('mouseup',t,0),Math.max(0,80-(Date.now()-t0)));
+  };
+  g.addEventListener('touchend',end,{passive:false});
+  g.addEventListener('touchcancel',end,{passive:false});
+}
 let started=false;
 function launch(f,core){
   if(started){location.reload();return}
   started=true;
   mirrorCores();
+  bindTouch();
   const url=URL.createObjectURL(f);
   const g=document.getElementById('game');g.style.display='block';
   window.EJS_player='#game';window.EJS_core=core;window.EJS_gameUrl=url;
