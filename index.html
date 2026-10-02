@@ -105,6 +105,7 @@ canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-wid
     </select>
     <label class="btn primary">Choisir une ROM<input type="file" id="rom" hidden></label>
     <button class="btn" id="fs">Plein écran</button>
+    <button class="btn" id="sndBtn">Activer le son</button>
     <button class="btn" id="padBtn">Boutons tactiles</button>
     <button class="btn" id="diag">Tester ma connexion</button>
   </div>
@@ -269,11 +270,25 @@ function bindTouch(){
   g.addEventListener('touchend',end,{passive:false});
   g.addEventListener('touchcancel',end,{passive:false});
 }
+const audioCtxs=[];
+function resumeAudio(){audioCtxs.forEach(c=>{try{if(c.state!=='running')c.resume()}catch(e){}})}
+function unlockAudio(){
+  try{
+    const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+    const AP=AC.prototype;
+    ['createGain','createBufferSource','createScriptProcessor','createOscillator'].forEach(m=>{
+      const o=AP[m];if(typeof o!=='function')return;
+      AP[m]=function(...a){if(!audioCtxs.includes(this))audioCtxs.push(this);return o.apply(this,a)};
+    });
+    ['pointerdown','touchend','click'].forEach(e=>addEventListener(e,resumeAudio,{passive:true}));
+  }catch(e){}
+}
 let started=false;
 function launch(f,core){
   if(started){location.reload();return}
   started=true;
   mirrorCores();
+  unlockAudio();
   bindTouch();
   const url=URL.createObjectURL(f);
   const g=document.getElementById('game');g.style.display='block';
@@ -320,6 +335,7 @@ document.getElementById('diag').onclick=async()=>{
 };
 
 const pad=document.getElementById('pad');
+document.getElementById('sndBtn').onclick=()=>{resumeAudio();info.textContent='Son relancé ('+audioCtxs.length+' flux audio détecté'+(audioCtxs.length>1?'s':'')+'). Vérifie le volume et le mode silencieux.'};
 document.getElementById('padBtn').onclick=()=>pad.classList.toggle('on');
 function press(b,v){try{window.EJS_emulator.gameManager.simulateInput(0,+b,v)}catch(e){}}
 pad.querySelectorAll('button').forEach(el=>{
