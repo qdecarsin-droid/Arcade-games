@@ -305,7 +305,7 @@ function launch(f,core){
   window.EJS_startOnLoaded=true;window.EJS_color='#ff5d8f';
   window.EJS_threads=false;
   window.EJS_defaultOptions={'desmume_pointer_type':'touch','melonds_touch_mode':'Touch'};
-  window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.';applyModeRetry()};
+  window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.';applyModeRetry();lockMenuRetry()};
   info.dataset.hint='1';
   const sc=document.createElement('script');
   sc.src='https://cdn.emulatorjs.org/stable/data/loader.js';
@@ -382,6 +382,22 @@ function applyMode(){
   }
   return true;
 }
+function lockMenuBar(){
+  try{
+    const E=window.EJS_emulator,m=E.elements.menu,t=E.elements.menuToggle;
+    if(!m||!t)return false;
+    if(m._locked)return true;
+    m._locked=true;let allowed=false;
+    ['pointerdown','touchstart','mousedown'].forEach(ev=>t.addEventListener(ev,()=>{allowed=true},true));
+    new MutationObserver(()=>{
+      if(m.classList.contains('ejs_menu_bar_hidden'))allowed=false;
+      else if(!allowed)m.classList.add('ejs_menu_bar_hidden');
+    }).observe(m,{attributes:true,attributeFilter:['class']});
+    if(!m.classList.contains('ejs_menu_bar_hidden'))m.classList.add('ejs_menu_bar_hidden');
+    return true;
+  }catch(e){return false}
+}
+function lockMenuRetry(n=0){if(!lockMenuBar()&&n<15)setTimeout(()=>lockMenuRetry(n+1),500)}
 function applyModeRetry(n=0){if(!applyMode()&&n<10)setTimeout(()=>applyModeRetry(n+1),700)}
 document.getElementById('padBtn').onclick=()=>{mode=(mode+1)%modes.length;applyModeRetry()};
 function press(b,v){try{window.EJS_emulator.gameManager.simulateInput(0,+b,v)}catch(e){}}
