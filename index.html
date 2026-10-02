@@ -269,26 +269,38 @@ function bindTouch(){
   g.addEventListener('touchend',end,{passive:false});
   g.addEventListener('touchcancel',end,{passive:false});
 }
+function unlockAudio(){
+  const ctxs=[];
+  ['AudioContext','webkitAudioContext'].forEach(n=>{
+    const O=window[n];if(!O)return;
+    const P=function(...a){const c=new O(...a);ctxs.push(c);return c};
+    P.prototype=O.prototype;window[n]=P;
+  });
+  const go=()=>ctxs.forEach(c=>{if(c.state!=='running')c.resume().catch(()=>{})});
+  ['pointerdown','touchend','click','keydown'].forEach(e=>addEventListener(e,go,{passive:true}));
+}
 let started=false;
 function launch(f,core){
   if(started){location.reload();return}
   started=true;
   mirrorCores();
+  unlockAudio();
   bindTouch();
   const url=URL.createObjectURL(f);
   const g=document.getElementById('game');g.style.display='block';
   window.EJS_player='#game';window.EJS_core=core;window.EJS_gameUrl=url;
   window.EJS_gameName=f.name.replace(/\.[^.]+$/,'');
   window.EJS_pathtodata='https://cdn.emulatorjs.org/stable/data/';
-  window.EJS_startOnLoaded=true;window.EJS_color='#ff5d8f';
+  window.EJS_startOnLoaded=false;window.EJS_color='#ff5d8f';
   window.EJS_threads=false;
-  window.EJS_defaultOptions={'desmume_pointer_type':'touch','melonds_touch_mode':'Touch'};
+  window.EJS_defaultOptions={'desmume_pointer_type':'touch','melonds_touch_mode':'Touch','desmume_firmware_language':'French','melonds_language':'French'};
   window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.'};
+  info.dataset.hint='1';
   const sc=document.createElement('script');
   sc.src='https://cdn.emulatorjs.org/stable/data/loader.js';
   sc.onerror=()=>{info.textContent='Impossible de charger l\'émulateur : vérifie ta connexion internet, et ouvre le fichier dans Chrome ou Safari (pas dans un aperçu).'};
   document.body.appendChild(sc);
-  info.textContent='Chargement de '+f.name+' ('+document.getElementById('sys').selectedOptions[0].text+')… le premier lancement peut durer 1 minute.';
+  info.textContent='Chargement de '+f.name+' ('+document.getElementById('sys').selectedOptions[0].text+')… le premier lancement peut durer 1 minute. Quand le bouton de lecture apparaît, appuie dessus pour démarrer (nécessaire pour le son).';
 }
 addEventListener('error',e=>{if(started&&!/ResizeObserver/.test(e.message))info.textContent='Erreur : '+e.message});
 rom.onchange=async()=>{
