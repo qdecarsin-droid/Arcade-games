@@ -30,6 +30,21 @@ canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-wid
 .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:14px 0}
 #emuBox{width:100%;height:min(75vh,640px);border:3px solid var(--line);border-radius:8px;background:#120f33;display:none}
 .note{background:var(--panel);border-left:4px solid var(--sun);padding:10px 14px;text-align:left;border-radius:4px;color:var(--muted);font-size:14px}
+
+#stage:fullscreen,#stage:-webkit-full-screen{display:flex;flex-direction:column;background:#000}
+#stage:fullscreen #game,#stage:-webkit-full-screen #game{flex:1;height:auto!important;border-radius:0}
+#pad{display:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:none;padding:12px 8px;background:#120f33}
+#pad.on{display:block}
+#pad .top{display:flex;justify-content:space-between;margin-bottom:10px}
+#pad .mid{display:flex;justify-content:space-between;align-items:center;gap:10px}
+#pad .dp{display:grid;grid-template-columns:repeat(3,64px);grid-template-rows:repeat(3,64px);gap:4px}
+#pad .ab{display:grid;grid-template-columns:repeat(3,64px);grid-template-rows:repeat(3,64px);gap:4px}
+#pad .ss{display:flex;flex-direction:column;gap:10px}
+#pad button{font:700 18px system-ui;color:var(--text);background:var(--panel);border:2px solid var(--line);border-radius:12px;touch-action:none;user-select:none;-webkit-user-select:none}
+#pad button.on,#pad button:active{background:var(--hot);border-color:var(--hot)}
+#pad .sh{height:44px;min-width:84px;font-size:15px}
+#pad .ss button{height:38px;min-width:84px;font-size:13px}
+#pad .round{border-radius:50%}
 </style>
 </head>
 <body>
@@ -90,9 +105,28 @@ canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-wid
     </select>
     <label class="btn primary">Choisir une ROM<input type="file" id="rom" hidden></label>
     <button class="btn" id="fs">Plein écran</button>
+    <button class="btn" id="padBtn">Boutons tactiles</button>
     <button class="btn" id="diag">Tester ma connexion</button>
   </div>
+  <div id="stage">
   <div id="game" style="display:none;width:100%;height:min(75vh,640px);background:#000;border-radius:8px;overflow:hidden"></div>
+  <div id="pad" aria-label="Manette tactile">
+    <div class="top"><button class="sh" data-b="10">L</button><button class="sh" data-b="11">R</button></div>
+    <div class="mid">
+      <div class="dp">
+        <span></span><button data-b="4" aria-label="Haut">▲</button><span></span>
+        <button data-b="6" aria-label="Gauche">◀</button><span></span><button data-b="7" aria-label="Droite">▶</button>
+        <span></span><button data-b="5" aria-label="Bas">▼</button><span></span>
+      </div>
+      <div class="ss"><button data-b="3">START</button><button data-b="2">SELECT</button></div>
+      <div class="ab">
+        <span></span><button class="round" data-b="9">X</button><span></span>
+        <button class="round" data-b="1">Y</button><span></span><button class="round" data-b="8">A</button>
+        <span></span><button class="round" data-b="0">B</button><span></span>
+      </div>
+    </div>
+  </div>
+  </div>
   <p class="info" id="emuInfo">Charge une ROM (.zip accepté) : la console est détectée automatiquement.</p>
   <pre id="diagOut" class="note" style="display:none;white-space:pre-wrap;margin-bottom:12px"></pre>
   <div class="note">Utilise uniquement des ROMs de jeux que tu possèdes. Cette page n'en fournit aucune. L'émulateur (EmulatorJS) se télécharge depuis internet au premier lancement. Manette et clavier sont reconnus.</div>
@@ -260,7 +294,19 @@ document.getElementById('diag').onclick=async()=>{
   }
   log('Fin du test. Envoie-moi une capture de ce cadre.');
 };
-document.getElementById('fs').onclick=()=>{const g=document.getElementById('game');(g.requestFullscreen||g.webkitRequestFullscreen).call(g)};
+
+const pad=document.getElementById('pad');
+if(('ontouchstart' in window)||navigator.maxTouchPoints>0)pad.classList.add('on');
+document.getElementById('padBtn').onclick=()=>pad.classList.toggle('on');
+function press(b,v){try{window.EJS_emulator.gameManager.simulateInput(0,+b,v)}catch(e){}}
+pad.querySelectorAll('button').forEach(el=>{
+  const b=el.dataset.b;
+  el.addEventListener('pointerdown',e=>{e.preventDefault();el.setPointerCapture(e.pointerId);el.classList.add('on');press(b,1);if(navigator.vibrate)navigator.vibrate(8)});
+  ['pointerup','pointercancel','lostpointercapture'].forEach(t=>el.addEventListener(t,()=>{if(el.classList.contains('on')){el.classList.remove('on');press(b,0)}}));
+  el.addEventListener('contextmenu',e=>e.preventDefault());
+});
+pad.addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
+document.getElementById('fs').onclick=()=>{const g=document.getElementById('stage');(g.requestFullscreen||g.webkitRequestFullscreen).call(g)};
 </script>
 </body>
 </html>
