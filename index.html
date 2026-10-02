@@ -303,7 +303,7 @@ function launch(f,core){
   window.EJS_startOnLoaded=true;window.EJS_color='#ff5d8f';
   window.EJS_threads=false;
   window.EJS_defaultOptions={'desmume_pointer_type':'touch','melonds_touch_mode':'Touch'};
-  window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.';applyMode()};
+  window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.';applyModeRetry()};
   info.dataset.hint='1';
   const sc=document.createElement('script');
   sc.src='https://cdn.emulatorjs.org/stable/data/loader.js';
@@ -341,19 +341,10 @@ document.getElementById('diag').onclick=async()=>{
 
 const pad=document.getElementById('pad');
 document.getElementById('sndBtn').onclick=()=>{resumeAudio();info.textContent='Son relancé ('+audioCtxs.length+' flux audio détecté'+(audioCtxs.length>1?'s':'')+'). Vérifie le volume et le mode silencieux.'};
-const modes=[['emu','Manette : émulateur'],['cross','Manette : croix'],['stick','Manette : joystick']];
+const modes=[['emu','Manette : croix'],['stick','Manette : joystick']];
 let mode=0;
-function applyMode(){
-  const m=modes[mode][0];
-  pad.classList.toggle('on',m!=='emu');
-  pad.classList.toggle('stickmode',m==='stick');
-  document.getElementById('padBtn').textContent=modes[mode][1];
-  try{window.EJS_emulator.menuOptionChanged('virtual-gamepad',m==='emu'?'enabled':'disabled')}catch(e){}
-}
-document.getElementById('padBtn').onclick=()=>{mode=(mode+1)%modes.length;applyMode()};
-(function(){
-  const st=document.getElementById('stick'),kn=document.getElementById('knob');
-  const R=50,DZ=18,cur={4:0,5:0,6:0,7:0};let id=null;
+function bindStick(st,kn,R,DZ){
+  const cur={4:0,5:0,6:0,7:0};let id=null;
   const set=(b,v)=>{if(cur[b]!==v){cur[b]=v;press(b,v)}};
   const move=e=>{
     const r=st.getBoundingClientRect();
@@ -363,10 +354,34 @@ document.getElementById('padBtn').onclick=()=>{mode=(mode+1)%modes.length;applyM
     set(6,dx<-DZ?1:0);set(7,dx>DZ?1:0);set(4,dy<-DZ?1:0);set(5,dy>DZ?1:0);
   };
   const stop=()=>{id=null;kn.style.transform='';[4,5,6,7].forEach(b=>set(b,0))};
-  st.addEventListener('pointerdown',e=>{e.preventDefault();id=e.pointerId;st.setPointerCapture(id);move(e)});
+  st.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();id=e.pointerId;st.setPointerCapture(id);move(e)});
   st.addEventListener('pointermove',e=>{if(e.pointerId===id)move(e)});
   ['pointerup','pointercancel','lostpointercapture'].forEach(t=>st.addEventListener(t,stop));
-})();
+  ['touchstart','touchmove','touchend'].forEach(t=>st.addEventListener(t,e=>{e.preventDefault();e.stopPropagation()},{passive:false}));
+}
+let ejsStick=null;
+function applyMode(){
+  pad.classList.remove('on','stickmode');
+  document.getElementById('padBtn').textContent=modes[mode][1];
+  const dp=document.querySelector('.ejs_dpad_main');
+  if(!dp)return false;
+  if(modes[mode][0]==='stick'){
+    if(!ejsStick||!ejsStick.isConnected){
+      ejsStick=document.createElement('div');
+      ejsStick.style.cssText='position:absolute;left:-10px;top:-10px;width:145px;height:145px;border-radius:50%;background:rgba(255,255,255,.15);border:1px solid #ccc;touch-action:none;user-select:none;-webkit-user-select:none;opacity:.85';
+      const kn=document.createElement('div');
+      kn.style.cssText='position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.5);pointer-events:none';
+      ejsStick.appendChild(kn);dp.parentElement.appendChild(ejsStick);
+      bindStick(ejsStick,kn,45,16);
+    }
+    dp.style.display='none';ejsStick.style.display='block';
+  }else{
+    dp.style.display='';if(ejsStick)ejsStick.style.display='none';
+  }
+  return true;
+}
+function applyModeRetry(n=0){if(!applyMode()&&n<10)setTimeout(()=>applyModeRetry(n+1),700)}
+document.getElementById('padBtn').onclick=()=>{mode=(mode+1)%modes.length;applyModeRetry()};
 function press(b,v){try{window.EJS_emulator.gameManager.simulateInput(0,+b,v)}catch(e){}}
 pad.querySelectorAll('button').forEach(el=>{
   const b=el.dataset.b;
