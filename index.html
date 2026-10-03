@@ -129,6 +129,65 @@ footer b{color:#fff;letter-spacing:.02em}
 .logo .eye{transform-box:fill-box;transform-origin:center;animation:blink2 4.2s ease-in-out infinite}
 @keyframes blink2{0%,90%,100%{transform:scaleY(1)}94%{transform:scaleY(.08)}}
 @media (prefers-reduced-motion:reduce){.logo,.logo .eye{animation:none}}
+
+/* ASSISTANT (mascotte helper) */
+#helper{position:fixed;left:14px;bottom:14px;z-index:50;display:flex;align-items:flex-end;gap:10px;max-width:calc(100vw - 28px);pointer-events:none}
+#helper>*{pointer-events:auto}
+#hBot{flex:none;width:72px;height:72px;padding:0;border:0;background:transparent;cursor:pointer;border-radius:50%;filter:drop-shadow(0 8px 12px rgba(0,0,0,.55));animation:float 3.2s ease-in-out infinite}
+#hBot svg{width:100%;height:100%;display:block;overflow:visible}
+#hBot .eye{transform-box:fill-box;transform-origin:center;animation:blink2 4.2s ease-in-out infinite}
+#hBot.talk{animation:talk .45s ease-in-out infinite}
+@keyframes talk{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-3deg)}}
+#hBot.sad .eye{transform:scaleY(.55)}
+#hBot.happy .eye{transform:scaleY(.6) translateY(-1px);animation:none}
+#hBot:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+#hBubble{position:relative;margin-bottom:14px;max-width:260px;background:#fff;color:#0d0c08;border-radius:18px 18px 18px 4px;padding:12px 34px 12px 14px;font-size:14px;line-height:1.4;font-weight:500;box-shadow:0 14px 34px -12px rgba(0,0,0,.7);transform-origin:left bottom;transition:transform .18s,opacity .18s}
+#hBubble[hidden]{display:none}
+#hBubble.pop{animation:pop .22s ease-out}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+#hBubble b{color:#5b3cff}
+#hClose{position:absolute;top:6px;right:6px;width:24px;height:24px;border:0;border-radius:50%;background:rgba(91,60,255,.12);color:#5b3cff;font:700 14px/1 system-ui;cursor:pointer;padding:0}
+#hClose:hover{background:rgba(91,60,255,.25)}
+#hClose:focus-visible{outline:2px solid #5b3cff;outline-offset:2px}
+.hnext{display:inline-block;margin-top:8px;border:0;background:#5b3cff;color:#fff;font:600 12px 'Inter Tight',system-ui,sans-serif;border-radius:999px;padding:6px 12px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){#hBot,#hBot.talk,#hBot .eye,#hBubble.pop{animation:none}}
+@media (max-width:640px){#hBot{width:58px;height:58px}#hBubble{max-width:220px;font-size:13px}}
+
+/* Chat de l'assistant */
+#hBubble{display:flex;flex-direction:column;gap:8px;width:min(330px,calc(100vw - 100px));max-width:none;padding:10px;border-radius:18px 18px 18px 4px;margin-bottom:10px}
+#hBubble[hidden]{display:none}
+.hHead{display:flex;align-items:center;gap:8px;padding:0 2px}
+.hHead b{color:#5b3cff;font-size:15px}
+.hHead span{color:#6b6890;font-size:11px;text-transform:uppercase;letter-spacing:.05em;flex:1}
+#hClose{position:static;flex:none}
+#hLog{display:flex;flex-direction:column;gap:6px;max-height:min(240px,38vh);overflow-y:auto;padding:2px;scroll-behavior:smooth}
+.hm{max-width:92%;padding:8px 11px;border-radius:14px;font-size:13.5px;line-height:1.4;font-weight:500;word-wrap:break-word}
+.hm.bot{align-self:flex-start;background:#efecff;color:#0d0c08;border-bottom-left-radius:4px}
+.hm.me{align-self:flex-end;background:#5b3cff;color:#fff;border-bottom-right-radius:4px}
+.hm.bot b{color:#3b25d6}
+#hChips{display:flex;flex-wrap:wrap;gap:6px}
+#hChips button{border:1.5px solid #5b3cff;background:#fff;color:#5b3cff;border-radius:999px;padding:5px 10px;font:600 12px 'Inter Tight',system-ui,sans-serif;cursor:pointer}
+#hChips button:hover{background:#efecff}
+#hForm{display:flex;gap:6px}
+#hInput{flex:1;min-width:0;border:1.5px solid #cfc8ff;border-radius:999px;padding:8px 12px;font:500 16px 'Inter Tight',system-ui,sans-serif;color:#0d0c08;background:#fff}
+#hInput:focus-visible{outline:2px solid #5b3cff;outline-offset:1px}
+.hsend{flex:none;width:38px;height:38px;border:0;border-radius:50%;background:#5b3cff;color:#fff;font-size:15px;cursor:pointer}
+.hsend:focus-visible{outline:2px solid #0d0c08;outline-offset:2px}
+.hdots{letter-spacing:2px;color:#6b6890}
+
+/* IA d'Arki */
+#hGear{flex:none;width:24px;height:24px;border:0;border-radius:50%;background:rgba(91,60,255,.12);color:#5b3cff;font:700 13px/1 system-ui;cursor:pointer;padding:0}
+#hGear:hover{background:rgba(91,60,255,.25)}
+#hGear:focus-visible{outline:2px solid #5b3cff;outline-offset:2px}
+#hGear.ai{background:#5b3cff;color:#fff}
+#hSet{background:#f6f4ff;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px}
+#hSet[hidden]{display:none}
+#hSet p{margin:0;font-size:12px;line-height:1.4;color:#3a3760;font-weight:500}
+#hKey{border:1.5px solid #cfc8ff;border-radius:10px;padding:8px 10px;font:500 16px system-ui,sans-serif;color:#0d0c08;background:#fff;width:100%}
+#hKey:focus-visible{outline:2px solid #5b3cff;outline-offset:1px}
+.hrow{display:flex;gap:6px}
+.hrow button{flex:1;border:0;border-radius:999px;padding:7px 10px;font:600 12px 'Inter Tight',system-ui,sans-serif;cursor:pointer;background:#5b3cff;color:#fff}
+.hrow button#hDel{background:#e4dfff;color:#3b25d6}
 </style>
 </head>
 <body>
@@ -190,6 +249,7 @@ footer b{color:#fff;letter-spacing:.02em}
       <option value="segaGG">Game Gear</option>
       <option value="segaSaturn">Saturn</option>
       <option value="psx">PlayStation</option>
+      <option value="psp">PSP (lourde, Chrome sur ordinateur)</option>
       <option value="atari2600">Atari 2600</option>
       <option value="pce">PC Engine</option>
       <option value="arcade">Arcade (MAME)</option>
@@ -227,6 +287,13 @@ footer b{color:#fff;letter-spacing:.02em}
 
 </main>
 <footer><b>ARKADE©</b> &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Jeux &amp; émulation</footer>
+
+<!-- Assistant : la mascotte en mode helper -->
+<div id="helper">
+  <button id="hBot" type="button" aria-label="Assistant Arkade : afficher ou masquer l'aide" aria-expanded="true"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="hd2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9d3ff"/></linearGradient><filter id="gl2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter></defs><g fill="#e4dfff" stroke="#b3a8ff" stroke-width="1.6"><rect x="35" y="74" width="11" height="14" rx="5"/><rect x="54" y="74" width="11" height="14" rx="5"/><rect x="27" y="85" width="23" height="10" rx="5"/><rect x="50" y="85" width="23" height="10" rx="5"/></g><rect x="16" y="24" width="68" height="55" rx="24" fill="url(#hd2)" stroke="#bdb3ff" stroke-width="1.6"/><path d="M14 46 C14 12 86 12 86 46" fill="none" stroke="#8b7bff" stroke-width="6" stroke-linecap="round"/><rect x="8" y="38" width="12" height="22" rx="6" fill="#8b7bff"/><rect x="80" y="38" width="12" height="22" rx="6" fill="#8b7bff"/><rect x="23" y="33" width="54" height="40" rx="17" fill="#0e0b2e"/><path d="M30 42 C32 37 38 35 45 35" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="2.4" stroke-linecap="round"/><g class="eye"><g filter="url(#gl2)" opacity=".85"><rect x="35" y="46" width="11" height="15" rx="5.5" fill="#3be8ff"/><rect x="54" y="46" width="11" height="15" rx="5.5" fill="#3be8ff"/></g><rect x="35" y="46" width="11" height="15" rx="5.5" fill="#6af2ff"/><rect x="54" y="46" width="11" height="15" rx="5.5" fill="#6af2ff"/></g></svg></button>
+  <div id="hBubble" role="dialog" aria-label="Assistant Arki"><div class="hHead"><b>Arki</b><span>assistant Arkade</span><button id="hGear" type="button" aria-label="Réglages de l'IA" title="Brancher une vraie IA">⚙</button><button id="hClose" type="button" aria-label="Fermer le chat">×</button></div><div id="hSet" hidden><p id="hSetTxt"></p><input id="hKey" type="password" placeholder="sk-ant-…" aria-label="Clé API Anthropic" autocomplete="off" spellcheck="false"><div class="hrow"><button type="button" id="hSave">Activer l'IA</button><button type="button" id="hDel">Retirer la clé</button></div></div><div id="hLog" role="log" aria-live="polite"></div><div id="hChips"></div><form id="hForm" autocomplete="off"><input id="hInput" type="text" placeholder="Pose ta question…" aria-label="Ta question" maxlength="200"><button type="submit" class="hsend" aria-label="Envoyer">➤</button></form></div>
+</div>
+
 <script>
 // Onglets
 const tabs=document.querySelectorAll('#tabs button');
@@ -234,7 +301,134 @@ tabs.forEach(b=>b.onclick=()=>{
   tabs.forEach(x=>x.setAttribute('aria-selected',x===b));
   document.querySelectorAll('main section').forEach(s=>s.classList.toggle('on',s.id===b.dataset.t));
   if(b.dataset.t!=='snake')stopSnake();
+  helper.tab(b.dataset.t);
 });
+
+// ASSISTANT
+const helper=(()=>{
+  const bot=document.getElementById('hBot'),panel=document.getElementById('hBubble'),log=document.getElementById('hLog'),chips=document.getElementById('hChips'),form=document.getElementById('hForm'),inp=document.getElementById('hInput');
+  const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const KB=[
+    {r:/(qui es.?tu|t.?es qui|ton nom|arki|vraie? ia|chatgpt|intelligence)/,a:"Je suis <b>Arki</b>, l'assistant d'Arkade. Je ne suis pas une vraie IA : je réponds à partir d'une liste de sujets prévus (ROMs, consoles, manette, son, jeux…). Pose-moi ça avec tes mots !"},
+    {r:/(rom|roms|telecharg|trouv|chercher|ou (avoir|prendre|obtenir)|source|jeux? (gratuit|legau|libre)|iso|bios)/,a:"Arkade ne fournit <b>aucune ROM</b>. Pour en avoir légalement :<br>• <b>Tes propres jeux</b> : sauvegarde toi-même tes cartouches ou disques avec un lecteur adapté (vérifie la loi de ton pays).<br>• <b>Jeux homebrew</b> : beaucoup de créateurs indépendants publient des jeux gratuits pour NES, Game Boy, Mega Drive… (cherche « homebrew » sur itch.io par exemple).<br>• <b>Jeux libres</b> : le projet Libretro/RetroArch propose des jeux gratuits et libres.<br>Je ne peux pas t'indiquer de sites de jeux commerciaux."},
+    {r:/(format|extension|zip|\.nes|\.gba|fichier|compatible|accepte)/,a:"Les fichiers <b>.zip</b> sont acceptés. Extensions reconnues : nes, sfc/smc, gb, gbc, gba, nds, n64/z64/v64, md/gen/smd, sms, gg, a26, pce, cue/pbp/chd (PlayStation), cso (PSP ; pour un .iso PSP, choisis PSP à la main). La console est choisie automatiquement ; sinon, règle-la dans la liste avant de charger."},
+    {r:/(quelle|quelles|liste|supporte|prend en charge|console|systeme|psx|playstation|saturn|n64|snes|nes\b|game ?boy|mega ?drive|atari)/,a:"Consoles disponibles : <b>NES, Super Nintendo, Game Boy / Color / Advance, Nintendo 64, Nintendo DS, Mega Drive, Master System, Game Gear, Saturn, PlayStation, PSP, Atari 2600, PC Engine et Arcade</b>. Les consoles récentes (N64, DS, PlayStation, Saturn) demandent un appareil plus puissant."},
+    {r:/(psp|playstation portable|ppsspp)/,a:"La <b>PSP</b> est disponible dans la liste, mais c'est la console la plus lourde. Elle marche surtout sur <b>ordinateur avec Chrome</b>, et seulement si le site est hébergé avec des en-têtes spéciaux (COOP/COEP). Clique sur « Tester ma connexion » : si SharedArrayBuffer indique <b>non</b>, la PSP ne démarrera pas. Les jeux (.iso ou .cso) sont gros, le chargement peut être long."},
+    {r:/(ps3|ps2|playstation (2|3)|switch|wii|xbox|gamecube)/,a:"Ces consoles ne sont pas disponibles : elles sont trop puissantes pour un navigateur et leurs émulateurs sont des programmes à installer sur ordinateur. Côté PlayStation, j'ai la <b>PS1</b> et la <b>PSP</b>."},
+    {r:/(\bds\b|nintendo ds|tactile|stylet|ecran du bas)/,a:"Pour la <b>Nintendo DS</b>, choisis « léger » (rapide) ou « melonDS » (plus fidèle). L'écran tactile se joue en touchant directement l'écran du bas."},
+    {r:/(manette|clavier|joystick|croix|controle|touche|bouton|commande|gamepad)/,a:"Le clavier et les manettes USB/Bluetooth sont reconnus. Sur mobile, une manette tactile s'affiche ; le bouton <b>Manette</b> bascule entre <b>croix</b> et <b>joystick</b>."},
+    {r:/(son|audio|muet|silence|entend|volume)/,a:"Pas de son ? Appuie sur <b>Activer le son</b>, puis vérifie le volume et le <b>mode silencieux</b> du téléphone. Les navigateurs bloquent le son tant que tu n'as pas touché la page."},
+    {r:/(plein ecran|fullscreen|agrandir|taille)/,a:"Le bouton <b>Plein écran</b> agrandit la zone de jeu."},
+    {r:/(lent|rame|lag|saccade|bug|plante|marche pas|fonctionne pas|ne demarre|charge|chargement|erreur|connexion|internet|bloque)/,a:"Si ça ne démarre pas ou si ça rame :<br>1. Clique sur <b>Tester ma connexion</b> et lis le résultat.<br>2. Le premier lancement télécharge l'émulateur : compte jusqu'à 1 minute.<br>3. Ouvre la page dans <b>Chrome ou Safari</b>, pas dans un aperçu.<br>4. Pour N64/DS/PlayStation, ferme les autres onglets."},
+    {r:/(changer de jeu|autre jeu|nouvelle rom|recharg|quitter|arreter)/,a:"Pour changer de jeu, <b>recharge la page</b> puis choisis une autre ROM."},
+    {r:/(sauvegard|save|progression|etat)/,a:"L'émulateur propose des sauvegardes via son menu. Elles restent généralement stockées dans <b>ton navigateur</b> : ne vide pas ses données si tu veux les garder."},
+    {r:/(prix|gratuit|payant|hors ligne|offline|cout)/,a:"Arkade est gratuit. Il faut internet au premier lancement pour télécharger l'émulateur (EmulatorJS)."},
+    {r:/(iphone|ipad|android|mobile|telephone|tablette|safari|chrome)/,a:"Ça marche sur mobile avec <b>Chrome ou Safari</b>, avec la manette tactile. Évite les aperçus intégrés d'applications."},
+    {r:/(snake|serpent)/,a:"<b>Snake</b> : appuie sur « Lancer la partie », dirige avec les flèches ou la croix. Chaque pomme = 10 points. Toucher un mur ou ton corps = perdu."},
+    {r:/(morpion|tic ?tac|croix et rond)/,a:"<b>Morpion</b> : tu joues les X et tu commences. Aligne trois symboles. Prendre le centre est un bon début."},
+    {r:/(memory|paire|cartes?)/,a:"<b>Memory</b> : retourne deux cartes, trouve les paires. Moins de coups = meilleur score. « Mélanger les cartes » relance."},
+    {r:/(comment (ca )?(marche|fonctionne)|mode d.?emploi|aide|help|utiliser|demarrer|commencer|c.?est quoi|arkade|a quoi ca sert)/,a:"<b>Arkade</b>, c'est 3 mini-jeux (Snake, Morpion, Memory) et un <b>émulateur</b> pour tes propres ROMs.<br>Pour l'émulateur : onglet <b>04</b> → « Choisir une ROM » → le jeu se lance. Demande-moi où trouver des ROMs légales, les consoles, la manette ou le son."},
+    {r:/(bonjour|salut|coucou|hello|hey|yo\b)/,a:"Salut ! Que veux-tu savoir ? Je peux t'aider pour les ROMs, les consoles, la manette, le son ou les jeux."},
+    {r:/(merci|super|top|cool|genial|parfait)/,a:"Avec plaisir ! 🎮"}
+  ];
+  const base=['Où trouver des ROMs ?','Comment ça marche ?','Quelles consoles ?'];
+  const tabChips={snake:['Comment jouer au Snake ?'],ttt:['Comment jouer au Morpion ?'],mem:['Comment jouer au Memory ?'],emu:['Pas de son','Ça rame','Quels formats ?']};
+  const tabTip={snake:"Snake : flèches du clavier ou croix, 10 points par pomme.",ttt:"Morpion : tu es les X. Le centre est un bon départ.",mem:"Memory : retiens la place des symboles pour faire moins de coups.",emu:"Émulateur : « Choisir une ROM », le reste est automatique. Demande-moi où en trouver légalement."};
+  const react={lose:["Aïe ! Relance une partie, tu vas faire mieux."],win:["Bravo, tu as gagné ! 🎉"],ttwin:["Bien joué, tu m'as battu !"],ttlose:["L'ordinateur l'emporte cette fois. Revanche ?"],draw:["Égalité : personne ne perd."]};
+  let tab='snake',busy=false;
+  const pick=a=>a[Math.random()*a.length|0];
+  function isOpen(){return !panel.hidden}
+  function open(f){panel.hidden=false;bot.setAttribute('aria-expanded','true');if(f)inp.focus()}
+  function close(){panel.hidden=true;bot.setAttribute('aria-expanded','false')}
+  function add(who,html,isText){
+    const d=document.createElement('div');d.className='hm '+who;
+    if(isText)d.textContent=html;else d.innerHTML=html;
+    log.appendChild(d);
+    while(log.children.length>40)log.removeChild(log.firstChild);
+    log.scrollTop=log.scrollHeight;return d;
+  }
+  function setChips(list){
+    chips.innerHTML='';
+    list.forEach(t=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.onclick=()=>ask(t);chips.appendChild(b)});
+  }
+  function mood(m){
+    bot.classList.remove('sad','happy');if(m)bot.classList.add(m);
+    bot.classList.add('talk');setTimeout(()=>bot.classList.remove('talk'),900);
+  }
+  function answer(q){
+    const n=norm(q);
+    for(const e of KB)if(e.r.test(n))return e.a;
+    return "Je n'ai pas bien compris. Essaie avec d'autres mots, ou choisis une suggestion ci-dessous : ROMs, consoles, manette, son, formats, jeux…";
+  }
+  const LS={get(){try{return localStorage.getItem('arki_key')||''}catch(e){return ''}},set(v){try{localStorage.setItem('arki_key',v)}catch(e){}},del(){try{localStorage.removeItem('arki_key')}catch(e){}}};
+  let apiKey=LS.get(),hist=[];
+  const gear=document.getElementById('hGear'),setBox=document.getElementById('hSet'),keyIn=document.getElementById('hKey'),setTxt=document.getElementById('hSetTxt');
+  function refreshUI(){
+    gear.classList.toggle('ai',!!apiKey);
+    inp.placeholder=apiKey?'Écris-moi ce que tu veux…':'Pose ta question…';
+    setTxt.innerHTML=apiKey
+      ?"<b>IA activée</b> : Arki comprend tout ce que tu dis. Ta clé est gardée dans ce navigateur et n'est envoyée qu'à Anthropic."
+      :"Pour qu'Arki comprenne tout, colle ta <b>clé API Anthropic</b> (console.anthropic.com). Elle reste dans ton navigateur, et chaque message est facturé sur ton compte. Ne la mets pas si tu partages cette page.";
+  }
+  gear.onclick=()=>{setBox.hidden=!setBox.hidden;if(!setBox.hidden)keyIn.focus()};
+  document.getElementById('hSave').onclick=()=>{
+    const v=keyIn.value.trim();
+    if(!/^sk-ant-/.test(v)){add('bot',"Cette clé ne ressemble pas à une clé Anthropic (elle commence par <b>sk-ant-</b>).");return}
+    apiKey=v;LS.set(v);keyIn.value='';setBox.hidden=true;hist=[];refreshUI();
+    add('bot',"Youpi ! Maintenant je comprends tout ce que tu me dis 💜 Essaie-moi !");mood('happy');
+  };
+  document.getElementById('hDel').onclick=()=>{apiKey='';LS.del();hist=[];setBox.hidden=true;refreshUI();add('bot',"Clé retirée. Je repasse en mode simple.")};
+  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu peux aussi discuter de tout avec la personne. Réponds dans la langue de l'utilisateur (français par défaut), en 1 à 4 phrases courtes, chaleureuses, avec parfois un emoji. Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 4 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer (hébergement avec en-têtes COOP/COEP, Chrome sur ordinateur) ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur mobile, utiliser Chrome ou Safari.\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
+  async function callAI(q){
+    hist.push({role:'user',content:q});
+    if(hist.length>14)hist=hist.slice(-14);
+    const ctx='[Onglet ouvert : '+tab+']';
+    const msgs=hist.map((m,i)=>i===hist.length-1?{role:m.role,content:ctx+'\n'+m.content}:m);
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:500,system:SYS,messages:msgs})});
+    if(!r.ok){hist.pop();const e=new Error('HTTP '+r.status);e.status=r.status;throw e}
+    const d=await r.json();
+    const t=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('').trim();
+    hist.push({role:'assistant',content:t});
+    return t;
+  }
+  const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const fmt=t=>esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');
+  function ask(q){
+    q=q.trim();if(!q||busy)return;
+    add('me',q,true);inp.value='';busy=true;
+    const dots=add('bot','<span class="hdots">…</span>');mood(null);
+    const done=h=>{dots.innerHTML=h;log.scrollTop=log.scrollHeight;busy=false;mood(null)};
+    if(!apiKey){setTimeout(()=>done(answer(q)),450);return}
+    callAI(q).then(t=>done(fmt(t||'…'))).catch(e=>{
+      const why=e.status===401?"Ta clé API est refusée (401). Clique sur ⚙ pour la changer."
+        :e.status===429?"Trop de demandes pour le moment (429), réessaie dans un instant."
+        :e.status===400?"Ton compte API semble sans crédit ou la requête est refusée (400). Vérifie sur console.anthropic.com."
+        :"Je n'arrive pas à joindre l'IA (connexion ?).";
+      done(why+"<br><br>"+answer(q));mood('sad');
+    });
+  }
+  form.onsubmit=e=>{e.preventDefault();ask(inp.value)};
+  bot.onclick=()=>{isOpen()?close():open(true)};
+  document.getElementById('hClose').onclick=()=>{close();bot.focus()};
+  panel.addEventListener('keydown',e=>{if(e.key==='Escape'){close();bot.focus()}});
+  add('bot',"Salut, je suis <b>Arki</b> ! Pose-moi une question : où trouver des ROMs, comment ça marche, la manette, le son…");
+  setChips(base.concat(tabChips.snake));
+  refreshUI();
+  if(apiKey)add('bot',"Je suis en mode IA : dis-moi n'importe quoi 💜");
+  else add('bot',"Astuce : clique sur le <b>⚙</b> pour me brancher une vraie IA, et je comprendrai tout ce que tu dis !");
+  setTimeout(()=>{open(false);mood(null)},900);
+  return{
+    tab(t){
+      tab=t;setChips(base.concat(tabChips[t]||[]));
+      if(isOpen()){add('bot',tabTip[t]);mood(null)}
+    },
+    event(k){
+      const l=react[k];if(!l)return;
+      open(false);add('bot',pick(l));
+      mood((k==='lose'||k==='ttlose')?'sad':(k==='win'||k==='ttwin')?'happy':null);
+    }
+  };
+})();
 
 // SNAKE
 const cv=document.getElementById('cv'),cx=cv.getContext('2d'),N=18,S=20;
@@ -248,7 +442,7 @@ function startSnake(){
 function placeFood(){do{food={x:Math.random()*N|0,y:Math.random()*N|0}}while(sn.some(p=>p.x==food.x&&p.y==food.y))}
 function tick(){
   dir=nd;const h={x:sn[0].x+dir.x,y:sn[0].y+dir.y};
-  if(h.x<0||h.y<0||h.x>=N||h.y>=N||sn.some(p=>p.x==h.x&&p.y==h.y)){stopSnake();draw(true);return}
+  if(h.x<0||h.y<0||h.x>=N||h.y>=N||sn.some(p=>p.x==h.x&&p.y==h.y)){stopSnake();draw(true);helper.event('lose');return}
   sn.unshift(h);
   if(h.x==food.x&&h.y==food.y){score+=10;document.getElementById('sScore').textContent=score;placeFood()}else sn.pop();
   draw();
@@ -264,7 +458,7 @@ function turn(k){const n=dirs[k];if(n&&!(n.x==-dir.x&&n.y==-dir.y))nd=n}
 document.querySelectorAll('.dpad button').forEach(b=>b.onclick=()=>sn&&turn(b.dataset.d));
 addEventListener('keydown',e=>{
   const m={ArrowUp:'u',ArrowDown:'d',ArrowLeft:'l',ArrowRight:'r'}[e.key];
-  if(m&&timer){e.preventDefault();turn(m)}
+  if(m&&timer&&e.target.tagName!=='INPUT'){e.preventDefault();turn(m)}
 });
 document.getElementById('sStart').onclick=startSnake;
 sn=[{x:9,y:9}];food={x:12,y:9};draw();
@@ -276,7 +470,7 @@ const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 const win=b=>{for(const[a,c,d]of L)if(b[a]&&b[a]==b[c]&&b[a]==b[d])return b[a];return b.every(Boolean)?'=':null};
 function tRender(){tg.innerHTML='';tb.forEach((v,i)=>{const c=document.createElement('button');c.className='cell';c.textContent=v;c.onclick=()=>tPlay(i);tg.appendChild(c)})}
 function tReset(){tb=Array(9).fill('');tOver=false;tm.textContent='À toi de jouer (X)';tRender()}
-function tEnd(){const w=win(tb);if(!w)return false;tOver=true;tm.textContent=w=='='?'Égalité':w=='X'?'Tu as gagné !':'L\'ordinateur gagne';return true}
+function tEnd(){const w=win(tb);if(!w)return false;tOver=true;tm.textContent=w=='='?'Égalité':w=='X'?'Tu as gagné !':'L\'ordinateur gagne';helper.event(w=='='?'draw':w=='X'?'ttwin':'ttlose');return true}
 function tPlay(i){
   if(tOver||tb[i])return;tb[i]='X';if(tEnd())return tRender();
   const free=tb.map((v,k)=>v?null:k).filter(k=>k!==null);
@@ -298,7 +492,7 @@ function mReset(){
       c.classList.add('flip');c.textContent=s;open.push(c);
       if(open.length==2){
         mv.textContent=++moves;
-        if(open[0].dataset.s==open[1].dataset.s){open=[];if(!mg.querySelector('.cell:not(.flip)'))mv.textContent=moves+' — gagné !'}
+        if(open[0].dataset.s==open[1].dataset.s){open=[];if(!mg.querySelector('.cell:not(.flip)')){mv.textContent=moves+' — gagné !';helper.event('win')}}
         else{lock=true;setTimeout(()=>{open.forEach(x=>{x.classList.remove('flip');x.textContent=''});open=[];lock=false},800)}
       }
     };mg.appendChild(c)});
@@ -307,7 +501,7 @@ document.getElementById('mReset').onclick=mReset;mReset();
 
 // ÉMULATEUR (EmulatorJS)
 const rom=document.getElementById('rom'),info=document.getElementById('emuInfo');
-const EXT={nes:'nes',sfc:'snes',smc:'snes',gb:'gb',gbc:'gbc',gba:'gba',nds:'desmume2015',n64:'n64',z64:'n64',v64:'n64',md:'segaMD',gen:'segaMD',smd:'segaMD',sms:'segaMS',gg:'segaGG',a26:'atari2600',pce:'pce',cue:'psx',pbp:'psx',chd:'psx'};
+const EXT={nes:'nes',sfc:'snes',smc:'snes',gb:'gb',gbc:'gbc',gba:'gba',nds:'desmume2015',n64:'n64',z64:'n64',v64:'n64',md:'segaMD',gen:'segaMD',smd:'segaMD',sms:'segaMS',gg:'segaGG',a26:'atari2600',pce:'pce',cso:'psp',cue:'psx',pbp:'psx',chd:'psx'};
 async function innerExt(f){
   const n=f.name.split('.').pop().toLowerCase();
   if(n!=='zip')return n;
@@ -379,6 +573,10 @@ function unlockAudio(){
 let started=false;
 function launch(f,core){
   if(started){location.reload();return}
+  if(core==='psp'&&typeof SharedArrayBuffer!=='function'){
+    info.textContent="La PSP a besoin d'une fonction du navigateur (SharedArrayBuffer) absente ici. Elle demande que le site soit hébergé avec des en-têtes spéciaux (COOP/COEP), sur ordinateur. Les autres consoles marchent normalement. Clique sur « Tester ma connexion » pour vérifier.";
+    return;
+  }
   started=true;
   mirrorCores();
   unlockAudio();
@@ -389,7 +587,7 @@ function launch(f,core){
   window.EJS_gameName=f.name.replace(/\.[^.]+$/,'');
   window.EJS_pathtodata='https://cdn.emulatorjs.org/stable/data/';
   window.EJS_startOnLoaded=true;window.EJS_color='#5b3cff';
-  window.EJS_threads=false;
+  window.EJS_threads=(core==='psp');
   window.EJS_defaultOptions={'desmume_pointer_type':'touch','melonds_touch_mode':'Touch'};
   window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.';applyModeRetry();lockMenuRetry()};
   info.dataset.hint='1';
