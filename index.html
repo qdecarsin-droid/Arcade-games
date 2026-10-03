@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Salle d'arcade</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<title>Arkade© — Joue sans friction</title>
+<meta name="theme-color" content="#0d0c08">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox=%220%200%20100%20100%22%20xmlns=%22http://www.w3.org/2000/svg%22%20aria-hidden=%22true%22%3E%3Cdefs%3E%3ClinearGradient%20id=%22hd%22%20x1=%220%22%20y1=%220%22%20x2=%220%22%20y2=%221%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%23ffffff%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%23d9d3ff%22/%3E%3C/linearGradient%3E%3Cfilter%20id=%22gl%22%20x=%22-50%25%22%20y=%22-50%25%22%20width=%22200%25%22%20height=%22200%25%22%3E%3CfeGaussianBlur%20stdDeviation=%222.2%22/%3E%3C/filter%3E%3C/defs%3E%3Crect%20width=%22100%22%20height=%22100%22%20rx=%2224%22%20fill=%22%235b3cff%22/%3E%3Cg%20fill=%22%23e4dfff%22%20stroke=%22%23b3a8ff%22%20stroke-width=%221.6%22%3E%3Crect%20x=%2235%22%20y=%2274%22%20width=%2211%22%20height=%2214%22%20rx=%225%22/%3E%3Crect%20x=%2254%22%20y=%2274%22%20width=%2211%22%20height=%2214%22%20rx=%225%22/%3E%3Crect%20x=%2227%22%20y=%2285%22%20width=%2223%22%20height=%2210%22%20rx=%225%22/%3E%3Crect%20x=%2250%22%20y=%2285%22%20width=%2223%22%20height=%2210%22%20rx=%225%22/%3E%3C/g%3E%3Crect%20x=%2216%22%20y=%2224%22%20width=%2268%22%20height=%2255%22%20rx=%2224%22%20fill=%22url%28%23hd%29%22%20stroke=%22%23bdb3ff%22%20stroke-width=%221.6%22/%3E%3Cpath%20d=%22M14%2046%20C14%2012%2086%2012%2086%2046%22%20fill=%22none%22%20stroke=%22%23d9d3ff%22%20stroke-width=%226%22%20stroke-linecap=%22round%22/%3E%3Crect%20x=%228%22%20y=%2238%22%20width=%2212%22%20height=%2222%22%20rx=%226%22%20fill=%22%23d9d3ff%22/%3E%3Crect%20x=%2280%22%20y=%2238%22%20width=%2212%22%20height=%2222%22%20rx=%226%22%20fill=%22%23d9d3ff%22/%3E%3Crect%20x=%2223%22%20y=%2233%22%20width=%2254%22%20height=%2240%22%20rx=%2217%22%20fill=%22%230e0b2e%22/%3E%3Cpath%20d=%22M30%2042%20C32%2037%2038%2035%2045%2035%22%20fill=%22none%22%20stroke=%22%23fff%22%20stroke-opacity=%22.22%22%20stroke-width=%222.4%22%20stroke-linecap=%22round%22/%3E%3Cg%3E%3Cg%20filter=%22url%28%23gl%29%22%20opacity=%22.85%22%3E%3Crect%20x=%2235%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%233be8ff%22/%3E%3Crect%20x=%2254%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%233be8ff%22/%3E%3C/g%3E%3Crect%20x=%2235%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%236af2ff%22/%3E%3Crect%20x=%2254%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%236af2ff%22/%3E%3C/g%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#1e1b4b;--panel:#2b2780;--line:#4640b8;--text:#f1efff;--muted:#b4b0ee;--hot:#ff5d8f;--sun:#ffd23f}
+:root{--bg:#0d0c08;--panel:#251a8f;--line:#5a47ff;--text:#f4f2ff;--muted:#b9b2ff;--hot:#5b3cff;--sun:#d9d3ff}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,sans-serif;min-height:100vh}
 header{padding:28px 20px 12px;text-align:center}
-h1{font:22px/1.4 'Press Start 2P',monospace;margin:0;color:var(--sun);text-shadow:3px 3px 0 var(--hot)}
+h1{font:22px/1.4 'Inter Tight',monospace;margin:0;color:var(--sun);text-shadow:3px 3px 0 var(--hot)}
 header p{color:var(--muted);margin:10px 0 0}
 nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:14px}
 nav button,.btn,select{font:inherit;background:var(--panel);color:var(--text);border:2px solid var(--line);border-radius:6px;padding:9px 16px;cursor:pointer}
@@ -19,21 +21,21 @@ button:focus-visible,select:focus-visible{outline:3px solid var(--sun);outline-o
 main{max-width:760px;margin:0 auto;padding:10px 16px 50px}
 section{display:none;text-align:center}
 section.on{display:block}
-canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-width:100%;touch-action:none}
+canvas{background:#0a0824;border:3px solid var(--line);border-radius:8px;max-width:100%;touch-action:none}
 .info{color:var(--muted);margin:10px 0}
-.score{font:12px 'Press Start 2P',monospace;color:var(--sun);margin:12px 0}
+.score{font:12px 'Inter Tight',monospace;color:var(--sun);margin:12px 0}
 .grid{display:grid;gap:8px;margin:14px auto;max-width:360px}
-.cell{aspect-ratio:1;background:var(--panel);border:2px solid var(--line);border-radius:8px;font:28px 'Press Start 2P',monospace;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center}
-.cell.flip{background:var(--sun);color:#1e1b4b}
+.cell{aspect-ratio:1;background:var(--panel);border:2px solid var(--line);border-radius:8px;font:28px 'Inter Tight',monospace;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cell.flip{background:var(--sun);color:#0d0c08}
 .dpad{display:grid;grid-template-columns:repeat(3,56px);gap:6px;justify-content:center;margin-top:12px}
 .dpad button{height:56px;font-size:22px;background:var(--panel);color:var(--text);border:2px solid var(--line);border-radius:8px}
 .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:14px 0}
-#emuBox{width:100%;height:min(75vh,640px);border:3px solid var(--line);border-radius:8px;background:#120f33;display:none}
+#emuBox{width:100%;height:min(75vh,640px);border:3px solid var(--line);border-radius:8px;background:#0a0824;display:none}
 .note{background:var(--panel);border-left:4px solid var(--sun);padding:10px 14px;text-align:left;border-radius:4px;color:var(--muted);font-size:14px}
 
 #stage:fullscreen,#stage:-webkit-full-screen{display:flex;flex-direction:column;background:#000}
 #stage:fullscreen #game,#stage:-webkit-full-screen #game{flex:1;height:auto!important;border-radius:0}
-#pad{display:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:none;padding:12px 8px;background:#120f33}
+#pad{display:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:none;padding:12px 8px;background:#0a0824}
 #pad.on{display:block}
 #pad .top{display:flex;justify-content:space-between;margin-bottom:10px}
 #pad .mid{display:flex;justify-content:space-between;align-items:center;gap:10px}
@@ -51,18 +53,101 @@ canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-wid
 #pad .knob{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;background:var(--hot);pointer-events:none}
 .ejs_virtualGamepad_button,.ejs_dpad_main,.ejs_dpad_main *{transition:none!important;-webkit-tap-highlight-color:transparent;touch-action:none}
 #game,#game *{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+
+body{background:radial-gradient(900px 520px at 12% -8%,rgba(99,102,241,.45),transparent 60%),radial-gradient(760px 520px at 100% 0,rgba(91,60,255,.28),transparent 60%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/32px 32px,var(--bg);background-attachment:fixed}
+header{padding:34px 20px 8px}
+.brand{display:flex;align-items:center;justify-content:center;gap:16px;text-align:left}
+.logo{width:64px;height:64px;flex:none;filter:drop-shadow(0 8px 18px rgba(91,60,255,.45))}
+h1{font-size:clamp(22px,5vw,34px);letter-spacing:2px;background:linear-gradient(90deg,#d9d3ff,#5b3cff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:none;filter:drop-shadow(0 3px 0 rgba(0,0,0,.35))}
+.tag{margin:8px 0 0!important;font-size:14px;color:var(--muted)}
+nav{width:fit-content;max-width:calc(100% - 24px);margin:14px auto 8px;padding:6px;gap:4px;background:rgba(10,8,36,.65);border:2px solid var(--line);border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+nav button{border:0;border-radius:999px;background:transparent;color:var(--muted);padding:10px 18px;font-weight:600;transition:background .15s,color .15s,transform .1s}
+nav button:hover{color:var(--text)}
+nav button:active{transform:scale(.96)}
+nav button[aria-selected=true]{background:linear-gradient(135deg,#5b3cff,#8b7bff);color:#fff;box-shadow:0 6px 18px -6px rgba(91,60,255,.8)}
+main{padding-top:6px}
+section.on{background:rgba(37,26,143,.4);border:2px solid var(--line);border-radius:22px;padding:22px 16px 20px;box-shadow:0 24px 60px -28px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.06)}
+canvas{box-shadow:0 0 0 4px rgba(90,71,255,.5),0 0 34px rgba(91,60,255,.25)}
+.btn,select{transition:transform .1s,filter .15s,background .15s;border-radius:12px}
+.btn:hover,select:hover{filter:brightness(1.12)}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:linear-gradient(135deg,#5b3cff,#8b7bff);box-shadow:0 8px 20px -8px rgba(91,60,255,.9)}
+.score{background:rgba(10,8,36,.7);display:inline-block;padding:10px 16px;border-radius:999px;border:2px solid var(--line)}
+.cell{border-radius:14px;transition:transform .12s,background .15s;box-shadow:0 5px 0 rgba(10,8,36,.6)}
+.cell:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(10,8,36,.6)}
+.dpad button{border-radius:14px;box-shadow:0 5px 0 rgba(10,8,36,.6)}
+#stage{border-radius:14px}
+.note{border-radius:12px;background:rgba(10,8,36,.55)}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:6px 16px 36px}
+footer b{color:var(--sun)}
+
+body{background:#0d0c08!important;font-family:'Inter Tight',system-ui,sans-serif;letter-spacing:-.005em}
+header{padding:18px 16px 4px}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;max-width:728px;margin:0 auto;background:#fff;color:#0d0c08;border-radius:28px;overflow:hidden;text-align:left}
+.hero-l{padding:26px 26px 28px;display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.hero-r{min-height:240px;position:relative}
+.stripes{position:absolute;inset:0;width:100%;height:100%}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:34px;text-align:left}
+.logo{width:40px;height:40px;filter:none}
+.wm{font-size:22px;font-weight:700;letter-spacing:-.03em}
+.wm sup{font-size:12px;font-weight:500;margin-left:2px}
+h1{font:600 clamp(36px,8vw,58px)/.95 'Inter Tight',sans-serif;letter-spacing:-.045em;text-transform:uppercase;color:#0d0c08;background:none;-webkit-background-clip:border-box;background-clip:border-box;-webkit-text-fill-color:#0d0c08;text-shadow:none;filter:none;margin:0}
+.lead{margin:18px 0 22px;color:#6b6890;font-size:11px;line-height:1.5;text-transform:uppercase;letter-spacing:.02em;max-width:300px}
+.pill{display:inline-block;background:#5b3cff;color:#fff;border-radius:999px;padding:12px 22px;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 10px 24px -10px rgba(91,60,255,.9)}
+nav{background:transparent;border:0;border-radius:0;padding:0;gap:8px;margin:18px auto 14px;backdrop-filter:none;-webkit-backdrop-filter:none;max-width:728px;width:auto}
+nav button{border:1.5px solid rgba(255,255,255,.28);background:transparent;color:#f4f2ff;border-radius:999px;padding:10px 18px;font-weight:500;font-size:14px;box-shadow:none}
+nav button:hover{border-color:#fff;color:#fff}
+nav button[aria-selected=true]{background:#5b3cff;border-color:#5b3cff;color:#fff;box-shadow:0 10px 24px -10px rgba(91,60,255,.9)}
+section.on{border:0;border-radius:28px;padding:26px 16px 22px;color:#fff;background-color:#3b25d6;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"),linear-gradient(160deg,#150e55 0%,#3b25d6 52%,#7b6cff 100%);background-blend-mode:soft-light,normal;box-shadow:none}
+.score{background:rgba(255,255,255,.14);border:0;border-radius:999px;color:#fff;font:600 13px 'Inter Tight',sans-serif;letter-spacing:.04em;text-transform:uppercase}
+canvas{border:0;border-radius:18px;box-shadow:0 20px 50px -20px rgba(0,0,0,.7)}
+.info{color:rgba(255,255,255,.75);font-size:13px}
+.btn,select{border:1.5px solid rgba(255,255,255,.3);background:rgba(10,8,36,.35);border-radius:999px;color:#fff;padding:10px 18px}
+.btn.primary{background:#fff;color:#0d0c08;border-color:#fff;box-shadow:none;font-weight:600}
+.cell{background:rgba(255,255,255,.12);border:0;border-radius:16px;color:#fff;box-shadow:none}
+.cell.flip{background:#fff;color:#0d0c08}
+.dpad button{background:rgba(255,255,255,.14);border:0;border-radius:16px;box-shadow:none;color:#fff}
+.note{border:0;border-left:3px solid #d9d3ff;background:rgba(10,8,36,.45);color:rgba(255,255,255,.75);border-radius:14px}
+#stage{border-radius:18px}
+footer{color:#8c88a8;font-size:11px;text-transform:uppercase;letter-spacing:.08em;padding:22px 16px 40px}
+footer b{color:#fff;letter-spacing:.02em}
+@media (max-width:640px){.hero{grid-template-columns:1fr}.hero-r{min-height:130px;order:-1}}
+.logo{width:48px;height:48px;border-radius:0;filter:drop-shadow(0 6px 10px rgba(91,60,255,.35))}
+.logo{width:54px;height:54px;border-radius:0;filter:drop-shadow(0 6px 8px rgba(58,31,208,.35));animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.logo{animation:none}}
+.logo .eye{transform-box:fill-box;transform-origin:center;animation:blink 4.5s infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@media (prefers-reduced-motion:reduce){.logo .eye{animation:none}}
+.logo{width:56px;height:56px;filter:drop-shadow(0 4px 0 rgba(58,31,208,.45));animation:hop 1.2s steps(1,end) infinite}
+@keyframes hop{0%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.logo .eye{transform-box:fill-box;transform-origin:center;animation:blink 3.6s steps(1,end) infinite}
+@keyframes blink{0%{transform:scaleY(1)}90%{transform:scaleY(.2)}94%{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.logo,.logo .eye{animation:none}}
+.logo{width:62px;height:62px;filter:drop-shadow(0 8px 10px rgba(58,31,208,.3));animation:float 3.2s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.logo .eye{transform-box:fill-box;transform-origin:center;animation:blink2 4.2s ease-in-out infinite}
+@keyframes blink2{0%,90%,100%{transform:scaleY(1)}94%{transform:scaleY(.08)}}
+@media (prefers-reduced-motion:reduce){.logo,.logo .eye{animation:none}}
 </style>
 </head>
 <body>
 <header>
-  <h1>SALLE D'ARCADE</h1>
-  <p>Trois jeux rapides et un émulateur pour tes propres ROMs.</p>
+  <div class="hero">
+    <div class="hero-l">
+      <div class="brand"><svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="hd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9d3ff"/></linearGradient><filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter></defs><g fill="#e4dfff" stroke="#b3a8ff" stroke-width="1.6"><rect x="35" y="74" width="11" height="14" rx="5"/><rect x="54" y="74" width="11" height="14" rx="5"/><rect x="27" y="85" width="23" height="10" rx="5"/><rect x="50" y="85" width="23" height="10" rx="5"/></g><rect x="16" y="24" width="68" height="55" rx="24" fill="url(#hd)" stroke="#bdb3ff" stroke-width="1.6"/><path d="M14 46 C14 12 86 12 86 46" fill="none" stroke="#5b3cff" stroke-width="6" stroke-linecap="round"/><rect x="8" y="38" width="12" height="22" rx="6" fill="#5b3cff"/><rect x="80" y="38" width="12" height="22" rx="6" fill="#5b3cff"/><rect x="23" y="33" width="54" height="40" rx="17" fill="#0e0b2e"/><path d="M30 42 C32 37 38 35 45 35" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="2.4" stroke-linecap="round"/><g class="eye"><g filter="url(#gl)" opacity=".85"><rect x="35" y="46" width="11" height="15" rx="5.5" fill="#3be8ff"/><rect x="54" y="46" width="11" height="15" rx="5.5" fill="#3be8ff"/></g><rect x="35" y="46" width="11" height="15" rx="5.5" fill="#6af2ff"/><rect x="54" y="46" width="11" height="15" rx="5.5" fill="#6af2ff"/></g></svg><span class="wm">Arkade<sup>©</sup></span></div>
+      <h1>Joue<br>sans friction ©</h1>
+      <p class="lead">Quatre jeux rapides et un émulateur pour tes propres ROMs. Rien d'autre.</p>
+      <a class="pill" href="#tabs">Jouer ↓</a>
+    </div>
+    <div class="hero-r"><svg class="stripes" viewBox="0 0 308 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="308" height="200" fill="#7b6cff"/><rect x="3" y="0" width="7" height="200" fill="#4a2bff"/><rect x="17" y="0" width="7" height="200" fill="#4a2bff"/><rect x="31" y="0" width="7" height="200" fill="#4a2bff"/><rect x="45" y="0" width="7" height="200" fill="#4a2bff"/><rect x="59" y="0" width="7" height="200" fill="#4a2bff"/><rect x="73" y="0" width="7" height="200" fill="#4a2bff"/><rect x="87" y="0" width="7" height="200" fill="#4a2bff"/><rect x="101" y="0" width="7" height="200" fill="#4a2bff"/><rect x="115" y="0" width="7" height="200" fill="#4a2bff"/><rect x="129" y="0" width="7" height="200" fill="#4a2bff"/><rect x="143" y="0" width="7" height="200" fill="#4a2bff"/><rect x="157" y="0" width="7" height="200" fill="#4a2bff"/><rect x="171" y="0" width="7" height="200" fill="#4a2bff"/><rect x="185" y="0" width="7" height="200" fill="#4a2bff"/><rect x="199" y="0" width="7" height="200" fill="#4a2bff"/><rect x="213" y="0" width="7" height="200" fill="#4a2bff"/><rect x="227" y="0" width="7" height="200" fill="#4a2bff"/><rect x="241" y="0" width="7" height="200" fill="#4a2bff"/><rect x="255" y="0" width="7" height="200" fill="#4a2bff"/><rect x="269" y="0" width="7" height="200" fill="#4a2bff"/><rect x="283" y="0" width="7" height="200" fill="#4a2bff"/><rect x="297" y="0" width="7" height="200" fill="#4a2bff"/><ellipse cx="76.5" cy="100" rx="5.5" ry="60" fill="#2a12e8"/><ellipse cx="118.5" cy="80" rx="5.5" ry="78" fill="#2a12e8"/><ellipse cx="160.5" cy="110" rx="5.5" ry="70" fill="#2a12e8"/><ellipse cx="202.5" cy="90" rx="5.5" ry="56" fill="#2a12e8"/><ellipse cx="244.5" cy="105" rx="5.5" ry="66" fill="#2a12e8"/></svg></div>
+  </div>
 </header>
 <nav role="tablist" id="tabs">
-  <button role="tab" data-t="snake" aria-selected="true">Snake</button>
-  <button role="tab" data-t="ttt" aria-selected="false">Morpion</button>
-  <button role="tab" data-t="mem" aria-selected="false">Memory</button>
-  <button role="tab" data-t="emu" aria-selected="false">Émulateur</button>
+  <button role="tab" data-t="snake" aria-selected="true">01 Snake</button>
+  <button role="tab" data-t="ttt" aria-selected="false">02 Morpion</button>
+  <button role="tab" data-t="mem" aria-selected="false">03 Memory</button>
+  <button role="tab" data-t="emu" aria-selected="false">04 Émulateur</button>
 </nav>
 <main>
 
@@ -141,6 +226,7 @@ canvas{background:#120f33;border:3px solid var(--line);border-radius:8px;max-wid
 </section>
 
 </main>
+<footer><b>ARKADE©</b> &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Jeux &amp; émulation</footer>
 <script>
 // Onglets
 const tabs=document.querySelectorAll('#tabs button');
@@ -168,10 +254,10 @@ function tick(){
   draw();
 }
 function draw(over){
-  cx.fillStyle='#120f33';cx.fillRect(0,0,360,360);
-  cx.fillStyle='#ff5d8f';cx.fillRect(food.x*S+3,food.y*S+3,S-6,S-6);
-  sn.forEach((p,i)=>{cx.fillStyle=i?'#ffd23f':'#fff';cx.fillRect(p.x*S+1,p.y*S+1,S-2,S-2)});
-  if(over){cx.fillStyle='rgba(18,15,51,.8)';cx.fillRect(0,140,360,80);cx.fillStyle='#ffd23f';cx.font="14px 'Press Start 2P',monospace";cx.textAlign='center';cx.fillText('PERDU — '+score+' pts',180,186)}
+  cx.fillStyle='#0a0824';cx.fillRect(0,0,360,360);
+  cx.fillStyle='#ffffff';cx.fillRect(food.x*S+3,food.y*S+3,S-6,S-6);
+  sn.forEach((p,i)=>{cx.fillStyle=i?'#8b7bff':'#d9d3ff';cx.fillRect(p.x*S+1,p.y*S+1,S-2,S-2)});
+  if(over){cx.fillStyle='rgba(10,8,36,.8)';cx.fillRect(0,140,360,80);cx.fillStyle='#d9d3ff';cx.font="14px 'Inter Tight',monospace";cx.textAlign='center';cx.fillText('PERDU — '+score+' pts',180,186)}
 }
 const dirs={u:{x:0,y:-1},d:{x:0,y:1},l:{x:-1,y:0},r:{x:1,y:0}};
 function turn(k){const n=dirs[k];if(n&&!(n.x==-dir.x&&n.y==-dir.y))nd=n}
@@ -302,7 +388,7 @@ function launch(f,core){
   window.EJS_player='#game';window.EJS_core=core;window.EJS_gameUrl=url;
   window.EJS_gameName=f.name.replace(/\.[^.]+$/,'');
   window.EJS_pathtodata='https://cdn.emulatorjs.org/stable/data/';
-  window.EJS_startOnLoaded=true;window.EJS_color='#ff5d8f';
+  window.EJS_startOnLoaded=true;window.EJS_color='#5b3cff';
   window.EJS_threads=false;
   window.EJS_defaultOptions={'desmume_pointer_type':'touch','melonds_touch_mode':'Touch'};
   window.EJS_onGameStart=()=>{info.textContent='Jeu lancé. Pour changer de jeu, recharge la page.';applyModeRetry();lockMenuRetry()};
