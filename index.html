@@ -340,6 +340,13 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 .bt-gain span{background:rgba(7,32,25,.55);padding:3px 10px;border-radius:99px}
 #pk .pk-offer .pr{background:#ffd84d;color:#14123a;font-weight:800;padding:3px 14px;border-radius:99px;margin-top:4px;box-shadow:0 3px 0 rgba(0,0,0,.3)}
 #pk .pk-offer:disabled{opacity:.5;filter:grayscale(.45);cursor:default}
+
+/* croix directionnelle du Snake */
+.dpad{grid-template-columns:repeat(3,clamp(66px,20vw,86px));grid-template-rows:repeat(3,clamp(66px,20vw,86px));gap:6px;margin:14px auto 6px;touch-action:manipulation}
+.dpad button{height:auto;width:100%;aspect-ratio:1;font-size:30px;border-radius:18px;background:rgba(255,255,255,.16);box-shadow:0 5px 0 rgba(10,8,36,.55);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.dpad button:active{background:#fff;color:#0d0c08;transform:translateY(3px);box-shadow:0 2px 0 rgba(10,8,36,.55)}
+.dpad .mid{background:rgba(255,255,255,.08);border-radius:50%;margin:24%}
+#cv{touch-action:manipulation}
 @media (prefers-reduced-motion:reduce){.pk-card.pop,.pk-slot.pop{animation:none}.pk-card[data-txt]::after,.pk-slot[data-txt]::after{animation:none;opacity:1}}
 </style>
 </head>
@@ -367,10 +374,11 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 <section id="snake" class="on">
   <div class="score">Score : <span id="sScore">0</span></div>
   <canvas id="cv" width="360" height="360"></canvas>
-  <p class="info">Touche le jeu pour commencer, puis glisse le doigt pour tourner. Ou flèches du clavier, ou croix ci-dessous.</p>
+  <p class="info">Touche le jeu pour commencer, puis tourne avec la croix ci-dessous (ou les flèches du clavier).</p>
   <div class="dpad">
     <span></span><button data-d="u" aria-label="Haut">▲</button><span></span>
-    <button data-d="l" aria-label="Gauche">◀</button><button data-d="d" aria-label="Bas">▼</button><button data-d="r" aria-label="Droite">▶</button>
+    <button data-d="l" aria-label="Gauche">◀</button><span class="mid"></span><button data-d="r" aria-label="Droite">▶</button>
+    <span></span><button data-d="d" aria-label="Bas">▼</button><span></span>
   </div>
   <div class="row"><button class="btn primary" id="sStart">Lancer la partie</button></div>
 </section>
@@ -540,7 +548,7 @@ const helper=(()=>{
     add('bot',"Youpi ! Maintenant je comprends tout ce que tu me dis 💜 Essaie-moi !");mood('happy');
   };
   document.getElementById('hDel').onclick=()=>{apiKey='';LS.del();hist=[];setBox.hidden=true;refreshUI();add('bot',"Clé retirée. Je repasse en mode simple.")};
-  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu peux aussi discuter de tout avec la personne. Réponds dans la langue de l'utilisateur (français par défaut), en 1 à 4 phrases courtes, chaleureuses, avec parfois un emoji. Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 5 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 8 manches, un bonus à choisir entre chaque manche, record retenu), 05 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on peut glisser le doigt sur le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
+  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu peux aussi discuter de tout avec la personne. Réponds dans la langue de l'utilisateur (français par défaut), en 1 à 4 phrases courtes, chaleureuses, avec parfois un emoji. Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 5 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 8 manches, un bonus à choisir entre chaque manche, record retenu), 05 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on tourne avec la croix directionnelle sous le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
   async function callAI(q){
     hist.push({role:'user',content:q});
     if(hist.length>14)hist=hist.slice(-14);
@@ -560,7 +568,7 @@ const helper=(()=>{
   function say(h,m){add('bot',h);mood(m||'happy')}
   const GAMES=[
     {re:/poker|balatro|jeu de cartes/,tab:'pk',label:"le Poker d'Arki",run:()=>pkOpen(),again:()=>pkNewRun(),tip:'Choisis jusqu\'à 5 cartes et joue-les.'},
-    {re:/snake|serpent/,tab:'snake',label:'le Snake',run:()=>startSnake(),tip:'Glisse le doigt sur le jeu ou utilise les flèches.'},
+    {re:/snake|serpent/,tab:'snake',label:'le Snake',run:()=>startSnake(),tip:'Tourne avec la croix sous le jeu ou les flèches du clavier.'},
     {re:/morpion|tic ?tac/,tab:'ttt',label:'le Morpion',run:()=>tReset(),tip:'Tu es les X, à toi de jouer.'},
     {re:/\bmemory\b|\bpaires?\b/,tab:'mem',label:'le Memory',run:()=>mReset(),tip:'Retourne deux cartes à la fois.'}
   ];
@@ -722,13 +730,14 @@ const cv=document.getElementById('cv'),cx=cv.getContext('2d'),N=18,S=20;
 let sn,dir,nd,food,score,timer=null;
 function stopSnake(){clearInterval(timer);timer=null}
 function startSnake(){
-  stopSnake();sn=[{x:9,y:9},{x:8,y:9},{x:7,y:9}];dir=nd={x:1,y:0};score=0;
+  stopSnake();sn=[{x:9,y:9},{x:8,y:9},{x:7,y:9}];dir=nd={x:1,y:0};q=[];score=0;
   document.getElementById('sScore').textContent=0;placeFood();
   timer=setInterval(tick,120);
 }
 function placeFood(){do{food={x:Math.random()*N|0,y:Math.random()*N|0}}while(sn.some(p=>p.x==food.x&&p.y==food.y))}
 function tick(){
-  dir=nd;const h={x:sn[0].x+dir.x,y:sn[0].y+dir.y};
+  if(q.length)dir=q.shift();
+  const h={x:sn[0].x+dir.x,y:sn[0].y+dir.y};
   if(h.x<0||h.y<0||h.x>=N||h.y>=N||sn.some(p=>p.x==h.x&&p.y==h.y)){stopSnake();draw(true);helper.event('lose',score);return}
   sn.unshift(h);
   if(h.x==food.x&&h.y==food.y){score+=10;document.getElementById('sScore').textContent=score;placeFood()}else sn.pop();
@@ -741,24 +750,23 @@ function draw(over){
   if(over){cx.fillStyle='rgba(10,8,36,.8)';cx.fillRect(0,140,360,80);cx.fillStyle='#d9d3ff';cx.font="14px 'Inter Tight',monospace";cx.textAlign='center';cx.fillText('PERDU — '+score+' pts',180,186)}
 }
 const dirs={u:{x:0,y:-1},d:{x:0,y:1},l:{x:-1,y:0},r:{x:1,y:0}};
-function turn(k){const n=dirs[k];if(n&&!(n.x==-dir.x&&n.y==-dir.y))nd=n}
-document.querySelectorAll('.dpad button').forEach(b=>b.onclick=()=>sn&&turn(b.dataset.d));
+let q=[];
+function turn(k){
+  const n=dirs[k];if(!n)return;
+  const last=q.length?q[q.length-1]:dir;
+  if((n.x==-last.x&&n.y==-last.y)||(n.x==last.x&&n.y==last.y))return;
+  if(q.length<2)q.push(n);
+}
+document.querySelectorAll('.dpad button').forEach(b=>{
+  b.addEventListener('pointerdown',e=>{e.preventDefault();if(timer)turn(b.dataset.d)});
+  b.addEventListener('contextmenu',e=>e.preventDefault());
+});
 addEventListener('keydown',e=>{
   const m={ArrowUp:'u',ArrowDown:'d',ArrowLeft:'l',ArrowRight:'r'}[e.key];
   if(m&&timer&&e.target.tagName!=='INPUT'){e.preventDefault();turn(m)}
 });
 document.getElementById('sStart').onclick=startSnake;
-let sw=null;
-cv.addEventListener('pointerdown',e=>{sw={x:e.clientX,y:e.clientY,moved:false}});
-cv.addEventListener('pointermove',e=>{
-  if(!sw)return;const dx=e.clientX-sw.x,dy=e.clientY-sw.y;
-  if(Math.hypot(dx,dy)<22)return;
-  sw.moved=true;
-  if(timer)turn(Math.abs(dx)>Math.abs(dy)?(dx>0?'r':'l'):(dy>0?'d':'u'));
-  sw.x=e.clientX;sw.y=e.clientY;
-});
-cv.addEventListener('pointerup',()=>{if(sw&&!sw.moved&&!timer)startSnake();sw=null});
-cv.addEventListener('pointercancel',()=>{sw=null});
+cv.addEventListener('pointerup',()=>{if(!timer)startSnake()});
 sn=[{x:9,y:9}];food={x:12,y:9};draw();
 
 // MORPION
@@ -773,7 +781,10 @@ function tPlay(i){
   if(tOver||tb[i])return;tb[i]='X';if(tEnd())return tRender();
   const free=tb.map((v,k)=>v?null:k).filter(k=>k!==null);
   const tryLine=p=>{for(const l of L){const v=l.map(k=>tb[k]);if(v.filter(x=>x==p).length==2&&v.includes(''))return l[v.indexOf('')]}return null};
-  let m=tryLine('O');if(m===null)m=tryLine('X');if(m===null)m=tb[4]?free[Math.random()*free.length|0]:4;
+  let m=null;
+  if(Math.random()<.4)m=tryLine('O');
+  if(m===null&&Math.random()<.5)m=tryLine('X');
+  if(m===null)m=free[Math.random()*free.length|0];
   tb[m]='O';tEnd();tRender();
 }
 document.getElementById('tReset').onclick=tReset;tReset();
