@@ -264,6 +264,82 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 .pk-det table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px}
 .pk-det td{padding:3px 0;border-top:1px solid rgba(255,255,255,.12)}
 .pk-det td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+
+/* ===== POKER — look Balatro ===== */
+#pk.on{background:radial-gradient(120% 90% at 30% 20%,#2f8a6b 0%,transparent 60%),radial-gradient(100% 90% at 90% 100%,#0b3a2c 0%,transparent 65%),repeating-radial-gradient(circle at 60% 40%,rgba(255,255,255,.035) 0 14px,rgba(0,0,0,.05) 14px 28px),#1c6b52;background-blend-mode:normal;padding:14px 12px 16px;box-shadow:inset 0 0 0 4px #0c2f25,inset 0 0 60px rgba(0,0,0,.45)}
+#pk{font-family:'Inter Tight',system-ui,sans-serif}
+.bt{display:grid;grid-template-columns:minmax(150px,176px) 1fr;gap:12px;align-items:start;text-align:center}
+.bt-hud{display:flex;flex-direction:column;gap:7px;background:#2b3b45;border:3px solid #17222a;border-radius:14px;padding:8px;box-shadow:0 5px 0 #0d161b}
+.bt-blind{background:#f08a24;border-radius:9px;padding:6px 8px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.25);line-height:1.1}
+.bt-blind span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,.85)}
+.bt-blind b{font-size:20px;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.3)}
+.bt-need,.bt-round{background:#17222a;border-radius:9px;padding:6px 8px;display:flex;flex-direction:column;align-items:center;line-height:1.1}
+.bt-need span,.bt-round span{font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:#a9b8c2}
+.bt-need b{font-size:21px;color:#ff5d4d;font-variant-numeric:tabular-nums}
+.bt-round b{font-size:24px;color:#fff;font-variant-numeric:tabular-nums}
+.bt-hud .pk-prog{height:8px;margin:0;width:100%;max-width:none;background:#17222a}
+.bt-hud .pk-prog i{background:linear-gradient(90deg,#3b8cff,#ff4d4d)}
+.bt-calc{background:#17222a;border-radius:10px;padding:7px 6px;display:flex;flex-direction:column;gap:5px;align-items:center}
+.bt-calc .pk-name{font-size:13px;font-weight:700;color:#fff;min-height:2.4em;display:flex;align-items:center;text-align:center;line-height:1.15}
+.bt-calc .pk-eq{gap:4px;font-size:18px;color:#fff}
+.bt-calc .pk-chip,.bt-calc .pk-mult{min-width:0;flex:1;font-size:22px;font-weight:800;border-radius:7px;padding:5px 4px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.28)}
+.bt-calc .pk-chip{background:#2f7bff;color:#fff}
+.bt-calc .pk-mult{background:#ff3b3b;color:#fff}
+.bt-cnt{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.bt-c{border-radius:9px;padding:5px 4px;display:flex;flex-direction:column;align-items:center;line-height:1.05;box-shadow:inset 0 -3px 0 rgba(0,0,0,.28)}
+.bt-c span{font-size:9.5px;text-transform:uppercase;letter-spacing:.03em;color:rgba(255,255,255,.85)}
+.bt-c b{font-size:22px;color:#fff}
+.bt-c.hands{background:#2f7bff}.bt-c.disc{background:#ff3b3b}
+.bt-deck{display:flex;justify-content:space-between;align-items:center;background:#17222a;border-radius:9px;padding:5px 10px;color:#a9b8c2;font-size:11px;text-transform:uppercase}
+.bt-deck b{color:#fff;font-size:16px}
+.bt-table{min-width:0}
+#pk .pk-bonus{margin:0 0 6px}
+#pk .pk-slot{background:rgba(7,32,25,.55);border:2px solid rgba(255,255,255,.18);border-radius:10px;width:clamp(50px,11vw,84px);aspect-ratio:5/7;padding:4px;justify-content:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+#pk .pk-slot .ic{font-size:26px}
+#pk .pk-slot.empty{border:2px dashed rgba(255,255,255,.28);background:rgba(7,32,25,.35);opacity:.8}
+#pk .pk-tip{color:rgba(255,255,255,.85);font-size:12px;margin:0 0 6px;min-height:1.3em}
+#pk .pk-played{background:rgba(7,32,25,.28);border:2px dashed rgba(255,255,255,.2);border-radius:14px;min-height:clamp(86px,16vw,128px);margin:6px 0 10px}
+#pk .pk-hand{margin:6px 0 8px;padding-top:18px;gap:clamp(2px,.7vw,7px)}
+#pk .pk-card{border-radius:8px;background:linear-gradient(180deg,#fffdf6,#f1ead8);box-shadow:0 3px 0 rgba(0,0,0,.35),0 8px 14px -8px rgba(0,0,0,.7);transition:transform .12s ease}
+#pk .pk-card.sel{transform:translateY(-16px);box-shadow:0 0 0 3px #ffd84d,0 3px 0 rgba(0,0,0,.35),0 16px 20px -10px rgba(0,0,0,.8)}
+#pk .pk-card .r{font-weight:800}
+#pk .pk-card.red{color:#e63946}#pk .pk-card.blk{color:#1b2733}
+.bt-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+.bt-btns .btn{border:0;border-radius:11px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;padding:12px 18px;box-shadow:inset 0 -4px 0 rgba(0,0,0,.3);color:#fff}
+.bt-btns .btn.primary{background:#2f7bff;min-width:150px}
+.bt-btns .btn#pkDiscBtn{background:#ff3b3b}
+.bt-btns .btn[data-pk=sort]{background:#f08a24}
+.bt-btns .btn:disabled{filter:grayscale(.7) brightness(.8);opacity:.6}
+.bt-btns .btn:active:not(:disabled){transform:translateY(2px);box-shadow:inset 0 -2px 0 rgba(0,0,0,.3)}
+#pk .pk-offer{background:#2b3b45;border:3px solid #17222a;border-radius:14px;box-shadow:0 5px 0 #0d161b}
+#pk .pk-banner b{color:#ffd84d;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+#pk .pk-title{color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.35)}
+#pk .pk-det{background:#17222a}
+@media (max-width:640px){
+  .bt{grid-template-columns:1fr}
+  .bt-hud{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .bt-blind,.bt-calc,.bt-hud .pk-prog,.bt-deck{grid-column:1 / -1}
+  .bt-need,.bt-round{grid-column:auto}
+}
+
+
+/* raretés façon Balatro */
+#pk .pk-slot.rar-c,#pk .pk-offer.rar-c{border-color:#3b8cff}
+#pk .pk-slot.rar-r,#pk .pk-offer.rar-r{border-color:#ff4d4d}
+#pk .pk-slot.rar-l,#pk .pk-offer.rar-l{border-color:#b56bff;box-shadow:0 0 14px rgba(181,107,255,.7),inset 0 0 0 1px rgba(0,0,0,.25)}
+#pk .pk-slot[class*=rar-]{background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(7,32,25,.6))}
+#pk .pk-offer .rl{font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:99px;color:#fff;background:#3b8cff;font-weight:700}
+#pk .pk-offer.rar-r .rl{background:#ff4d4d}
+#pk .pk-offer.rar-l .rl{background:#b56bff}
+#pk .pk-offers{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+
+.bt-money{display:flex;justify-content:space-between;align-items:center;background:#17222a;border-radius:9px;padding:5px 10px;color:#a9b8c2;font-size:11px;text-transform:uppercase}
+.bt-money b{color:#ffd84d;font-size:20px}
+.bt-wallet{font:800 36px 'Inter Tight',sans-serif;color:#ffd84d;text-shadow:0 3px 0 rgba(0,0,0,.4);margin:4px 0 8px}
+.bt-gain{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,.9);margin-top:4px}
+.bt-gain span{background:rgba(7,32,25,.55);padding:3px 10px;border-radius:99px}
+#pk .pk-offer .pr{background:#ffd84d;color:#14123a;font-weight:800;padding:3px 14px;border-radius:99px;margin-top:4px;box-shadow:0 3px 0 rgba(0,0,0,.3)}
+#pk .pk-offer:disabled{opacity:.5;filter:grayscale(.45);cursor:default}
 @media (prefers-reduced-motion:reduce){.pk-card.pop,.pk-slot.pop{animation:none}.pk-card[data-txt]::after,.pk-slot[data-txt]::after{animation:none;opacity:1}}
 </style>
 </head>
@@ -752,6 +828,44 @@ const PKB=[
   {id:'arc',ic:'🌈',n:'Arc-en-ciel',d:'×2 mult sur une Couleur ou une Quinte flush.',glob:e=>(e.t==='flush'||e.t==='sflush')?{x:2}:null}
 ];
 const PKBM={};PKB.forEach(b=>PKBM[b.id]=b);
+/* ---- Jokers supplémentaires (inspirés de Balatro) + raretés ---- */
+(()=>{
+const R={c:'Commun',r:'Rare',l:'Légendaire'};
+['roi','derniere','duo','arc','autoroute'].forEach(i=>PKBM[i].rr='r');
+PKB.forEach(b=>{if(!b.rr)b.rr='c'});
+const J=(id,ic,n,d,rr,f)=>PKB.push(Object.assign({id,ic,n,d,rr},f));
+const face=c=>c.r>=11;
+J('carreau','💎','Carreau gourmand','Chaque ♦ qui marque : +3 mult.','c',{card:c=>c.s===2?{m:3}:null});
+J('trefle','🍀','Trèfle chanceux','Chaque ♣ qui marque : +3 mult.','c',{card:c=>c.s===3?{m:3}:null});
+J('brelanf','🎲','Brelan fou','+12 mult avec un Brelan ou mieux.','c',{glob:e=>e.maxk>=3?{m:12}:null});
+J('dpf','✌️','Double fête','+10 mult sur une Double paire.','c',{glob:e=>e.t==='two'?{m:10}:null});
+J('escalier','🪜','Escalier','+12 mult sur une Suite.','c',{glob:e=>(e.t==='straight'||e.t==='sflush')?{m:12}:null});
+J('palette','🎨','Palette','+10 mult sur une Couleur.','c',{glob:e=>(e.t==='flush'||e.t==='sflush')?{m:10}:null});
+J('rusé','🥷','Rusé','+50 points si ta main contient une paire.','c',{glob:e=>e.maxk>=2?{c:50}:null});
+J('renard','🦊','Renard','+100 points avec un Brelan ou mieux.','c',{glob:e=>e.maxk>=3?{c:100}:null});
+J('grimpeur','🧗','Grimpeur','+100 points sur une Suite.','c',{glob:e=>(e.t==='straight'||e.t==='sflush')?{c:100}:null});
+J('peintre','🖌️','Peintre','+80 points sur une Couleur.','c',{glob:e=>(e.t==='flush'||e.t==='sflush')?{c:80}:null});
+J('rire','😄','Face de rire','Chaque figure qui marque : +5 mult.','c',{card:c=>face(c)?{m:5}:null});
+J('masque','👻','Masque effrayant','Chaque figure qui marque : +30 points.','c',{card:c=>face(c)?{c:30}:null});
+J('regulier','🐢','Régulier','Chaque 2, 4, 6, 8, 10 qui marque : +4 mult.','c',{card:c=>(c.r<=10&&c.r%2===0)?{m:4}:null});
+J('impair','🦉','Impair','Chaque 3, 5, 7, 9 ou As qui marque : +31 points.','c',{card:c=>(c.r===14||(c.r<=9&&c.r%2===1))?{c:31}:null});
+J('demi','🌓','Demi-main','+20 mult si tu joues 3 cartes ou moins.','c',{glob:(e,x)=>x.size<=3?{m:20}:null});
+J('spirale','🐚','Spirale','As, 2, 3, 5 et 8 qui marquent : +8 mult.','c',{card:c=>[14,2,3,5,8].includes(c.r)?{m:8}:null});
+J('erudit','🎓','Érudit','Chaque As qui marque : +20 points et +4 mult.','c',{card:c=>c.r===14?{c:20,m:4}:null});
+J('collec','🎭','Collectionneur','+3 mult par bonus que tu possèdes.','c',{glob:()=>({m:3*pk.bonus.length})});
+J('jumeaux','👯','Jumeaux','×2 mult si ta main contient une paire.','r',{glob:e=>e.maxk>=2?{x:2}:null});
+J('triade','🔱','Triade','×3 mult avec un Brelan ou mieux.','r',{glob:e=>e.maxk>=3?{x:3}:null});
+J('quatuor','🎻','Quatuor','×4 mult avec un Carré.','r',{glob:e=>e.maxk>=4?{x:4}:null});
+J('cadence','🥁','Cadence','×3 mult sur une Suite.','r',{glob:e=>(e.t==='straight'||e.t==='sflush')?{x:3}:null});
+J('acrobate','🤸','Acrobate','×3 mult sur ta dernière main de la manche.','r',{glob:(e,x)=>x.last?{x:3}:null});
+J('banane','🍌','Banane dorée','×1,5 mult à chaque main.','r',{glob:()=>({x:1.5})});
+J('comete','☄️','Comète','×4 mult sur un Carré ou une Quinte flush.','l',{glob:e=>(e.t==='quads'||e.t==='sflush')?{x:4}:null});
+J('trone','🏰','Trône','Chaque Roi et chaque Dame qui marque : ×1,5 mult.','l',{card:c=>(c.r===12||c.r===13)?{x:1.5}:null});
+J('phenix','🔥','Phénix','+10 mult et ×2 mult à chaque main.','l',{glob:()=>({m:10,x:2})});
+PKB.forEach(b=>PKBM[b.id]=b);
+window.PKRAR=R;
+})();
+
 function pkMakeDeck(){const d=[];for(let s=0;s<4;s++)for(let r=2;r<=14;r++)d.push({id:s*13+r-2,r,s});return d}
 function pkShuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}
 function pkEval(cs){
@@ -821,7 +935,7 @@ function pkSort(){
   else pk.hand.sort((a,b)=>(a.s-b.s)||(b.r-a.r));
 }
 function pkDraw(){while(pk.hand.length<pkSize()&&pk.deck.length)pk.hand.push(pk.deck.pop());pkSort()}
-function pkNewRun(){pk={phase:'play',round:0,bonus:[],sort:'rank',total:0,anim:false};pkStartRound()}
+function pkNewRun(){pk={phase:'play',round:0,bonus:[],sort:'rank',total:0,anim:false,money:4};pkStartRound()}
 function pkOpen(){if(pk.phase==='menu'||pk.phase==='win'||pk.phase==='lose')pkNewRun()}
 function pkStartRound(){
   pk.round++;pk.score=0;pk.hands=pkHandsMax();pk.discards=pkDiscMax();pk.sel=new Set();pk.phase='play';pk.anim=false;pk.playing=null;pk.pending=null;
@@ -829,7 +943,15 @@ function pkStartRound(){
   pkSaveBest(pk.round,pk.total);
   pkRender();
 }
-function pkOffers(){return pkShuffle(PKB.map(b=>b.id).filter(id=>!pk.bonus.includes(id))).slice(0,3)}
+function pkOffers(){
+  const W={c:70,r:25,l:5};let pool=PKB.filter(b=>!pk.bonus.includes(b.id)),out=[];
+  while(out.length<3&&pool.length){
+    let t=pool.reduce((a,b)=>a+W[b.rr],0),r=Math.random()*t,pick=pool[pool.length-1];
+    for(const b of pool){r-=W[b.rr];if(r<=0){pick=b;break}}
+    out.push(pick.id);pool=pool.filter(b=>b!==pick);
+  }
+  return out;
+}
 function pkCardHtml(c,cls,attrs){
   const red=(c.s===1||c.s===2)?'red':'blk';
   return '<button type="button" class="pk-card '+red+(cls?' '+cls:'')+'" '+attrs+' aria-label="'+(PKR[c.r]||c.r)+' de '+PKSN[c.s]+'"><span class="cn"><span class="r">'+pkLab(c.r)+'</span><span class="s">'+PKS[c.s]+'</span></span><span class="big">'+PKS[c.s]+'</span></button>';
@@ -838,34 +960,47 @@ function pkShelf(){
   let h='<div class="pk-bonus" id="pkBonus">';
   for(let i=0;i<5;i++){
     const id=pk.bonus[i];
-    if(id){const b=PKBM[id];h+='<button type="button" class="pk-slot" data-pk="slot" data-i="'+i+'" aria-label="'+b.n+' : '+b.d+'"><span class="ic">'+b.ic+'</span><span class="nm">'+b.n+'</span></button>'}
+    if(id){const b=PKBM[id];h+='<button type="button" class="pk-slot rar-'+b.rr+'" data-pk="slot" data-i="'+i+'" aria-label="'+b.n+' : '+b.d+'"><span class="ic">'+b.ic+'</span><span class="nm">'+b.n+'</span></button>'}
     else h+='<div class="pk-slot empty" aria-hidden="true"><span class="ic">＋</span><span class="nm">libre</span></div>';
   }
-  return h+'</div><p class="pk-tip" id="pkTip" aria-live="polite">'+(pk.phase==='replace'?'Touche le bonus à remplacer.':(pk.bonus.length?'Touche un bonus pour lire son effet.':'Pas encore de bonus : tu en choisis un après chaque manche.'))+'</p>';
+  return h+'</div><p class="pk-tip" id="pkTip" aria-live="polite">'+(pk.phase==='shop'?(pk.bonus.length?'Touche un de tes bonus deux fois pour le vendre (moitié du prix).':'Tu n\'as pas encore de bonus.'):pk.phase==='replace'?'Touche le bonus à remplacer.':(pk.bonus.length?'Touche un bonus pour lire son effet.':'Pas encore de bonus : tu en choisis un après chaque manche.'))+'</p>';
 }
 function pkTop(){
   const t=PKT[pk.round-1];
-  return '<div class="pk-top"><div class="pk-box"><span>Manche</span><b>'+pk.round+'/'+PKT.length+'</b></div><div class="pk-box"><span>Objectif</span><b>'+t+'</b></div><div class="pk-box"><span>Score</span><b id="pkScore">'+pk.score+'</b></div></div><div class="pk-prog"><i id="pkBar" style="width:'+Math.min(100,pk.score/t*100)+'%"></i></div>';
+  return '<aside class="bt-hud"><div class="bt-blind"><span>Manche '+pk.round+'/'+PKT.length+'</span><b>Objectif</b></div>'
+   +'<div class="bt-need"><span>Score minimum</span><b>★ '+t+'</b></div>'
+   +'<div class="bt-round"><span>Score<br>de la manche</span><b id="pkScore">'+pk.score+'</b></div>'
+   +'<div class="pk-prog"><i id="pkBar" style="width:'+Math.min(100,pk.score/t*100)+'%"></i></div>'
+   +'<div class="bt-calc"><div class="pk-name" id="pkName"></div><div class="pk-eq"><b class="pk-chip" id="pkChips">0</b><span>×</span><b class="pk-mult" id="pkMult">0</b></div></div>'
+   +'<div class="bt-cnt"><div class="bt-c hands"><span>Mains</span><b id="pkHands">'+pk.hands+'</b></div><div class="bt-c disc"><span>Défausses</span><b id="pkDisc">'+pk.discards+'</b></div></div>'
+   +'<div class="bt-money"><span>Argent</span><b>$'+pk.money+'</b></div><div class="bt-deck"><span>Pioche</span><b id="pkDeck">'+pk.deck.length+'</b></div></aside>';
 }
 function pkViewMenu(){
   const b=pkBest();
   let rows='';for(const k in PKH)rows+='<tr><td>'+PKH[k].n+'</td><td>'+PKH[k].c+' × '+PKH[k].m+'</td></tr>';
-  return '<div class="pk-title">Poker d\'Arki</div><p class="lead2">Un jeu de cartes solo : forme des mains de poker, cumule des bonus et bats l\'objectif de chaque manche.</p><ol class="pk-rules"><li>Choisis jusqu\'à <b>5 cartes</b> et joue-les : points × multiplicateur.</li><li>Atteins l\'<b>objectif</b> avant de manquer de mains.</li><li>Entre deux manches, choisis un <b>bonus</b> (5 maximum).</li><li>Survis aux <b>'+PKT.length+' manches</b> pour gagner.</li></ol><details class="pk-det"><summary>Voir les combinaisons</summary><table>'+rows+'</table></details><p class="info">'+(b.round?'Record : manche '+b.round+' · '+b.total+' points au total':'Pas encore de record.')+'</p><div class="row"><button class="btn primary" data-pk="new">Nouvelle partie</button></div>';
+  return '<div class="pk-title">Poker d\'Arki</div><p class="lead2">Un jeu de cartes solo : forme des mains de poker, cumule des bonus et bats l\'objectif de chaque manche.</p><ol class="pk-rules"><li>Choisis jusqu\'à <b>5 cartes</b> et joue-les : points × multiplicateur.</li><li>Atteins l\'<b>objectif</b> avant de manquer de mains.</li><li>Gagne de l\'<b>argent</b> à chaque manche et achète des <b>bonus</b> à la boutique (5 maximum).</li><li>Survis aux <b>'+PKT.length+' manches</b> pour gagner.</li></ol><details class="pk-det"><summary>Voir les combinaisons</summary><table>'+rows+'</table></details><p class="info">'+(b.round?'Record : manche '+b.round+' · '+b.total+' points au total':'Pas encore de record.')+'</p><div class="row"><button class="btn primary" data-pk="new">Nouvelle partie</button></div>';
 }
 function pkViewPlay(){
   const pl=pk.playing?pk.playing.cards:null;
-  return pkTop()+'<div class="pk-calc"><div class="pk-name" id="pkName"></div><div class="pk-eq"><b class="pk-chip" id="pkChips">0</b><span>×</span><b class="pk-mult" id="pkMult">0</b></div></div>'
+  return '<div class="bt">'+pkTop()+'<div class="bt-table">'
     +pkShelf()
     +'<div class="pk-played" id="pkPlayed">'+(pl?pl.map((c,i)=>pkCardHtml(c,'','disabled')).join(''):'')+'</div>'
     +'<div class="pk-hand" id="pkHand">'+pk.hand.map(c=>pkCardHtml(c,pk.sel.has(c.id)?'sel':'','data-pk="card" data-id="'+c.id+'" aria-pressed="'+pk.sel.has(c.id)+'"')).join('')+'</div>'
     +'<p class="info" id="pkInfo"></p>'
-    +'<div class="row"><button class="btn primary" id="pkPlayBtn" data-pk="play"></button><button class="btn" id="pkDiscBtn" data-pk="disc"></button><button class="btn" data-pk="sort">Trier : '+(pk.sort==='rank'?'valeur':'couleur')+'</button></div>';
+    +'<div class="bt-btns"><button class="btn primary" id="pkPlayBtn" data-pk="play"></button><button class="btn" data-pk="sort">Trier : '+(pk.sort==='rank'?'valeur':'couleur')+'</button><button class="btn" id="pkDiscBtn" data-pk="disc"></button></div>'
+    +'</div></div>';
 }
+const PKPRICE={c:5,r:8,l:12},pkPrice=b=>PKPRICE[b.rr]||5;
 function pkViewShop(){
-  const full=pk.bonus.length>=5;
-  let h='<div class="pk-banner"><b>Manche '+pk.round+' réussie !</b><span>Score : '+pk.score+' / '+PKT[pk.round-1]+'</span></div><p class="info">Choisis un bonus'+(full?' (tu en as déjà 5 : le nouveau en remplacera un)':'')+'</p><div class="pk-offers">';
-  pk.offers.forEach(id=>{const b=PKBM[id];h+='<button type="button" class="pk-offer" data-pk="offer" data-id="'+id+'"><span class="ic">'+b.ic+'</span><b>'+b.n+'</b><span class="d">'+b.d+'</span></button>'});
-  return h+'</div>'+pkShelf()+'<div class="row"><button class="btn" data-pk="skip">Passer</button></div>';
+  const rw=pk.reward||{b:3,h:0,i:0},full=pk.bonus.length>=5;
+  let h='<div class="pk-banner"><b>Manche '+pk.round+' réussie !</b><span>Score : '+pk.score+' / '+PKT[pk.round-1]+'</span></div>'
+   +'<div class="bt-gain"><span>Manche gagnée +$'+rw.b+'</span><span>Mains restantes +$'+rw.h+'</span><span>Intérêts +$'+rw.i+'</span></div>'
+   +'<div class="bt-wallet">$'+pk.money+'</div><div class="pk-offers">';
+  pk.offers.forEach(id=>{const b=PKBM[id],p=pkPrice(b),ok=pk.money>=p&&!full;
+    h+='<button type="button" class="pk-offer rar-'+b.rr+'" data-pk="offer" data-id="'+id+'"'+(ok?'':' disabled')+'><span class="rl">'+PKRAR[b.rr]+'</span><span class="ic">'+b.ic+'</span><b>'+b.n+'</b><span class="d">'+b.d+'</span><span class="pr">$'+p+'</span></button>'});
+  if(!pk.offers.length)h+='<p class="info">Plus rien à vendre.</p>';
+  return h+'</div>'+(full?'<p class="info">Emplacements pleins : vends un bonus pour en acheter un autre.</p>':'')+pkShelf()
+   +'<div class="row"><button class="btn" data-pk="reroll"'+(pk.money>=pk.rerollCost?'':' disabled')+'>Relancer $'+pk.rerollCost+'</button><button class="btn primary" data-pk="skip">Manche suivante</button></div>';
 }
 function pkViewReplace(){
   const b=PKBM[pk.pending];
@@ -890,7 +1025,9 @@ function pkPanel(){
   const p=document.getElementById('pkPlayBtn'),d=document.getElementById('pkDiscBtn');
   p.textContent='Jouer la main'+(cs.length?' ('+cs.length+')':'');p.disabled=!cs.length||pk.hands<=0||pk.anim;
   d.textContent='Défausser'+(cs.length?' ('+cs.length+')':'');d.disabled=!cs.length||pk.discards<=0||pk.anim;
-  document.getElementById('pkInfo').textContent='Mains : '+pk.hands+' · Défausses : '+pk.discards+' · Pioche : '+pk.deck.length;
+  document.getElementById('pkInfo').textContent='';
+  const H=document.getElementById('pkHands'),D=document.getElementById('pkDisc'),K=document.getElementById('pkDeck');
+  if(H)H.textContent=pk.hands;if(D)D.textContent=pk.discards;if(K)K.textContent=pk.deck.length;
 }
 function pkPop(el,txt){
   if(!el)return;
@@ -946,6 +1083,8 @@ function pkWon(){
   pk.total+=pk.score;
   pkSaveBest(pk.round,pk.total);
   if(pk.round>=PKT.length){pk.phase='win';pkRender();helper.event('pkend',{win:true,round:pk.round,total:pk.total,best:pkBest().round});return}
+  const rw={b:3,h:Math.max(0,pk.hands),i:Math.min(5,Math.floor(pk.money/5))};
+  pk.reward=rw;pk.money+=rw.b+rw.h+rw.i;pk.rerollCost=3;pk.sellArm=null;
   pk.phase='shop';pk.offers=pkOffers();pkRender();
 }
 function pkLost(){
@@ -973,12 +1112,26 @@ document.getElementById('pkRoot').addEventListener('click',e=>{
   else if(a==='play')pkPlay();
   else if(a==='disc')pkDiscard();
   else if(a==='sort'){pk.sort=pk.sort==='rank'?'suit':'rank';pkSort();pkRender()}
-  else if(a==='offer')pkPick(t.dataset.id);
+  else if(a==='offer'){
+    const b=PKBM[t.dataset.id];if(!b||pk.phase!=='shop')return;
+    const p=pkPrice(b);if(pk.money<p||pk.bonus.length>=5)return;
+    pk.money-=p;pk.bonus.push(b.id);pk.offers=pk.offers.filter(i=>i!==b.id);pk.sellArm=null;pkRender();
+  }
+  else if(a==='reroll'){
+    if(pk.phase!=='shop'||pk.money<pk.rerollCost)return;
+    pk.money-=pk.rerollCost;pk.rerollCost++;pk.offers=pkOffers();pk.sellArm=null;pkRender();
+  }
   else if(a==='skip')pkStartRound();
   else if(a==='cancel'){pk.phase='shop';pk.pending=null;pkRender()}
   else if(a==='slot'){
     const i=+t.dataset.i;
-    if(pk.phase==='replace'){pk.bonus[i]=pk.pending;pkStartRound()}
+    if(pk.phase==='shop'){
+      const b=PKBM[pk.bonus[i]];if(!b)return;
+      const gain=Math.floor(pkPrice(b)/2);
+      if(pk.sellArm===i){pk.money+=gain;pk.bonus.splice(i,1);pk.sellArm=null;pkRender()}
+      else{pk.sellArm=i;const tip=document.getElementById('pkTip');if(tip)tip.textContent='Retouche pour vendre '+b.n+' (+$'+gain+').'}
+    }
+    else if(pk.phase==='replace'){pk.bonus[i]=pk.pending;pkStartRound()}
     else{const b=PKBM[pk.bonus[i]],tip=document.getElementById('pkTip');if(b&&tip)tip.textContent=b.ic+' '+b.n+' : '+b.d}
   }
 });
