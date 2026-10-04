@@ -211,6 +211,60 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 #helper.right #hBubble{left:auto;right:calc(var(--bs) + 10px);border-radius:18px 18px 4px 18px;transform-origin:right bottom}
 #helper.top #hBubble{bottom:auto;top:0}
 #helper.drag #hBubble{pointer-events:none}
+
+/* POKER D'ARKI */
+#pk{--pkred:#e0245e;--pkink:#14123a}
+.pk-top{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
+.pk-box{background:rgba(10,8,36,.55);border-radius:16px;padding:8px 16px;min-width:96px;display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.pk-box span{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.7)}
+.pk-box b{font-size:22px;font-variant-numeric:tabular-nums}
+.pk-prog{height:10px;border-radius:999px;background:rgba(10,8,36,.55);max-width:420px;margin:0 auto 6px;overflow:hidden}
+.pk-prog i{display:block;height:100%;background:linear-gradient(90deg,#6af2ff,#8b7bff);border-radius:inherit}
+.pk-calc{display:flex;flex-direction:column;align-items:center;gap:6px;background:rgba(10,8,36,.55);border-radius:18px;padding:10px 14px;margin:10px auto;max-width:420px}
+.pk-name{font-weight:600;font-size:15px;min-height:1.4em}
+.pk-eq{display:flex;align-items:center;gap:10px;font-size:22px}
+.pk-chip,.pk-mult{min-width:78px;padding:4px 12px;border-radius:12px;font-variant-numeric:tabular-nums;font-size:24px;text-align:center}
+.pk-chip{background:#3be8ff;color:#0e0b2e}
+.pk-mult{background:#ff5d8f;color:#fff}
+.pk-bonus{display:flex;gap:6px;justify-content:center;margin:8px 0 2px}
+.pk-slot{position:relative;width:clamp(54px,14vw,96px);padding:6px 4px;border:0;border-radius:14px;background:rgba(255,255,255,.16);color:#fff;font:inherit;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+.pk-slot .ic{font-size:22px;line-height:1.1}
+.pk-slot .nm{font-size:10px;line-height:1.1;text-align:center}
+.pk-slot.empty{background:transparent;border:1.5px dashed rgba(255,255,255,.3);opacity:.55;cursor:default}
+.pk-tip{min-height:1.4em;margin:4px 0 0;font-size:13px;color:rgba(255,255,255,.8)}
+.pk-played{display:flex;gap:clamp(3px,.8vw,8px);justify-content:center;align-items:center;min-height:clamp(78px,15vw,116px);margin:8px 0;padding:8px;border-radius:18px;background:rgba(10,8,36,.28)}
+.pk-hand{display:flex;gap:clamp(3px,.8vw,8px);justify-content:center;margin:6px 0 8px;padding-top:16px}
+.pk-card{position:relative;flex:1 1 0;min-width:0;max-width:74px;aspect-ratio:5/7;padding:0;border:0;border-radius:10px;background:#fff;font-family:'Inter Tight',system-ui,sans-serif;cursor:pointer;box-shadow:0 6px 12px -8px rgba(0,0,0,.8);transition:transform .12s,box-shadow .12s}
+.pk-card:disabled{opacity:1;cursor:default}
+.pk-card.red{color:var(--pkred)}
+.pk-card.blk{color:var(--pkink)}
+.pk-card .cn{position:absolute;left:9%;top:5%;display:flex;flex-direction:column;align-items:center;line-height:1}
+.pk-card .r{font-weight:700;font-size:clamp(11px,2.7vw,20px)}
+.pk-card .s{font-size:clamp(10px,2.4vw,17px)}
+.pk-card .big{position:absolute;right:10%;bottom:6%;font-size:clamp(18px,5vw,40px);line-height:1}
+.pk-card.sel{transform:translateY(-14px);box-shadow:0 0 0 3px #d9d3ff,0 14px 22px -10px rgba(0,0,0,.7)}
+.pk-card.sc{box-shadow:0 0 0 3px #6af2ff,0 0 18px rgba(106,242,255,.6)}
+.pk-card.pop,.pk-slot.pop{animation:pkpop .38s ease-out}
+@keyframes pkpop{0%{transform:scale(1)}40%{transform:scale(1.16)}100%{transform:scale(1)}}
+.pk-card[data-txt]::after,.pk-slot[data-txt]::after{content:attr(data-txt);position:absolute;left:50%;top:-8px;transform:translateX(-50%);background:#6af2ff;color:#0e0b2e;font:700 12px 'Inter Tight',system-ui,sans-serif;padding:2px 7px;border-radius:999px;white-space:nowrap;pointer-events:none;z-index:3;animation:pkfloat .9s ease-out forwards}
+@keyframes pkfloat{0%{opacity:0;margin-top:6px}15%{opacity:1}100%{opacity:0;margin-top:-18px}}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.pk-banner{display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:6px}
+.pk-banner b{font-size:22px}
+.pk-banner span{color:rgba(255,255,255,.8);font-size:14px}
+.pk-offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.pk-offer{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 12px;border:0;border-radius:18px;background:rgba(255,255,255,.16);color:#fff;font:inherit;cursor:pointer}
+.pk-offer .ic{font-size:30px;line-height:1}
+.pk-offer .d{font-size:13px;opacity:.85}
+.pk-title{font:600 clamp(28px,6vw,40px)/1 'Inter Tight',system-ui,sans-serif;letter-spacing:-.03em;text-transform:uppercase;margin:6px 0 10px}
+.lead2{max-width:460px;margin:0 auto 12px;color:rgba(255,255,255,.88)}
+.pk-rules{text-align:left;max-width:460px;margin:0 auto 12px;padding-left:22px;color:rgba(255,255,255,.92)}
+.pk-det{max-width:460px;margin:0 auto 12px;text-align:left;background:rgba(10,8,36,.4);border-radius:14px;padding:8px 14px}
+.pk-det summary{cursor:pointer;font-weight:600}
+.pk-det table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px}
+.pk-det td{padding:3px 0;border-top:1px solid rgba(255,255,255,.12)}
+.pk-det td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){.pk-card.pop,.pk-slot.pop{animation:none}.pk-card[data-txt]::after,.pk-slot[data-txt]::after{animation:none;opacity:1}}
 </style>
 </head>
 <body>
@@ -229,7 +283,8 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
   <button role="tab" data-t="snake" aria-selected="true">01 Snake</button>
   <button role="tab" data-t="ttt" aria-selected="false">02 Morpion</button>
   <button role="tab" data-t="mem" aria-selected="false">03 Memory</button>
-  <button role="tab" data-t="emu" aria-selected="false">04 Émulateur</button>
+  <button role="tab" data-t="pk" aria-selected="false">04 Poker</button>
+  <button role="tab" data-t="emu" aria-selected="false">05 Émulateur</button>
 </nav>
 <main>
 
@@ -255,6 +310,8 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
   <div class="grid" id="mGrid" style="grid-template-columns:repeat(4,1fr)"></div>
   <div class="row"><button class="btn primary" id="mReset">Mélanger les cartes</button></div>
 </section>
+
+<section id="pk"><div id="pkRoot"></div></section>
 
 <section id="emu">
   <div class="row">
@@ -353,15 +410,16 @@ const helper=(()=>{
     {r:/(iphone|ipad|android|mobile|telephone|tablette|safari|chrome)/,a:"Sur <b>iPad</b>, tout marche avec Safari sauf la PSP. Tu peux aussi ajouter Arkade à l'écran d'accueil (Partager → Sur l'écran d'accueil) pour l'avoir en plein écran. Évite les aperçus intégrés d'applications."},
     {r:/(snake|serpent)/,a:"<b>Snake</b> : touche le jeu (ou « Lancer la partie ») pour commencer. Dirige avec les flèches, <b>en glissant le doigt</b> sur le jeu, ou avec la croix. Chaque pomme = 10 points. Toucher un mur ou ton corps = perdu."},
     {r:/(morpion|tic ?tac|croix et rond)/,a:"<b>Morpion</b> : tu joues les X et tu commences. Aligne trois symboles. Prendre le centre est un bon début."},
+    {r:/(poker|balatro|manche|bonus|multiplicateur|jeu de cartes)/,a:"<b>Poker d'Arki</b> (onglet 04) : choisis jusqu'à <b>5 cartes</b> et joue-les, tes points = <b>points × multiplicateur</b>. Atteins l'objectif de la manche avant de manquer de mains (4 par manche, et 3 défausses). Entre deux manches, tu choisis un <b>bonus</b> parmi 3 (5 maximum, ils se combinent). Réussis <b>8 manches</b> pour gagner. Astuce : double paire, couleur ou full rapportent gros, et les bonus ×mult sont les plus puissants !"},
     {r:/(memory|paire|cartes?)/,a:"<b>Memory</b> : retourne deux cartes, trouve les paires. Moins de coups = meilleur score. « Mélanger les cartes » relance."},
-    {r:/(comment (ca )?(marche|fonctionne)|mode d.?emploi|aide|help|utiliser|demarrer|commencer|c.?est quoi|arkade|a quoi ca sert)/,a:"<b>Arkade</b>, c'est 3 mini-jeux (Snake, Morpion, Memory) et un <b>émulateur</b> pour tes propres ROMs.<br>Pour l'émulateur : onglet <b>04</b> → « Choisir une ROM » → le jeu se lance. Demande-moi où trouver des ROMs légales, les consoles, la manette ou le son."},
+    {r:/(comment (ca )?(marche|fonctionne)|mode d.?emploi|aide|help|utiliser|demarrer|commencer|c.?est quoi|arkade|a quoi ca sert)/,a:"<b>Arkade</b>, c'est 4 jeux (Snake, Morpion, Memory, Poker d'Arki) et un <b>émulateur</b> pour tes propres ROMs.<br>Pour l'émulateur : onglet <b>05</b> → « Choisir une ROM » → le jeu se lance. Demande-moi où trouver des ROMs légales, les consoles, la manette ou le son."},
     {r:/(bonjour|salut|coucou|hello|hey|yo\b)/,a:"Salut ! Que veux-tu savoir ? Je peux t'aider pour les ROMs, les consoles, la manette, le son ou les jeux."},
     {r:/(merci|genial|parfait|\bcool\b|\btop\b)/,a:"Avec plaisir ! 🎮"}
   ];
   const base=['Où trouver des ROMs ?','Que sais-tu faire ?','Quelles consoles ?'];
   if(IOS)base.push("Écran d'accueil ?");
-  const tabChips={snake:['Comment jouer au Snake ?'],ttt:['Comment jouer au Morpion ?'],mem:['Comment jouer au Memory ?'],emu:['Pas de son','Ça rame','Quels formats ?']};
-  const tabTip={snake:"Snake : flèches du clavier ou croix, 10 points par pomme.",ttt:"Morpion : tu es les X. Le centre est un bon départ.",mem:"Memory : retiens la place des symboles pour faire moins de coups.",emu:"Émulateur : « Choisir une ROM », le reste est automatique. Demande-moi où en trouver légalement."};
+  const tabChips={pk:['Comment jouer au Poker ?'],snake:['Comment jouer au Snake ?'],ttt:['Comment jouer au Morpion ?'],mem:['Comment jouer au Memory ?'],emu:['Pas de son','Ça rame','Quels formats ?']};
+  const tabTip={pk:"Poker d'Arki : joue jusqu'à 5 cartes, points × multiplicateur. Choisis des bonus entre les manches.",snake:"Snake : flèches du clavier ou croix, 10 points par pomme.",ttt:"Morpion : tu es les X. Le centre est un bon départ.",mem:"Memory : retiens la place des symboles pour faire moins de coups.",emu:"Émulateur : « Choisir une ROM », le reste est automatique. Demande-moi où en trouver légalement."};
   const react={lose:["Aïe ! Relance une partie, tu vas faire mieux."],win:["Bravo, tu as gagné ! 🎉"],ttwin:["Bien joué, tu m'as battu !"],ttlose:["L'ordinateur l'emporte cette fois. Revanche ?"],draw:["Égalité : personne ne perd."]};
   let tab='snake',busy=false;
   const pick=a=>a[Math.random()*a.length|0];
@@ -406,7 +464,7 @@ const helper=(()=>{
     add('bot',"Youpi ! Maintenant je comprends tout ce que tu me dis 💜 Essaie-moi !");mood('happy');
   };
   document.getElementById('hDel').onclick=()=>{apiKey='';LS.del();hist=[];setBox.hidden=true;refreshUI();add('bot',"Clé retirée. Je repasse en mode simple.")};
-  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu peux aussi discuter de tout avec la personne. Réponds dans la langue de l'utilisateur (français par défaut), en 1 à 4 phrases courtes, chaleureuses, avec parfois un emoji. Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 4 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on peut glisser le doigt sur le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
+  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu peux aussi discuter de tout avec la personne. Réponds dans la langue de l'utilisateur (français par défaut), en 1 à 4 phrases courtes, chaleureuses, avec parfois un emoji. Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 5 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 8 manches, un bonus à choisir entre chaque manche, record retenu), 05 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on peut glisser le doigt sur le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
   async function callAI(q){
     hist.push({role:'user',content:q});
     if(hist.length>14)hist=hist.slice(-14);
@@ -425,6 +483,7 @@ const helper=(()=>{
   function go(t){quiet=true;try{document.querySelector('#tabs [data-t="'+t+'"]').click()}finally{quiet=false}}
   function say(h,m){add('bot',h);mood(m||'happy')}
   const GAMES=[
+    {re:/poker|balatro|jeu de cartes/,tab:'pk',label:"le Poker d'Arki",run:()=>pkOpen(),again:()=>pkNewRun(),tip:'Choisis jusqu\'à 5 cartes et joue-les.'},
     {re:/snake|serpent/,tab:'snake',label:'le Snake',run:()=>startSnake(),tip:'Glisse le doigt sur le jeu ou utilise les flèches.'},
     {re:/morpion|tic ?tac/,tab:'ttt',label:'le Morpion',run:()=>tReset(),tip:'Tu es les X, à toi de jouer.'},
     {re:/\bmemory\b|\bpaires?\b/,tab:'mem',label:'le Memory',run:()=>mReset(),tip:'Retourne deux cartes à la fois.'}
@@ -462,7 +521,7 @@ const helper=(()=>{
     if(/\b(rom|fichier)\b/.test(n)&&/(choisis|choisir|charge|charger|ouvre|ouvrir|ajoute|importe)/.test(n)){go('emu');say("Voici le choix de fichier : sélectionne ta ROM.");rom.click();return true}
     if(/(recommence|rejoue|nouvelle partie|relance)/.test(n)&&!GAMES.some(g=>g.re.test(n))){
       const g=GAMES.find(x=>x.tab===tab);
-      if(g){g.run();inp.blur();if(small)close();say("C'est reparti ! "+g.tip);return true}
+      if(g){(g.again||g.run)();inp.blur();if(small)close();say("C'est reparti ! "+g.tip);return true}
     }
     for(const g of GAMES){
       if(g.re.test(n)){go(g.tab);g.run();inp.blur();if(small)close();say("C'est parti : <b>"+g.label+"</b> ! "+g.tip);return true}
@@ -560,6 +619,11 @@ const helper=(()=>{
       add('bot',"Jeu lancé ! Je me suis fait petit. Glisse-moi où tu veux si je gêne les touches 😉");
     },
     event(k,v){
+      if(k==='pkend'&&v){
+        open(false);
+        add('bot',v.win?"Victoire au Poker d'Arki ! 🎉 Les "+v.round+" manches, bravo !":"Éliminé en manche <b>"+v.round+"</b> avec <b>"+v.total+"</b> points au total (record : manche <b>"+v.best+"</b>). Relance une partie !");
+        mood(v.win?'happy':'sad');return;
+      }
       if(k==='lose'&&typeof v==='number'){
         let best=0;try{best=+localStorage.getItem('arki_snake')||0}catch(e){}
         open(false);
@@ -656,6 +720,269 @@ function mReset(){
     };mg.appendChild(c)});
 }
 document.getElementById('mReset').onclick=mReset;mReset();
+
+// POKER D'ARKI
+const PKS=['♠','♥','♦','♣'],PKSN=['pique','cœur','carreau','trèfle'];
+const PKR={11:'Valet',12:'Dame',13:'Roi',14:'As'};
+const pkLab=r=>({11:'V',12:'D',13:'R',14:'A'})[r]||String(r);
+const pkChips=r=>r===14?11:(r>=10?10:r);
+const pkFx=n=>String(Math.round(n*100)/100).replace('.',',');
+const PKH={
+  high:{n:'Carte haute',c:4,m:1},pair:{n:'Paire',c:8,m:2},two:{n:'Double paire',c:16,m:3},
+  trips:{n:'Brelan',c:24,m:3},straight:{n:'Suite',c:30,m:4},flush:{n:'Couleur',c:35,m:4},
+  full:{n:'Full',c:40,m:5},quads:{n:'Carré',c:60,m:7},sflush:{n:'Quinte flush',c:90,m:9}
+};
+const PKT=[150,300,520,850,1300,2000,3000,4500];
+const PKB=[
+  {id:'turbo',ic:'🎧',n:'Casque turbo',d:'+4 au multiplicateur à chaque main.',glob:()=>({m:4})},
+  {id:'pile',ic:'🔋',n:'Pile neuve',d:'+30 points à chaque main.',glob:()=>({c:30})},
+  {id:'paire',ic:'🪙',n:"Paire d'or",d:'+8 mult si ta main contient une paire.',glob:e=>e.maxk>=2?{m:8}:null},
+  {id:'coeur',ic:'❤️',n:'Cœur battant',d:'Chaque ♥ qui marque : +3 mult.',card:c=>c.s===1?{m:3}:null},
+  {id:'pique',ic:'♠️',n:'Fan de piques',d:'Chaque ♠ qui marque : +25 points.',card:c=>c.s===0?{c:25}:null},
+  {id:'roi',ic:'👑',n:'Couronne',d:'Chaque Roi qui marque : ×1,3 mult.',card:c=>c.r===13?{x:1.3}:null},
+  {id:'as',ic:'🚀',n:'As propulsé',d:'Chaque As qui marque : +30 points.',card:c=>c.r===14?{c:30}:null},
+  {id:'pleine',ic:'🖐️',n:'Mains pleines',d:'+10 mult si tu joues 5 cartes.',glob:(e,x)=>x.size===5?{m:10}:null},
+  {id:'derniere',ic:'⏳',n:'Dernière chance',d:'×2 mult sur ta dernière main de la manche.',glob:(e,x)=>x.last?{x:2}:null},
+  {id:'defausse',ic:'♻️',n:'Recyclage',d:'+1 défausse par manche.'},
+  {id:'main',ic:'➕',n:'Main bonus',d:'+1 main par manche.'},
+  {id:'poche',ic:'🎒',n:'Poche profonde',d:'+1 carte en main.'},
+  {id:'autoroute',ic:'🛤️',n:'Autoroute',d:'+16 mult si tu joues une Suite ou une Quinte flush.',glob:e=>(e.t==='straight'||e.t==='sflush')?{m:16}:null},
+  {id:'duo',ic:'🤝',n:'Duo gagnant',d:'×1,5 mult sur une Double paire ou un Full.',glob:e=>(e.t==='two'||e.t==='full')?{x:1.5}:null},
+  {id:'petits',ic:'🐣',n:'Petits pas',d:'Chaque carte de 2 à 5 qui marque : +4 mult.',card:c=>c.r<=5?{m:4}:null},
+  {id:'arc',ic:'🌈',n:'Arc-en-ciel',d:'×2 mult sur une Couleur ou une Quinte flush.',glob:e=>(e.t==='flush'||e.t==='sflush')?{x:2}:null}
+];
+const PKBM={};PKB.forEach(b=>PKBM[b.id]=b);
+function pkMakeDeck(){const d=[];for(let s=0;s<4;s++)for(let r=2;r<=14;r++)d.push({id:s*13+r-2,r,s});return d}
+function pkShuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}
+function pkEval(cs){
+  const n=cs.length,cnt={};
+  cs.forEach(c=>cnt[c.r]=(cnt[c.r]||0)+1);
+  const g=Object.entries(cnt).map(([r,k])=>({r:+r,k})).sort((a,b)=>b.k-a.k||b.r-a.r);
+  const flush=n===5&&cs.every(c=>c.s===cs[0].s);
+  let straight=false;
+  if(n===5&&g.length===5){
+    const rs=cs.map(c=>c.r).sort((a,b)=>a-b);
+    straight=rs[4]-rs[0]===4||rs.join()==='2,3,4,5,14';
+  }
+  let t;
+  if(straight&&flush)t='sflush';
+  else if(g[0].k===4)t='quads';
+  else if(g[0].k===3&&g[1]&&g[1].k===2)t='full';
+  else if(flush)t='flush';
+  else if(straight)t='straight';
+  else if(g[0].k===3)t='trips';
+  else if(g[0].k===2&&g[1]&&g[1].k===2)t='two';
+  else if(g[0].k===2)t='pair';
+  else t='high';
+  let idx;
+  if(t==='sflush'||t==='full'||t==='flush'||t==='straight')idx=cs.map((_,i)=>i);
+  else if(t==='high'){let b=0;cs.forEach((c,i)=>{if(c.r>cs[b].r)b=i});idx=[b]}
+  else{const need=new Set(g.filter(x=>x.k>=2).map(x=>x.r));idx=[];cs.forEach((c,i)=>{if(need.has(c.r))idx.push(i)})}
+  return{t,idx,maxk:g[0].k};
+}
+function pkScore(cs,bon,x){
+  const e=pkEval(cs),H=PKH[e.t];
+  x=Object.assign({last:false,size:cs.length},x||{});
+  let chips=H.c,mult=H.m;
+  const ev=[{txt:H.n,chips,mult}];
+  const snap=(txt,extra)=>ev.push(Object.assign({txt,chips,mult},extra||{}));
+  const app=f=>{
+    const t=[];
+    if(f.c){chips+=f.c;t.push('+'+f.c)}
+    if(f.m){mult+=f.m;t.push('+'+f.m+' mult')}
+    if(f.x){mult*=f.x;t.push('×'+pkFx(f.x)+' mult')}
+    return t.join(' ');
+  };
+  e.idx.forEach(i=>{
+    const c=cs[i],v=pkChips(c.r);
+    chips+=v;snap('+'+v,{card:i});
+    bon.forEach((id,j)=>{const b=PKBM[id];if(b.card){const f=b.card(c,e,x);if(f){const tx=app(f);snap(tx,{card:i,bonus:j})}}});
+  });
+  bon.forEach((id,j)=>{const b=PKBM[id];if(b.glob){const f=b.glob(e,x,cs);if(f){const tx=app(f);snap(tx,{bonus:j})}}});
+  return{t:e.t,name:H.n,idx:e.idx,ev,chips,mult,total:Math.floor(chips*mult)};
+}
+function pkPreview(cs){
+  if(!cs.length)return null;
+  const e=pkEval(cs),H=PKH[e.t];
+  let c=H.c;e.idx.forEach(i=>c+=pkChips(cs[i].r));
+  return{name:H.n,chips:c,mult:H.m};
+}
+const PKKEY='arki_poker_best';
+function pkBest(){try{const b=JSON.parse(localStorage.getItem(PKKEY));if(b&&typeof b.round==='number')return b}catch(e){}return{round:0,total:0}}
+function pkSaveBest(round,total){const b=pkBest();try{localStorage.setItem(PKKEY,JSON.stringify({round:Math.max(b.round,round),total:Math.max(b.total,total)}))}catch(e){}}
+let pk={phase:'menu',bonus:[],sort:'rank',total:0};
+const pkHandsMax=()=>4+(pk.bonus.includes('main')?1:0);
+const pkDiscMax=()=>3+(pk.bonus.includes('defausse')?1:0);
+const pkSize=()=>8+(pk.bonus.includes('poche')?1:0);
+const pkWait=ms=>new Promise(r=>setTimeout(r,ms));
+const pkReduce=()=>{try{return matchMedia('(prefers-reduced-motion:reduce)').matches}catch(e){return false}};
+function pkSort(){
+  if(pk.sort==='rank')pk.hand.sort((a,b)=>(b.r-a.r)||(a.s-b.s));
+  else pk.hand.sort((a,b)=>(a.s-b.s)||(b.r-a.r));
+}
+function pkDraw(){while(pk.hand.length<pkSize()&&pk.deck.length)pk.hand.push(pk.deck.pop());pkSort()}
+function pkNewRun(){pk={phase:'play',round:0,bonus:[],sort:'rank',total:0,anim:false};pkStartRound()}
+function pkOpen(){if(pk.phase==='menu'||pk.phase==='win'||pk.phase==='lose')pkNewRun()}
+function pkStartRound(){
+  pk.round++;pk.score=0;pk.hands=pkHandsMax();pk.discards=pkDiscMax();pk.sel=new Set();pk.phase='play';pk.anim=false;pk.playing=null;pk.pending=null;
+  pk.deck=pkShuffle(pkMakeDeck());pk.hand=[];pkDraw();
+  pkSaveBest(pk.round,pk.total);
+  pkRender();
+}
+function pkOffers(){return pkShuffle(PKB.map(b=>b.id).filter(id=>!pk.bonus.includes(id))).slice(0,3)}
+function pkCardHtml(c,cls,attrs){
+  const red=(c.s===1||c.s===2)?'red':'blk';
+  return '<button type="button" class="pk-card '+red+(cls?' '+cls:'')+'" '+attrs+' aria-label="'+(PKR[c.r]||c.r)+' de '+PKSN[c.s]+'"><span class="cn"><span class="r">'+pkLab(c.r)+'</span><span class="s">'+PKS[c.s]+'</span></span><span class="big">'+PKS[c.s]+'</span></button>';
+}
+function pkShelf(){
+  let h='<div class="pk-bonus" id="pkBonus">';
+  for(let i=0;i<5;i++){
+    const id=pk.bonus[i];
+    if(id){const b=PKBM[id];h+='<button type="button" class="pk-slot" data-pk="slot" data-i="'+i+'" aria-label="'+b.n+' : '+b.d+'"><span class="ic">'+b.ic+'</span><span class="nm">'+b.n+'</span></button>'}
+    else h+='<div class="pk-slot empty" aria-hidden="true"><span class="ic">＋</span><span class="nm">libre</span></div>';
+  }
+  return h+'</div><p class="pk-tip" id="pkTip" aria-live="polite">'+(pk.phase==='replace'?'Touche le bonus à remplacer.':(pk.bonus.length?'Touche un bonus pour lire son effet.':'Pas encore de bonus : tu en choisis un après chaque manche.'))+'</p>';
+}
+function pkTop(){
+  const t=PKT[pk.round-1];
+  return '<div class="pk-top"><div class="pk-box"><span>Manche</span><b>'+pk.round+'/'+PKT.length+'</b></div><div class="pk-box"><span>Objectif</span><b>'+t+'</b></div><div class="pk-box"><span>Score</span><b id="pkScore">'+pk.score+'</b></div></div><div class="pk-prog"><i id="pkBar" style="width:'+Math.min(100,pk.score/t*100)+'%"></i></div>';
+}
+function pkViewMenu(){
+  const b=pkBest();
+  let rows='';for(const k in PKH)rows+='<tr><td>'+PKH[k].n+'</td><td>'+PKH[k].c+' × '+PKH[k].m+'</td></tr>';
+  return '<div class="pk-title">Poker d\'Arki</div><p class="lead2">Un jeu de cartes solo : forme des mains de poker, cumule des bonus et bats l\'objectif de chaque manche.</p><ol class="pk-rules"><li>Choisis jusqu\'à <b>5 cartes</b> et joue-les : points × multiplicateur.</li><li>Atteins l\'<b>objectif</b> avant de manquer de mains.</li><li>Entre deux manches, choisis un <b>bonus</b> (5 maximum).</li><li>Survis aux <b>'+PKT.length+' manches</b> pour gagner.</li></ol><details class="pk-det"><summary>Voir les combinaisons</summary><table>'+rows+'</table></details><p class="info">'+(b.round?'Record : manche '+b.round+' · '+b.total+' points au total':'Pas encore de record.')+'</p><div class="row"><button class="btn primary" data-pk="new">Nouvelle partie</button></div>';
+}
+function pkViewPlay(){
+  const pl=pk.playing?pk.playing.cards:null;
+  return pkTop()+'<div class="pk-calc"><div class="pk-name" id="pkName"></div><div class="pk-eq"><b class="pk-chip" id="pkChips">0</b><span>×</span><b class="pk-mult" id="pkMult">0</b></div></div>'
+    +pkShelf()
+    +'<div class="pk-played" id="pkPlayed">'+(pl?pl.map((c,i)=>pkCardHtml(c,'','disabled')).join(''):'')+'</div>'
+    +'<div class="pk-hand" id="pkHand">'+pk.hand.map(c=>pkCardHtml(c,pk.sel.has(c.id)?'sel':'','data-pk="card" data-id="'+c.id+'" aria-pressed="'+pk.sel.has(c.id)+'"')).join('')+'</div>'
+    +'<p class="info" id="pkInfo"></p>'
+    +'<div class="row"><button class="btn primary" id="pkPlayBtn" data-pk="play"></button><button class="btn" id="pkDiscBtn" data-pk="disc"></button><button class="btn" data-pk="sort">Trier : '+(pk.sort==='rank'?'valeur':'couleur')+'</button></div>';
+}
+function pkViewShop(){
+  const full=pk.bonus.length>=5;
+  let h='<div class="pk-banner"><b>Manche '+pk.round+' réussie !</b><span>Score : '+pk.score+' / '+PKT[pk.round-1]+'</span></div><p class="info">Choisis un bonus'+(full?' (tu en as déjà 5 : le nouveau en remplacera un)':'')+'</p><div class="pk-offers">';
+  pk.offers.forEach(id=>{const b=PKBM[id];h+='<button type="button" class="pk-offer" data-pk="offer" data-id="'+id+'"><span class="ic">'+b.ic+'</span><b>'+b.n+'</b><span class="d">'+b.d+'</span></button>'});
+  return h+'</div>'+pkShelf()+'<div class="row"><button class="btn" data-pk="skip">Passer</button></div>';
+}
+function pkViewReplace(){
+  const b=PKBM[pk.pending];
+  return '<div class="pk-banner"><b>'+b.ic+' '+b.n+'</b><span>'+b.d+'</span></div>'+pkShelf()+'<div class="row"><button class="btn" data-pk="cancel">Annuler</button></div>';
+}
+function pkViewEnd(){
+  const b=pkBest(),win=pk.phase==='win';
+  return '<div class="pk-title">'+(win?'Victoire ! 🎉':'Éliminé')+'</div><p class="lead2">'+(win?'Tu as réussi les '+PKT.length+' manches.':'Tu t\'arrêtes à la manche <b>'+pk.round+'</b> : '+pk.score+' points sur '+PKT[pk.round-1]+'.')+'</p><p class="info">Total de la partie : '+pk.total+' · Record : manche '+b.round+', '+b.total+' points</p>'+pkShelf()+'<div class="row"><button class="btn primary" data-pk="new">Rejouer</button></div>';
+}
+function pkRender(){
+  const r=document.getElementById('pkRoot');if(!r)return;
+  const v={menu:pkViewMenu,play:pkViewPlay,shop:pkViewShop,replace:pkViewReplace,win:pkViewEnd,lose:pkViewEnd}[pk.phase];
+  r.innerHTML=v();pkPanel();
+}
+function pkPanel(){
+  if(pk.phase!=='play')return;
+  const nm=document.getElementById('pkName');if(!nm||pk.playing)return;
+  const cs=pk.hand.filter(c=>pk.sel.has(c.id)),pv=pkPreview(cs);
+  nm.textContent=pv?pv.name:"Choisis jusqu'à 5 cartes";
+  document.getElementById('pkChips').textContent=pv?pv.chips:0;
+  document.getElementById('pkMult').textContent=pv?pv.mult:0;
+  const p=document.getElementById('pkPlayBtn'),d=document.getElementById('pkDiscBtn');
+  p.textContent='Jouer la main'+(cs.length?' ('+cs.length+')':'');p.disabled=!cs.length||pk.hands<=0||pk.anim;
+  d.textContent='Défausser'+(cs.length?' ('+cs.length+')':'');d.disabled=!cs.length||pk.discards<=0||pk.anim;
+  document.getElementById('pkInfo').textContent='Mains : '+pk.hands+' · Défausses : '+pk.discards+' · Pioche : '+pk.deck.length;
+}
+function pkPop(el,txt){
+  if(!el)return;
+  el.classList.remove('pop');el.removeAttribute('data-txt');void el.offsetWidth;
+  if(txt)el.setAttribute('data-txt',txt);
+  el.classList.add('pop');
+}
+function pkCountUp(from,to,ms){
+  return new Promise(res=>{
+    const sc=document.getElementById('pkScore'),bar=document.getElementById('pkBar'),t=PKT[pk.round-1];
+    const set=v=>{if(sc)sc.textContent=v;if(bar)bar.style.width=Math.min(100,v/t*100)+'%'};
+    if(!ms){set(to);return res()}
+    const t0=performance.now();
+    (function f(now){const q=Math.min(1,(now-t0)/ms);set(Math.round(from+(to-from)*q));q<1?requestAnimationFrame(f):res()})(t0);
+  });
+}
+async function pkPlay(){
+  if(pk.phase!=='play'||pk.anim||!pk.sel.size||pk.hands<=0)return;
+  const cs=pk.hand.filter(c=>pk.sel.has(c.id));
+  const res=pkScore(cs,pk.bonus,{last:pk.hands===1});
+  pk.anim=true;pk.hands--;pk.playing={cards:cs};
+  pk.hand=pk.hand.filter(c=>!pk.sel.has(c.id));pk.sel=new Set();
+  pkRender();
+  const red=pkReduce(),dl=red?30:380;
+  const root=document.getElementById('pkRoot');
+  const nm=root.querySelector('#pkName'),ch=root.querySelector('#pkChips'),mu=root.querySelector('#pkMult');
+  nm.textContent=res.name;
+  const played=root.querySelectorAll('#pkPlayed .pk-card'),slots=root.querySelectorAll('#pkBonus .pk-slot');
+  res.idx.forEach(i=>played[i].classList.add('sc'));
+  for(const ev of res.ev){
+    ch.textContent=ev.chips;mu.textContent=pkFx(ev.mult);
+    if(ev.bonus!=null){pkPop(slots[ev.bonus],ev.txt);if(ev.card!=null)pkPop(played[ev.card],'')}
+    else if(ev.card!=null)pkPop(played[ev.card],ev.txt);
+    await pkWait(dl);
+  }
+  nm.textContent=res.name+' → +'+res.total;
+  await pkWait(dl);
+  const from=pk.score;pk.score=from+res.total;
+  await pkCountUp(from,pk.score,red?0:600);
+  pk.playing=null;pkDraw();pk.anim=false;
+  if(pk.score>=PKT[pk.round-1]){pkWon();return}
+  if(pk.hands<=0||pk.hand.length===0){pkLost();return}
+  pkRender();
+}
+function pkDiscard(){
+  if(pk.phase!=='play'||pk.anim||!pk.sel.size||pk.discards<=0)return;
+  pk.discards--;
+  pk.hand=pk.hand.filter(c=>!pk.sel.has(c.id));pk.sel=new Set();pkDraw();
+  if(pk.hand.length===0){pkLost();return}
+  pkRender();
+}
+function pkWon(){
+  pk.total+=pk.score;
+  pkSaveBest(pk.round,pk.total);
+  if(pk.round>=PKT.length){pk.phase='win';pkRender();helper.event('pkend',{win:true,round:pk.round,total:pk.total,best:pkBest().round});return}
+  pk.phase='shop';pk.offers=pkOffers();pkRender();
+}
+function pkLost(){
+  pk.total+=pk.score;pk.phase='lose';
+  pkSaveBest(pk.round,pk.total);
+  pkRender();helper.event('pkend',{win:false,round:pk.round,total:pk.total,best:pkBest().round});
+}
+function pkPick(id){
+  if(pk.bonus.length<5){pk.bonus.push(id);pkStartRound()}
+  else{pk.phase='replace';pk.pending=id;pkRender()}
+}
+document.getElementById('pkRoot').addEventListener('click',e=>{
+  const t=e.target.closest('[data-pk]');if(!t||t.disabled)return;
+  const a=t.dataset.pk;
+  if(a==='new')pkNewRun();
+  else if(a==='card'){
+    if(pk.phase!=='play'||pk.anim)return;
+    const id=+t.dataset.id;
+    if(pk.sel.has(id))pk.sel.delete(id);
+    else if(pk.sel.size<5)pk.sel.add(id);
+    else{const i=document.getElementById('pkInfo');if(i){i.textContent='5 cartes maximum';setTimeout(pkPanel,1200)}return}
+    t.classList.toggle('sel',pk.sel.has(id));t.setAttribute('aria-pressed',String(pk.sel.has(id)));
+    pkPanel();
+  }
+  else if(a==='play')pkPlay();
+  else if(a==='disc')pkDiscard();
+  else if(a==='sort'){pk.sort=pk.sort==='rank'?'suit':'rank';pkSort();pkRender()}
+  else if(a==='offer')pkPick(t.dataset.id);
+  else if(a==='skip')pkStartRound();
+  else if(a==='cancel'){pk.phase='shop';pk.pending=null;pkRender()}
+  else if(a==='slot'){
+    const i=+t.dataset.i;
+    if(pk.phase==='replace'){pk.bonus[i]=pk.pending;pkStartRound()}
+    else{const b=PKBM[pk.bonus[i]],tip=document.getElementById('pkTip');if(b&&tip)tip.textContent=b.ic+' '+b.n+' : '+b.d}
+  }
+});
+pkRender();
 
 // ÉMULATEUR (EmulatorJS)
 const rom=document.getElementById('rom'),info=document.getElementById('emuInfo');
