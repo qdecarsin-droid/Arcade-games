@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox=%220%200%20100%20100%22%20xmlns=%22http://www.w3.org/2000/svg%22%20aria-hidden=%22true%22%3E%3Cdefs%3E%3ClinearGradient%20id=%22hd%22%20x1=%220%22%20y1=%220%22%20x2=%220%22%20y2=%221%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%23ffffff%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%23d9d3ff%22/%3E%3C/linearGradient%3E%3Cfilter%20id=%22gl%22%20x=%22-50%25%22%20y=%22-50%25%22%20width=%22200%25%22%20height=%22200%25%22%3E%3CfeGaussianBlur%20stdDeviation=%222.2%22/%3E%3C/filter%3E%3C/defs%3E%3Crect%20width=%22100%22%20height=%22100%22%20rx=%2224%22%20fill=%22%235b3cff%22/%3E%3Cg%20fill=%22%23e4dfff%22%20stroke=%22%23b3a8ff%22%20stroke-width=%221.6%22%3E%3Crect%20x=%2235%22%20y=%2274%22%20width=%2211%22%20height=%2214%22%20rx=%225%22/%3E%3Crect%20x=%2254%22%20y=%2274%22%20width=%2211%22%20height=%2214%22%20rx=%225%22/%3E%3Crect%20x=%2227%22%20y=%2285%22%20width=%2223%22%20height=%2210%22%20rx=%225%22/%3E%3Crect%20x=%2250%22%20y=%2285%22%20width=%2223%22%20height=%2210%22%20rx=%225%22/%3E%3C/g%3E%3Crect%20x=%2216%22%20y=%2224%22%20width=%2268%22%20height=%2255%22%20rx=%2224%22%20fill=%22url%28%23hd%29%22%20stroke=%22%23bdb3ff%22%20stroke-width=%221.6%22/%3E%3Cpath%20d=%22M14%2046%20C14%2012%2086%2012%2086%2046%22%20fill=%22none%22%20stroke=%22%23d9d3ff%22%20stroke-width=%226%22%20stroke-linecap=%22round%22/%3E%3Crect%20x=%228%22%20y=%2238%22%20width=%2212%22%20height=%2222%22%20rx=%226%22%20fill=%22%23d9d3ff%22/%3E%3Crect%20x=%2280%22%20y=%2238%22%20width=%2212%22%20height=%2222%22%20rx=%226%22%20fill=%22%23d9d3ff%22/%3E%3Crect%20x=%2223%22%20y=%2233%22%20width=%2254%22%20height=%2240%22%20rx=%2217%22%20fill=%22%230e0b2e%22/%3E%3Cpath%20d=%22M30%2042%20C32%2037%2038%2035%2045%2035%22%20fill=%22none%22%20stroke=%22%23fff%22%20stroke-opacity=%22.22%22%20stroke-width=%222.4%22%20stroke-linecap=%22round%22/%3E%3Cg%3E%3Cg%20filter=%22url%28%23gl%29%22%20opacity=%22.85%22%3E%3Crect%20x=%2235%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%233be8ff%22/%3E%3Crect%20x=%2254%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%233be8ff%22/%3E%3C/g%3E%3Crect%20x=%2235%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%236af2ff%22/%3E%3Crect%20x=%2254%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%236af2ff%22/%3E%3C/g%3E%3C/svg%3E">
 <script>window.ARKI_IOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);window.coi={shouldRegister:()=>{if(window.ARKI_IOS)return false;try{return localStorage.getItem("arki_psp")==="1"}catch(e){return false}},shouldDeregister:()=>{if(window.ARKI_IOS)return true;try{return localStorage.getItem("arki_psp")!=="1"}catch(e){return false}}};</script>
 <script src="coi-serviceworker.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=VT323&family=Caveat:wght@600;700&family=Fredoka:wght@500;600&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0d0c08;--panel:#251a8f;--line:#5a47ff;--text:#f4f2ff;--muted:#b9b2ff;--hot:#5b3cff;--sun:#d9d3ff}
 *{box-sizing:border-box}
@@ -346,8 +346,113 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 .dpad button{height:auto;width:100%;aspect-ratio:1;font-size:30px;border-radius:18px;background:rgba(255,255,255,.16);box-shadow:0 5px 0 rgba(10,8,36,.55);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .dpad button:active{background:#fff;color:#0d0c08;transform:translateY(3px);box-shadow:0 2px 0 rgba(10,8,36,.55)}
 .dpad .mid{background:rgba(255,255,255,.08);border-radius:50%;margin:24%}
-#cv{touch-action:manipulation}
+#cv{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 @media (prefers-reduced-motion:reduce){.pk-card.pop,.pk-slot.pop{animation:none}.pk-card[data-txt]::after,.pk-slot[data-txt]::after{animation:none;opacity:1}}
+
+/* 2048 + BLOCS */
+[hidden]{display:none!important}
+.hud2{gap:10px;margin:6px 0}
+.w48{position:relative;width:min(100%,380px);margin:8px auto}
+.b48{width:100%;aspect-ratio:1;padding:8px;border-radius:16px;background:#1a1245;border:3px solid #0a0620;box-shadow:inset 0 0 0 2px #4a3bb8,4px 6px 0 #0a0620;touch-action:none;user-select:none;-webkit-user-select:none}
+.grid48{position:relative;width:100%;height:100%;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr)}
+.c48{margin:4px;border-radius:8px;background:rgba(255,255,255,.08)}
+.t48{position:absolute;left:0;top:0;width:25%;height:25%;transform:translate(calc(var(--c)*100%),calc(var(--r)*100%));transition:transform .12s ease-out}
+.t48 .in{margin:4px;height:calc(100% - 8px);border-radius:8px;display:flex;align-items:center;justify-content:center;font:800 clamp(22px,7vw,38px)/1 'Inter Tight',system-ui,sans-serif;box-shadow:0 3px 0 rgba(0,0,0,.28)}
+.t48 .in.new{animation:p48n .18s ease-out}
+.t48 .in.mrg{animation:p48m .18s ease-out}
+@keyframes p48n{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes p48m{0%{transform:scale(1)}50%{transform:scale(1.18)}100%{transform:scale(1)}}
+.ov48{position:absolute;inset:0;border-radius:16px;background:rgba(10,6,32,.82);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;z-index:2}
+.ov48 b{font-size:24px;color:#ffe14d}
+.bkwrap{display:flex;gap:14px;justify-content:center;align-items:flex-start;margin:8px 0}
+#bk{width:min(240px,58vw);height:auto;border:3px solid #0a0620;box-shadow:0 0 0 2px #4a3bb8,4px 6px 0 #0a0620;touch-action:none}
+.bkside{display:flex;flex-direction:column;gap:8px;width:92px}
+.bkbox{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px;border-radius:10px;background:rgba(10,8,36,.7);border:2px solid var(--line);line-height:1.1}
+.bkbox span{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.bkbox b{font-size:18px;font-variant-numeric:tabular-nums;color:#fff}
+.bkbox.nx canvas{width:76px;height:auto;border:0;background:transparent}
+.bkpad{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0}
+.bkpad button{width:56px;height:56px;font-size:22px;background:var(--panel);color:var(--text);border:2px solid var(--line);border-radius:10px;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;padding:0}
+.bkpad button:active{background:var(--hot)}
+@media (prefers-reduced-motion:reduce){.t48{transition:none}.t48 .in.new,.t48 .in.mrg{animation:none}}
+
+/* ===== PERSONNALITÉS : un décor par jeu (le Poker garde la sienne) ===== */
+section#snake.on,section#ttt.on,section#mem.on,section#g48.on,section#blk.on{position:relative;overflow:hidden;isolation:isolate}
+nav button{transition:background .2s,color .2s,box-shadow .2s}
+body[data-g=snake] nav button[aria-selected=true]{background:#1fd65f;border-color:#1fd65f;color:#021207;box-shadow:0 10px 24px -10px rgba(31,214,95,.9)}
+body[data-g=ttt] nav button[aria-selected=true]{background:#ffd93d;border-color:#ffd93d;color:#1d2b53;box-shadow:0 10px 24px -10px rgba(255,217,61,.9)}
+body[data-g=mem] nav button[aria-selected=true]{background:#ff6fae;border-color:#ff6fae;color:#fff;box-shadow:0 10px 24px -10px rgba(255,111,174,.9)}
+body[data-g=g48] nav button[aria-selected=true]{background:#2fd3c0;border-color:#2fd3c0;color:#04263a;box-shadow:0 10px 24px -10px rgba(47,211,192,.9)}
+body[data-g=blk] nav button[aria-selected=true]{background:linear-gradient(135deg,#ff4fd8,#ff9a4d);border-color:#ff4fd8;color:#fff;box-shadow:0 10px 24px -10px rgba(255,79,216,.9)}
+
+/* 01 SNAKE — terminal à phosphore vert */
+section#snake.on{background:radial-gradient(ellipse at 50% 0,#0d3d1d 0,#021207 72%);border:3px solid #0f7a37;box-shadow:inset 0 0 70px rgba(0,255,100,.1),0 0 0 2px #021207,0 24px 60px -28px rgba(0,0,0,.9);color:#7dffa8;font-family:'VT323',ui-monospace,Menlo,monospace}
+section#snake.on::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
+#snake .score{background:transparent;border:2px solid #1fd65f;color:#7dffa8;border-radius:4px;font:23px/1 'VT323',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 8px #1fd65f;padding:8px 14px}
+#snake .score::before{content:"> ";opacity:.7}
+#snake canvas{border:3px solid #1fd65f;border-radius:6px;box-shadow:0 0 28px rgba(31,214,95,.35),inset 0 0 24px rgba(0,0,0,.6)}
+#snake .info{color:#4fcf7c;font:20px/1.1 'VT323',ui-monospace,monospace;letter-spacing:.04em}
+#snake .dpad button{background:#031a0b;border:2px solid #1fd65f;color:#7dffa8;border-radius:4px;box-shadow:0 0 12px rgba(31,214,95,.25)}
+#snake .dpad button:active{background:#0f5a2a}
+#snake .btn.primary{background:#1fd65f;color:#021207;border:0;border-radius:4px;font:24px/1 'VT323',ui-monospace,monospace;text-transform:uppercase;letter-spacing:.1em;box-shadow:0 0 20px rgba(31,214,95,.5);padding:10px 20px}
+
+/* 02 MORPION — page de cahier d'écolier */
+section#ttt.on{color:#1d2b53;background:linear-gradient(90deg,transparent 46px,#e8556a 46px,#e8556a 48px,transparent 48px),repeating-linear-gradient(#fdf8e6 0 31px,#b9d5ee 31px 32px);border:3px solid #3b2a1a;border-radius:10px 26px 12px 24px;box-shadow:6px 8px 0 #3b2a1a;font-family:'Caveat','Segoe Print','Comic Sans MS',cursive}
+#ttt .score{display:inline-block;background:#fff176;color:#1d2b53;border:0;border-radius:3px;font:700 30px/1 'Caveat','Comic Sans MS',cursive;padding:6px 16px;transform:rotate(-1.5deg);box-shadow:1px 2px 0 rgba(0,0,0,.18);letter-spacing:0}
+#ttt .grid{max-width:300px;gap:0;margin:20px auto}
+#ttt .cell{background:transparent;border:0;border-radius:0;box-shadow:none;color:#1d4fd8;font:700 clamp(60px,17vw,92px)/1 'Caveat','Comic Sans MS',cursive;padding:0;transition:background .2s}
+#ttt .cell:active{transform:none;box-shadow:none;background:rgba(29,79,216,.08)}
+#ttt .cell:nth-child(-n+6){border-bottom:5px solid #1d2b53}
+#ttt .cell:not(:nth-child(3n)){border-right:5px solid #1d2b53}
+#ttt .cell[data-v=O]{color:#d6264a}
+#ttt .cell.new{animation:tink .28s ease-out}
+#ttt .cell.w{background:rgba(255,241,70,.75)}
+@keyframes tink{0%{transform:scale(.4) rotate(-14deg);opacity:0}100%{transform:none;opacity:1}}
+#ttt .btn.primary{background:#ffd93d;color:#1d2b53;border:3px solid #1d2b53;border-radius:8px 16px 10px 14px;font:700 26px/1 'Caveat','Comic Sans MS',cursive;box-shadow:3px 4px 0 #1d2b53;padding:8px 20px}
+#ttt .btn.primary:active{transform:translate(3px,4px);box-shadow:none}
+
+/* 03 MEMORY — coffre à jouets pastel */
+section#mem.on{color:#7a2f8f;background:radial-gradient(rgba(255,255,255,.7) 3px,transparent 4px) 0 0/30px 30px,radial-gradient(circle at 15% 10%,#ffcfe4 0,transparent 50%),radial-gradient(circle at 90% 90%,#c6f3e3 0,transparent 50%),#fff1cf;border:4px solid #fff;box-shadow:0 0 0 5px #ff9ec4,0 24px 50px -24px rgba(122,47,143,.6);border-radius:34px;font-family:'Fredoka','Trebuchet MS',system-ui,sans-serif}
+#mem .score{background:#fff;color:#c2348b;border:3px solid #ff9ec4;font:600 18px 'Fredoka','Trebuchet MS',sans-serif;box-shadow:0 4px 0 #ff9ec4;letter-spacing:.02em}
+#mem .grid{gap:10px;max-width:380px}
+#mem .cell{background:linear-gradient(150deg,#ff9ec4,#b98cff);border:4px solid #fff;border-radius:24px;box-shadow:0 6px 0 #a56be0;color:#333;font-size:clamp(30px,9vw,46px);position:relative}
+#mem .cell:not(.flip)::after{content:"✿";color:rgba(255,255,255,.75);font-size:.62em}
+#mem .cell:active{transform:translateY(3px);box-shadow:0 3px 0 #a56be0}
+#mem .cell.flip{background:#fff;border-color:#ffd0e6;box-shadow:0 6px 0 #ffb3d6;animation:mflip .32s ease-out}
+#mem .cell.ok{background:#d8ffe8;border-color:#8be8b0;box-shadow:0 6px 0 #5ccf8c;animation:mok .5s ease-out}
+@keyframes mflip{0%{transform:perspective(420px) rotateY(88deg) scale(.9)}100%{transform:perspective(420px) rotateY(0)}}
+@keyframes mok{0%,100%{transform:scale(1)}40%{transform:scale(1.14) rotate(-3deg)}70%{transform:scale(.97) rotate(2deg)}}
+#mem .btn.primary{background:#ff6fae;color:#fff;border:3px solid #fff;border-radius:999px;font:600 18px 'Fredoka','Trebuchet MS',sans-serif;box-shadow:0 5px 0 #c2348b,0 0 0 3px #ff9ec4;padding:10px 22px}
+#mem .btn.primary:active{transform:translateY(3px);box-shadow:0 2px 0 #c2348b,0 0 0 3px #ff9ec4}
+
+/* 05 2048 — aurore boréale et verre dépoli */
+section#g48.on{background:radial-gradient(1.5px 1.5px at 18% 28%,#fff,transparent),radial-gradient(1.5px 1.5px at 72% 16%,#fff,transparent),radial-gradient(1px 1px at 42% 66%,#fff,transparent),radial-gradient(1px 1px at 88% 58%,#fff,transparent),radial-gradient(1px 1px at 8% 80%,#fff,transparent),linear-gradient(180deg,#050c2e 0%,#0b2a4a 62%,#0c4a5a 100%);border:3px solid #5fe6d0;box-shadow:0 0 36px rgba(95,230,208,.3),0 24px 60px -28px rgba(0,0,0,.9);font-family:'Inter Tight',system-ui,sans-serif}
+section#g48.on::before{content:"";position:absolute;inset:-25%;z-index:-1;background:linear-gradient(100deg,transparent 12%,rgba(70,255,190,.38) 32%,transparent 52%),linear-gradient(80deg,transparent 42%,rgba(150,120,255,.34) 62%,transparent 82%);filter:blur(34px);animation:aurora 16s ease-in-out infinite alternate}
+@keyframes aurora{0%{transform:translateX(-8%) skewX(-6deg)}100%{transform:translateX(8%) skewX(6deg) scale(1.08)}}
+#g48 .score{background:rgba(255,255,255,.12);border:1.5px solid rgba(190,255,245,.5);color:#c8fff6;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);letter-spacing:.08em}
+#g48 .b48{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.4);box-shadow:0 22px 50px -18px rgba(0,0,0,.6),inset 0 0 30px rgba(120,220,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#g48 .c48{background:rgba(255,255,255,.1)}
+#g48 .t48 .in{border:1.5px solid rgba(255,255,255,.7);box-shadow:inset 0 2px 0 rgba(255,255,255,.65),0 0 16px rgba(120,220,255,.4)}
+#g48 .info{color:#bfeee8}
+#g48 .dpad button{background:rgba(255,255,255,.12);border:1.5px solid rgba(190,255,245,.5);color:#c8fff6;border-radius:14px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#g48 .dpad button:active{background:rgba(95,230,208,.4)}
+#g48 .btn.primary{background:linear-gradient(135deg,#2fd3c0,#5b8cff);color:#04263a;border:0;font-weight:700}
+#g48 .ov48{background:rgba(5,12,46,.78);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+#g48 .ov48 b{color:#9ff7ea}
+
+/* 06 BLOCS — synthwave : soleil rétro et grille néon */
+section#blk.on{background:linear-gradient(180deg,#14002e 0%,#3b0a5e 58%,#14002e 100%);border:3px solid #ff4fd8;box-shadow:0 0 34px rgba(255,79,216,.4),0 24px 60px -28px rgba(0,0,0,.9);font-family:'Orbitron','Inter Tight',system-ui,sans-serif}
+section#blk.on::before{content:"";position:absolute;left:50%;top:30px;width:min(640px,125%);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;z-index:-2;background:linear-gradient(180deg,#ffe66b,#ff4fa3 70%);opacity:.6;-webkit-mask-image:linear-gradient(#000 52%,transparent 52% 58%,#000 58% 68%,transparent 68% 75%,#000 75% 85%,transparent 85% 92%,#000 92%);mask-image:linear-gradient(#000 52%,transparent 52% 58%,#000 58% 68%,transparent 68% 75%,#000 75% 85%,transparent 85% 92%,#000 92%)}
+section#blk.on::after{content:"";position:absolute;left:-50%;right:-50%;bottom:0;height:46%;z-index:-1;pointer-events:none;background:repeating-linear-gradient(90deg,rgba(255,80,220,.6) 0 2px,transparent 2px 48px),repeating-linear-gradient(0deg,rgba(255,80,220,.6) 0 2px,transparent 2px 34px);transform:perspective(320px) rotateX(64deg);transform-origin:50% 100%;-webkit-mask-image:linear-gradient(transparent,#000 45%);mask-image:linear-gradient(transparent,#000 45%)}
+#blk #bk{border:3px solid #3df5ff;border-radius:6px;box-shadow:0 0 26px rgba(61,245,255,.5),inset 0 0 20px rgba(0,0,0,.5)}
+#blk .bkbox{background:rgba(14,0,38,.8);border:2px solid #ff4fd8;border-radius:6px;box-shadow:0 0 12px rgba(255,79,216,.35)}
+#blk .bkbox span{font-family:'Orbitron',sans-serif;color:#ff9ae9;letter-spacing:.12em;font-size:9px}
+#blk .bkbox b{font-family:'Orbitron',sans-serif;font-weight:800;color:#3df5ff;text-shadow:0 0 10px #3df5ff}
+#blk .bkpad button{background:rgba(14,0,38,.8);border:2px solid #3df5ff;color:#3df5ff;border-radius:8px;box-shadow:0 0 12px rgba(61,245,255,.35)}
+#blk .bkpad button:active{background:#3df5ff;color:#14002e}
+#blk .info{color:#e9b8ff;text-shadow:0 1px 6px #14002e}
+#blk .btn.primary{background:linear-gradient(135deg,#ff4fd8,#ff9a4d);color:#fff;border:0;border-radius:6px;font:800 14px 'Orbitron',sans-serif;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 0 22px rgba(255,79,216,.6)}
+@media (prefers-reduced-motion:reduce){section#g48.on::before{animation:none}#mem .cell.flip,#mem .cell.ok,#ttt .cell.new{animation:none}}
 </style>
 </head>
 <body>
@@ -356,7 +461,7 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
     <div class="hero-l">
       <div class="brand"><svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="hd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9d3ff"/></linearGradient><filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter></defs><g fill="#e4dfff" stroke="#b3a8ff" stroke-width="1.6"><rect x="35" y="74" width="11" height="14" rx="5"/><rect x="54" y="74" width="11" height="14" rx="5"/><rect x="27" y="85" width="23" height="10" rx="5"/><rect x="50" y="85" width="23" height="10" rx="5"/></g><rect x="16" y="24" width="68" height="55" rx="24" fill="url(#hd)" stroke="#bdb3ff" stroke-width="1.6"/><path d="M14 46 C14 12 86 12 86 46" fill="none" stroke="#5b3cff" stroke-width="6" stroke-linecap="round"/><rect x="8" y="38" width="12" height="22" rx="6" fill="#5b3cff"/><rect x="80" y="38" width="12" height="22" rx="6" fill="#5b3cff"/><rect x="23" y="33" width="54" height="40" rx="17" fill="#0e0b2e"/><path d="M30 42 C32 37 38 35 45 35" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="2.4" stroke-linecap="round"/><g class="eye"><g filter="url(#gl)" opacity=".85"><rect x="35" y="46" width="11" height="15" rx="5.5" fill="#3be8ff"/><rect x="54" y="46" width="11" height="15" rx="5.5" fill="#3be8ff"/></g><rect x="35" y="46" width="11" height="15" rx="5.5" fill="#6af2ff"/><rect x="54" y="46" width="11" height="15" rx="5.5" fill="#6af2ff"/></g></svg><span class="wm">Arkade<sup>©</sup></span></div>
       <h1>Joue<br>sans friction ©</h1>
-      <p class="lead">Quatre jeux rapides et un émulateur pour tes propres ROMs. Rien d'autre.</p>
+      <p class="lead">Six jeux rapides et un émulateur pour tes propres ROMs. Rien d'autre.</p>
       <a class="pill" href="#tabs">Jouer ↓</a>
     </div>
     <div class="hero-r"><svg class="stripes" viewBox="0 0 308 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="308" height="200" fill="#7b6cff"/><rect x="3" y="0" width="7" height="200" fill="#4a2bff"/><rect x="17" y="0" width="7" height="200" fill="#4a2bff"/><rect x="31" y="0" width="7" height="200" fill="#4a2bff"/><rect x="45" y="0" width="7" height="200" fill="#4a2bff"/><rect x="59" y="0" width="7" height="200" fill="#4a2bff"/><rect x="73" y="0" width="7" height="200" fill="#4a2bff"/><rect x="87" y="0" width="7" height="200" fill="#4a2bff"/><rect x="101" y="0" width="7" height="200" fill="#4a2bff"/><rect x="115" y="0" width="7" height="200" fill="#4a2bff"/><rect x="129" y="0" width="7" height="200" fill="#4a2bff"/><rect x="143" y="0" width="7" height="200" fill="#4a2bff"/><rect x="157" y="0" width="7" height="200" fill="#4a2bff"/><rect x="171" y="0" width="7" height="200" fill="#4a2bff"/><rect x="185" y="0" width="7" height="200" fill="#4a2bff"/><rect x="199" y="0" width="7" height="200" fill="#4a2bff"/><rect x="213" y="0" width="7" height="200" fill="#4a2bff"/><rect x="227" y="0" width="7" height="200" fill="#4a2bff"/><rect x="241" y="0" width="7" height="200" fill="#4a2bff"/><rect x="255" y="0" width="7" height="200" fill="#4a2bff"/><rect x="269" y="0" width="7" height="200" fill="#4a2bff"/><rect x="283" y="0" width="7" height="200" fill="#4a2bff"/><rect x="297" y="0" width="7" height="200" fill="#4a2bff"/><ellipse cx="76.5" cy="100" rx="5.5" ry="60" fill="#2a12e8"/><ellipse cx="118.5" cy="80" rx="5.5" ry="78" fill="#2a12e8"/><ellipse cx="160.5" cy="110" rx="5.5" ry="70" fill="#2a12e8"/><ellipse cx="202.5" cy="90" rx="5.5" ry="56" fill="#2a12e8"/><ellipse cx="244.5" cy="105" rx="5.5" ry="66" fill="#2a12e8"/></svg></div>
@@ -367,20 +472,22 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
   <button role="tab" data-t="ttt" aria-selected="false">02 Morpion</button>
   <button role="tab" data-t="mem" aria-selected="false">03 Memory</button>
   <button role="tab" data-t="pk" aria-selected="false">04 Poker</button>
-  <button role="tab" data-t="emu" aria-selected="false">05 Émulateur</button>
+  <button role="tab" data-t="g48" aria-selected="false">05 2048</button>
+  <button role="tab" data-t="blk" aria-selected="false">06 Blocs</button>
+  <button role="tab" data-t="emu" aria-selected="false">07 Émulateur</button>
 </nav>
 <main>
 
 <section id="snake" class="on">
-  <div class="score">Score : <span id="sScore">0</span></div>
+  <div class="row hud2"><div class="score">Score : <span id="sScore">0</span></div><div class="score">Record : <span id="sBest">0</span></div></div>
   <canvas id="cv" width="360" height="360"></canvas>
-  <p class="info">Touche le jeu pour commencer, puis tourne avec la croix ci-dessous (ou les flèches du clavier).</p>
+  <p class="info">Glisse le doigt sur le jeu pour tourner (ou croix, flèches, ZQSD). Pomme = 10 pts, le losange rose = 50 pts. Ça accélère à chaque pomme !</p>
   <div class="dpad">
     <span></span><button data-d="u" aria-label="Haut">▲</button><span></span>
     <button data-d="l" aria-label="Gauche">◀</button><span class="mid"></span><button data-d="r" aria-label="Droite">▶</button>
     <span></span><button data-d="d" aria-label="Bas">▼</button><span></span>
   </div>
-  <div class="row"><button class="btn primary" id="sStart">Lancer la partie</button></div>
+  <div class="row"><button class="btn primary" id="sStart">Lancer la partie</button><button class="btn" id="sPause">Pause</button><button class="btn" id="sMode">Bords : mortels</button></div>
 </section>
 
 <section id="ttt">
@@ -396,6 +503,37 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 </section>
 
 <section id="pk"><div id="pkRoot"></div></section>
+
+<section id="g48">
+  <div class="row hud2"><div class="score">Score : <span id="g48s">0</span></div><div class="score">Record : <span id="g48h">0</span></div></div>
+  <div class="w48"><div class="b48" id="g48b" aria-label="Plateau du 2048"><div class="grid48" id="g48l"><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i><i class="c48"></i></div></div>
+  <div class="ov48" id="g48ov" hidden><b></b><div class="row"><button class="btn primary" data-a="new">Rejouer</button><button class="btn" data-a="go">Continuer</button></div></div></div>
+  <p class="info">Glisse sur le plateau (ou flèches du clavier / croix) pour fusionner les tuiles identiques. Vise le 2048 !</p>
+  <div class="dpad">
+    <span></span><button data-d="u" aria-label="Haut">▲</button><span></span>
+    <button data-d="l" aria-label="Gauche">◀</button><span class="mid"></span><button data-d="r" aria-label="Droite">▶</button>
+    <span></span><button data-d="d" aria-label="Bas">▼</button><span></span>
+  </div>
+  <div class="row"><button class="btn primary" id="g48new">Nouvelle partie</button></div>
+</section>
+
+<section id="blk">
+  <div class="bkwrap">
+    <canvas id="bk" width="240" height="480" aria-label="Plateau des Blocs"></canvas>
+    <div class="bkside">
+      <div class="bkbox"><span>Score</span><b id="bkS">0</b></div>
+      <div class="bkbox"><span>Lignes</span><b id="bkL">0</b></div>
+      <div class="bkbox"><span>Niveau</span><b id="bkV">1</b></div>
+      <div class="bkbox"><span>Record</span><b id="bkB">0</b></div>
+      <div class="bkbox nx"><span>Suivantes</span><canvas id="bkNext" width="76" height="180"></canvas></div>
+    </div>
+  </div>
+  <div class="bkpad">
+    <button id="bkLeft" aria-label="Gauche">◀</button><button id="bkRot" aria-label="Tourner">⟳</button><button id="bkRight" aria-label="Droite">▶</button><button id="bkDown" aria-label="Descendre">▼</button><button id="bkDrop" aria-label="Chute rapide">⤓</button>
+  </div>
+  <p class="info">Touche le plateau pour tourner (ou commencer). Flèches, Haut = tourner, Espace = chute, P = pause.</p>
+  <div class="row"><button class="btn primary" id="bkNew">Nouvelle partie</button></div>
+</section>
 
 <section id="emu">
   <div class="row">
@@ -466,9 +604,12 @@ const tabs=document.querySelectorAll('#tabs button');
 tabs.forEach(b=>b.onclick=()=>{
   tabs.forEach(x=>x.setAttribute('aria-selected',x===b));
   document.querySelectorAll('main section').forEach(s=>s.classList.toggle('on',s.id===b.dataset.t));
-  if(b.dataset.t!=='snake')stopSnake();
+  if(b.dataset.t!=='snake')snakePause();
+  if(b.dataset.t!=='blk')bkPause();
+  document.body.dataset.g=b.dataset.t;
   helper.tab(b.dataset.t);
 });
+document.body.dataset.g='snake';
 
 // ASSISTANT
 const helper=(()=>{
@@ -494,16 +635,18 @@ const helper=(()=>{
     {r:/(iphone|ipad|android|mobile|telephone|tablette|safari|chrome)/,a:"Sur <b>iPad</b>, tout marche avec Safari sauf la PSP. Tu peux aussi ajouter Arkade à l'écran d'accueil (Partager → Sur l'écran d'accueil) pour l'avoir en plein écran. Évite les aperçus intégrés d'applications."},
     {r:/(snake|serpent)/,a:"<b>Snake</b> : touche le jeu (ou « Lancer la partie ») pour commencer. Dirige avec les flèches, <b>en glissant le doigt</b> sur le jeu, ou avec la croix. Chaque pomme = 10 points. Toucher un mur ou ton corps = perdu."},
     {r:/(morpion|tic ?tac|croix et rond)/,a:"<b>Morpion</b> : tu joues les X et tu commences. Aligne trois symboles. Prendre le centre est un bon début."},
+    {r:/(2048|fusion|tuiles?)/,a:"<b>2048</b> (onglet 05) : glisse sur le plateau (ou utilise la croix / les flèches) pour faire <b>fusionner les tuiles identiques</b> : 2+2=4, 4+4=8… Le but est d'obtenir la tuile <b>2048</b>. Chaque coup ajoute une nouvelle tuile ; la partie s'arrête quand plus rien ne bouge. Ton record est gardé. Dis « lance le 2048 » et j'y vais !"},
+    {r:/(tetris|blocs?\b|briques?|pieces? qui tombent|lignes?)/,a:"<b>Blocs</b> (onglet 06), le jeu de pièces qui tombent : déplace avec ◀ ▶, tourne avec ⟳ (ou touche le plateau), accélère avec ▼ et fais tomber d'un coup avec ⤓. Remplis une <b>ligne entière</b> pour l'effacer ; 4 lignes d'un coup rapportent le plus. Ça accélère tous les 10 lignes. Au clavier : flèches, Espace pour la chute, P pour la pause. Dis « lance les blocs » !"},
     {r:/(poker|balatro|manche|bonus|multiplicateur|jeu de cartes)/,a:"<b>Poker d'Arki</b> (onglet 04) : choisis jusqu'à <b>5 cartes</b> et joue-les, tes points = <b>points × multiplicateur</b>. Atteins l'objectif de la manche avant de manquer de mains (4 par manche, et 3 défausses). Entre deux manches, tu choisis un <b>bonus</b> parmi 3 (5 maximum, ils se combinent). Réussis <b>8 manches</b> pour gagner. Astuce : double paire, couleur ou full rapportent gros, et les bonus ×mult sont les plus puissants !"},
     {r:/(memory|paire|cartes?)/,a:"<b>Memory</b> : retourne deux cartes, trouve les paires. Moins de coups = meilleur score. « Mélanger les cartes » relance."},
-    {r:/(comment (ca )?(marche|fonctionne)|mode d.?emploi|aide|help|utiliser|demarrer|commencer|c.?est quoi|arkade|a quoi ca sert)/,a:"<b>Arkade</b>, c'est 4 jeux (Snake, Morpion, Memory, Poker d'Arki) et un <b>émulateur</b> pour tes propres ROMs.<br>Pour l'émulateur : onglet <b>05</b> → « Choisir une ROM » → le jeu se lance. Demande-moi où trouver des ROMs légales, les consoles, la manette ou le son."},
+    {r:/(comment (ca )?(marche|fonctionne)|mode d.?emploi|aide|help|utiliser|demarrer|commencer|c.?est quoi|arkade|a quoi ca sert)/,a:"<b>Arkade</b>, c'est 6 jeux (Snake, Morpion, Memory, Poker d'Arki, 2048, Blocs) et un <b>émulateur</b> pour tes propres ROMs.<br>Pour l'émulateur : onglet <b>07</b> → « Choisir une ROM » → le jeu se lance. Demande-moi où trouver des ROMs légales, les consoles, la manette ou le son."},
     {r:/(bonjour|salut|coucou|hello|hey|yo\b)/,a:"Salut ! Que veux-tu savoir ? Je peux t'aider pour les ROMs, les consoles, la manette, le son ou les jeux."},
     {r:/(merci|genial|parfait|\bcool\b|\btop\b)/,a:"Avec plaisir ! 🎮"}
   ];
   const base=['Où trouver des ROMs ?','Que sais-tu faire ?','Quelles consoles ?'];
   if(IOS)base.push("Écran d'accueil ?");
-  const tabChips={pk:['Comment jouer au Poker ?'],snake:['Comment jouer au Snake ?'],ttt:['Comment jouer au Morpion ?'],mem:['Comment jouer au Memory ?'],emu:['Pas de son','Ça rame','Quels formats ?']};
-  const tabTip={pk:"Poker d'Arki : joue jusqu'à 5 cartes, points × multiplicateur. Choisis des bonus entre les manches.",snake:"Snake : flèches du clavier ou croix, 10 points par pomme.",ttt:"Morpion : tu es les X. Le centre est un bon départ.",mem:"Memory : retiens la place des symboles pour faire moins de coups.",emu:"Émulateur : « Choisir une ROM », le reste est automatique. Demande-moi où en trouver légalement."};
+  const tabChips={g48:['Comment jouer au 2048 ?'],blk:['Comment jouer aux Blocs ?'],pk:['Comment jouer au Poker ?'],snake:['Comment jouer au Snake ?'],ttt:['Comment jouer au Morpion ?'],mem:['Comment jouer au Memory ?'],emu:['Pas de son','Ça rame','Quels formats ?']};
+  const tabTip={g48:"2048 : glisse pour fusionner les tuiles identiques et atteindre 2048.",blk:"Blocs : ◀ ▶ bouger, ⟳ tourner, ⤓ chute. Efface des lignes pleines !",pk:"Poker d'Arki : joue jusqu'à 5 cartes, points × multiplicateur. Choisis des bonus entre les manches.",snake:"Snake : flèches du clavier ou croix, 10 points par pomme.",ttt:"Morpion : tu es les X. Le centre est un bon départ.",mem:"Memory : retiens la place des symboles pour faire moins de coups.",emu:"Émulateur : « Choisir une ROM », le reste est automatique. Demande-moi où en trouver légalement."};
   const react={lose:["Aïe ! Relance une partie, tu vas faire mieux."],win:["Bravo, tu as gagné ! 🎉"],ttwin:["Bien joué, tu m'as battu !"],ttlose:["L'ordinateur l'emporte cette fois. Revanche ?"],draw:["Égalité : personne ne perd."]};
   let tab='snake',busy=false;
   const pick=a=>a[Math.random()*a.length|0];
@@ -548,7 +691,7 @@ const helper=(()=>{
     add('bot',"Youpi ! Maintenant je comprends tout ce que tu me dis 💜 Essaie-moi !");mood('happy');
   };
   document.getElementById('hDel').onclick=()=>{apiKey='';LS.del();hist=[];setBox.hidden=true;refreshUI();add('bot',"Clé retirée. Je repasse en mode simple.")};
-  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu peux aussi discuter de tout avec la personne. Réponds dans la langue de l'utilisateur (français par défaut), en 1 à 4 phrases courtes, chaleureuses, avec parfois un emoji. Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 5 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 8 manches, un bonus à choisir entre chaque manche, record retenu), 05 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on tourne avec la croix directionnelle sous le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
+  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu peux aussi discuter de tout avec la personne. Réponds dans la langue de l'utilisateur (français par défaut), en 1 à 4 phrases courtes, chaleureuses, avec parfois un emoji. Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 7 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 8 manches, un bonus à choisir entre chaque manche, record retenu), 05 2048 (glisser pour fusionner les tuiles, objectif 2048, record retenu), 06 Blocs (jeu de pièces qui tombent : ◀ ▶ ⟳ ▼ ⤓, lignes pleines effacées, niveaux, record retenu), 07 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on tourne avec la croix directionnelle sous le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
   async function callAI(q){
     hist.push({role:'user',content:q});
     if(hist.length>14)hist=hist.slice(-14);
@@ -568,6 +711,8 @@ const helper=(()=>{
   function say(h,m){add('bot',h);mood(m||'happy')}
   const GAMES=[
     {re:/poker|balatro|jeu de cartes/,tab:'pk',label:"le Poker d'Arki",run:()=>pkOpen(),again:()=>pkNewRun(),tip:'Choisis jusqu\'à 5 cartes et joue-les.'},
+    {re:/2048|fusion/,tab:'g48',label:'le 2048',run:()=>g48New(),tip:'Glisse pour fusionner les tuiles identiques.'},
+    {re:/tetris|\bblocs?\b|briques?/,tab:'blk',label:'les Blocs',run:()=>bkStart(),tip:'◀ ▶ pour bouger, ⟳ pour tourner, ⤓ pour faire tomber.'},
     {re:/snake|serpent/,tab:'snake',label:'le Snake',run:()=>startSnake(),tip:'Tourne avec la croix sous le jeu ou les flèches du clavier.'},
     {re:/morpion|tic ?tac/,tab:'ttt',label:'le Morpion',run:()=>tReset(),tip:'Tu es les X, à toi de jouer.'},
     {re:/\bmemory\b|\bpaires?\b/,tab:'mem',label:'le Memory',run:()=>mReset(),tip:'Retourne deux cartes à la fois.'}
@@ -698,11 +843,22 @@ const helper=(()=>{
       if(quiet)return;
       if(isOpen()){add('bot',tabTip[t]);mood(null)}
     },
+    playing(){close()},
     gameStarted(){
       close();hp.classList.add('mini');
       add('bot',"Jeu lancé ! Je me suis fait petit. Glisse-moi où tu veux si je gêne les touches 😉");
     },
     event(k,v){
+      if(k==='g48'&&v){
+        open(false);
+        add('bot',v.win?"2048 atteint ! 🎉 Score : <b>"+v.score+"</b>. Tu peux continuer pour battre ton record !":"Plus de coup ! Score : <b>"+v.score+"</b> (record : <b>"+v.best+"</b>). On refait une partie ?");
+        mood(v.win?'happy':'sad');return;
+      }
+      if(k==='bkend'&&v){
+        open(false);
+        add('bot',v.record?"Nouveau record aux Blocs : <b>"+v.score+"</b> points ! 🏆 ("+v.lines+(v.lines>1?" lignes":" ligne")+", niveau "+v.level+")":"Fin de partie : <b>"+v.score+"</b> points, "+v.lines+(v.lines>1?" lignes":" ligne")+" (record : <b>"+v.best+"</b>). Touche le plateau pour rejouer !");
+        mood(v.record?'happy':'sad');return;
+      }
       if(k==='pkend'&&v){
         open(false);
         add('bot',v.win?"Victoire au Poker d'Arki ! 🎉 Les "+v.round+" manches, bravo !":"Éliminé en manche <b>"+v.round+"</b> avec <b>"+v.total+"</b> points au total (record : manche <b>"+v.best+"</b>). Relance une partie !");
@@ -727,65 +883,179 @@ const helper=(()=>{
 
 // SNAKE
 const cv=document.getElementById('cv'),cx=cv.getContext('2d'),N=18,S=20;
-let sn,dir,nd,food,score,timer=null;
-function stopSnake(){clearInterval(timer);timer=null}
+const SKM='arki_snake_mode';
+let sk={sn:[],prev:[],dir:{x:1,y:0},q:[],food:null,bonus:null,score:0,apples:0,run:false,paused:false,over:false,count:0,acc:0,last:0,raf:0,overAt:0,wrap:false};
+try{sk.wrap=localStorage.getItem(SKM)==='wrap'}catch(e){}
+const sBest=()=>{try{return +localStorage.getItem('arki_snake')||0}catch(e){return 0}};
+const sStep=()=>Math.max(62,135-sk.apples*3);
+function sHud(){
+  document.getElementById('sScore').textContent=sk.score;
+  document.getElementById('sBest').textContent=Math.max(sBest(),sk.score);
+  document.getElementById('sMode').textContent='Bords : '+(sk.wrap?'traversables':'mortels');
+  const p=document.getElementById('sPause');p.textContent=sk.paused?'Reprendre':'Pause';p.disabled=!sk.run||sk.over;
+}
+function sFree(){
+  let p,n=0;
+  do{p={x:Math.random()*N|0,y:Math.random()*N|0};n++}while(n<400&&(sk.sn.some(s=>s.x===p.x&&s.y===p.y)||(sk.food&&sk.food.x===p.x&&sk.food.y===p.y)||(sk.bonus&&sk.bonus.x===p.x&&sk.bonus.y===p.y)));
+  return p;
+}
+function placeFood(){sk.food=null;sk.food=sFree()}
 function startSnake(){
-  stopSnake();sn=[{x:9,y:9},{x:8,y:9},{x:7,y:9}];dir=nd={x:1,y:0};q=[];score=0;
-  document.getElementById('sScore').textContent=0;placeFood();
-  timer=setInterval(tick,120);
+  helper.playing();cancelAnimationFrame(sk.raf);
+  sk.sn=[{x:9,y:9},{x:8,y:9},{x:7,y:9}];sk.prev=sk.sn.map(p=>({...p}));
+  sk.dir={x:1,y:0};sk.q=[];sk.score=0;sk.apples=0;sk.bonus=null;sk.over=false;sk.paused=false;sk.run=true;
+  sk.count=3*430;sk.acc=0;sk.last=0;placeFood();sHud();
+  sk.raf=requestAnimationFrame(sLoop);
 }
-function placeFood(){do{food={x:Math.random()*N|0,y:Math.random()*N|0}}while(sn.some(p=>p.x==food.x&&p.y==food.y))}
-function tick(){
-  if(q.length)dir=q.shift();
-  const h={x:sn[0].x+dir.x,y:sn[0].y+dir.y};
-  if(h.x<0||h.y<0||h.x>=N||h.y>=N||sn.some(p=>p.x==h.x&&p.y==h.y)){stopSnake();draw(true);helper.event('lose',score);return}
-  sn.unshift(h);
-  if(h.x==food.x&&h.y==food.y){score+=10;document.getElementById('sScore').textContent=score;placeFood()}else sn.pop();
-  draw();
+function stopSnake(){snakePause()}
+function snakePause(){if(sk.run&&!sk.over&&!sk.paused){sk.paused=true;sHud();sDraw(0)}}
+function snakeResume(){if(sk.run&&sk.paused){sk.paused=false;sk.last=0;sHud();sk.raf=requestAnimationFrame(sLoop)}}
+function sLoop(t){
+  if(!sk.run||sk.paused||sk.over)return;
+  const dt=sk.last?Math.min(80,t-sk.last):0;sk.last=t;
+  if(sk.count>0){sk.count-=dt;sDraw(0);sk.raf=requestAnimationFrame(sLoop);return}
+  sk.acc+=dt;let st=sStep();
+  while(sk.acc>=st&&!sk.over){sk.acc-=st;sTick();st=sStep()}
+  sDraw(sk.over?0:sk.acc/st);
+  if(!sk.over)sk.raf=requestAnimationFrame(sLoop);
 }
-function draw(over){
-  cx.fillStyle='#0a0824';cx.fillRect(0,0,360,360);
-  cx.fillStyle='#ffffff';cx.fillRect(food.x*S+3,food.y*S+3,S-6,S-6);
-  sn.forEach((p,i)=>{cx.fillStyle=i?'#8b7bff':'#d9d3ff';cx.fillRect(p.x*S+1,p.y*S+1,S-2,S-2)});
-  if(over){cx.fillStyle='rgba(10,8,36,.8)';cx.fillRect(0,140,360,80);cx.fillStyle='#d9d3ff';cx.font="14px 'Inter Tight',monospace";cx.textAlign='center';cx.fillText('PERDU — '+score+' pts',180,186)}
+function sTick(){
+  if(sk.q.length)sk.dir=sk.q.shift();
+  sk.prev=sk.sn.map(p=>({...p}));
+  let h={x:sk.sn[0].x+sk.dir.x,y:sk.sn[0].y+sk.dir.y};
+  if(sk.wrap){h.x=(h.x+N)%N;h.y=(h.y+N)%N}
+  const eatF=sk.food&&h.x===sk.food.x&&h.y===sk.food.y,eatB=sk.bonus&&h.x===sk.bonus.x&&h.y===sk.bonus.y;
+  const body=(eatF||eatB)?sk.sn:sk.sn.slice(0,-1);
+  if(h.x<0||h.y<0||h.x>=N||h.y>=N||body.some(p=>p.x===h.x&&p.y===h.y)){sEnd();return}
+  sk.sn.unshift(h);
+  if(eatB){sk.score+=50;sk.bonus=null}
+  if(eatF){
+    sk.score+=10;sk.apples++;placeFood();
+    if(sk.apples%5===0&&!sk.bonus){sk.bonus=sFree();sk.bonus.ttl=48}
+  }
+  if(!eatF&&!eatB)sk.sn.pop();
+  if(sk.bonus&&!eatB&&--sk.bonus.ttl<=0)sk.bonus=null;
+  sHud();
+}
+function sEnd(){
+  sk.over=true;sk.run=false;sk.overAt=performance.now();sHud();sDraw(0);
+  helper.event('lose',sk.score);sHud();
+}
+function sPos(i,t){
+  const c=sk.sn[i],p=sk.prev[i]||sk.prev[sk.prev.length-1]||c;
+  if(!p||Math.abs(c.x-p.x)>1||Math.abs(c.y-p.y)>1)return{x:c.x,y:c.y};
+  return{x:p.x+(c.x-p.x)*t,y:p.y+(c.y-p.y)*t};
+}
+function sDraw(t){
+  const now=performance.now();
+  cx.fillStyle='#021a0b';cx.fillRect(0,0,360,360);
+  cx.fillStyle='rgba(31,214,95,.16)';
+  for(let i=0;i<N;i++)for(let j=0;j<N;j++)cx.fillRect(i*S+S/2-1,j*S+S/2-1,2,2);
+  if(sk.wrap){cx.strokeStyle='rgba(31,214,95,.35)';cx.setLineDash([6,6]);cx.lineWidth=2;cx.strokeRect(1,1,358,358);cx.setLineDash([])}
+  if(sk.food){
+    const pu=1+Math.sin(now/180)*.12;
+    cx.shadowColor='#ffd24d';cx.shadowBlur=14;cx.fillStyle='#ffd24d';
+    const r=(S-8)/2*pu,fx=sk.food.x*S+S/2,fy=sk.food.y*S+S/2;
+    cx.fillRect(fx-r,fy-r,r*2,r*2);cx.shadowBlur=0;cx.fillStyle='#fff3b0';cx.fillRect(fx-r/2,fy-r/2,r,r);
+  }
+  if(sk.bonus){
+    const b=sk.bonus,bx=b.x*S+S/2,by=b.y*S+S/2,blink=b.ttl<14&&Math.floor(now/120)%2;
+    if(!blink){
+      cx.shadowColor='#ff5dd8';cx.shadowBlur=16;cx.fillStyle='#ff5dd8';
+      cx.beginPath();cx.moveTo(bx,by-9);cx.lineTo(bx+9,by);cx.lineTo(bx,by+9);cx.lineTo(bx-9,by);cx.closePath();cx.fill();
+      cx.shadowBlur=0;cx.fillStyle='#ffd0f4';cx.beginPath();cx.arc(bx,by,3,0,7);cx.fill();
+    }
+  }
+  const L=sk.sn.length;
+  for(let i=L-1;i>=0;i--){
+    const p=sPos(i,t),x=p.x*S,y=p.y*S;
+    if(i===0){cx.shadowColor='#3dff8b';cx.shadowBlur=14;cx.fillStyle='#d2ffe1'}
+    else{cx.shadowBlur=0;cx.fillStyle='rgba(34,229,107,'+Math.max(.5,1-i*.03)+')'}
+    cx.fillRect(x+1.5,y+1.5,S-3,S-3);
+  }
+  cx.shadowBlur=0;
+  if(L){
+    const p=sPos(0,t),d=sk.dir,hx=p.x*S+S/2,hy=p.y*S+S/2,px=-d.y*4.5,py=d.x*4.5;
+    cx.fillStyle='#021a0b';
+    cx.fillRect(hx+d.x*3+px-1.5,hy+d.y*3+py-1.5,3,3);cx.fillRect(hx+d.x*3-px-1.5,hy+d.y*3-py-1.5,3,3);
+  }
+  cx.textAlign='center';
+  if(sk.count>0&&sk.run){
+    const n=Math.ceil(sk.count/430);
+    cx.fillStyle='rgba(2,18,7,.5)';cx.fillRect(0,0,360,360);
+    cx.fillStyle='#7dffa8';cx.shadowColor='#3dff8b';cx.shadowBlur=18;cx.font="88px VT323,ui-monospace,monospace";cx.fillText(String(n),180,205);cx.shadowBlur=0;
+  }
+  const msg=sk.over?['GAME OVER','SCORE '+sk.score+' — TOUCHE POUR REJOUER']:sk.paused?['PAUSE','TOUCHE POUR REPRENDRE']:!sk.run?['SNAKE','TOUCHE POUR JOUER · GLISSE POUR TOURNER']:null;
+  if(msg){
+    cx.fillStyle='rgba(2,18,7,.86)';cx.fillRect(0,130,360,100);cx.fillStyle='#7dffa8';
+    cx.font="36px VT323,ui-monospace,monospace";cx.fillText(msg[0],180,172);
+    cx.font="20px VT323,ui-monospace,monospace";cx.fillText(msg[1],180,204);
+  }
 }
 const dirs={u:{x:0,y:-1},d:{x:0,y:1},l:{x:-1,y:0},r:{x:1,y:0}};
-let q=[];
 function turn(k){
-  const n=dirs[k];if(!n)return;
-  const last=q.length?q[q.length-1]:dir;
-  if((n.x==-last.x&&n.y==-last.y)||(n.x==last.x&&n.y==last.y))return;
-  if(q.length<2)q.push(n);
+  const n=dirs[k];if(!n||!sk.run||sk.paused)return;
+  const last=sk.q.length?sk.q[sk.q.length-1]:sk.dir;
+  if((n.x===-last.x&&n.y===-last.y)||(n.x===last.x&&n.y===last.y))return;
+  if(sk.q.length<3)sk.q.push(n);
 }
-document.querySelectorAll('.dpad button').forEach(b=>{
-  b.addEventListener('pointerdown',e=>{e.preventDefault();if(timer)turn(b.dataset.d)});
+function sTap(){
+  if(sk.over){if(performance.now()-sk.overAt>450)startSnake()}
+  else if(!sk.run)startSnake();
+  else if(sk.paused)snakeResume();
+}
+document.querySelectorAll('#snake .dpad button').forEach(b=>{
+  b.addEventListener('pointerdown',e=>{e.preventDefault();if(sk.run&&!sk.paused)turn(b.dataset.d);else sTap()});
   b.addEventListener('contextmenu',e=>e.preventDefault());
 });
 addEventListener('keydown',e=>{
-  const m={ArrowUp:'u',ArrowDown:'d',ArrowLeft:'l',ArrowRight:'r'}[e.key];
-  if(m&&timer&&e.target.tagName!=='INPUT'){e.preventDefault();turn(m)}
+  if(!document.getElementById('snake').classList.contains('on')||e.target.tagName==='INPUT')return;
+  const m={ArrowUp:'u',ArrowDown:'d',ArrowLeft:'l',ArrowRight:'r',w:'u',s:'d',a:'l',d:'r',W:'u',S:'d',A:'l',D:'r',z:'u',Z:'u',q:'l',Q:'l'}[e.key];
+  if(m){e.preventDefault();if(sk.run&&!sk.paused)turn(m);else sTap();return}
+  if(e.key===' '||e.key==='p'||e.key==='P'){e.preventDefault();if(!sk.run||sk.over)sTap();else if(sk.paused)snakeResume();else snakePause()}
 });
+(function(){
+  let ax=0,ay=0,down=false,moved=false;
+  cv.addEventListener('pointerdown',e=>{down=true;moved=false;ax=e.clientX;ay=e.clientY;try{cv.setPointerCapture(e.pointerId)}catch(_){}});
+  cv.addEventListener('pointermove',e=>{
+    if(!down)return;
+    const dx=e.clientX-ax,dy=e.clientY-ay;
+    if(Math.max(Math.abs(dx),Math.abs(dy))>=20){
+      moved=true;turn(Math.abs(dx)>Math.abs(dy)?(dx>0?'r':'l'):(dy>0?'d':'u'));ax=e.clientX;ay=e.clientY;
+    }
+  });
+  const up=()=>{if(down&&!moved)sTap();down=false};
+  cv.addEventListener('pointerup',up);
+  cv.addEventListener('pointercancel',()=>{down=false});
+})();
 document.getElementById('sStart').onclick=startSnake;
-cv.addEventListener('pointerup',()=>{if(!timer)startSnake()});
-sn=[{x:9,y:9}];food={x:12,y:9};draw();
+document.getElementById('sPause').onclick=()=>{if(sk.paused)snakeResume();else snakePause()};
+document.getElementById('sMode').onclick=()=>{
+  sk.wrap=!sk.wrap;try{localStorage.setItem(SKM,sk.wrap?'wrap':'wall')}catch(e){}
+  if(sk.run&&!sk.over)startSnake();else{sHud();sDraw(0)}
+};
+addEventListener('blur',snakePause);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)snakePause()});
+sk.sn=[{x:9,y:9},{x:8,y:9},{x:7,y:9}];sk.prev=sk.sn.map(p=>({...p}));sk.food={x:12,y:9};sHud();sDraw(0);
 
 // MORPION
 const tg=document.getElementById('tGrid'),tm=document.getElementById('tMsg');
 let tb,tOver;
 const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-const win=b=>{for(const[a,c,d]of L)if(b[a]&&b[a]==b[c]&&b[a]==b[d])return b[a];return b.every(Boolean)?'=':null};
-function tRender(){tg.innerHTML='';tb.forEach((v,i)=>{const c=document.createElement('button');c.className='cell';c.textContent=v;c.onclick=()=>tPlay(i);tg.appendChild(c)})}
-function tReset(){tb=Array(9).fill('');tOver=false;tm.textContent='À toi de jouer (X)';tRender()}
+let tWin=null,tNew=[];
+const win=b=>{for(const[a,c,d]of L)if(b[a]&&b[a]==b[c]&&b[a]==b[d]){tWin=[a,c,d];return b[a]}return b.every(Boolean)?'=':null};
+function tRender(){tg.innerHTML='';tb.forEach((v,i)=>{const c=document.createElement('button');c.className='cell';c.textContent=v;c.dataset.v=v;if(tNew.includes(i))c.classList.add('new');if(tWin&&tOver&&tWin.includes(i))c.classList.add('w');c.setAttribute('aria-label',v?'Case '+(i+1)+' : '+v:'Case '+(i+1)+' vide');c.onclick=()=>tPlay(i);tg.appendChild(c)})}
+function tReset(){tb=Array(9).fill('');tOver=false;tWin=null;tNew=[];tm.textContent='À toi de jouer (X)';tRender()}
 function tEnd(){const w=win(tb);if(!w)return false;tOver=true;tm.textContent=w=='='?'Égalité':w=='X'?'Tu as gagné !':'L\'ordinateur gagne';helper.event(w=='='?'draw':w=='X'?'ttwin':'ttlose');return true}
 function tPlay(i){
-  if(tOver||tb[i])return;tb[i]='X';if(tEnd())return tRender();
+  if(tOver||tb[i])return;tb[i]='X';tNew=[i];if(tEnd())return tRender();
   const free=tb.map((v,k)=>v?null:k).filter(k=>k!==null);
   const tryLine=p=>{for(const l of L){const v=l.map(k=>tb[k]);if(v.filter(x=>x==p).length==2&&v.includes(''))return l[v.indexOf('')]}return null};
   let m=null;
   if(Math.random()<.4)m=tryLine('O');
   if(m===null&&Math.random()<.5)m=tryLine('X');
   if(m===null)m=free[Math.random()*free.length|0];
-  tb[m]='O';tEnd();tRender();
+  tb[m]='O';tNew=[i,m];tEnd();tRender();
 }
 document.getElementById('tReset').onclick=tReset;tReset();
 
@@ -793,7 +1063,7 @@ document.getElementById('tReset').onclick=tReset;tReset();
 const mg=document.getElementById('mGrid'),mv=document.getElementById('mMoves');
 let open=[],lock=false,moves=0;
 function mReset(){
-  const sy='★♥♦♣☀☾⚑♪'.split('');const d=[...sy,...sy].sort(()=>Math.random()-.5);
+  const sy=['🍓','🍋','🍇','🥝','🍒','🍑','🍍','🍉'];const d=[...sy,...sy].sort(()=>Math.random()-.5);
   mg.innerHTML='';open=[];lock=false;moves=0;mv.textContent=0;
   d.forEach(s=>{const c=document.createElement('button');c.className='cell';c.dataset.s=s;c.setAttribute('aria-label','Carte cachée');
     c.onclick=()=>{
@@ -801,7 +1071,7 @@ function mReset(){
       c.classList.add('flip');c.textContent=s;open.push(c);
       if(open.length==2){
         mv.textContent=++moves;
-        if(open[0].dataset.s==open[1].dataset.s){open=[];if(!mg.querySelector('.cell:not(.flip)')){mv.textContent=moves+' — gagné !';helper.event('win')}}
+        if(open[0].dataset.s==open[1].dataset.s){open.forEach(x=>x.classList.add('ok'));open=[];if(!mg.querySelector('.cell:not(.flip)')){mv.textContent=moves+' — gagné !';helper.event('win')}}
         else{lock=true;setTimeout(()=>{open.forEach(x=>{x.classList.remove('flip');x.textContent=''});open=[];lock=false},800)}
       }
     };mg.appendChild(c)});
@@ -1147,6 +1417,287 @@ document.getElementById('pkRoot').addEventListener('click',e=>{
   }
 });
 pkRender();
+
+// 2048
+const G48K='arki_2048_best';
+const g48b=document.getElementById('g48b'),g48ov=document.getElementById('g48ov');
+let g48={tiles:[],id:0,score:0,over:false,won:false,keep:false,busy:false};
+const G48C={2:['#e6f6ff','#0b2a4a'],4:['#cdeeff','#0b2a4a'],8:['#8fd8ff','#04263a'],16:['#5bc0ff','#04263a'],32:['#4aa3ff','#fff'],64:['#6d7bff','#fff'],128:['#a97bff','#fff'],256:['#d17bff','#fff'],512:['#ff7bd1','#fff'],1024:['#ffb36b','#3a1a00'],2048:['#ffe58a','#3a1a00']};
+function g48Best(){try{return +localStorage.getItem(G48K)||0}catch(e){return 0}}
+function g48Style(t){
+  const c=G48C[t.v]||['#1a1245','#ffe14d'],d=String(t.v).length;
+  t.el.style.setProperty('--r',t.r);t.el.style.setProperty('--c',t.c);
+  const i=t.el.firstChild;i.textContent=t.v;i.style.background=c[0];i.style.color=c[1];
+  i.style.fontSize=d<=2?'':d===3?'.82em':d===4?'.66em':'.52em';
+}
+function g48Add(r,c,v,isNew){
+  const el=document.createElement('div');el.className='t48';el.innerHTML='<div class="in"></div>';
+  const t={id:++g48.id,r,c,v,el};g48Style(t);
+  if(isNew)el.firstChild.classList.add('new');
+  document.getElementById('g48l').appendChild(el);g48.tiles.push(t);return t;
+}
+function g48Spawn(){
+  const used=new Set(g48.tiles.map(t=>t.r*4+t.c)),free=[];
+  for(let i=0;i<16;i++)if(!used.has(i))free.push(i);
+  if(!free.length)return;
+  const p=free[Math.random()*free.length|0];
+  g48Add(p>>2,p&3,Math.random()<.9?2:4,true);
+}
+function g48Hud(){
+  document.getElementById('g48s').textContent=g48.score;
+  document.getElementById('g48h').textContent=g48Best();
+}
+function g48New(){
+  document.getElementById('g48l').querySelectorAll('.t48').forEach(e=>e.remove());
+  g48={tiles:[],id:0,score:0,over:false,won:false,keep:false,busy:false};
+  g48ov.hidden=true;g48Spawn();g48Spawn();g48Hud();
+}
+function g48CanMove(){
+  const m={};g48.tiles.forEach(t=>m[t.r*4+t.c]=t.v);
+  if(g48.tiles.length<16)return true;
+  for(let r=0;r<4;r++)for(let c=0;c<4;c++){
+    const v=m[r*4+c];
+    if(c<3&&m[r*4+c+1]===v)return true;
+    if(r<3&&m[(r+1)*4+c]===v)return true;
+  }
+  return false;
+}
+function g48Move(d){
+  if(g48.busy||g48.over)return false;
+  if(g48.won&&!g48.keep&&!g48ov.hidden)return false;
+  const horiz=d==='l'||d==='r',rev=d==='r'||d==='d';
+  let moved=false,gain=0;const merges=[];
+  for(let i=0;i<4;i++){
+    const line=g48.tiles.filter(t=>horiz?t.r===i:t.c===i).sort((a,b)=>{const x=horiz?a.c-b.c:a.r-b.r;return rev?-x:x});
+    let k=0,last=null;
+    for(const t of line){
+      let r0=t.r,c0=t.c;
+      if(last&&!last.merged&&last.v===t.v){
+        t.r=last.r;t.c=last.c;t.into=last;last.merged=true;gain+=t.v*2;merges.push(t);
+      }else{
+        const p=rev?3-k:k;k++;
+        if(horiz)t.c=p;else t.r=p;
+        last=t;
+      }
+      if(t.r!==r0||t.c!==c0)moved=true;
+    }
+  }
+  if(!moved)return false;
+  g48.busy=true;g48.tiles.forEach(g48Style);
+  g48.score+=gain;
+  setTimeout(()=>{
+    merges.forEach(t=>{
+      t.el.remove();g48.tiles=g48.tiles.filter(x=>x!==t);
+      const w=t.into;w.v*=2;w.merged=false;g48Style(w);
+      w.el.firstChild.classList.remove('new','mrg');void w.el.offsetWidth;w.el.firstChild.classList.add('mrg');
+      if(w.v===2048&&!g48.won){g48.won=true}
+    });
+    g48.tiles.forEach(t=>{t.merged=false;t.into=null});
+    g48Spawn();
+    if(g48.score>g48Best()){try{localStorage.setItem(G48K,String(g48.score))}catch(e){}}
+    g48Hud();g48.busy=false;
+    if(g48.won&&!g48.keep){g48ov.hidden=false;g48ov.querySelector('b').textContent='2048 ! Bravo 🎉';g48ov.querySelector('[data-a=go]').hidden=false;helper.event('g48',{win:true,score:g48.score});}
+    else if(!g48CanMove()){g48.over=true;g48ov.hidden=false;g48ov.querySelector('b').textContent='Plus de coup possible';g48ov.querySelector('[data-a=go]').hidden=true;helper.event('g48',{win:false,score:g48.score,best:g48Best()})}
+  },125);
+  return true;
+}
+g48ov.addEventListener('click',e=>{
+  const a=e.target.dataset.a;
+  if(a==='new')g48New();
+  else if(a==='go'){g48.keep=true;g48ov.hidden=true}
+});
+(function(){
+  let sx=0,sy=0,act=false;
+  g48b.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY;act=true});
+  g48b.addEventListener('pointerup',e=>{
+    if(!act)return;act=false;
+    const dx=e.clientX-sx,dy=e.clientY-sy,ax=Math.abs(dx),ay=Math.abs(dy);
+    if(Math.max(ax,ay)<22)return;
+    g48Move(ax>ay?(dx>0?'r':'l'):(dy>0?'d':'u'));
+  });
+  g48b.addEventListener('pointercancel',()=>{act=false});
+  document.querySelectorAll('#g48 .dpad button').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();g48Move(b.dataset.d)}));
+  document.getElementById('g48new').onclick=g48New;
+  addEventListener('keydown',e=>{
+    if(!document.getElementById('g48').classList.contains('on')||e.target.tagName==='INPUT')return;
+    const m={ArrowUp:'u',ArrowDown:'d',ArrowLeft:'l',ArrowRight:'r'}[e.key];
+    if(m){e.preventDefault();g48Move(m)}
+  });
+})();
+g48New();
+
+// BLOCS (jeu de blocs qui tombent)
+const BKW=10,BKH=20,BKS=24,BKK='arki_blocs_best';
+const BKP={
+  I:{c:'#6af2ff',m:[[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]]},
+  O:{c:'#ffe14d',m:[[1,1],[1,1]]},
+  T:{c:'#b36bff',m:[[0,1,0],[1,1,1],[0,0,0]]},
+  S:{c:'#5dffa0',m:[[0,1,1],[1,1,0],[0,0,0]]},
+  Z:{c:'#ff5d8f',m:[[1,1,0],[0,1,1],[0,0,0]]},
+  J:{c:'#5b8cff',m:[[1,0,0],[1,1,1],[0,0,0]]},
+  L:{c:'#ff9f4d',m:[[0,0,1],[1,1,1],[0,0,0]]}
+};
+const bkCv=document.getElementById('bk'),bx=bkCv.getContext('2d'),bkNx=document.getElementById('bkNext'),nx=bkNx.getContext('2d');
+let bk={grid:[],cur:null,bag:[],queue:[],score:0,lines:0,level:1,run:false,over:false,paused:false,clearing:null,timer:null};
+function bkBest(){try{return +localStorage.getItem(BKK)||0}catch(e){return 0}}
+function bkRot(m){const n=m.length;return m[0].map((_,i)=>m.map(r=>r[i]).reverse())}
+function bkBag(){const k=Object.keys(BKP);for(let i=k.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[k[i],k[j]]=[k[j],k[i]]}return k}
+function bkNextKey(){if(!bk.bag.length)bk.bag=bkBag();return bk.bag.pop()}
+function bkHit(m,x,y){
+  for(let r=0;r<m.length;r++)for(let c=0;c<m[r].length;c++)if(m[r][c]){
+    const gx=x+c,gy=y+r;
+    if(gx<0||gx>=BKW||gy>=BKH)return true;
+    if(gy>=0&&bk.grid[gy][gx])return true;
+  }
+  return false;
+}
+function bkSpawn(){
+  const k=bk.queue.shift();bk.queue.push(bkNextKey());
+  const m=BKP[k].m.map(r=>r.slice());
+  bk.cur={k,m,x:((BKW-m[0].length)/2)|0,y:k==='I'?-1:0};
+  if(bkHit(bk.cur.m,bk.cur.x,bk.cur.y)){bkEnd();return false}
+  return true;
+}
+function bkSpeed(){return Math.max(80,800-(bk.level-1)*65)}
+function bkHud(){
+  document.getElementById('bkS').textContent=bk.score;
+  document.getElementById('bkL').textContent=bk.lines;
+  document.getElementById('bkV').textContent=bk.level;
+  document.getElementById('bkB').textContent=Math.max(bkBest(),bk.score);
+}
+function bkStart(){
+  helper.playing();clearTimeout(bk.timer);
+  bk={grid:Array.from({length:BKH},()=>Array(BKW).fill(0)),cur:null,bag:[],queue:[],score:0,lines:0,level:1,run:true,over:false,paused:false,clearing:null,timer:null};
+  bk.queue=[bkNextKey(),bkNextKey(),bkNextKey()];
+  bkSpawn();bkHud();bkDraw();bkLoop();
+}
+function bkLoop(){
+  clearTimeout(bk.timer);
+  if(!bk.run||bk.paused||bk.over)return;
+  bk.timer=setTimeout(()=>{bkDown(false);bkLoop()},bkSpeed());
+}
+function bkPause(){if(bk.run&&!bk.over&&!bk.paused){bk.paused=true;clearTimeout(bk.timer);bkDraw()}}
+function bkResume(){if(bk.run&&bk.paused){bk.paused=false;bkDraw();bkLoop()}}
+function bkMove(dx){
+  if(!bk.run||bk.paused||bk.over||bk.clearing)return;
+  if(!bkHit(bk.cur.m,bk.cur.x+dx,bk.cur.y)){bk.cur.x+=dx;bkDraw()}
+}
+function bkTurn(dir){
+  if(!bk.run||bk.paused||bk.over||bk.clearing||bk.cur.k==='O')return;
+  let m=bk.cur.m;if(dir>0)m=bkRot(m);else{m=bkRot(bkRot(bkRot(m)))}
+  for(const k of [0,-1,1,-2,2]){
+    if(!bkHit(m,bk.cur.x+k,bk.cur.y)){bk.cur.m=m;bk.cur.x+=k;bkDraw();return}
+    if(!bkHit(m,bk.cur.x+k,bk.cur.y-1)){bk.cur.m=m;bk.cur.x+=k;bk.cur.y-=1;bkDraw();return}
+  }
+}
+function bkDown(manual){
+  if(!bk.run||bk.paused||bk.over||bk.clearing)return;
+  if(!bkHit(bk.cur.m,bk.cur.x,bk.cur.y+1)){bk.cur.y++;if(manual)bk.score+=1;bkHud();bkDraw()}
+  else bkLock();
+}
+function bkGhostY(){let y=bk.cur.y;while(!bkHit(bk.cur.m,bk.cur.x,y+1))y++;return y}
+function bkDrop(){
+  if(!bk.run||bk.paused||bk.over||bk.clearing)return;
+  const y=bkGhostY();bk.score+=(y-bk.cur.y)*2;bk.cur.y=y;bkLock();
+}
+function bkLock(){
+  const {m,x,y,k}=bk.cur;
+  for(let r=0;r<m.length;r++)for(let c=0;c<m[r].length;c++)if(m[r][c]){
+    if(y+r<0){bkEnd();return}
+    bk.grid[y+r][x+c]=BKP[k].c;
+  }
+  const full=[];bk.grid.forEach((row,i)=>{if(row.every(Boolean))full.push(i)});
+  if(full.length){
+    bk.clearing=full;clearTimeout(bk.timer);bk.cur=null;bkDraw();
+    setTimeout(()=>{
+      full.forEach(i=>{bk.grid.splice(i,1);bk.grid.unshift(Array(BKW).fill(0))});
+      bk.score+=[0,100,300,500,800][full.length]*bk.level;
+      bk.lines+=full.length;bk.level=1+Math.floor(bk.lines/10);
+      bk.clearing=null;bkHud();
+      if(bkSpawn()){bkDraw();bkLoop()}
+    },140);
+  }else{
+    bkHud();
+    if(bkSpawn()){bkDraw();bkLoop()}
+  }
+}
+function bkEnd(){
+  bk.over=true;bk.run=false;clearTimeout(bk.timer);
+  const best=bkBest();
+  if(bk.score>best){try{localStorage.setItem(BKK,String(bk.score))}catch(e){}}
+  bkHud();bkDraw();
+  helper.event('bkend',{score:bk.score,lines:bk.lines,level:bk.level,best:best,record:bk.score>best});
+}
+function bkCell(ctx,x,y,s,col,a){
+  const g=a!=null&&a<1;
+  ctx.globalAlpha=g?a:1;
+  ctx.shadowColor=col;ctx.shadowBlur=g?0:10;
+  ctx.fillStyle='rgba(12,2,34,.92)';ctx.fillRect(x+1,y+1,s-2,s-2);
+  ctx.shadowBlur=0;
+  ctx.strokeStyle=col;ctx.lineWidth=2;ctx.strokeRect(x+2,y+2,s-4,s-4);
+  ctx.globalAlpha=(g?a:1)*.62;ctx.fillStyle=col;ctx.fillRect(x+6,y+6,s-12,s-12);
+  ctx.globalAlpha=1;
+}
+function bkDraw(){
+  bx.fillStyle='#0c0224';bx.fillRect(0,0,BKW*BKS,BKH*BKS);
+  bx.strokeStyle='rgba(255,79,216,.14)';bx.lineWidth=1;
+  for(let i=1;i<BKW;i++){bx.beginPath();bx.moveTo(i*BKS+.5,0);bx.lineTo(i*BKS+.5,BKH*BKS);bx.stroke()}
+  for(let i=1;i<BKH;i++){bx.beginPath();bx.moveTo(0,i*BKS+.5);bx.lineTo(BKW*BKS,i*BKS+.5);bx.stroke()}
+  bk.grid.forEach((row,r)=>row.forEach((col,c)=>{if(col)bkCell(bx,c*BKS,r*BKS,BKS,col)}));
+  if(bk.clearing){bx.fillStyle='rgba(255,255,255,.85)';bk.clearing.forEach(r=>bx.fillRect(0,r*BKS,BKW*BKS,BKS))}
+  if(bk.cur&&!bk.paused){
+    const {m,x,y,k}=bk.cur,gy=bkGhostY();
+    for(let r=0;r<m.length;r++)for(let c=0;c<m[r].length;c++)if(m[r][c]){
+      if(gy+r>=0)bkCell(bx,(x+c)*BKS,(gy+r)*BKS,BKS,BKP[k].c,.22);
+    }
+    for(let r=0;r<m.length;r++)for(let c=0;c<m[r].length;c++)if(m[r][c]&&y+r>=0)bkCell(bx,(x+c)*BKS,(y+r)*BKS,BKS,BKP[k].c);
+  }
+  const msg=bk.over?['PERDU',bk.score+' pts · touche pour rejouer']:bk.paused?['PAUSE','touche pour reprendre']:!bk.run?['BLOCS','touche pour commencer']:null;
+  if(msg){
+    bx.fillStyle='rgba(12,2,36,.86)';bx.fillRect(0,BKH*BKS/2-46,BKW*BKS,92);
+    bx.fillStyle='#3df5ff';bx.shadowColor='#3df5ff';bx.shadowBlur=12;bx.textAlign='center';
+    bx.font="800 24px Orbitron,'Inter Tight',system-ui,sans-serif";bx.fillText(msg[0],BKW*BKS/2,BKH*BKS/2-6);
+    bx.shadowBlur=0;bx.fillStyle='#ffb8f0';bx.font="12px 'Inter Tight',system-ui,sans-serif";bx.fillText(msg[1],BKW*BKS/2,BKH*BKS/2+22);
+  }
+  nx.clearRect(0,0,bkNx.width,bkNx.height);
+  bk.queue.forEach((k,i)=>{
+    const m=BKP[k].m,s=17,w=m[0].length*s,ox=(bkNx.width-w)/2,oy=i*58+12;
+    m.forEach((row,r)=>row.forEach((v,c)=>{if(v)bkCell(nx,ox+c*s,oy+r*s,s,BKP[k].c)}));
+  });
+}
+(function(){
+  const rep=(btn,fn,every)=>{
+    let t1=null,t2=null;
+    const stop=()=>{clearTimeout(t1);clearInterval(t2);t1=t2=null};
+    btn.addEventListener('pointerdown',e=>{e.preventDefault();if(!bk.run)return;fn();if(every){t1=setTimeout(()=>{t2=setInterval(fn,every)},200)}});
+    ['pointerup','pointerleave','pointercancel'].forEach(ev=>btn.addEventListener(ev,stop));
+    btn.addEventListener('contextmenu',e=>e.preventDefault());
+  };
+  const B=id=>document.getElementById(id);
+  rep(B('bkLeft'),()=>bkMove(-1),95);rep(B('bkRight'),()=>bkMove(1),95);
+  rep(B('bkDown'),()=>bkDown(true),55);rep(B('bkRot'),()=>bkTurn(1));rep(B('bkDrop'),()=>bkDrop());
+  B('bkNew').onclick=bkStart;
+  bkCv.addEventListener('pointerup',()=>{
+    if(bk.over||!bk.run)bkStart();
+    else if(bk.paused)bkResume();
+    else bkTurn(1);
+  });
+  addEventListener('keydown',e=>{
+    if(!document.getElementById('blk').classList.contains('on')||e.target.tagName==='INPUT')return;
+    const k=e.key;
+    if(k==='p'||k==='P'){if(bk.paused)bkResume();else bkPause();return}
+    if(!bk.run){if(k==='Enter'||k===' '){e.preventDefault();bkStart()}return}
+    if(bk.paused){if(k===' '||k==='Enter'){e.preventDefault();bkResume()}return}
+    if(k==='ArrowLeft'){e.preventDefault();bkMove(-1)}
+    else if(k==='ArrowRight'){e.preventDefault();bkMove(1)}
+    else if(k==='ArrowDown'){e.preventDefault();bkDown(true)}
+    else if(k==='ArrowUp'||k==='x'||k==='X'){e.preventDefault();bkTurn(1)}
+    else if(k==='z'||k==='Z'){e.preventDefault();bkTurn(-1)}
+    else if(k===' '){e.preventDefault();bkDrop()}
+  });
+  addEventListener('blur',bkPause);
+})();
+bk.queue=[bkNextKey(),bkNextKey(),bkNextKey()];bk.grid=Array.from({length:BKH},()=>Array(BKW).fill(0));bkHud();bkDraw();
 
 // ÉMULATEUR (EmulatorJS)
 const rom=document.getElementById('rom'),info=document.getElementById('emuInfo');
