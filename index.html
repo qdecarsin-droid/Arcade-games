@@ -453,6 +453,50 @@ section#blk.on::after{content:"";position:absolute;left:-50%;right:-50%;bottom:0
 #blk .info{color:#e9b8ff;text-shadow:0 1px 6px #14002e}
 #blk .btn.primary{background:linear-gradient(135deg,#ff4fd8,#ff9a4d);color:#fff;border:0;border-radius:6px;font:800 14px 'Orbitron',sans-serif;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 0 22px rgba(255,79,216,.6)}
 @media (prefers-reduced-motion:reduce){section#g48.on::before{animation:none}#mem .cell.flip,#mem .cell.ok,#ttt .cell.new{animation:none}}
+
+/* Accueil, succès, bibliothèque */
+#home{max-width:728px;margin:14px auto 0;padding:14px 16px;border-radius:22px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#f4f2ff}
+.hm-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.hm-top b{text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:#b9b2ff}
+.hm-top .btn{padding:6px 14px;font-size:13px}
+.hm-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:8px}
+.hm-st{background:rgba(10,8,36,.55);border-radius:14px;padding:8px 10px;line-height:1.2;text-align:center}
+.hm-st span{display:block;font-size:11px;color:#b9b2ff}.hm-st b{font-size:20px;font-variant-numeric:tabular-nums}
+.hm-ach{margin-top:10px}.hm-ach summary{cursor:pointer;font-weight:600;font-size:14px}
+.hm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px}
+.hm-b{display:flex;gap:8px;align-items:center;background:rgba(10,8,36,.55);border-radius:14px;padding:8px 10px;font-size:12px;line-height:1.25;filter:grayscale(1);opacity:.5}
+.hm-b.on{filter:none;opacity:1;box-shadow:inset 0 0 0 1.5px #ffd84d}
+.hm-b i{font-style:normal;font-size:22px}.hm-b b{display:block;font-size:13px}
+#toast{position:fixed;left:50%;top:calc(12px + env(safe-area-inset-top,0px));transform:translate(-50%,-140%);z-index:80;background:#fff;color:#0d0c08;border-radius:16px;padding:10px 16px;font:600 14px 'Inter Tight',system-ui,sans-serif;box-shadow:0 14px 34px -10px rgba(0,0,0,.7);transition:transform .35s ease;max-width:calc(100vw - 24px);text-align:center}
+#toast.on{transform:translate(-50%,0)}
+.romlib{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 0 10px}
+.romlib button{border:1.5px solid rgba(255,255,255,.3);background:rgba(10,8,36,.4);color:#fff;border-radius:999px;padding:6px 12px;font:600 12px 'Inter Tight',system-ui,sans-serif;cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lvl{display:inline-flex;align-items:center;gap:8px;font-size:14px}
+.lvl select{padding:8px 12px}
+@media (prefers-reduced-motion:reduce){#toast{transition:none}}
+
+/* Comptes et classement */
+.acct{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;font-size:14px}
+.acct .btn{padding:6px 14px;font-size:13px}
+.lb select{padding:6px 12px;margin:8px 0}
+.lb ol{margin:6px 0 0;padding-left:22px;text-align:left;font-size:14px}
+.lb li{padding:2px 0;border-top:1px solid rgba(255,255,255,.08)}.lb li b{float:right;font-variant-numeric:tabular-nums}
+#acModal{position:fixed;inset:0;z-index:90;background:rgba(5,4,20,.75);display:flex;align-items:center;justify-content:center;padding:16px}
+#acModal[hidden]{display:none}
+.acbox{width:min(380px,100%);background:#fff;color:#0d0c08;border-radius:24px;padding:20px;box-shadow:0 30px 70px -20px #000;text-align:left;font-family:'Inter Tight',system-ui,sans-serif}
+.acbox h2{margin:0 0 10px;font-size:22px;letter-spacing:-.02em}
+.actabs{display:flex;gap:6px;margin-bottom:12px}
+.actabs button{flex:1;border:1.5px solid #cfc8ff;background:#fff;color:#3b25d6;border-radius:999px;padding:8px;font:600 14px 'Inter Tight',sans-serif;cursor:pointer}
+.actabs button[aria-pressed=true]{background:#5b3cff;color:#fff;border-color:#5b3cff}
+.acbox label{display:block;font-size:12px;font-weight:600;margin:8px 0 3px;color:#3a3760}
+.acbox input{width:100%;border:1.5px solid #cfc8ff;border-radius:12px;padding:10px 12px;font:500 16px 'Inter Tight',system-ui,sans-serif;color:#0d0c08}
+.acbox input:focus-visible{outline:2px solid #5b3cff}
+.acerr{color:#c0203f;font-size:13px;min-height:1.3em;margin:8px 0 0}
+.acrow{display:flex;gap:8px;margin-top:10px}
+.acrow button{flex:1;border:0;border-radius:999px;padding:11px;font:700 15px 'Inter Tight',sans-serif;cursor:pointer;background:#5b3cff;color:#fff}
+.acrow button.sec{background:#e4dfff;color:#3b25d6}
+.aclink{background:none;border:0;color:#5b3cff;font:600 13px 'Inter Tight',sans-serif;cursor:pointer;padding:6px 0;text-decoration:underline}
+.acnote{font-size:11px;color:#6b6890;margin:8px 0 0;line-height:1.35}
 </style>
 </head>
 <body>
@@ -467,6 +511,7 @@ section#blk.on::after{content:"";position:absolute;left:-50%;right:-50%;bottom:0
     <div class="hero-r"><svg class="stripes" viewBox="0 0 308 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="308" height="200" fill="#7b6cff"/><rect x="3" y="0" width="7" height="200" fill="#4a2bff"/><rect x="17" y="0" width="7" height="200" fill="#4a2bff"/><rect x="31" y="0" width="7" height="200" fill="#4a2bff"/><rect x="45" y="0" width="7" height="200" fill="#4a2bff"/><rect x="59" y="0" width="7" height="200" fill="#4a2bff"/><rect x="73" y="0" width="7" height="200" fill="#4a2bff"/><rect x="87" y="0" width="7" height="200" fill="#4a2bff"/><rect x="101" y="0" width="7" height="200" fill="#4a2bff"/><rect x="115" y="0" width="7" height="200" fill="#4a2bff"/><rect x="129" y="0" width="7" height="200" fill="#4a2bff"/><rect x="143" y="0" width="7" height="200" fill="#4a2bff"/><rect x="157" y="0" width="7" height="200" fill="#4a2bff"/><rect x="171" y="0" width="7" height="200" fill="#4a2bff"/><rect x="185" y="0" width="7" height="200" fill="#4a2bff"/><rect x="199" y="0" width="7" height="200" fill="#4a2bff"/><rect x="213" y="0" width="7" height="200" fill="#4a2bff"/><rect x="227" y="0" width="7" height="200" fill="#4a2bff"/><rect x="241" y="0" width="7" height="200" fill="#4a2bff"/><rect x="255" y="0" width="7" height="200" fill="#4a2bff"/><rect x="269" y="0" width="7" height="200" fill="#4a2bff"/><rect x="283" y="0" width="7" height="200" fill="#4a2bff"/><rect x="297" y="0" width="7" height="200" fill="#4a2bff"/><ellipse cx="76.5" cy="100" rx="5.5" ry="60" fill="#2a12e8"/><ellipse cx="118.5" cy="80" rx="5.5" ry="78" fill="#2a12e8"/><ellipse cx="160.5" cy="110" rx="5.5" ry="70" fill="#2a12e8"/><ellipse cx="202.5" cy="90" rx="5.5" ry="56" fill="#2a12e8"/><ellipse cx="244.5" cy="105" rx="5.5" ry="66" fill="#2a12e8"/></svg></div>
   </div>
 </header>
+<div id="home"><div class="hm-top"><b>Tes records</b><button class="btn" id="hmResume" hidden></button></div><div class="hm-stats" id="hmStats"></div><details class="hm-ach"><summary>Succès <span id="hmCount"></span></summary><div class="hm-grid" id="hmGrid"></div></details></div>
 <nav role="tablist" id="tabs">
   <button role="tab" data-t="snake" aria-selected="true">01 Snake</button>
   <button role="tab" data-t="ttt" aria-selected="false">02 Morpion</button>
@@ -493,7 +538,7 @@ section#blk.on::after{content:"";position:absolute;left:-50%;right:-50%;bottom:0
 <section id="ttt">
   <div class="score" id="tMsg">À toi de jouer (X)</div>
   <div class="grid" id="tGrid" style="grid-template-columns:repeat(3,1fr)"></div>
-  <div class="row"><button class="btn primary" id="tReset">Nouvelle partie</button></div>
+  <div class="row"><label class="lvl">Niveau <select id="ttLvl" aria-label="Niveau du Morpion"><option value="0">Facile</option><option value="1" selected>Normal</option><option value="2">Difficile</option></select></label><button class="btn primary" id="tReset">Nouvelle partie</button></div>
 </section>
 
 <section id="mem">
@@ -561,7 +606,10 @@ section#blk.on::after{content:"";position:absolute;left:-50%;right:-50%;bottom:0
     <button class="btn" id="sndBtn">Activer le son</button>
     <button class="btn" id="padBtn">Manette : émulateur</button>
     <button class="btn" id="diag">Tester ma connexion</button>
+    <button class="btn" id="svBtn">Sauvegarder</button>
+    <button class="btn" id="ldBtn">Charger</button>
   </div>
+  <div id="romLib" class="romlib" hidden></div>
   <div id="stage">
   <div id="game" style="display:none;width:100%;height:min(75vh,640px);background:#000;border-radius:8px;overflow:hidden"></div>
   <div id="pad" aria-label="Manette tactile">
@@ -1051,9 +1099,11 @@ function tPlay(i){
   if(tOver||tb[i])return;tb[i]='X';tNew=[i];if(tEnd())return tRender();
   const free=tb.map((v,k)=>v?null:k).filter(k=>k!==null);
   const tryLine=p=>{for(const l of L){const v=l.map(k=>tb[k]);if(v.filter(x=>x==p).length==2&&v.includes(''))return l[v.indexOf('')]}return null};
+  const lv=+(document.getElementById('ttLvl')||{value:1}).value,P=[[.15,.2],[.4,.5],[1,1]][lv]||[.4,.5];
   let m=null;
-  if(Math.random()<.4)m=tryLine('O');
-  if(m===null&&Math.random()<.5)m=tryLine('X');
+  if(Math.random()<P[0])m=tryLine('O');
+  if(m===null&&Math.random()<P[1])m=tryLine('X');
+  if(m===null&&lv===2){m=[4,0,2,6,8,1,3,5,7].find(k=>!tb[k]);if(m===undefined)m=null}
   if(m===null)m=free[Math.random()*free.length|0];
   tb[m]='O';tNew=[i,m];tEnd();tRender();
 }
@@ -2052,6 +2102,200 @@ document.getElementById('fs').onclick=()=>{const g=document.getElementById('stag
   set(cur);
 })();
 
+</script>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+/* Arkade : accueil, succès, bibliothèque de ROMs, sauvegardes */
+(function(){
+  var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+  var NAMES={snake:'le Snake',ttt:'le Morpion',mem:'le Memory',pk:'le Poker',g48:'le 2048',blk:'les Blocs',emu:"l'Émulateur"};
+  var ACH=[
+    ['snk100','🐍','Serpent affamé','Snake : 100 points'],['snk300','🐲','Dragon','Snake : 300 points'],
+    ['g48win','🏆','Fusion totale','Atteindre la tuile 2048'],['g482k','🧩','Bonne fusion','2048 : 2000 points'],
+    ['bk1000','🧱','Maçon','Blocs : 1000 points'],['bk10','📏','Nettoyeur','Blocs : 10 lignes en une partie'],
+    ['pk4','🃏','Joueur de cartes','Poker : atteindre la manche 4'],['pkwin','👑','Roi du poker','Gagner au Poker'],
+    ['ttwin','❌','Plus malin','Battre l\'ordinateur au Morpion'],['memwin','🍓','Bonne mémoire','Finir un Memory'],
+    ['mem12','🐘','Mémoire de fer','Memory en 12 coups ou moins'],['rom','🎮','Premier jeu','Lancer une ROM'],
+    ['all6','🌟','Touche-à-tout','Ouvrir les 6 jeux']
+  ];
+  var got=LS.get('arki_ach',{}),seen=LS.get('arki_seen',{}),toastT;
+  function toast(t){var e=document.getElementById('toast');e.textContent=t;e.classList.add('on');clearTimeout(toastT);toastT=setTimeout(function(){e.classList.remove('on')},3200)}
+  function unlock(id){
+    if(got[id])return;got[id]=1;LS.set('arki_ach',got);
+    var a=ACH.filter(function(x){return x[0]===id})[0];if(a)toast(a[1]+' Succès : '+a[2]+' !');
+    render();
+  }
+  function stat(l,v){return '<div class="hm-st"><span>'+l+'</span><b>'+v+'</b></div>'}
+  function render(){
+    var pkb=LS.get('arki_poker_best',{round:0});
+    document.getElementById('hmStats').innerHTML=
+      stat('Snake',LS.get('arki_snake',0))+stat('2048',LS.get('arki_2048_best',0))+stat('Blocs',LS.get('arki_blocs_best',0))+
+      stat('Poker',pkb.round?'manche '+pkb.round:'—')+stat('Morpion',LS.get('arki_tt_wins',0)+' vict.')+
+      stat('Memory',LS.get('arki_mem_best',0)?LS.get('arki_mem_best',0)+' coups':'—');
+    var n=ACH.filter(function(a){return got[a[0]]}).length;
+    document.getElementById('hmCount').textContent='('+n+'/'+ACH.length+')';
+    document.getElementById('hmGrid').innerHTML=ACH.map(function(a){return '<div class="hm-b'+(got[a[0]]?' on':'')+'"><i>'+(got[a[0]]?a[1]:'🔒')+'</i><div><b>'+a[2]+'</b>'+a[3]+'</div></div>'}).join('');
+    var last=LS.get('arki_last',null),r=document.getElementById('hmResume');
+    if(last&&NAMES[last]){r.hidden=false;r.textContent='Reprendre '+NAMES[last]+' →'}else r.hidden=true;
+  }
+  document.getElementById('hmResume').onclick=function(){var l=LS.get('arki_last',null);var b=l&&document.querySelector('#tabs [data-t="'+l+'"]');if(b){b.click();b.scrollIntoView({block:'center'})}};
+  document.querySelectorAll('#tabs button').forEach(function(b){b.addEventListener('click',function(){
+    var t=b.dataset.t;LS.set('arki_last',t);
+    if(t!=='emu'){seen[t]=1;LS.set('arki_seen',seen);if(['snake','ttt','mem','pk','g48','blk'].every(function(k){return seen[k]}))unlock('all6')}
+    render();
+  })});
+  var ev0=helper.event;
+  helper.event=function(k,v){
+    try{
+      if(k==='lose'&&typeof v==='number'){if(v>=100)unlock('snk100');if(v>=300)unlock('snk300')}
+      else if(k==='g48'&&v){if(v.win)unlock('g48win');if(v.score>=2000)unlock('g482k')}
+      else if(k==='bkend'&&v){if(v.score>=1000)unlock('bk1000');if(v.lines>=10)unlock('bk10')}
+      else if(k==='pkend'&&v){if(v.round>=4)unlock('pk4');if(v.win)unlock('pkwin')}
+      else if(k==='ttwin'){LS.set('arki_tt_wins',LS.get('arki_tt_wins',0)+1);unlock('ttwin')}
+      else if(k==='win'){
+        unlock('memwin');var m=parseInt(document.getElementById('mMoves').textContent,10);
+        if(m){if(m<=12)unlock('mem12');var b=LS.get('arki_mem_best',0);if(!b||m<b)LS.set('arki_mem_best',m)}
+      }
+    }catch(e){}
+    var r=ev0.apply(helper,arguments);setTimeout(render,300);return r;
+  };
+  var gs0=helper.gameStarted;helper.gameStarted=function(){unlock('rom');return gs0.apply(helper,arguments)};
+  /* bibliothèque de ROMs récentes (noms seulement, les fichiers restent chez toi) */
+  function lib(){
+    var L=LS.get('arki_lib',[]),box=document.getElementById('romLib');
+    box.hidden=!L.length;
+    box.innerHTML=L.map(function(x,i){return '<button type="button" data-i="'+i+'" title="Choisir de nouveau ce fichier">🎮 '+x.n.replace(/[<&>"]/g,'')+'</button>'}).join('');
+  }
+  document.getElementById('romLib').addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    var x=LS.get('arki_lib',[])[+b.dataset.i];if(!x)return;
+    document.getElementById('sys').value=x.c;
+    document.getElementById('emuInfo').textContent='Console réglée sur '+document.getElementById('sys').selectedOptions[0].text+'. Choisis maintenant le fichier « '+x.n+' » sur ton appareil.';
+    document.getElementById('rom').click();
+  });
+  var L0=window.launch;
+  window.launch=function(f,core){
+    if(!(core==='psp'&&IOS)&&f&&f.name){
+      var n=f.name.replace(/\.[^.]+$/,'').slice(0,40),L=LS.get('arki_lib',[]).filter(function(x){return x.n!==n});
+      L.unshift({n:n,c:core});LS.set('arki_lib',L.slice(0,6));
+    }
+    return L0.apply(this,arguments);
+  };
+  /* sauvegarder / charger (emplacement 1) */
+  function slot(fn,okMsg){
+    var gm=window.EJS_emulator&&window.EJS_emulator.gameManager,info=document.getElementById('emuInfo');
+    if(!gm||typeof gm[fn]!=='function'){info.textContent='Lance d\'abord un jeu. Sinon, utilise le menu de l\'émulateur (les trois barres, puis la disquette).';return}
+    try{gm[fn](1);info.textContent=okMsg}catch(e){info.textContent='Impossible ici : utilise le menu de l\'émulateur (trois barres, puis la disquette).'}
+  }
+  document.getElementById('svBtn').onclick=function(){slot('quickSave','Partie sauvegardée (emplacement 1) dans ce navigateur.')};
+  document.getElementById('ldBtn').onclick=function(){slot('quickLoad','Sauvegarde de l\'emplacement 1 chargée.')};
+  window.arkiReload=function(){got=LS.get('arki_ach',{});seen=LS.get('arki_seen',{});lib();render()};
+  lib();render();
+})();
+</script>
+
+<script>
+/* Arkade : comptes, synchronisation des records, classement (Firebase) */
+(function(){
+  var CFG={apiKey:"AIzaSyB_EhgodPXt1Ga6rhJSD-YaPC3F6aWhyBo",authDomain:"arkade-3d02b.firebaseapp.com",databaseURL:"https://arkade-3d02b-default-rtdb.europe-west1.firebasedatabase.app",projectId:"arkade-3d02b",storageBucket:"arkade-3d02b.firebasestorage.app",messagingSenderId:"523286341480",appId:"1:523286341480:web:72e7693ac6b408d5f998dd"};
+  var BASE='https://www.gstatic.com/firebasejs/10.12.2/',fb=null,auth=null,db=null,user=null,ready=null,tPush=null;
+  var $=function(i){return document.getElementById(i)};
+  var J={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+  function load(src){return new Promise(function(ok,ko){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=function(){ko(new Error('network'))};document.head.appendChild(s)})}
+  function init(){
+    if(ready)return ready;
+    ready=(window.firebase?Promise.resolve():load(BASE+'firebase-app-compat.js').then(function(){return load(BASE+'firebase-auth-compat.js')}).then(function(){return load(BASE+'firebase-database-compat.js')})).then(function(){
+      fb=window.firebase;if(!fb.apps.length)fb.initializeApp(CFG);auth=fb.auth();db=fb.database();
+      auth.onAuthStateChanged(function(u){user=u;bar();if(u)pull()});
+    });
+    ready.catch(function(){ready=null});
+    return ready;
+  }
+  /* barre de compte dans le cadre d'accueil */
+  var home=$('home'),box=document.createElement('div');box.className='acct';home.insertBefore(box,home.firstChild);
+  function bar(){
+    box.innerHTML=user
+      ?'<span>👤 <b>'+esc(user.displayName||user.email)+'</b> · sauvegardé en ligne</span><button class="btn" id="acOut">Déconnexion</button>'
+      :'<span>👤 Joue sans compte, ou connecte-toi pour sauvegarder en ligne.</span><button class="btn primary" id="acIn">Connexion / Inscription</button>';
+    var i=$('acIn'),o=$('acOut');
+    if(i)i.onclick=openModal;
+    if(o)o.onclick=function(){auth.signOut()};
+  }
+  function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  /* fenêtre connexion / inscription */
+  var m=document.createElement('div');m.id='acModal';m.hidden=true;
+  m.innerHTML='<div class="acbox" role="dialog" aria-modal="true" aria-label="Compte Arkade"><h2>Ton compte Arkade</h2><div class="actabs"><button type="button" data-m="in" aria-pressed="true">Connexion</button><button type="button" data-m="up" aria-pressed="false">Inscription</button></div><form id="acForm" autocomplete="on"><div id="acPseudoW" hidden><label for="acPseudo">Pseudo (3 à 16 lettres, chiffres ou _)</label><input id="acPseudo" maxlength="16" autocomplete="nickname"></div><label for="acMail">E-mail</label><input id="acMail" type="email" autocomplete="email" required><label for="acPass">Mot de passe (6 caractères minimum)</label><input id="acPass" type="password" autocomplete="current-password" required><p class="acerr" id="acErr" role="alert"></p><div class="acrow"><button type="button" class="sec" id="acCancel">Annuler</button><button type="submit" id="acGo">Se connecter</button></div></form><button type="button" class="aclink" id="acForgot">Mot de passe oublié ?</button><p class="acnote">On garde seulement ton pseudo, ton e-mail et tes records. Pas de vrai nom. Ton pseudo apparaît dans le classement.</p></div>';
+  document.body.appendChild(m);
+  var mode='in';
+  function setMode(x){mode=x;m.querySelectorAll('.actabs button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.m===x))});$('acPseudoW').hidden=x!=='up';$('acGo').textContent=x==='up'?"Créer mon compte":'Se connecter';$('acPass').autocomplete=x==='up'?'new-password':'current-password';$('acErr').textContent=''}
+  m.querySelectorAll('.actabs button').forEach(function(b){b.onclick=function(){setMode(b.dataset.m)}});
+  function openModal(){m.hidden=false;setMode('in');$('acMail').focus()}
+  function closeModal(){m.hidden=true}
+  $('acCancel').onclick=closeModal;m.addEventListener('click',function(e){if(e.target===m)closeModal()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)closeModal()});
+  var MSG={'auth/email-already-in-use':'Cet e-mail a déjà un compte. Passe sur « Connexion ».','auth/invalid-credential':'E-mail ou mot de passe incorrect.','auth/wrong-password':'E-mail ou mot de passe incorrect.','auth/user-not-found':'E-mail ou mot de passe incorrect.','auth/weak-password':'Mot de passe trop court (6 caractères minimum).','auth/invalid-email':"Cet e-mail n'est pas valide.",'auth/too-many-requests':'Trop d\'essais. Réessaie dans quelques minutes.','auth/network-request-failed':'Pas de connexion internet.','network':'Impossible de joindre le service en ligne. Vérifie ta connexion.','auth/operation-not-allowed':"La connexion par e-mail n'est pas activée dans Firebase.",'auth/unauthorized-domain':"Ce site n'est pas dans les domaines autorisés de Firebase."};
+  function err(e){$('acErr').textContent=MSG[e&&(e.code||e.message)]||('Erreur : '+((e&&(e.code||e.message))||'inconnue'))}
+  $('acForm').onsubmit=function(ev){
+    ev.preventDefault();$('acErr').textContent='';
+    var mail=$('acMail').value.trim(),pw=$('acPass').value,ps=$('acPseudo').value.trim(),go=$('acGo');go.disabled=true;
+    init().then(function(){
+      if(mode==='in')return auth.signInWithEmailAndPassword(mail,pw);
+      if(!/^[A-Za-z0-9_]{3,16}$/.test(ps))throw {code:'x',message:'Pseudo : 3 à 16 caractères, lettres, chiffres ou _ seulement.'};
+      var key=ps.toLowerCase();
+      return db.ref('usernames/'+key).once('value').then(function(s){
+        if(s.exists())throw {code:'x',message:'Ce pseudo est déjà pris.'};
+        return auth.createUserWithEmailAndPassword(mail,pw);
+      }).then(function(c){
+        return db.ref('usernames/'+key).set(c.user.uid).then(function(){return c.user.updateProfile({displayName:ps})},function(){return c.user.delete().then(function(){throw {code:'x',message:'Ce pseudo vient d\'être pris. Choisis-en un autre.'}})}).then(function(){user=auth.currentUser;bar();pull()});
+      });
+    }).then(function(){closeModal();$('acPass').value=''}).catch(function(e){if(e&&e.code==='x')$('acErr').textContent=e.message;else err(e)}).then(function(){go.disabled=false});
+  };
+  $('acForgot').onclick=function(){
+    var mail=$('acMail').value.trim();if(!mail){$('acErr').textContent="Écris d'abord ton e-mail ci-dessus.";return}
+    init().then(function(){return auth.sendPasswordResetEmail(mail)}).then(function(){$('acErr').style.color='#1a7f37';$('acErr').textContent='E-mail envoyé : regarde ta boîte (et les spams).'}).catch(err);
+  };
+  /* synchronisation : on garde le meilleur de l'appareil et du compte */
+  var K={snake:'arki_snake',g48:'arki_2048_best',blk:'arki_blocs_best',tt:'arki_tt_wins',mem:'arki_mem_best'};
+  function local(){var p=J.get('arki_poker_best',{round:0,total:0});return{snake:J.get(K.snake,0),g48:J.get(K.g48,0),blk:J.get(K.blk,0),tt:J.get(K.tt,0),mem:J.get(K.mem,0),pkr:p.round||0,pkt:p.total||0,ach:J.get('arki_ach',{})}}
+  function merge(a,b){
+    var o={};['snake','g48','blk','tt','pkr','pkt'].forEach(function(k){o[k]=Math.max(+a[k]||0,+b[k]||0)});
+    o.mem=(+a.mem&&+b.mem)?Math.min(a.mem,b.mem):(+a.mem||+b.mem||0);
+    o.ach=Object.assign({},a.ach||{},b.ach||{});return o;
+  }
+  function save(o){
+    J.set(K.snake,o.snake);J.set(K.g48,o.g48);J.set(K.blk,o.blk);J.set(K.tt,o.tt);if(o.mem)J.set(K.mem,o.mem);
+    J.set('arki_poker_best',{round:o.pkr,total:o.pkt});J.set('arki_ach',o.ach);
+  }
+  function pull(){
+    if(!user)return;
+    db.ref('users/'+user.uid+'/data').once('value').then(function(s){
+      var o=merge(local(),s.val()||{});save(o);if(window.arkiReload)window.arkiReload();return push(o);
+    }).catch(function(){});
+  }
+  function push(o){
+    if(!user)return;o=o||local();var n=user.displayName||'joueur',u=user.uid,up={};
+    up['users/'+u+'/data']=o;
+    [['snake',o.snake],['g48',o.g48],['blk',o.blk]].forEach(function(g){if(g[1]>0)up['leaderboard/'+g[0]+'/'+u]={n:n,s:g[1]}});
+    return db.ref().update(up).catch(function(){});
+  }
+  if(typeof helper!=='undefined'){var e0=helper.event;helper.event=function(){var r=e0.apply(helper,arguments);clearTimeout(tPush);tPush=setTimeout(function(){if(user)push()},1500);return r}}
+  /* classement */
+  var lb=document.createElement('details');lb.className='hm-ach lb';
+  lb.innerHTML='<summary>Classement</summary><select id="lbG" aria-label="Jeu"><option value="snake">Snake</option><option value="g48">2048</option><option value="blk">Blocs</option></select><ol id="lbList"><li>Ouvre pour charger…</li></ol>';
+  home.appendChild(lb);
+  function top(){
+    var l=$('lbList');l.innerHTML='<li>Chargement…</li>';
+    init().then(function(){return db.ref('leaderboard/'+$('lbG').value).orderByChild('s').limitToLast(10).once('value')}).then(function(s){
+      var a=[];s.forEach(function(c){a.push(c.val())});a.sort(function(x,y){return y.s-x.s});
+      l.innerHTML=a.length?a.map(function(r){return '<li>'+esc(r.n)+'<b>'+(+r.s)+'</b></li>'}).join(''):'<li>Personne pour l\'instant. Sois le premier !</li>';
+    }).catch(function(){l.innerHTML='<li>Classement indisponible pour le moment.</li>'});
+  }
+  lb.addEventListener('toggle',function(){if(lb.open)top()});$('lbG').onchange=top;
+  bar();
+  if(J.get('arki_acct',false)||0){init()}
+  var sv=function(){J.set('arki_acct',true)};m.addEventListener('submit',sv);
+})();
 </script>
 </body>
 </html>
