@@ -519,6 +519,26 @@ section#p4.on{background:radial-gradient(1.5px 1.5px at 20% 25%,#fff8,transparen
 @keyframes p4d{from{transform:translateY(-320%)}to{transform:none}}
 .p4code{font:800 34px 'Inter Tight',sans-serif;letter-spacing:.25em;color:#ffd93d;margin:8px 0}
 @media (prefers-reduced-motion:reduce){.p4c i.n{animation:none}}
+
+/* Styles (thèmes) Snake, 2048, Memory + Morpion en ligne */
+.thbar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 0 10px}
+.thbar button{border:1.5px solid rgba(255,255,255,.4);background:rgba(0,0,0,.3);color:#fff;border-radius:999px;padding:6px 12px;font:600 12px 'Inter Tight',system-ui,sans-serif;cursor:pointer;touch-action:manipulation}
+.thbar button[aria-pressed=true]{background:#fff;color:#0d0c08;border-color:#fff}
+#ttt .thbar button{color:#1d2b53;border-color:#1d2b53;background:rgba(255,255,255,.6)}#ttt .thbar button[aria-pressed=true]{background:#1d2b53;color:#fff}
+#mem .thbar button{color:#c2348b;border-color:#ff9ec4;background:#fff}#mem .thbar button[aria-pressed=true]{background:#ff6fae;color:#fff;border-color:#ff6fae}
+#snake[data-st=amber]{filter:hue-rotate(-78deg) saturate(1.15)}
+#snake[data-st=ice]{filter:hue-rotate(75deg)}
+#snake[data-st=pink]{filter:hue-rotate(185deg)}
+#snake[data-st=mono]{filter:grayscale(1) contrast(1.1)}
+#g48[data-gt=sun] .b48,#g48[data-gt=sun] .hud2{filter:hue-rotate(-140deg)}
+#g48[data-gt=violet] .b48,#g48[data-gt=violet] .hud2{filter:hue-rotate(75deg)}
+#g48[data-gt=rose] .b48,#g48[data-gt=rose] .hud2{filter:hue-rotate(150deg)}
+#g48[data-gt=mono] .b48,#g48[data-gt=mono] .hud2{filter:grayscale(1)}
+#mem[data-mt=mint]{filter:hue-rotate(95deg)}
+#mem[data-mt=sky]{filter:hue-rotate(170deg)}
+#mem[data-mt=lemon]{filter:hue-rotate(-120deg) saturate(1.1)}
+#ttOn{align-items:center}
+#ttOn input{border:2px solid #1d2b53;background:#fffbe6;color:#1d2b53;border-radius:10px;padding:8px 12px;font:700 20px 'Caveat','Comic Sans MS',cursive;letter-spacing:.2em;text-transform:uppercase;width:110px}
 </style>
 </head>
 <body>
@@ -561,6 +581,7 @@ section#p4.on{background:radial-gradient(1.5px 1.5px at 20% 25%,#fff8,transparen
 <section id="ttt">
   <div class="score" id="tMsg">À toi de jouer (X)</div>
   <div class="grid" id="tGrid" style="grid-template-columns:repeat(3,1fr)"></div>
+  <div class="row" id="ttOn"><button class="btn" id="ttCreate">🌐 Créer une salle</button><input id="ttCode" maxlength="5" placeholder="CODE" aria-label="Code de la salle" autocomplete="off"><button class="btn" id="ttJoin">Rejoindre</button><button class="btn" id="ttLeave" hidden>Quitter la salle</button></div>
   <div class="row"><label class="lvl">Niveau <select id="ttLvl" aria-label="Niveau du Morpion"><option value="0">Facile</option><option value="1" selected>Normal</option><option value="2">Difficile</option></select></label><button class="btn primary" id="tReset">Nouvelle partie</button></div>
 </section>
 
@@ -1140,7 +1161,7 @@ document.getElementById('tReset').onclick=tReset;tReset();
 const mg=document.getElementById('mGrid'),mv=document.getElementById('mMoves');
 let open=[],lock=false,moves=0;
 function mReset(){
-  const sy=['🍓','🍋','🍇','🥝','🍒','🍑','🍍','🍉'];const d=[...sy,...sy].sort(()=>Math.random()-.5);
+  const sy=(window.MEMSET&&window.MEMSET.slice())||['🍓','🍋','🍇','🥝','🍒','🍑','🍍','🍉'];const d=[...sy,...sy].sort(()=>Math.random()-.5);
   mg.innerHTML='';open=[];lock=false;moves=0;mv.textContent=0;
   d.forEach(s=>{const c=document.createElement('button');c.className='cell';c.dataset.s=s;c.setAttribute('aria-label','Carte cachée');
     c.onclick=()=>{
@@ -2446,6 +2467,84 @@ var p4=(function(){
   });
   render();
   return{go:go,win:win,ai:ai,state:S};
+})();
+</script>
+
+<script>
+/* Arkade : styles du Snake / 2048 / Memory, Morpion en ligne */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function themes(secId,key,items,apply,first){
+    var sec=$(secId),bar=document.createElement('div');bar.className='thbar';bar.setAttribute('role','group');bar.setAttribute('aria-label','Style');
+    var k='arki_th_'+secId,cur=items[0][0];try{var v=localStorage.getItem(k);if(v&&items.some(function(x){return x[0]===v}))cur=v}catch(e){}
+    items.forEach(function(it){var b=document.createElement('button');b.type='button';b.textContent=it[1];b.dataset.t=it[0];b.onclick=function(){set(it[0],true)};bar.appendChild(b)});
+    sec.insertBefore(bar,sec.firstChild);
+    function set(id,user){cur=id;sec.dataset[key]=id;try{localStorage.setItem(k,id)}catch(e){}
+      bar.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.t===id))});if(apply)apply(id,user)}
+    set(cur,false);
+  }
+  themes('snake','st',[['green','Terminal'],['amber','Ambre'],['ice','Glace'],['pink','Rose'],['mono','Noir & blanc']]);
+  themes('g48','gt',[['aurora','Aurore'],['sun','Soleil'],['violet','Violet'],['rose','Rose'],['mono','Noir & blanc']]);
+  var MEM={fruits:['🍓','🍋','🍇','🥝','🍒','🍑','🍍','🍉'],animals:['🐱','🐶','🦊','🐼','🐸','🦁','🐙','🦄'],space:['🚀','🌙','⭐','🪐','☄️','👽','🛸','🌍'],games:['🎮','🎲','🧩','🎯','🕹️','♟️','🃏','🏆']};
+  themes('mem','mt',[['fruits','🍓 Bonbon'],['mint','🐱 Menthe'],['sky','🚀 Ciel'],['lemon','🎮 Citron']],function(id,user){
+    var sets={fruits:'fruits',mint:'animals',sky:'space',lemon:'games'};
+    window.MEMSET=MEM[sets[id]];if(user&&typeof mReset==='function')mReset();
+  });
+  if(typeof mReset==='function')mReset();
+
+  /* Morpion en ligne */
+  var S={on:false,ref:null,me:1,t:1,p2:false,w:0,code:'',won:0},tp0=window.tPlay;
+  var SYM=['X','O'];
+  function msg(t){$('tMsg').textContent=t}
+  function ui(){var on=S.on;$('ttCreate').hidden=on;$('ttJoin').hidden=on;$('ttCode').hidden=on;$('ttLeave').hidden=!on}
+  window.tPlay=function(i){
+    if(!S.on)return tp0.apply(this,arguments);
+    if(S.w||tb[i]||!S.p2||S.t!==S.me)return;
+    var a=tb.slice();a[i]=SYM[S.me-1];var r=win(a),code=r==='X'?1:r==='O'?2:r==='='?3:0;
+    S.ref.update({b:a.map(function(c){return c||'.'}).join(''),t:3-S.me,w:code});
+  };
+  function listen(){
+    S.ref.on('value',function(sn){
+      var v=sn.val();
+      if(!v){if(S.on){leave(true);msg('La salle a été fermée.')}return}
+      var u=window.arkiNet.user();S.me=v.p1===u.uid?1:2;S.t=v.t;S.p2=!!v.p2;S.w=v.w||0;
+      tb=v.b.split('').map(function(c){return c==='.'?'':c});tOver=!!S.w;tNew=[];tWin=null;
+      if(S.w)win(tb);
+      var n=[v.n1||'',v.n2||''];
+      msg(!S.p2?"Code de la salle : "+S.code+" — attends ton ami…":S.w===3?'Égalité':S.w?(S.w===S.me?'Tu as gagné ! ('+SYM[S.me-1]+')':(n[S.w-1]||'Ton ami')+' gagne'):(S.t===S.me?'À toi de jouer ('+SYM[S.me-1]+')':'Tour de '+(n[S.t-1]||'ton ami')+'…'));
+      if(S.w&&S.w===S.me&&!S.won){S.won=1;helper.event('ttwin')}if(!S.w)S.won=0;
+      tRender();
+    });
+  }
+  function leave(silent){
+    if(S.ref){try{S.ref.off();if(S.me===1&&!S.p2)S.ref.remove()}catch(e){}}
+    S.on=false;S.ref=null;ui();if(!silent)tReset()
+  }
+  function code(){var a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',s='';for(var i=0;i<5;i++)s+=a[Math.random()*a.length|0];return s}
+  function online(kind){
+    var N=window.arkiNet;
+    N.init().then(function(){
+      var u=N.user();if(!u){msg('Connecte-toi d\'abord (bouton en haut de la page).');N.login();return}
+      var db=N.db(),name=u.displayName||'joueur';
+      if(kind==='create'){
+        var c=code();S.code=c;S.ref=db.ref('ttrooms/'+c);S.on=true;ui();
+        return S.ref.set({b:'.........',t:1,w:0,p1:u.uid,n1:name}).then(listen);
+      }
+      var c2=($('ttCode').value||'').trim().toUpperCase();if(c2.length!==5){msg('Écris le code à 5 caractères.');return}
+      var ref=db.ref('ttrooms/'+c2);
+      return ref.once('value').then(function(sn){
+        var v=sn.val();if(!v){msg('Salle introuvable.');return}
+        if(v.p1!==u.uid&&v.p2&&v.p2!==u.uid){msg('Cette salle est déjà complète.');return}
+        var p=(v.p1===u.uid||v.p2===u.uid)?Promise.resolve():ref.update({p2:u.uid,n2:name});
+        return p.then(function(){S.code=c2;S.ref=ref;S.on=true;ui();listen()});
+      });
+    }).catch(function(){msg('Impossible de joindre le service en ligne.')});
+  }
+  $('ttCreate').onclick=function(){online('create')};
+  $('ttJoin').onclick=function(){online('join')};
+  $('ttLeave').onclick=function(){leave(false)};
+  $('tReset').addEventListener('click',function(e){if(S.on){e.stopImmediatePropagation();if(S.ref&&S.p2)S.ref.update({b:'.........',t:1,w:0})}},true);
+  ui();
 })();
 </script>
 </body>
