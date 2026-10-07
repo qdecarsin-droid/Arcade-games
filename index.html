@@ -497,6 +497,28 @@ section#blk.on::after{content:"";position:absolute;left:-50%;right:-50%;bottom:0
 .acrow button.sec{background:#e4dfff;color:#3b25d6}
 .aclink{background:none;border:0;color:#5b3cff;font:600 13px 'Inter Tight',sans-serif;cursor:pointer;padding:6px 0;text-decoration:underline}
 .acnote{font-size:11px;color:#6b6890;margin:8px 0 0;line-height:1.35}
+
+/* 07 PUISSANCE 4 */
+body[data-g=p4] nav button[aria-selected=true]{background:#ffd93d;border-color:#ffd93d;color:#14264d;box-shadow:0 10px 24px -10px rgba(255,217,61,.9)}
+section#p4.on{background:radial-gradient(1.5px 1.5px at 20% 25%,#fff8,transparent),linear-gradient(180deg,#0c1a44,#14357a);border:3px solid #ffd93d;box-shadow:0 0 30px rgba(255,217,61,.25);font-family:'Inter Tight',system-ui,sans-serif}
+.p4t{font:600 clamp(26px,6vw,36px)/1 'Inter Tight',sans-serif;letter-spacing:-.03em;text-transform:uppercase;margin:6px 0 12px}
+.p4m{display:grid;gap:10px;max-width:420px;margin:0 auto;text-align:left}
+.p4m .box{background:rgba(255,255,255,.1);border-radius:18px;padding:14px}
+.p4m b{display:block;margin-bottom:6px}
+.p4m .row{margin:6px 0 0;justify-content:flex-start}
+.p4m input{border:1.5px solid rgba(255,255,255,.4);background:rgba(10,8,36,.4);color:#fff;border-radius:999px;padding:9px 14px;font:700 16px 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;width:130px}
+.p4s{font:600 16px 'Inter Tight',sans-serif;min-height:1.6em;margin:2px 0 8px}
+.p4b{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;width:min(100%,400px);margin:0 auto;padding:8px;border-radius:20px;background:#1f55d6;box-shadow:inset 0 -6px 0 rgba(0,0,0,.25),0 14px 30px -12px rgba(0,0,0,.7);touch-action:manipulation}
+.p4c{display:grid;grid-template-rows:repeat(6,1fr);gap:4px;border:0;background:transparent;padding:0;cursor:pointer;border-radius:12px;-webkit-tap-highlight-color:transparent}
+.p4c:active{background:rgba(255,255,255,.12)}
+.p4c i{display:block;aspect-ratio:1;border-radius:50%;background:#0c1a44;box-shadow:inset 0 3px 6px rgba(0,0,0,.55)}
+.p4c i.r{background:radial-gradient(circle at 35% 30%,#ff8f8f,#e02a2a 60%,#a51212);box-shadow:inset 0 -3px 0 rgba(0,0,0,.25)}
+.p4c i.y{background:radial-gradient(circle at 35% 30%,#fff2a0,#ffd21f 60%,#d19a00);box-shadow:inset 0 -3px 0 rgba(0,0,0,.2)}
+.p4c i.n{animation:p4d .35s cubic-bezier(.3,1.3,.5,1)}
+.p4c i.w{outline:3px solid #fff;outline-offset:-3px}
+@keyframes p4d{from{transform:translateY(-320%)}to{transform:none}}
+.p4code{font:800 34px 'Inter Tight',sans-serif;letter-spacing:.25em;color:#ffd93d;margin:8px 0}
+@media (prefers-reduced-motion:reduce){.p4c i.n{animation:none}}
 </style>
 </head>
 <body>
@@ -505,7 +527,7 @@ section#blk.on::after{content:"";position:absolute;left:-50%;right:-50%;bottom:0
     <div class="hero-l">
       <div class="brand"><svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="hd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9d3ff"/></linearGradient><filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter></defs><g fill="#e4dfff" stroke="#b3a8ff" stroke-width="1.6"><rect x="35" y="74" width="11" height="14" rx="5"/><rect x="54" y="74" width="11" height="14" rx="5"/><rect x="27" y="85" width="23" height="10" rx="5"/><rect x="50" y="85" width="23" height="10" rx="5"/></g><rect x="16" y="24" width="68" height="55" rx="24" fill="url(#hd)" stroke="#bdb3ff" stroke-width="1.6"/><path d="M14 46 C14 12 86 12 86 46" fill="none" stroke="#5b3cff" stroke-width="6" stroke-linecap="round"/><rect x="8" y="38" width="12" height="22" rx="6" fill="#5b3cff"/><rect x="80" y="38" width="12" height="22" rx="6" fill="#5b3cff"/><rect x="23" y="33" width="54" height="40" rx="17" fill="#0e0b2e"/><path d="M30 42 C32 37 38 35 45 35" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="2.4" stroke-linecap="round"/><g class="eye"><g filter="url(#gl)" opacity=".85"><rect x="35" y="46" width="11" height="15" rx="5.5" fill="#3be8ff"/><rect x="54" y="46" width="11" height="15" rx="5.5" fill="#3be8ff"/></g><rect x="35" y="46" width="11" height="15" rx="5.5" fill="#6af2ff"/><rect x="54" y="46" width="11" height="15" rx="5.5" fill="#6af2ff"/></g></svg><span class="wm">Arkade<sup>©</sup></span></div>
       <h1>Joue<br>sans friction ©</h1>
-      <p class="lead">Six jeux rapides et un émulateur pour tes propres ROMs. Rien d'autre.</p>
+      <p class="lead">Sept jeux rapides et un émulateur pour tes propres ROMs. Rien d'autre.</p>
       <a class="pill" href="#tabs">Jouer ↓</a>
     </div>
     <div class="hero-r"><svg class="stripes" viewBox="0 0 308 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="308" height="200" fill="#7b6cff"/><rect x="3" y="0" width="7" height="200" fill="#4a2bff"/><rect x="17" y="0" width="7" height="200" fill="#4a2bff"/><rect x="31" y="0" width="7" height="200" fill="#4a2bff"/><rect x="45" y="0" width="7" height="200" fill="#4a2bff"/><rect x="59" y="0" width="7" height="200" fill="#4a2bff"/><rect x="73" y="0" width="7" height="200" fill="#4a2bff"/><rect x="87" y="0" width="7" height="200" fill="#4a2bff"/><rect x="101" y="0" width="7" height="200" fill="#4a2bff"/><rect x="115" y="0" width="7" height="200" fill="#4a2bff"/><rect x="129" y="0" width="7" height="200" fill="#4a2bff"/><rect x="143" y="0" width="7" height="200" fill="#4a2bff"/><rect x="157" y="0" width="7" height="200" fill="#4a2bff"/><rect x="171" y="0" width="7" height="200" fill="#4a2bff"/><rect x="185" y="0" width="7" height="200" fill="#4a2bff"/><rect x="199" y="0" width="7" height="200" fill="#4a2bff"/><rect x="213" y="0" width="7" height="200" fill="#4a2bff"/><rect x="227" y="0" width="7" height="200" fill="#4a2bff"/><rect x="241" y="0" width="7" height="200" fill="#4a2bff"/><rect x="255" y="0" width="7" height="200" fill="#4a2bff"/><rect x="269" y="0" width="7" height="200" fill="#4a2bff"/><rect x="283" y="0" width="7" height="200" fill="#4a2bff"/><rect x="297" y="0" width="7" height="200" fill="#4a2bff"/><ellipse cx="76.5" cy="100" rx="5.5" ry="60" fill="#2a12e8"/><ellipse cx="118.5" cy="80" rx="5.5" ry="78" fill="#2a12e8"/><ellipse cx="160.5" cy="110" rx="5.5" ry="70" fill="#2a12e8"/><ellipse cx="202.5" cy="90" rx="5.5" ry="56" fill="#2a12e8"/><ellipse cx="244.5" cy="105" rx="5.5" ry="66" fill="#2a12e8"/></svg></div>
@@ -519,7 +541,8 @@ section#blk.on::after{content:"";position:absolute;left:-50%;right:-50%;bottom:0
   <button role="tab" data-t="pk" aria-selected="false">04 Poker</button>
   <button role="tab" data-t="g48" aria-selected="false">05 2048</button>
   <button role="tab" data-t="blk" aria-selected="false">06 Blocs</button>
-  <button role="tab" data-t="emu" aria-selected="false">07 Émulateur</button>
+  <button role="tab" data-t="p4" aria-selected="false">07 Puissance 4</button>
+  <button role="tab" data-t="emu" aria-selected="false">08 Émulateur</button>
 </nav>
 <main>
 
@@ -579,6 +602,8 @@ section#blk.on::after{content:"";position:absolute;left:-50%;right:-50%;bottom:0
   <p class="info">Touche le plateau pour tourner (ou commencer). Flèches, Haut = tourner, Espace = chute, P = pause.</p>
   <div class="row"><button class="btn primary" id="bkNew">Nouvelle partie</button></div>
 </section>
+
+<section id="p4"><div id="p4Root"></div></section>
 
 <section id="emu">
   <div class="row">
@@ -683,18 +708,19 @@ const helper=(()=>{
     {r:/(iphone|ipad|android|mobile|telephone|tablette|safari|chrome)/,a:"Sur <b>iPad</b>, tout marche avec Safari sauf la PSP. Tu peux aussi ajouter Arkade à l'écran d'accueil (Partager → Sur l'écran d'accueil) pour l'avoir en plein écran. Évite les aperçus intégrés d'applications."},
     {r:/(snake|serpent)/,a:"<b>Snake</b> : touche le jeu (ou « Lancer la partie ») pour commencer. Dirige avec les flèches, <b>en glissant le doigt</b> sur le jeu, ou avec la croix. Chaque pomme = 10 points. Toucher un mur ou ton corps = perdu."},
     {r:/(morpion|tic ?tac|croix et rond)/,a:"<b>Morpion</b> : tu joues les X et tu commences. Aligne trois symboles. Prendre le centre est un bon début."},
+    {r:/(puissance ?4|connect ?4|jetons?)/,a:"<b>Puissance 4</b> (onglet 07) : touche une colonne pour y lâcher ton jeton, et aligne <b>4 jetons</b> (ligne, colonne ou diagonale). Tu peux jouer <b>contre l'ordinateur</b> (3 niveaux), <b>à deux sur le même écran</b>, ou <b>en ligne</b> : crée une salle, partage le code à un ami (compte requis). Dis « lance le Puissance 4 » !"},
     {r:/(2048|fusion|tuiles?)/,a:"<b>2048</b> (onglet 05) : glisse sur le plateau (ou utilise la croix / les flèches) pour faire <b>fusionner les tuiles identiques</b> : 2+2=4, 4+4=8… Le but est d'obtenir la tuile <b>2048</b>. Chaque coup ajoute une nouvelle tuile ; la partie s'arrête quand plus rien ne bouge. Ton record est gardé. Dis « lance le 2048 » et j'y vais !"},
     {r:/(tetris|blocs?\b|briques?|pieces? qui tombent|lignes?)/,a:"<b>Blocs</b> (onglet 06), le jeu de pièces qui tombent : déplace avec ◀ ▶, tourne avec ⟳ (ou touche le plateau), accélère avec ▼ et fais tomber d'un coup avec ⤓. Remplis une <b>ligne entière</b> pour l'effacer ; 4 lignes d'un coup rapportent le plus. Ça accélère tous les 10 lignes. Au clavier : flèches, Espace pour la chute, P pour la pause. Dis « lance les blocs » !"},
     {r:/(poker|balatro|manche|bonus|multiplicateur|jeu de cartes)/,a:"<b>Poker d'Arki</b> (onglet 04) : choisis jusqu'à <b>5 cartes</b> et joue-les, tes points = <b>points × multiplicateur</b>. Atteins l'objectif de la manche avant de manquer de mains (4 par manche, et 3 défausses). Entre deux manches, tu choisis un <b>bonus</b> parmi 3 (5 maximum, ils se combinent). Réussis <b>8 manches</b> pour gagner. Astuce : double paire, couleur ou full rapportent gros, et les bonus ×mult sont les plus puissants !"},
     {r:/(memory|paire|cartes?)/,a:"<b>Memory</b> : retourne deux cartes, trouve les paires. Moins de coups = meilleur score. « Mélanger les cartes » relance."},
-    {r:/(comment (ca )?(marche|fonctionne)|mode d.?emploi|aide|help|utiliser|demarrer|commencer|c.?est quoi|arkade|a quoi ca sert)/,a:"<b>Arkade</b>, c'est 6 jeux (Snake, Morpion, Memory, Poker d'Arki, 2048, Blocs) et un <b>émulateur</b> pour tes propres ROMs.<br>Pour l'émulateur : onglet <b>07</b> → « Choisir une ROM » → le jeu se lance. Demande-moi où trouver des ROMs légales, les consoles, la manette ou le son."},
+    {r:/(comment (ca )?(marche|fonctionne)|mode d.?emploi|aide|help|utiliser|demarrer|commencer|c.?est quoi|arkade|a quoi ca sert)/,a:"<b>Arkade</b>, c'est 6 jeux (Snake, Morpion, Memory, Poker d'Arki, 2048, Blocs) et un <b>émulateur</b> pour tes propres ROMs.<br>Pour l'émulateur : onglet <b>08</b> → « Choisir une ROM » → le jeu se lance. Demande-moi où trouver des ROMs légales, les consoles, la manette ou le son."},
     {r:/(bonjour|salut|coucou|hello|hey|yo\b)/,a:"Salut ! Que veux-tu savoir ? Je peux t'aider pour les ROMs, les consoles, la manette, le son ou les jeux."},
     {r:/(merci|genial|parfait|\bcool\b|\btop\b)/,a:"Avec plaisir ! 🎮"}
   ];
   const base=['Où trouver des ROMs ?','Que sais-tu faire ?','Quelles consoles ?'];
   if(IOS)base.push("Écran d'accueil ?");
-  const tabChips={g48:['Comment jouer au 2048 ?'],blk:['Comment jouer aux Blocs ?'],pk:['Comment jouer au Poker ?'],snake:['Comment jouer au Snake ?'],ttt:['Comment jouer au Morpion ?'],mem:['Comment jouer au Memory ?'],emu:['Pas de son','Ça rame','Quels formats ?']};
-  const tabTip={g48:"2048 : glisse pour fusionner les tuiles identiques et atteindre 2048.",blk:"Blocs : ◀ ▶ bouger, ⟳ tourner, ⤓ chute. Efface des lignes pleines !",pk:"Poker d'Arki : joue jusqu'à 5 cartes, points × multiplicateur. Choisis des bonus entre les manches.",snake:"Snake : flèches du clavier ou croix, 10 points par pomme.",ttt:"Morpion : tu es les X. Le centre est un bon départ.",mem:"Memory : retiens la place des symboles pour faire moins de coups.",emu:"Émulateur : « Choisir une ROM », le reste est automatique. Demande-moi où en trouver légalement."};
+  const tabChips={p4:['Comment jouer au Puissance 4 ?'],g48:['Comment jouer au 2048 ?'],blk:['Comment jouer aux Blocs ?'],pk:['Comment jouer au Poker ?'],snake:['Comment jouer au Snake ?'],ttt:['Comment jouer au Morpion ?'],mem:['Comment jouer au Memory ?'],emu:['Pas de son','Ça rame','Quels formats ?']};
+  const tabTip={p4:"Puissance 4 : aligne 4 jetons. Joue contre l'ordinateur, à deux, ou en ligne avec un code de salle.",g48:"2048 : glisse pour fusionner les tuiles identiques et atteindre 2048.",blk:"Blocs : ◀ ▶ bouger, ⟳ tourner, ⤓ chute. Efface des lignes pleines !",pk:"Poker d'Arki : joue jusqu'à 5 cartes, points × multiplicateur. Choisis des bonus entre les manches.",snake:"Snake : flèches du clavier ou croix, 10 points par pomme.",ttt:"Morpion : tu es les X. Le centre est un bon départ.",mem:"Memory : retiens la place des symboles pour faire moins de coups.",emu:"Émulateur : « Choisir une ROM », le reste est automatique. Demande-moi où en trouver légalement."};
   const react={lose:["Aïe ! Relance une partie, tu vas faire mieux."],win:["Bravo, tu as gagné ! 🎉"],ttwin:["Bien joué, tu m'as battu !"],ttlose:["L'ordinateur l'emporte cette fois. Revanche ?"],draw:["Égalité : personne ne perd."]};
   let tab='snake',busy=false;
   const pick=a=>a[Math.random()*a.length|0];
@@ -761,6 +787,7 @@ const helper=(()=>{
     {re:/poker|balatro|jeu de cartes/,tab:'pk',label:"le Poker d'Arki",run:()=>pkOpen(),again:()=>pkNewRun(),tip:'Choisis jusqu\'à 5 cartes et joue-les.'},
     {re:/2048|fusion/,tab:'g48',label:'le 2048',run:()=>g48New(),tip:'Glisse pour fusionner les tuiles identiques.'},
     {re:/tetris|\bblocs?\b|briques?/,tab:'blk',label:'les Blocs',run:()=>bkStart(),tip:'◀ ▶ pour bouger, ⟳ pour tourner, ⤓ pour faire tomber.'},
+    {re:/puissance ?4|connect ?4/,tab:'p4',label:'le Puissance 4',run:()=>p4Open(),tip:'Aligne 4 jetons : contre l\'ordinateur, à deux, ou en ligne.'},
     {re:/snake|serpent/,tab:'snake',label:'le Snake',run:()=>startSnake(),tip:'Tourne avec la croix sous le jeu ou les flèches du clavier.'},
     {re:/morpion|tic ?tac/,tab:'ttt',label:'le Morpion',run:()=>tReset(),tip:'Tu es les X, à toi de jouer.'},
     {re:/\bmemory\b|\bpaires?\b/,tab:'mem',label:'le Memory',run:()=>mReset(),tip:'Retourne deux cartes à la fois.'}
@@ -2117,7 +2144,7 @@ document.getElementById('fs').onclick=()=>{const g=document.getElementById('stag
     ['pk4','🃏','Joueur de cartes','Poker : atteindre la manche 4'],['pkwin','👑','Roi du poker','Gagner au Poker'],
     ['ttwin','❌','Plus malin','Battre l\'ordinateur au Morpion'],['memwin','🍓','Bonne mémoire','Finir un Memory'],
     ['mem12','🐘','Mémoire de fer','Memory en 12 coups ou moins'],['rom','🎮','Premier jeu','Lancer une ROM'],
-    ['all6','🌟','Touche-à-tout','Ouvrir les 6 jeux']
+    ['p4win','🔴','Quatre à la suite','Gagner au Puissance 4'],['all6','🌟','Touche-à-tout','Ouvrir les 6 jeux']
   ];
   var got=LS.get('arki_ach',{}),seen=LS.get('arki_seen',{}),toastT;
   function toast(t){var e=document.getElementById('toast');e.textContent=t;e.classList.add('on');clearTimeout(toastT);toastT=setTimeout(function(){e.classList.remove('on')},3200)}
@@ -2152,6 +2179,7 @@ document.getElementById('fs').onclick=()=>{const g=document.getElementById('stag
       else if(k==='g48'&&v){if(v.win)unlock('g48win');if(v.score>=2000)unlock('g482k')}
       else if(k==='bkend'&&v){if(v.score>=1000)unlock('bk1000');if(v.lines>=10)unlock('bk10')}
       else if(k==='pkend'&&v){if(v.round>=4)unlock('pk4');if(v.win)unlock('pkwin')}
+      else if(k==='p4win')unlock('p4win');
       else if(k==='ttwin'){LS.set('arki_tt_wins',LS.get('arki_tt_wins',0)+1);unlock('ttwin')}
       else if(k==='win'){
         unlock('memwin');var m=parseInt(document.getElementById('mMoves').textContent,10);
@@ -2292,9 +2320,132 @@ document.getElementById('fs').onclick=()=>{const g=document.getElementById('stag
     }).catch(function(){l.innerHTML='<li>Classement indisponible pour le moment.</li>'});
   }
   lb.addEventListener('toggle',function(){if(lb.open)top()});$('lbG').onchange=top;
+  window.arkiNet={init:init,db:function(){return db},user:function(){return user},login:openModal};
   bar();
   if(J.get('arki_acct',false)||0){init()}
   var sv=function(){J.set('arki_acct',true)};m.addEventListener('submit',sv);
+})();
+</script>
+
+<script>
+/* Arkade : Puissance 4 (ordinateur, 2 joueurs, en ligne) */
+function p4Open(){p4.go('menu')}
+var p4=(function(){
+  var R=6,C=7,EMPTY='.........................................'+'.',ORD=[3,2,4,1,5,0,6],root=document.getElementById('p4Root');
+  EMPTY=new Array(43).join('.');
+  var S={view:'menu',mode:'cpu',lvl:1,b:EMPTY,turn:1,me:1,w:0,cells:[],last:-1,code:'',ref:null,n:['',''],has2:true,msg:'',busy:false};
+  function drop(b,c,p){for(var r=R-1;r>=0;r--){var i=r*C+c;if(b[i]==='.')return b.slice(0,i)+p+b.slice(i+1)}return null}
+  function win(b){
+    var D=[[0,1],[1,0],[1,1],[1,-1]];
+    for(var r=0;r<R;r++)for(var c=0;c<C;c++){var p=b[r*C+c];if(p==='.')continue;
+      for(var d=0;d<4;d++){var cs=[r*C+c],ok=true;
+        for(var k=1;k<4;k++){var rr=r+D[d][0]*k,cc=c+D[d][1]*k;if(rr<0||rr>=R||cc<0||cc>=C||b[rr*C+cc]!==p){ok=false;break}cs.push(rr*C+cc)}
+        if(ok)return{p:+p,cells:cs}}}
+    return b.indexOf('.')<0?{p:3,cells:[]}:null;
+  }
+  function heur(b,p){var s=0;for(var r=0;r<R;r++){var v=b[r*C+3];if(v==='.')continue;s+=(+v===p?3:-3)}return s}
+  function nm(b,p,d,al,be){
+    var best=-1e9,any=false;
+    for(var j=0;j<7;j++){var c=ORD[j],nb=drop(b,c,p);if(!nb)continue;any=true;
+      var w=win(nb),s;
+      if(w&&w.p===p)s=1000+d;else if(w)s=0;else if(d===0)s=heur(nb,p);else s=-nm(nb,3-p,d-1,-be,-al);
+      if(s>best)best=s;if(best>al)al=best;if(al>=be)break}
+    return any?best:0;
+  }
+  function ai(b,p,lvl){
+    var cols=[];for(var c=0;c<C;c++)if(b[c]==='.')cols.push(c);
+    var o=3-p,rnd=function(a){return a[Math.random()*a.length|0]};
+    if(lvl===0&&Math.random()<.8)return rnd(cols);
+    for(var i=0;i<cols.length;i++){var w=win(drop(b,cols[i],p));if(w&&w.p===p)return cols[i]}
+    if(lvl>=1||Math.random()<.3)for(i=0;i<cols.length;i++){var w2=win(drop(b,cols[i],o));if(w2&&w2.p===o&&(lvl>=2||Math.random()<.85))return cols[i]}
+    if(lvl===2){var best=-1e9,bc=cols[0];
+      ORD.forEach(function(c){var nb=drop(b,c,p);if(!nb)return;var sc=-nm(nb,o,4,-1e9,1e9);if(sc>best){best=sc;bc=c}});return bc}
+    var wgt=[];cols.forEach(function(c){for(var k=0;k<4-Math.abs(3-c);k++)wgt.push(c)});return rnd(wgt);
+  }
+  function stat(){
+    if(S.w===3)return 'Match nul !';
+    if(S.w)return S.mode==='cpu'?(S.w===S.me?'Tu as gagné ! 🎉':"L'ordinateur gagne"):S.mode==='online'?(S.w===S.me?'Tu as gagné ! 🎉':(S.n[S.w-1]||'Ton adversaire')+' gagne'):'Les '+(S.w===1?'rouges':'jaunes')+' gagnent ! 🎉';
+    if(S.mode==='online'&&!S.has2)return "En attente d'un adversaire…";
+    var me=S.turn===S.me;
+    return S.mode==='local'?'Au tour des '+(S.turn===1?'rouges 🔴':'jaunes 🟡'):(me?'À toi de jouer '+(S.me===1?'🔴':'🟡'):(S.mode==='cpu'?"L'ordinateur réfléchit…":'Tour de '+(S.n[S.turn-1]||'ton adversaire')));
+  }
+  function menu(){
+    return '<div class="p4t">Puissance 4</div><div class="p4m"><div class="box"><b>🤖 Contre l\'ordinateur</b><div class="row"><select id="p4L" aria-label="Niveau"><option value="0">Facile</option><option value="1" selected>Normal</option><option value="2">Difficile</option></select><button class="btn primary" data-a="cpu">Jouer</button></div></div><div class="box"><b>👥 À deux, sur cet écran</b><div class="row"><button class="btn primary" data-a="local">Jouer</button></div></div><div class="box"><b>🌐 En ligne avec un ami</b><div class="row"><button class="btn primary" data-a="create">Créer une salle</button></div><div class="row"><input id="p4Code" maxlength="5" placeholder="CODE" aria-label="Code de la salle" autocomplete="off"><button class="btn" data-a="join">Rejoindre</button></div><p class="info" style="margin:8px 0 0">'+(S.msg||'Un compte est nécessaire pour jouer en ligne.')+'</p></div></div>';
+  }
+  function game(){
+    var h='<div class="p4t">Puissance 4</div>'+(S.mode==='online'?'<div>Salle <span class="p4code" style="font-size:20px;margin:0">'+S.code+'</span></div>':'')+'<div class="p4s" role="status" aria-live="polite">'+stat()+'</div><div class="p4b" id="p4B">';
+    for(var c=0;c<C;c++){h+='<button class="p4c" data-c="'+c+'" aria-label="Colonne '+(c+1)+'">';
+      for(var r=0;r<R;r++){var i=r*C+c,v=S.b[i];h+='<i class="'+(v==='1'?'r':v==='2'?'y':'')+(i===S.last?' n':'')+(S.cells.indexOf(i)>=0?' w':'')+'"></i>'}
+      h+='</button>'}
+    h+='</div><div class="row">'+(S.mode==='online'&&!S.has2?'<p class="info">Donne ce code à ton ami : <b class="p4code" style="font-size:22px">'+S.code+'</b></p>':'')+'<button class="btn primary" data-a="again"'+(S.mode==='online'&&!S.has2?' hidden':'')+'>Rejouer</button><button class="btn" data-a="menu">Menu</button></div>';
+    return h;
+  }
+  function render(){root.innerHTML=S.view==='menu'?menu():game()}
+  function go(v){if(v==='menu'){leave();S.msg=''}S.view=v;render()}
+  function leave(){var n=window.arkiNet;if(S.ref){try{S.ref.off();if(S.mode==='online'&&S.me===1&&!S.has2)S.ref.remove()}catch(e){}S.ref=null}}
+  function reset(){S.b=EMPTY;S.turn=1;S.w=0;S.cells=[];S.last=-1}
+  function end(w){S.w=w.p;S.cells=w.cells;if(w.p===S.me&&S.mode!=='local')helper.event('p4win')}
+  function play(c){
+    if(S.w||S.busy)return;
+    if(S.mode==='online'){
+      if(!S.has2||S.turn!==S.me)return;var nb=drop(S.b,c,String(S.me));if(!nb)return;var w=win(nb);
+      S.ref.update({b:nb,t:3-S.me,w:w?w.p:0});return;
+    }
+    if(S.mode==='cpu'&&S.turn!==S.me)return;
+    var b=drop(S.b,c,String(S.turn));if(!b)return;
+    S.last=(function(){for(var r=0;r<R;r++)if(b[r*C+c]!==S.b[r*C+c])return r*C+c})();S.b=b;
+    var w=win(b);if(w)end(w);else S.turn=3-S.turn;render();
+    if(!w&&S.mode==='cpu'&&S.turn!==S.me){S.busy=true;setTimeout(function(){
+      var cc=ai(S.b,S.turn,S.lvl),nb=drop(S.b,cc,String(S.turn));
+      if(nb){for(var r=0;r<R;r++)if(nb[r*C+cc]!==S.b[r*C+cc])S.last=r*C+cc;S.b=nb;var w2=win(nb);if(w2)end(w2);else S.turn=3-S.turn}
+      S.busy=false;render()},500)}
+  }
+  function code(){var a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',s='';for(var i=0;i<5;i++)s+=a[Math.random()*a.length|0];return s}
+  function listen(){
+    S.ref.on('value',function(sn){
+      var v=sn.val();
+      if(!v){if(S.view==='game'&&S.mode==='online'){S.msg='La salle a été fermée.';go('menu')}return}
+      var u=window.arkiNet.user();S.me=v.p1===u.uid?1:2;S.b=v.b;S.turn=v.t;S.w=v.w||0;S.n=[v.n1||'',v.n2||''];S.has2=!!v.p2;
+      var win_=S.w&&S.w<3?win(S.b):null;S.cells=win_&&win_.cells?win_.cells:[];
+      var l=-1;S.last=l;S.view='game';
+      if(S.w&&S.w===S.me&&!S._won){S._won=1;helper.event('p4win')}if(!S.w)S._won=0;
+      render();
+    });
+  }
+  function online(kind){
+    var N=window.arkiNet;
+    N.init().then(function(){
+      var u=N.user();if(!u){S.msg='Connecte-toi d\'abord (bouton « Connexion / Inscription » en haut de la page).';render();N.login();return}
+      var db=N.db(),name=u.displayName||'joueur';
+      if(kind==='create'){
+        var c=code();S.code=c;S.mode='online';S.ref=db.ref('rooms/'+c);
+        return S.ref.set({b:EMPTY,t:1,w:0,p1:u.uid,n1:name}).then(function(){S._won=0;listen()});
+      }
+      var c2=(document.getElementById('p4Code').value||'').trim().toUpperCase();
+      if(c2.length!==5){S.msg='Écris le code à 5 caractères.';render();return}
+      var ref=db.ref('rooms/'+c2);
+      return ref.once('value').then(function(sn){
+        var v=sn.val();if(!v){S.msg='Salle introuvable.';render();return}
+        if(v.p1!==u.uid&&v.p2&&v.p2!==u.uid){S.msg='Cette salle est déjà complète.';render();return}
+        var p=(v.p1===u.uid||v.p2===u.uid)?Promise.resolve():ref.update({p2:u.uid,n2:name});
+        return p.then(function(){S.code=c2;S.mode='online';S.ref=ref;S._won=0;listen()});
+      });
+    }).catch(function(){S.msg='Impossible de joindre le service en ligne.';render()});
+  }
+  root.addEventListener('click',function(e){
+    var cb=e.target.closest('.p4c');if(cb){play(+cb.dataset.c);return}
+    var b=e.target.closest('[data-a]');if(!b)return;var a=b.dataset.a;
+    if(a==='cpu'){S.mode='cpu';S.lvl=+document.getElementById('p4L').value;S.me=1;reset();S.view='game';render()}
+    else if(a==='local'){S.mode='local';S.me=1;reset();S.view='game';render()}
+    else if(a==='create'||a==='join')online(a);
+    else if(a==='menu')go('menu');
+    else if(a==='again'){
+      if(S.mode==='online'){if(S.ref)S.ref.update({b:EMPTY,t:1,w:0})}
+      else{reset();S.busy=false;render()}
+    }
+  });
+  render();
+  return{go:go,win:win,ai:ai,state:S};
 })();
 </script>
 </body>
