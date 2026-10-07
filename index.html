@@ -385,6 +385,8 @@ body[data-g=mem] nav button[aria-selected=true]{background:#ff6fae;border-color:
 body[data-g=g48] nav button[aria-selected=true]{background:#2fd3c0;border-color:#2fd3c0;color:#04263a;box-shadow:0 10px 24px -10px rgba(47,211,192,.9)}
 body[data-g=blk] nav button[aria-selected=true]{background:linear-gradient(135deg,#ff4fd8,#ff9a4d);border-color:#ff4fd8;color:#fff;box-shadow:0 10px 24px -10px rgba(255,79,216,.9)}
 
+body[data-g=pk] nav button[aria-selected=true]{background:#e63946;border-color:#e63946;color:#fff;box-shadow:0 10px 24px -10px rgba(230,57,70,.9)}
+
 /* 01 SNAKE — terminal à phosphore vert */
 section#snake.on{background:radial-gradient(ellipse at 50% 0,#0d3d1d 0,#021207 72%);border:3px solid #0f7a37;box-shadow:inset 0 0 70px rgba(0,255,100,.1),0 0 0 2px #021207,0 24px 60px -28px rgba(0,0,0,.9);color:#7dffa8;font-family:'VT323',ui-monospace,Menlo,monospace}
 section#snake.on::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
@@ -539,6 +541,15 @@ section#p4.on{background:radial-gradient(1.5px 1.5px at 20% 25%,#fff8,transparen
 #mem[data-mt=lemon]{filter:hue-rotate(-120deg) saturate(1.1)}
 #ttOn{align-items:center}
 #ttOn input{border:2px solid #1d2b53;background:#fffbe6;color:#1d2b53;border-radius:10px;padding:8px 12px;font:700 20px 'Caveat','Comic Sans MS',cursive;letter-spacing:.2em;text-transform:uppercase;width:110px}
+
+#pk .pk-offer.rar-p{border-color:#5ad1ff}
+#pk .pk-offer.rar-p .rl{background:#5ad1ff;color:#06263a}
+#pk .pk-offer.blind{cursor:default}
+#pk .pk-offer.blind.cur{box-shadow:0 0 0 3px #ffd84d,0 5px 0 #0d161b}
+#pk .pk-offer.blind.dn{opacity:.5}
+#pk .pk-offer.blind .btn{width:100%;padding:8px}
+.bt-blind small{display:block;font-size:10px;line-height:1.2;color:rgba(255,255,255,.9);margin-top:2px}
+#pk .pk-det td small{opacity:.7}
 </style>
 </head>
 <body>
@@ -732,7 +743,7 @@ const helper=(()=>{
     {r:/(puissance ?4|connect ?4|jetons?)/,a:"<b>Puissance 4</b> (onglet 07) : touche une colonne pour y lâcher ton jeton, et aligne <b>4 jetons</b> (ligne, colonne ou diagonale). Tu peux jouer <b>contre l'ordinateur</b> (3 niveaux), <b>à deux sur le même écran</b>, ou <b>en ligne</b> : crée une salle, partage le code à un ami (compte requis). Dis « lance le Puissance 4 » !"},
     {r:/(2048|fusion|tuiles?)/,a:"<b>2048</b> (onglet 05) : glisse sur le plateau (ou utilise la croix / les flèches) pour faire <b>fusionner les tuiles identiques</b> : 2+2=4, 4+4=8… Le but est d'obtenir la tuile <b>2048</b>. Chaque coup ajoute une nouvelle tuile ; la partie s'arrête quand plus rien ne bouge. Ton record est gardé. Dis « lance le 2048 » et j'y vais !"},
     {r:/(tetris|blocs?\b|briques?|pieces? qui tombent|lignes?)/,a:"<b>Blocs</b> (onglet 06), le jeu de pièces qui tombent : déplace avec ◀ ▶, tourne avec ⟳ (ou touche le plateau), accélère avec ▼ et fais tomber d'un coup avec ⤓. Remplis une <b>ligne entière</b> pour l'effacer ; 4 lignes d'un coup rapportent le plus. Ça accélère tous les 10 lignes. Au clavier : flèches, Espace pour la chute, P pour la pause. Dis « lance les blocs » !"},
-    {r:/(poker|balatro|manche|bonus|multiplicateur|jeu de cartes)/,a:"<b>Poker d'Arki</b> (onglet 04) : choisis jusqu'à <b>5 cartes</b> et joue-les, tes points = <b>points × multiplicateur</b>. Atteins l'objectif de la manche avant de manquer de mains (4 par manche, et 3 défausses). Entre deux manches, tu choisis un <b>bonus</b> parmi 3 (5 maximum, ils se combinent). Réussis <b>8 manches</b> pour gagner. Astuce : double paire, couleur ou full rapportent gros, et les bonus ×mult sont les plus puissants !"},
+    {r:/(poker|balatro|manche|bonus|multiplicateur|jeu de cartes)/,a:"<b>Poker d'Arki</b> (onglet 04) : choisis jusqu'à <b>5 cartes</b> et joue-les, tes points = <b>points × multiplicateur</b>. Atteins l'objectif de la manche avant de manquer de mains (4 par manche, et 3 défausses). Entre deux manches, tu choisis un <b>bonus</b> parmi 3 (5 maximum, ils se combinent). Il y a 3 antes de 3 blindes (petite, grosse, boss) : tu peux passer les deux premières, mais pas le boss, qui a une règle spéciale. En boutique, les <b>planètes</b> font monter une combinaison de niveau. Réussis les <b>9 blindes</b> pour gagner. Astuce : double paire, couleur ou full rapportent gros, et les bonus ×mult sont les plus puissants !"},
     {r:/(memory|paire|cartes?)/,a:"<b>Memory</b> : retourne deux cartes, trouve les paires. Moins de coups = meilleur score. « Mélanger les cartes » relance."},
     {r:/(comment (ca )?(marche|fonctionne)|mode d.?emploi|aide|help|utiliser|demarrer|commencer|c.?est quoi|arkade|a quoi ca sert)/,a:"<b>Arkade</b>, c'est 6 jeux (Snake, Morpion, Memory, Poker d'Arki, 2048, Blocs) et un <b>émulateur</b> pour tes propres ROMs.<br>Pour l'émulateur : onglet <b>08</b> → « Choisir une ROM » → le jeu se lance. Demande-moi où trouver des ROMs légales, les consoles, la manette ou le son."},
     {r:/(bonjour|salut|coucou|hello|hey|yo\b)/,a:"Salut ! Que veux-tu savoir ? Je peux t'aider pour les ROMs, les consoles, la manette, le son ou les jeux."},
@@ -786,7 +797,7 @@ const helper=(()=>{
     add('bot',"Youpi ! Maintenant je comprends tout ce que tu me dis 💜 Essaie-moi !");mood('happy');
   };
   document.getElementById('hDel').onclick=()=>{apiKey='';LS.del();hist=[];setBox.hidden=true;refreshUI();add('bot',"Clé retirée. Je repasse en mode simple.")};
-  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu peux aussi discuter de tout avec la personne. Réponds dans la langue de l'utilisateur (français par défaut), en 1 à 4 phrases courtes, chaleureuses, avec parfois un emoji. Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 7 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 8 manches, un bonus à choisir entre chaque manche, record retenu), 05 2048 (glisser pour fusionner les tuiles, objectif 2048, record retenu), 06 Blocs (jeu de pièces qui tombent : ◀ ▶ ⟳ ▼ ⤓, lignes pleines effacées, niveaux, record retenu), 07 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on tourne avec la croix directionnelle sous le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
+  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu peux aussi discuter de tout avec la personne. Réponds dans la langue de l'utilisateur (français par défaut), en 1 à 4 phrases courtes, chaleureuses, avec parfois un emoji. Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 7 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 3 antes de 3 blindes (petite, grosse, boss à règle spéciale, on peut passer les deux premières), une boutique avec bonus et planètes (qui font monter une combinaison de niveau) entre les blindes, record retenu), 05 2048 (glisser pour fusionner les tuiles, objectif 2048, record retenu), 06 Blocs (jeu de pièces qui tombent : ◀ ▶ ⟳ ▼ ⤓, lignes pleines effacées, niveaux, record retenu), 07 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on tourne avec la croix directionnelle sous le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
   async function callAI(q){
     hist.push({role:'user',content:q});
     if(hist.length>14)hist=hist.slice(-14);
@@ -957,7 +968,7 @@ const helper=(()=>{
       }
       if(k==='pkend'&&v){
         open(false);
-        add('bot',v.win?"Victoire au Poker d'Arki ! 🎉 Les "+v.round+" manches, bravo !":"Éliminé en manche <b>"+v.round+"</b> avec <b>"+v.total+"</b> points au total (record : manche <b>"+v.best+"</b>). Relance une partie !");
+        add('bot',v.win?"Victoire au Poker d'Arki ! 🎉 Les "+v.round+" blindes, bravo !":"Éliminé en manche <b>"+v.round+"</b> avec <b>"+v.total+"</b> points au total (record : manche <b>"+v.best+"</b>). Relance une partie !");
         mood(v.win?'happy':'sad');return;
       }
       if(k==='lose'&&typeof v==='number'){
@@ -1187,7 +1198,18 @@ const PKH={
   trips:{n:'Brelan',c:24,m:3},straight:{n:'Suite',c:30,m:4},flush:{n:'Couleur',c:35,m:4},
   full:{n:'Full',c:40,m:5},quads:{n:'Carré',c:60,m:7},sflush:{n:'Quinte flush',c:90,m:9}
 };
-const PKT=[150,300,520,850,1300,2000,3000,4500];
+const PKBASE=[200,650,1700],PKT=[];PKBASE.forEach(b=>[1,1.5,2].forEach(m=>PKT.push(Math.round(b*m))));
+const PKBN=['Petite blinde','Grosse blinde','Boss'],PKRW=[3,4,5];
+const PKINC={high:[10,1],pair:[15,1],two:[20,1],trips:[20,2],straight:[30,3],flush:[15,2],full:[25,2],quads:[30,3],sflush:[40,4]};
+const PKPLAN={high:'Pluton',pair:'Mercure',two:'Uranus',trips:'Vénus',straight:'Saturne',flush:'Jupiter',full:'Terre',quads:'Mars',sflush:'Neptune'};
+const PKBOSS={needle:{n:"L'Aiguille",d:'Une seule main.'},water:{n:'La Source',d:'Aucune défausse.'},club:{n:'Le Trèfle',d:'Les ♣ ne marquent pas.'},spade:{n:'Le Pique',d:'Les ♠ ne marquent pas.'},flint:{n:'La Pierre',d:'Points et multiplicateur de base divisés par 2.'},psychic:{n:'Le Psychique',d:'Tu dois jouer exactement 5 cartes.'},manacle:{n:'Les Menottes',d:'2 cartes en moins en main.'}};
+const pkBoss=id=>pk&&pk.bi===2&&pk.boss===id;
+const pkDebuff=c=>(pkBoss('club')&&c.s===3)||(pkBoss('spade')&&c.s===0);
+function pkBase(t){
+  const H=PKH[t],l=((pk.lv&&pk.lv[t])||1)-1;let c=H.c+l*PKINC[t][0],m=H.m+l*PKINC[t][1];
+  if(pkBoss('flint')){c=Math.ceil(c/2);m=Math.max(1,Math.ceil(m/2))}
+  return{n:H.n,c:c,m:m};
+}
 const PKB=[
   {id:'turbo',ic:'🎧',n:'Casque turbo',d:'+4 au multiplicateur à chaque main.',glob:()=>({m:4})},
   {id:'pile',ic:'🔋',n:'Pile neuve',d:'+30 points à chaque main.',glob:()=>({c:30})},
@@ -1274,7 +1296,7 @@ function pkEval(cs){
   return{t,idx,maxk:g[0].k};
 }
 function pkScore(cs,bon,x){
-  const e=pkEval(cs),H=PKH[e.t];
+  const e=pkEval(cs),H=pkBase(e.t);
   x=Object.assign({last:false,size:cs.length},x||{});
   let chips=H.c,mult=H.m;
   const ev=[{txt:H.n,chips,mult}];
@@ -1288,6 +1310,7 @@ function pkScore(cs,bon,x){
   };
   e.idx.forEach(i=>{
     const c=cs[i],v=pkChips(c.r);
+    if(pkDebuff(c)){snap('gelée',{card:i});return}
     chips+=v;snap('+'+v,{card:i});
     bon.forEach((id,j)=>{const b=PKBM[id];if(b.card){const f=b.card(c,e,x);if(f){const tx=app(f);snap(tx,{card:i,bonus:j})}}});
   });
@@ -1296,17 +1319,17 @@ function pkScore(cs,bon,x){
 }
 function pkPreview(cs){
   if(!cs.length)return null;
-  const e=pkEval(cs),H=PKH[e.t];
-  let c=H.c;e.idx.forEach(i=>c+=pkChips(cs[i].r));
+  const e=pkEval(cs),H=pkBase(e.t);
+  let c=H.c;e.idx.forEach(i=>{if(!pkDebuff(cs[i]))c+=pkChips(cs[i].r)});
   return{name:H.n,chips:c,mult:H.m};
 }
 const PKKEY='arki_poker_best';
 function pkBest(){try{const b=JSON.parse(localStorage.getItem(PKKEY));if(b&&typeof b.round==='number')return b}catch(e){}return{round:0,total:0}}
 function pkSaveBest(round,total){const b=pkBest();try{localStorage.setItem(PKKEY,JSON.stringify({round:Math.max(b.round,round),total:Math.max(b.total,total)}))}catch(e){}}
 let pk={phase:'menu',bonus:[],sort:'rank',total:0};
-const pkHandsMax=()=>4+(pk.bonus.includes('main')?1:0);
-const pkDiscMax=()=>3+(pk.bonus.includes('defausse')?1:0);
-const pkSize=()=>8+(pk.bonus.includes('poche')?1:0);
+const pkHandsMax=()=>pkBoss('needle')?1:4+(pk.bonus.includes('main')?1:0);
+const pkDiscMax=()=>pkBoss('water')?0:3+(pk.bonus.includes('defausse')?1:0);
+const pkSize=()=>8+(pk.bonus.includes('poche')?1:0)-(pkBoss('manacle')?2:0);
 const pkWait=ms=>new Promise(r=>setTimeout(r,ms));
 const pkReduce=()=>{try{return matchMedia('(prefers-reduced-motion:reduce)').matches}catch(e){return false}};
 function pkSort(){
@@ -1314,10 +1337,19 @@ function pkSort(){
   else pk.hand.sort((a,b)=>(a.s-b.s)||(b.r-a.r));
 }
 function pkDraw(){while(pk.hand.length<pkSize()&&pk.deck.length)pk.hand.push(pk.deck.pop());pkSort()}
-function pkNewRun(){pk={phase:'play',round:0,bonus:[],sort:'rank',total:0,anim:false,money:4};pkStartRound()}
+function pkNewRun(){
+  const lv={};Object.keys(PKH).forEach(k=>lv[k]=1);
+  pk={phase:'blinds',round:0,bonus:[],sort:'rank',total:0,anim:false,money:4,lv:lv,usedBoss:[],done:{},note:''};pkNextBlind();
+}
+function pkNextBlind(){
+  pk.round++;pk.ante=Math.ceil(pk.round/3);pk.bi=(pk.round-1)%3;pk.score=0;pk.phase='blinds';pk.playing=null;
+  if(pk.bi===2){const ids=Object.keys(PKBOSS).filter(i=>pk.usedBoss.indexOf(i)<0);pk.boss=ids[Math.random()*ids.length|0];pk.usedBoss.push(pk.boss)}else pk.boss=null;
+  pkSaveBest(pk.round,pk.total);pkRender();
+}
+function pkPlanets(){return pkShuffle(Object.keys(PKH)).slice(0,2)}
 function pkOpen(){if(pk.phase==='menu'||pk.phase==='win'||pk.phase==='lose')pkNewRun()}
 function pkStartRound(){
-  pk.round++;pk.score=0;pk.hands=pkHandsMax();pk.discards=pkDiscMax();pk.sel=new Set();pk.phase='play';pk.anim=false;pk.playing=null;pk.pending=null;
+  pk.score=0;pk.hands=pkHandsMax();pk.discards=pkDiscMax();pk.sel=new Set();pk.phase='play';pk.anim=false;pk.playing=null;pk.pending=null;
   pk.deck=pkShuffle(pkMakeDeck());pk.hand=[];pkDraw();
   pkSaveBest(pk.round,pk.total);
   pkRender();
@@ -1346,7 +1378,7 @@ function pkShelf(){
 }
 function pkTop(){
   const t=PKT[pk.round-1];
-  return '<aside class="bt-hud"><div class="bt-blind"><span>Manche '+pk.round+'/'+PKT.length+'</span><b>Objectif</b></div>'
+  return '<aside class="bt-hud"><div class="bt-blind"><span>Ante '+pk.ante+'/3</span><b>'+(pk.bi===2?PKBOSS[pk.boss].n:PKBN[pk.bi])+'</b>'+(pk.bi===2?'<small>'+PKBOSS[pk.boss].d+'</small>':'')+'</div>'
    +'<div class="bt-need"><span>Score minimum</span><b>★ '+t+'</b></div>'
    +'<div class="bt-round"><span>Score<br>de la manche</span><b id="pkScore">'+pk.score+'</b></div>'
    +'<div class="pk-prog"><i id="pkBar" style="width:'+Math.min(100,pk.score/t*100)+'%"></i></div>'
@@ -1357,7 +1389,22 @@ function pkTop(){
 function pkViewMenu(){
   const b=pkBest();
   let rows='';for(const k in PKH)rows+='<tr><td>'+PKH[k].n+'</td><td>'+PKH[k].c+' × '+PKH[k].m+'</td></tr>';
-  return '<div class="pk-title">Poker d\'Arki</div><p class="lead2">Un jeu de cartes solo : forme des mains de poker, cumule des bonus et bats l\'objectif de chaque manche.</p><ol class="pk-rules"><li>Choisis jusqu\'à <b>5 cartes</b> et joue-les : points × multiplicateur.</li><li>Atteins l\'<b>objectif</b> avant de manquer de mains.</li><li>Gagne de l\'<b>argent</b> à chaque manche et achète des <b>bonus</b> à la boutique (5 maximum).</li><li>Survis aux <b>'+PKT.length+' manches</b> pour gagner.</li></ol><details class="pk-det"><summary>Voir les combinaisons</summary><table>'+rows+'</table></details><p class="info">'+(b.round?'Record : manche '+b.round+' · '+b.total+' points au total':'Pas encore de record.')+'</p><div class="row"><button class="btn primary" data-pk="new">Nouvelle partie</button></div>';
+  return '<div class="pk-title">Poker d\'Arki</div><p class="lead2">Un jeu de cartes solo : forme des mains de poker, cumule des bonus et bats l\'objectif de chaque manche.</p><ol class="pk-rules"><li>Choisis jusqu\'à <b>5 cartes</b> et joue-les : points × multiplicateur.</li><li>Atteins l\'<b>objectif</b> de chaque blinde avant de manquer de mains. Tu peux <b>passer</b> une petite ou une grosse blinde, mais pas le <b>boss</b> (une règle spéciale).</li><li>Achète des <b>planètes</b> pour faire monter une combinaison de niveau.</li><li>Gagne de l\'<b>argent</b> à chaque manche et achète des <b>bonus</b> à la boutique (5 maximum).</li><li>Survis aux <b>3 antes</b> ('+PKT.length+' blindes) pour gagner.</li></ol><details class="pk-det"><summary>Voir les combinaisons</summary><table>'+rows+'</table></details><p class="info">'+(b.round?'Record : manche '+b.round+' · '+b.total+' points au total':'Pas encore de record.')+'</p><div class="row"><button class="btn primary" data-pk="new">Nouvelle partie</button></div>';
+}
+function pkLevels(){
+  let r='';Object.keys(PKH).forEach(k=>{const b=pkBase(k);r+='<tr><td>'+PKH[k].n+' <small>niv. '+pk.lv[k]+'</small></td><td>'+b.c+' × '+b.m+'</td></tr>'});
+  return '<details class="pk-det"><summary>Niveaux des mains</summary><table>'+r+'</table></details>';
+}
+function pkViewBlinds(){
+  let h='<div class="pk-banner"><b>Ante '+pk.ante+' / 3</b><span>'+(pk.note||'Joue la blinde, ou passe-la (pas le boss) pour gagner $4 et une planète.')+'</span></div><div class="bt-wallet">$'+pk.money+'</div><div class="pk-offers">';
+  for(let i=0;i<3;i++){
+    const r=(pk.ante-1)*3+i+1,cur=r===pk.round,st=pk.done[r];
+    h+='<div class="pk-offer blind'+(cur?' cur':'')+(r<pk.round?' dn':'')+'"><span class="rl">'+PKBN[i]+'</span><b>★ '+PKT[r-1]+'</b><span class="d">'+(i===2?'<b>'+(r<=pk.round?PKBOSS[pk.boss].n:'?')+'</b><br>'+(r<=pk.round?PKBOSS[pk.boss].d:'Règle inconnue'):'Récompense : $'+PKRW[i])+'</span>';
+    if(cur){h+='<button class="btn primary" data-pk="begin">Jouer</button>';if(i<2)h+='<button class="btn" data-pk="skipblind">Passer</button>'}
+    else h+='<span class="d">'+(st==='win'?'✔ Réussie':st==='skip'?'⏭ Passée':r<pk.round?'':'À venir')+'</span>';
+    h+='</div>';
+  }
+  return h+'</div>'+pkShelf()+pkLevels();
 }
 function pkViewPlay(){
   const pl=pk.playing?pk.playing.cards:null;
@@ -1366,18 +1413,20 @@ function pkViewPlay(){
     +'<div class="pk-played" id="pkPlayed">'+(pl?pl.map((c,i)=>pkCardHtml(c,'','disabled')).join(''):'')+'</div>'
     +'<div class="pk-hand" id="pkHand">'+pk.hand.map(c=>pkCardHtml(c,pk.sel.has(c.id)?'sel':'','data-pk="card" data-id="'+c.id+'" aria-pressed="'+pk.sel.has(c.id)+'"')).join('')+'</div>'
     +'<p class="info" id="pkInfo"></p>'
+    +pkLevels()
     +'<div class="bt-btns"><button class="btn primary" id="pkPlayBtn" data-pk="play"></button><button class="btn" data-pk="sort">Trier : '+(pk.sort==='rank'?'valeur':'couleur')+'</button><button class="btn" id="pkDiscBtn" data-pk="disc"></button></div>'
     +'</div></div>';
 }
 const PKPRICE={c:5,r:8,l:12},pkPrice=b=>PKPRICE[b.rr]||5;
 function pkViewShop(){
   const rw=pk.reward||{b:3,h:0,i:0},full=pk.bonus.length>=5;
-  let h='<div class="pk-banner"><b>Manche '+pk.round+' réussie !</b><span>Score : '+pk.score+' / '+PKT[pk.round-1]+'</span></div>'
+  let h='<div class="pk-banner"><b>'+PKBN[pk.bi]+' réussie !</b><span>Score : '+pk.score+' / '+PKT[pk.round-1]+'</span></div>'
    +'<div class="bt-gain"><span>Manche gagnée +$'+rw.b+'</span><span>Mains restantes +$'+rw.h+'</span><span>Intérêts +$'+rw.i+'</span></div>'
    +'<div class="bt-wallet">$'+pk.money+'</div><div class="pk-offers">';
   pk.offers.forEach(id=>{const b=PKBM[id],p=pkPrice(b),ok=pk.money>=p&&!full;
     h+='<button type="button" class="pk-offer rar-'+b.rr+'" data-pk="offer" data-id="'+id+'"'+(ok?'':' disabled')+'><span class="rl">'+PKRAR[b.rr]+'</span><span class="ic">'+b.ic+'</span><b>'+b.n+'</b><span class="d">'+b.d+'</span><span class="pr">$'+p+'</span></button>'});
-  if(!pk.offers.length)h+='<p class="info">Plus rien à vendre.</p>';
+  pk.planets.forEach(t=>{h+='<button type="button" class="pk-offer rar-p" data-pk="planet" data-t="'+t+'"'+(pk.money>=3?'':' disabled')+'><span class="rl">Planète</span><span class="ic">🪐</span><b>'+PKPLAN[t]+'</b><span class="d">'+PKH[t].n+' : niveau '+pk.lv[t]+' → '+(pk.lv[t]+1)+' (+'+PKINC[t][0]+' pts, +'+PKINC[t][1]+' mult)</span><span class="pr">$3</span></button>'});
+  if(!pk.offers.length&&!pk.planets.length)h+='<p class="info">Plus rien à vendre.</p>';
   return h+'</div>'+(full?'<p class="info">Emplacements pleins : vends un bonus pour en acheter un autre.</p>':'')+pkShelf()
    +'<div class="row"><button class="btn" data-pk="reroll"'+(pk.money>=pk.rerollCost?'':' disabled')+'>Relancer $'+pk.rerollCost+'</button><button class="btn primary" data-pk="skip">Manche suivante</button></div>';
 }
@@ -1387,11 +1436,11 @@ function pkViewReplace(){
 }
 function pkViewEnd(){
   const b=pkBest(),win=pk.phase==='win';
-  return '<div class="pk-title">'+(win?'Victoire ! 🎉':'Éliminé')+'</div><p class="lead2">'+(win?'Tu as réussi les '+PKT.length+' manches.':'Tu t\'arrêtes à la manche <b>'+pk.round+'</b> : '+pk.score+' points sur '+PKT[pk.round-1]+'.')+'</p><p class="info">Total de la partie : '+pk.total+' · Record : manche '+b.round+', '+b.total+' points</p>'+pkShelf()+'<div class="row"><button class="btn primary" data-pk="new">Rejouer</button></div>';
+  return '<div class="pk-title">'+(win?'Victoire ! 🎉':'Éliminé')+'</div><p class="lead2">'+(win?'Tu as réussi les '+PKT.length+' blindes.':'Tu t\'arrêtes à la manche <b>'+pk.round+'</b> : '+pk.score+' points sur '+PKT[pk.round-1]+'.')+'</p><p class="info">Total de la partie : '+pk.total+' · Record : manche '+b.round+', '+b.total+' points</p>'+pkShelf()+'<div class="row"><button class="btn primary" data-pk="new">Rejouer</button></div>';
 }
 function pkRender(){
   const r=document.getElementById('pkRoot');if(!r)return;
-  const v={menu:pkViewMenu,play:pkViewPlay,shop:pkViewShop,replace:pkViewReplace,win:pkViewEnd,lose:pkViewEnd}[pk.phase];
+  const v={menu:pkViewMenu,blinds:pkViewBlinds,play:pkViewPlay,shop:pkViewShop,replace:pkViewReplace,win:pkViewEnd,lose:pkViewEnd}[pk.phase];
   r.innerHTML=v();pkPanel();
 }
 function pkPanel(){
@@ -1402,7 +1451,7 @@ function pkPanel(){
   document.getElementById('pkChips').textContent=pv?pv.chips:0;
   document.getElementById('pkMult').textContent=pv?pv.mult:0;
   const p=document.getElementById('pkPlayBtn'),d=document.getElementById('pkDiscBtn');
-  p.textContent='Jouer la main'+(cs.length?' ('+cs.length+')':'');p.disabled=!cs.length||pk.hands<=0||pk.anim;
+  p.textContent='Jouer la main'+(cs.length?' ('+cs.length+')':'');p.disabled=!cs.length||pk.hands<=0||pk.anim||(pkBoss('psychic')&&cs.length!==5);
   d.textContent='Défausser'+(cs.length?' ('+cs.length+')':'');d.disabled=!cs.length||pk.discards<=0||pk.anim;
   document.getElementById('pkInfo').textContent='';
   const H=document.getElementById('pkHands'),D=document.getElementById('pkDisc'),K=document.getElementById('pkDeck');
@@ -1425,6 +1474,7 @@ function pkCountUp(from,to,ms){
 }
 async function pkPlay(){
   if(pk.phase!=='play'||pk.anim||!pk.sel.size||pk.hands<=0)return;
+  if(pkBoss('psychic')&&pk.sel.size!==5)return;
   const cs=pk.hand.filter(c=>pk.sel.has(c.id));
   const res=pkScore(cs,pk.bonus,{last:pk.hands===1});
   pk.anim=true;pk.hands--;pk.playing={cards:cs};
@@ -1462,9 +1512,9 @@ function pkWon(){
   pk.total+=pk.score;
   pkSaveBest(pk.round,pk.total);
   if(pk.round>=PKT.length){pk.phase='win';pkRender();helper.event('pkend',{win:true,round:pk.round,total:pk.total,best:pkBest().round});return}
-  const rw={b:3,h:Math.max(0,pk.hands),i:Math.min(5,Math.floor(pk.money/5))};
+  const rw={b:PKRW[pk.bi],h:Math.max(0,pk.hands),i:Math.min(5,Math.floor(pk.money/5))};pk.done[pk.round]='win';
   pk.reward=rw;pk.money+=rw.b+rw.h+rw.i;pk.rerollCost=3;pk.sellArm=null;
-  pk.phase='shop';pk.offers=pkOffers();pkRender();
+  pk.phase='shop';pk.offers=pkOffers();pk.planets=pkPlanets();pk.note='';pkRender();
 }
 function pkLost(){
   pk.total+=pk.score;pk.phase='lose';
@@ -1498,9 +1548,19 @@ document.getElementById('pkRoot').addEventListener('click',e=>{
   }
   else if(a==='reroll'){
     if(pk.phase!=='shop'||pk.money<pk.rerollCost)return;
-    pk.money-=pk.rerollCost;pk.rerollCost++;pk.offers=pkOffers();pk.sellArm=null;pkRender();
+    pk.money-=pk.rerollCost;pk.rerollCost++;pk.offers=pkOffers();pk.planets=pkPlanets();pk.sellArm=null;pkRender();
   }
-  else if(a==='skip')pkStartRound();
+  else if(a==='skip')pkNextBlind();
+  else if(a==='begin'){pkStartRound()}
+  else if(a==='skipblind'){
+    if(pk.phase!=='blinds'||pk.bi>=2)return;
+    const t=Object.keys(PKH)[Math.random()*9|0];pk.lv[t]++;pk.money+=4;pk.done[pk.round]='skip';
+    pk.note='Blinde passée : +$4 et '+PKPLAN[t]+' ('+PKH[t].n+' niveau '+pk.lv[t]+')';pkNextBlind();
+  }
+  else if(a==='planet'){
+    const pt=t.dataset.t;if(pk.phase!=='shop'||pk.money<3||pk.planets.indexOf(pt)<0)return;
+    pk.money-=3;pk.lv[pt]++;pk.planets=pk.planets.filter(x=>x!==pt);pkRender();
+  }
   else if(a==='cancel'){pk.phase='shop';pk.pending=null;pkRender()}
   else if(a==='slot'){
     const i=+t.dataset.i;
