@@ -550,6 +550,35 @@ section#p4.on{background:radial-gradient(1.5px 1.5px at 20% 25%,#fff8,transparen
 #pk .pk-offer.blind .btn{width:100%;padding:8px}
 .bt-blind small{display:block;font-size:10px;line-height:1.2;color:rgba(255,255,255,.9);margin-top:2px}
 #pk .pk-det td small{opacity:.7}
+
+/* Amis : chat et invitations */
+#soBtn{position:fixed;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;width:56px;height:56px;border-radius:50%;border:0;background:#5b3cff;color:#fff;font-size:26px;cursor:pointer;box-shadow:0 12px 28px -8px rgba(0,0,0,.7);touch-action:manipulation}
+#soBtn i{position:absolute;top:-4px;right:-4px;min-width:22px;height:22px;border-radius:11px;background:#e63946;color:#fff;font:700 12px/22px 'Inter Tight',sans-serif;font-style:normal;padding:0 5px}
+#soBtn i:empty{display:none}
+#soPanel{position:fixed;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(80px + env(safe-area-inset-bottom,0px));z-index:61;width:min(380px,calc(100vw - 24px));height:min(540px,calc(100vh - 110px));background:#fff;color:#0d0c08;border-radius:22px;box-shadow:0 30px 70px -20px #000;display:flex;flex-direction:column;overflow:hidden;font-family:'Inter Tight',system-ui,sans-serif}
+#soPanel[hidden]{display:none}
+.soh{display:flex;align-items:center;gap:8px;padding:12px 14px;background:#f1eeff}
+.soh b{flex:1;font-size:16px}
+.soh button{border:0;background:rgba(91,60,255,.12);color:#5b3cff;border-radius:50%;width:30px;height:30px;font-size:16px;cursor:pointer}
+.sot{display:flex;gap:6px;padding:8px 12px 0}
+.sot button{flex:1;border:1.5px solid #cfc8ff;background:#fff;color:#3b25d6;border-radius:999px;padding:7px 4px;font:600 13px 'Inter Tight',sans-serif;cursor:pointer;position:relative}
+.sot button[aria-pressed=true]{background:#5b3cff;color:#fff;border-color:#5b3cff}
+.sot button i{font-style:normal;background:#e63946;color:#fff;border-radius:9px;padding:0 6px;font-size:11px;margin-left:4px}
+.sob{flex:1;overflow-y:auto;padding:10px 12px}
+.sorow{display:flex;align-items:center;gap:8px;padding:8px 6px;border-bottom:1px solid #eee}
+.sorow .nm{flex:1;font-weight:600;overflow:hidden;text-overflow:ellipsis}
+.sorow .dot{width:10px;height:10px;border-radius:50%;background:#bbb;flex:none}.sorow .dot.on{background:#1fd65f}
+.sorow button,.sobtn{border:0;background:#5b3cff;color:#fff;border-radius:999px;padding:6px 12px;font:600 12px 'Inter Tight',sans-serif;cursor:pointer}
+.sorow button.sec,.sobtn.sec{background:#e4dfff;color:#3b25d6}
+.sorow .u{background:#e63946;color:#fff;border-radius:9px;font-size:11px;padding:0 6px}
+.sofm{display:flex;gap:6px;padding:10px 12px;border-top:1px solid #eee}
+.sofm input{flex:1;min-width:0;border:1.5px solid #cfc8ff;border-radius:999px;padding:9px 14px;font:500 16px 'Inter Tight',sans-serif;color:#0d0c08;background:#fff}
+.somsg{max-width:84%;padding:8px 11px;border-radius:14px;margin:4px 0;font-size:14px;line-height:1.35;word-wrap:break-word}
+.somsg.me{margin-left:auto;background:#5b3cff;color:#fff;border-bottom-right-radius:4px}
+.somsg.fr{background:#efecff;border-bottom-left-radius:4px}
+.somsg .bt{display:block;margin-top:6px}
+.sonote{color:#6b6890;font-size:13px;margin:8px 4px;line-height:1.4}
+.sotools{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px}
 </style>
 </head>
 <body>
@@ -721,6 +750,7 @@ const helper=(()=>{
   const bot=document.getElementById('hBot'),panel=document.getElementById('hBubble'),log=document.getElementById('hLog'),chips=document.getElementById('hChips'),form=document.getElementById('hForm'),inp=document.getElementById('hInput');
   const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
   const KB=[
+    {r:/(ami|amis|tchat|chat|message|inviter|invitation|demande d ami)/,a:"<b>Amis</b> : touche le bouton 💬 (en bas à droite). Dans « Ajouter », écris le pseudo de ton ami ; il reçoit une demande à accepter dans « Demandes ». Ensuite, ouvre le <b>Chat</b> avec lui pour discuter, et utilise « Inviter : Puissance 4 / Morpion » : il reçoit un bouton « Rejoindre la partie ». Un point vert indique qui est en ligne. Il faut un compte."},
     {r:/(compte|inscri|connexion|connect|mot de passe|pseudo|e-?mail|deconnex|se logger|login)/,a:"<b>Compte</b> : touche « Connexion / Inscription » dans le cadre « Tes records » (en haut de la page). Il faut un pseudo (3 à 16 lettres, chiffres ou _), un e-mail et un mot de passe de 6 caractères minimum. Ton compte sauvegarde tes records et tes succès en ligne, et te suit d'un appareil à l'autre. Mot de passe oublié ? Écris ton e-mail dans la fenêtre puis touche « Mot de passe oublié ? »."},
     {r:/(classement|meilleurs? scores?|top 10|leaderboard)/,a:"Le <b>Classement</b> est dans le cadre « Tes records » : choisis le Snake, le 2048 ou les Blocs pour voir le top 10. Pour y apparaître, connecte-toi à un compte et améliore ton record."},
     {r:/(en ligne|multijoueur|multi|avec un ami|code de salle|salle|jouer a deux|a deux)/,a:"<b>Jeux à deux</b> : le <b>Puissance 4</b> (onglet 07) se joue à deux sur le même écran ou <b>en ligne</b> ; le <b>Morpion</b> (onglet 02) aussi se joue en ligne. En ligne : un joueur touche « Créer une salle » et donne le code à 5 lettres à son ami, qui le tape et touche « Rejoindre ». Un compte est nécessaire. L'émulateur, lui, ne se joue pas en ligne."},
@@ -824,7 +854,7 @@ const helper=(()=>{
     add('bot',"Youpi ! Maintenant je comprends tout ce que tu me dis 💜 Essaie-moi !");mood('happy');
   };
   document.getElementById('hDel').onclick=()=>{apiKey='';LS.del();hist=[];setBox.hidden=true;refreshUI();add('bot',"Clé retirée. Je repasse en mode simple.")};
-  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu réponds à TOUTES les questions (culture, école, maths, code, jeux, conseils, blagues, idées…) comme un assistant généraliste, en plus de l'aide sur le site. Si tu n'es pas sûr d'un fait, dis-le honnêtement. Réponds dans la langue de l'utilisateur (français par défaut), en général 1 à 4 phrases chaleureuses, avec parfois un emoji, et plus longues si la question le demande (explication, code, devoir, recette, conseil…). Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 8 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 3 antes de 3 blindes (petite, grosse, boss à règle spéciale, on peut passer les deux premières), une boutique avec bonus et planètes (qui font monter une combinaison de niveau) entre les blindes, record retenu), 05 2048 (glisser pour fusionner les tuiles, objectif 2048, record retenu), 06 Blocs (jeu de pièces qui tombent : ◀ ▶ ⟳ ▼ ⤓, lignes pleines effacées, niveaux, record retenu), 07 Puissance 4 (aligne 4 jetons ; contre l'ordinateur en 3 niveaux, à deux sur le même écran, ou en ligne avec un code de salle à 5 lettres, compte requis en ligne), 08 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on tourne avec la croix directionnelle sous le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nAutres fonctions : compte gratuit (inscription avec pseudo, e-mail et mot de passe ; bouton « Connexion / Inscription » en haut) qui sauvegarde les records et succès en ligne ; classement du Snake, du 2048 et des Blocs ; 14 succès ; Morpion en ligne avec code de salle ; styles au choix pour les Blocs (Néon, Classique, Game Boy, Bonbons, Verre), le Snake, le 2048 et le Memory ; niveaux du Morpion (facile, normal, difficile) ; bibliothèque des derniers jeux de l'émulateur ; boutons Sauvegarder/Charger de l'émulateur. Au Poker : chaque ante a 3 blindes (petite, grosse, boss) ; on peut passer les deux premières pour $4 et une planète ; les planètes (Mercure=paire, Uranus=double paire, Vénus=brelan, Saturne=suite, Jupiter=couleur, Terre=full, Mars=carré, Neptune=quinte flush, Pluton=carte haute) font monter une combinaison de niveau ; le boss a une règle (une seule main, aucune défausse, ♣ ou ♠ qui ne marquent pas, points de base divisés par 2, obligation de jouer 5 cartes, 2 cartes en moins). Le site garde seulement pseudo, e-mail et records.\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
+  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu réponds à TOUTES les questions (culture, école, maths, code, jeux, conseils, blagues, idées…) comme un assistant généraliste, en plus de l'aide sur le site. Si tu n'es pas sûr d'un fait, dis-le honnêtement. Réponds dans la langue de l'utilisateur (français par défaut), en général 1 à 4 phrases chaleureuses, avec parfois un emoji, et plus longues si la question le demande (explication, code, devoir, recette, conseil…). Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 8 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 3 antes de 3 blindes (petite, grosse, boss à règle spéciale, on peut passer les deux premières), une boutique avec bonus et planètes (qui font monter une combinaison de niveau) entre les blindes, record retenu), 05 2048 (glisser pour fusionner les tuiles, objectif 2048, record retenu), 06 Blocs (jeu de pièces qui tombent : ◀ ▶ ⟳ ▼ ⤓, lignes pleines effacées, niveaux, record retenu), 07 Puissance 4 (aligne 4 jetons ; contre l'ordinateur en 3 niveaux, à deux sur le même écran, ou en ligne avec un code de salle à 5 lettres, compte requis en ligne), 08 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on tourne avec la croix directionnelle sous le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nAmis : bouton 💬 en bas à droite (ajouter un ami par pseudo, demandes, chat privé, invitations à jouer au Puissance 4 ou au Morpion en ligne, point vert pour ceux qui sont en ligne ; compte requis). Autres fonctions : compte gratuit (inscription avec pseudo, e-mail et mot de passe ; bouton « Connexion / Inscription » en haut) qui sauvegarde les records et succès en ligne ; classement du Snake, du 2048 et des Blocs ; 14 succès ; Morpion en ligne avec code de salle ; styles au choix pour les Blocs (Néon, Classique, Game Boy, Bonbons, Verre), le Snake, le 2048 et le Memory ; niveaux du Morpion (facile, normal, difficile) ; bibliothèque des derniers jeux de l'émulateur ; boutons Sauvegarder/Charger de l'émulateur. Au Poker : chaque ante a 3 blindes (petite, grosse, boss) ; on peut passer les deux premières pour $4 et une planète ; les planètes (Mercure=paire, Uranus=double paire, Vénus=brelan, Saturne=suite, Jupiter=couleur, Terre=full, Mars=carré, Neptune=quinte flush, Pluton=carte haute) font monter une combinaison de niveau ; le boss a une règle (une seule main, aucune défausse, ♣ ou ♠ qui ne marquent pas, points de base divisés par 2, obligation de jouer 5 cartes, 2 cartes en moins). Le site garde seulement pseudo, e-mail et records.\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
   async function callAI(q){
     hist.push({role:'user',content:q});
     if(hist.length>14)hist=hist.slice(-14);
@@ -2343,7 +2373,7 @@ document.getElementById('fs').onclick=()=>{const g=document.getElementById('stag
     if(ready)return ready;
     ready=(window.firebase?Promise.resolve():load(BASE+'firebase-app-compat.js').then(function(){return load(BASE+'firebase-auth-compat.js')}).then(function(){return load(BASE+'firebase-database-compat.js')})).then(function(){
       fb=window.firebase;if(!fb.apps.length)fb.initializeApp(CFG);auth=fb.auth();db=fb.database();
-      auth.onAuthStateChanged(function(u){user=u;bar();if(u)pull()});
+      auth.onAuthStateChanged(function(u){user=u;bar();if(u)pull();(window.arkiAuthCbs||[]).forEach(function(f){try{f(u)}catch(e){}})});
     });
     ready.catch(function(){ready=null});
     return ready;
@@ -2632,6 +2662,129 @@ var p4=(function(){
   $('ttLeave').onclick=function(){leave(false)};
   $('tReset').addEventListener('click',function(e){if(S.on){e.stopImmediatePropagation();if(S.ref&&S.p2)S.ref.update({b:'.........',t:1,w:0})}},true);
   ui();
+})();
+</script>
+
+<script>
+/* Arkade : amis, chat privé et invitations (Firebase) */
+(function(){
+  window.arkiAuthCbs=window.arkiAuthCbs||[];
+  var N=window.arkiNet,$=function(i){return document.getElementById(i)},me=null,db=null,friends={},reqs={},online={},unread={},view='list',cur=null,chatRef=null,t0=Date.now(),watchers={},presW={},booted=false;
+  var btn=document.createElement('button');btn.id='soBtn';btn.type='button';btn.setAttribute('aria-label','Amis et messages');btn.innerHTML='💬<i></i>';document.body.appendChild(btn);
+  var P=document.createElement('div');P.id='soPanel';P.hidden=true;P.setAttribute('role','dialog');P.setAttribute('aria-label','Amis');document.body.appendChild(P);
+  function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function count(){var n=Object.keys(reqs).length;for(var k in unread)n+=unread[k]||0;return n}
+  function badge(){btn.querySelector('i').textContent=count()||''}
+  function pair(a,b){return a<b?[a,b]:[b,a]}
+  function msgsRef(fid){var p=pair(me.uid,fid);return db.ref('chats/'+p[0]+'/'+p[1]+'/msgs')}
+  function name(){return me.displayName||'joueur'}
+  function toastMsg(t){var e=$('toast');if(!e)return;e.textContent=t;e.classList.add('on');setTimeout(function(){e.classList.remove('on')},3500)}
+
+  function render(){
+    if(P.hidden)return;
+    if(!me){P.innerHTML='<div class="soh"><b>Amis</b><button type="button" data-a="close" aria-label="Fermer">×</button></div><div class="sob"><p class="sonote">Connecte-toi pour ajouter des amis, discuter et jouer ensemble.</p><button class="sobtn" data-a="login">Connexion / Inscription</button></div>';return}
+    if(view==='chat'){var hd=$('soHead');if(hd&&$('soLog')&&friends[cur]){hd.textContent=friends[cur].n+(online[cur]?' 🟢':'');return}chatView();return}
+    var nf=Object.keys(friends).length,nr=Object.keys(reqs).length;
+    var h='<div class="soh"><b>Amis</b><button type="button" data-a="close" aria-label="Fermer">×</button></div><div class="sot"><button type="button" data-v="list" aria-pressed="'+(view==='list')+'">Amis ('+nf+')</button><button type="button" data-v="req" aria-pressed="'+(view==='req')+'">Demandes'+(nr?'<i>'+nr+'</i>':'')+'</button><button type="button" data-v="add" aria-pressed="'+(view==='add')+'">Ajouter</button></div><div class="sob">';
+    if(view==='list'){
+      var ids=Object.keys(friends).sort(function(a,b){return (online[b]?1:0)-(online[a]?1:0)||friends[a].n.localeCompare(friends[b].n)});
+      h+=ids.length?ids.map(function(id){return '<div class="sorow"><span class="dot'+(online[id]?' on':'')+'" title="'+(online[id]?'En ligne':'Hors ligne')+'"></span><span class="nm">'+esc(friends[id].n)+'</span>'+(unread[id]?'<span class="u">'+unread[id]+'</span>':'')+'<button type="button" data-a="chat" data-id="'+id+'">Chat</button><button type="button" class="sec" data-a="rm" data-id="'+id+'" aria-label="Retirer">✕</button></div>'}).join(''):'<p class="sonote">Pas encore d\'amis. Va dans « Ajouter » et écris le pseudo d\'un ami.</p>';
+    }else if(view==='req'){
+      var rs=Object.keys(reqs);
+      h+=rs.length?rs.map(function(id){return '<div class="sorow"><span class="nm">'+esc(reqs[id].n)+' veut être ton ami</span><button type="button" data-a="yes" data-id="'+id+'">Accepter</button><button type="button" class="sec" data-a="no" data-id="'+id+'">Refuser</button></div>'}).join(''):'<p class="sonote">Aucune demande pour le moment.</p>';
+    }else{
+      h+='<p class="sonote">Écris le pseudo exact de ton ami (il doit avoir un compte Arkade).</p><form id="soAdd" class="sofm" style="border:0;padding:0"><input id="soNick" maxlength="16" placeholder="Pseudo" aria-label="Pseudo de ton ami" autocomplete="off"><button class="sobtn" type="submit">Envoyer</button></form><p class="sonote" id="soMsg" role="status"></p>';
+    }
+    P.innerHTML=h+'</div>';
+  }
+  function chatView(){
+    var f=friends[cur];if(!f){view='list';render();return}
+    P.innerHTML='<div class="soh"><button type="button" data-a="back" aria-label="Retour">←</button><b id="soHead">'+esc(f.n)+(online[cur]?' 🟢':'')+'</b><button type="button" data-a="close" aria-label="Fermer">×</button></div><div class="sob" id="soLog" aria-live="polite"></div><div class="sotools"><button class="sobtn sec" type="button" data-a="inv" data-g="p4">🔴 Inviter : Puissance 4</button><button class="sobtn sec" type="button" data-a="inv" data-g="tt">❌ Inviter : Morpion</button></div><form id="soForm" class="sofm"><input id="soIn" maxlength="300" placeholder="Écris un message…" aria-label="Message" autocomplete="off"><button class="sobtn" type="submit" aria-label="Envoyer">➤</button></form>';
+    if(chatRef)chatRef.off();chatRef=msgsRef(cur);
+    chatRef.limitToLast(50).on('child_added',function(sn){addMsg(sn.val())});
+  }
+  function addMsg(m){
+    var log=$('soLog');if(!log)return;var mine=m.f===me.uid,d=document.createElement('div');d.className='somsg '+(mine?'me':'fr');
+    var t=document.createElement('span');t.textContent=m.g?(mine?'Tu as invité ton ami : ':'')+(m.g==='p4'?'🔴 Puissance 4':'❌ Morpion')+' — code '+m.c:m.m;d.appendChild(t);
+    if(m.g&&!mine&&m.t&&Date.now()-m.t<20*60000){var b=document.createElement('button');b.type='button';b.className='sobtn bt';b.textContent='Rejoindre la partie';b.dataset.a='join';b.dataset.g=m.g;b.dataset.c=m.c;d.appendChild(b)}
+    log.appendChild(d);log.scrollTop=log.scrollHeight;
+  }
+  function send(extra){
+    var inp=$('soIn'),txt=extra?'':(inp.value||'').trim();if(!extra&&!txt)return;
+    var o={f:me.uid,n:name(),m:extra?('Invitation : '+(extra.g==='p4'?'Puissance 4':'Morpion')):txt,t:window.firebase.database.ServerValue.TIMESTAMP};
+    if(extra){o.g=extra.g;o.c=extra.c}
+    msgsRef(cur).push(o);if(!extra)inp.value='';
+  }
+  function tab(t){document.querySelector('#tabs [data-t="'+t+'"]').click()}
+  function wait(fn,ms){return new Promise(function(ok){var t=0,i=setInterval(function(){var v=fn();if(v||(t+=100)>=ms){clearInterval(i);ok(v)}},100)})}
+  function invite(g){
+    P.hidden=true;
+    if(g==='p4'){tab('p4');p4.go('menu');document.querySelector('#p4Root [data-a=create]').click();
+      wait(function(){return p4.state.code&&p4.state.ref&&p4.state.code},4000).then(function(c){P.hidden=false;if(c)send({g:'p4',c:c});else toastMsg('Impossible de créer la salle.')})}
+    else{tab('ttt');$('ttCreate').click();
+      wait(function(){var m=/Code de la salle : ([A-Z2-9]{5})/.exec($('tMsg').textContent);return m&&m[1]},4000).then(function(c){P.hidden=false;if(c)send({g:'tt',c:c});else toastMsg('Impossible de créer la salle.')})}
+  }
+  function join(g,c){
+    P.hidden=true;
+    if(g==='p4'){tab('p4');p4.go('menu');$('p4Code').value=c;document.querySelector('#p4Root [data-a=join]').click()}
+    else{tab('ttt');$('ttCode').value=c;$('ttJoin').click()}
+  }
+  function addFriend(nick){
+    var lc=nick.trim().toLowerCase(),out=$('soMsg');
+    if(!/^[a-z0-9_]{3,16}$/.test(lc)){out.textContent='Pseudo non valide.';return}
+    db.ref('usernames/'+lc).once('value').then(function(s){
+      var id=s.val();
+      if(!id){out.textContent='Aucun joueur avec ce pseudo.';return}
+      if(id===me.uid){out.textContent="C'est ton propre pseudo !";return}
+      if(friends[id]){out.textContent='Vous êtes déjà amis.';return}
+      if(reqs[id]){return accept(id).then(function(){out.textContent='Cette personne t\'avait déjà invité : vous êtes amis !'})}
+      return db.ref('requests/'+id+'/'+me.uid).set({n:name(),t:window.firebase.database.ServerValue.TIMESTAMP}).then(function(){out.textContent='Demande envoyée ! Elle doit l\'accepter.'});
+    }).catch(function(){out.textContent='Erreur de connexion. Réessaie.'});
+  }
+  function accept(id){var up={};up['friends/'+me.uid+'/'+id]={n:reqs[id].n};up['friends/'+id+'/'+me.uid]={n:name()};up['requests/'+me.uid+'/'+id]=null;return db.ref().update(up)}
+  function watch(fid){
+    if(watchers[fid])return;
+    var r=msgsRef(fid).limitToLast(1);watchers[fid]=r;
+    r.on('child_added',function(sn){
+      var m=sn.val();if(!m||m.f===me.uid||!m.t||m.t<t0-3000)return;
+      if(!P.hidden&&view==='chat'&&cur===fid)return;
+      unread[fid]=(unread[fid]||0)+1;badge();render();
+      toastMsg('💬 '+(friends[fid]?friends[fid].n:'Ami')+' : '+(m.g?'t\'invite à jouer !':m.m.slice(0,60)));
+    });
+    var p=db.ref('presence/'+fid);presW[fid]=p;p.on('value',function(s){online[fid]=!!s.val();render()});
+  }
+  function boot(){
+    if(booted)return;booted=true;db=N.db();
+    db.ref('presence/'+me.uid).set(true);db.ref('presence/'+me.uid).onDisconnect().remove();
+    db.ref('friends/'+me.uid).on('value',function(s){friends=s.val()||{};Object.keys(friends).forEach(watch);render()});
+    db.ref('requests/'+me.uid).on('value',function(s){reqs=s.val()||{};badge();render()});
+  }
+  function stop(){
+    Object.keys(watchers).forEach(function(k){try{watchers[k].off();presW[k].off()}catch(e){}});watchers={};presW={};
+    try{if(chatRef)chatRef.off()}catch(e){}
+    friends={};reqs={};online={};unread={};booted=false;badge();render();
+  }
+  window.arkiAuthCbs.push(function(u){if(u){me=u;boot()}else{if(booted){try{db.ref('presence/'+me.uid).remove()}catch(e){}}stop();me=null;render()}});
+  if(N&&N.user&&N.user()){me=N.user();boot()}
+  btn.onclick=function(){P.hidden=!P.hidden;if(!P.hidden){view=view==='chat'?'list':view;if(!me&&N)N.init();render()}};
+  P.addEventListener('click',function(e){
+    var el=e.target.closest('button');if(!el)return;var a=el.dataset.a,v=el.dataset.v,id=el.dataset.id;
+    if(v){view=v;if(chatRef){chatRef.off();chatRef=null}render();return}
+    if(a==='close'){P.hidden=true;if(chatRef){chatRef.off();chatRef=null}}
+    else if(a==='login')N.login();
+    else if(a==='chat'){cur=id;unread[id]=0;view='chat';badge();render()}
+    else if(a==='back'){view='list';if(chatRef){chatRef.off();chatRef=null}render()}
+    else if(a==='rm'){if(confirm('Retirer '+friends[id].n+' de tes amis ?')){var up={};up['friends/'+me.uid+'/'+id]=null;up['friends/'+id+'/'+me.uid]=null;db.ref().update(up)}}
+    else if(a==='yes')accept(id);
+    else if(a==='no')db.ref('requests/'+me.uid+'/'+id).remove();
+    else if(a==='inv')invite(el.dataset.g);
+    else if(a==='join')join(el.dataset.g,el.dataset.c);
+  });
+  P.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(e.target.id==='soForm')send();else if(e.target.id==='soAdd')addFriend($('soNick').value);
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!P.hidden)P.hidden=true});
 })();
 </script>
 </body>
