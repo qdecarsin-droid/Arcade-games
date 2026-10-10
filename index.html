@@ -13,7 +13,9 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox=%220%200%20100%20100%22%20xmlns=%22http://www.w3.org/2000/svg%22%20aria-hidden=%22true%22%3E%3Cdefs%3E%3ClinearGradient%20id=%22hd%22%20x1=%220%22%20y1=%220%22%20x2=%220%22%20y2=%221%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%23ffffff%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%23d9d3ff%22/%3E%3C/linearGradient%3E%3Cfilter%20id=%22gl%22%20x=%22-50%25%22%20y=%22-50%25%22%20width=%22200%25%22%20height=%22200%25%22%3E%3CfeGaussianBlur%20stdDeviation=%222.2%22/%3E%3C/filter%3E%3C/defs%3E%3Crect%20width=%22100%22%20height=%22100%22%20rx=%2224%22%20fill=%22%235b3cff%22/%3E%3Cg%20fill=%22%23e4dfff%22%20stroke=%22%23b3a8ff%22%20stroke-width=%221.6%22%3E%3Crect%20x=%2235%22%20y=%2274%22%20width=%2211%22%20height=%2214%22%20rx=%225%22/%3E%3Crect%20x=%2254%22%20y=%2274%22%20width=%2211%22%20height=%2214%22%20rx=%225%22/%3E%3Crect%20x=%2227%22%20y=%2285%22%20width=%2223%22%20height=%2210%22%20rx=%225%22/%3E%3Crect%20x=%2250%22%20y=%2285%22%20width=%2223%22%20height=%2210%22%20rx=%225%22/%3E%3C/g%3E%3Crect%20x=%2216%22%20y=%2224%22%20width=%2268%22%20height=%2255%22%20rx=%2224%22%20fill=%22url%28%23hd%29%22%20stroke=%22%23bdb3ff%22%20stroke-width=%221.6%22/%3E%3Cpath%20d=%22M14%2046%20C14%2012%2086%2012%2086%2046%22%20fill=%22none%22%20stroke=%22%23d9d3ff%22%20stroke-width=%226%22%20stroke-linecap=%22round%22/%3E%3Crect%20x=%228%22%20y=%2238%22%20width=%2212%22%20height=%2222%22%20rx=%226%22%20fill=%22%23d9d3ff%22/%3E%3Crect%20x=%2280%22%20y=%2238%22%20width=%2212%22%20height=%2222%22%20rx=%226%22%20fill=%22%23d9d3ff%22/%3E%3Crect%20x=%2223%22%20y=%2233%22%20width=%2254%22%20height=%2240%22%20rx=%2217%22%20fill=%22%230e0b2e%22/%3E%3Cpath%20d=%22M30%2042%20C32%2037%2038%2035%2045%2035%22%20fill=%22none%22%20stroke=%22%23fff%22%20stroke-opacity=%22.22%22%20stroke-width=%222.4%22%20stroke-linecap=%22round%22/%3E%3Cg%3E%3Cg%20filter=%22url%28%23gl%29%22%20opacity=%22.85%22%3E%3Crect%20x=%2235%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%233be8ff%22/%3E%3Crect%20x=%2254%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%233be8ff%22/%3E%3C/g%3E%3Crect%20x=%2235%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%236af2ff%22/%3E%3Crect%20x=%2254%22%20y=%2246%22%20width=%2211%22%20height=%2215%22%20rx=%225.5%22%20fill=%22%236af2ff%22/%3E%3C/g%3E%3C/svg%3E">
 <script>window.ARKI_IOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);window.coi={shouldRegister:()=>{if(window.ARKI_IOS)return false;try{return localStorage.getItem("arki_psp")==="1"}catch(e){return false}},shouldDeregister:()=>{if(window.ARKI_IOS)return true;try{return localStorage.getItem("arki_psp")!=="1"}catch(e){return false}}};</script>
 <script src="coi-serviceworker.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=VT323&family=Caveat:wght@600;700&family=Fredoka:wght@500;600&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=VT323&family=Caveat:wght@600;700&family=Fredoka:wght@500;600&family=Orbitron:wght@600;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=VT323&family=Caveat:wght@600;700&family=Fredoka:wght@500;600&family=Orbitron:wght@600;800&display=swap"></noscript>
 <style>
 :root{--bg:#0d0c08;--panel:#251a8f;--line:#5a47ff;--text:#f4f2ff;--muted:#b9b2ff;--hot:#5b3cff;--sun:#d9d3ff}
 *{box-sizing:border-box}
@@ -579,6 +581,22 @@ section#p4.on{background:radial-gradient(1.5px 1.5px at 20% 25%,#fff8,transparen
 .somsg .bt{display:block;margin-top:6px}
 .sonote{color:#6b6890;font-size:13px;margin:8px 4px;line-height:1.4}
 .sotools{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px}
+
+#netLink{background:none;border:0;color:#b9b2ff;text-decoration:underline;font:inherit;cursor:pointer;margin-left:8px}
+#netBox{position:fixed;inset:0;z-index:95;background:rgba(5,4,20,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+#netBox[hidden]{display:none}
+#netBox .acbox pre{white-space:pre-wrap;font:13px/1.5 ui-monospace,Menlo,monospace;background:#f6f4ff;border-radius:12px;padding:10px;margin:8px 0}
+
+/* 08 DUEL */
+body[data-g=duel] nav button[aria-selected=true]{background:#ff7a1a;border-color:#ff7a1a;color:#fff;box-shadow:0 10px 24px -10px rgba(255,122,26,.9)}
+section#duel.on{background:radial-gradient(1.5px 1.5px at 15% 20%,#fff8,transparent),linear-gradient(180deg,#1c0b3a,#4b1a6e 60%,#ff7a1a 160%);border:3px solid #ff7a1a;box-shadow:0 0 30px rgba(255,122,26,.3);font-family:'Inter Tight',system-ui,sans-serif}
+#duCv{width:min(100%,640px);height:auto;border-radius:16px;background:#0d0820;box-shadow:0 14px 34px -14px #000;touch-action:none;display:block;margin:0 auto}
+.duPad{display:flex;justify-content:space-between;gap:10px;margin:10px auto;max-width:640px;user-select:none;-webkit-user-select:none;touch-action:none}
+.duG{display:flex;gap:8px;flex-wrap:wrap}
+.duG button{width:clamp(52px,14vw,68px);height:clamp(52px,14vw,68px);border-radius:16px;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:24px;touch-action:none;-webkit-touch-callout:none;box-shadow:0 5px 0 rgba(10,8,36,.55)}
+.duG button.on{background:#fff;color:#0d0c08;transform:translateY(3px);box-shadow:none}
+.duG small{display:block;width:100%;font-size:11px;color:rgba(255,255,255,.7)}
+.duS{font:700 16px 'Inter Tight',sans-serif;min-height:1.6em;margin:2px 0 8px}
 </style>
 </head>
 <body>
@@ -602,7 +620,8 @@ section#p4.on{background:radial-gradient(1.5px 1.5px at 20% 25%,#fff8,transparen
   <button role="tab" data-t="g48" aria-selected="false">05 2048</button>
   <button role="tab" data-t="blk" aria-selected="false">06 Blocs</button>
   <button role="tab" data-t="p4" aria-selected="false">07 Puissance 4</button>
-  <button role="tab" data-t="emu" aria-selected="false">08 Émulateur</button>
+  <button role="tab" data-t="duel" aria-selected="false">08 Duel</button>
+  <button role="tab" data-t="emu" aria-selected="false">09 Émulateur</button>
 </nav>
 <main>
 
@@ -665,6 +684,8 @@ section#p4.on{background:radial-gradient(1.5px 1.5px at 20% 25%,#fff8,transparen
 </section>
 
 <section id="p4"><div id="p4Root"></div></section>
+
+<section id="duel"><div id="duRoot"></div></section>
 
 <section id="emu">
   <div class="row">
@@ -750,6 +771,8 @@ const helper=(()=>{
   const bot=document.getElementById('hBot'),panel=document.getElementById('hBubble'),log=document.getElementById('hLog'),chips=document.getElementById('hChips'),form=document.getElementById('hForm'),inp=document.getElementById('hInput');
   const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
   const KB=[
+    {r:/(arene|smash|combat|bagarre|course|voiture|duel|bomberman|jeux? d action)/,a:"<b>Duel</b> (onglet 08) : deux jeux d'action. <b>Arène</b> : un combat façon plateforme, frappe ton adversaire pour le faire voler et éjecte-le de l'écran (3 vies). <b>Course</b> : 3 tours de piste contre un adversaire. Tu joues contre l'<b>ordinateur</b>, <b>à deux sur le même écran</b>, ou <b>en ligne</b> avec un code de salle (compte requis). Commandes tactiles à l'écran, ou clavier (A/D/W/Espace et flèches)."},
+    {r:/(wifi|wi fi|reseau|4g|5g|ecole|bloque|filtre|vpn|certaine connexion|selon la connexion|marche pas chez)/,a:"Si le site ne marche pas sur certains réseaux (école, travail, Wi-Fi public, contrôle parental, VPN), c'est que le réseau <b>bloque</b> certains services (hébergement, comptes, émulateur…). Touche <b>« Problème de connexion ? »</b> tout en bas de la page : le test te dit ce qui est bloqué. Astuce : passe en 4G/5G ou change de Wi-Fi.",act:'net'},
     {r:/(ami|amis|tchat|chat|message|inviter|invitation|demande d ami)/,a:"<b>Amis</b> : touche le bouton 💬 (en bas à droite). Dans « Ajouter », écris le pseudo de ton ami ; il reçoit une demande à accepter dans « Demandes ». Ensuite, ouvre le <b>Chat</b> avec lui pour discuter, et utilise « Inviter : Puissance 4 / Morpion » : il reçoit un bouton « Rejoindre la partie ». Un point vert indique qui est en ligne. Il faut un compte."},
     {r:/(compte|inscri|connexion|connect|mot de passe|pseudo|e-?mail|deconnex|se logger|login)/,a:"<b>Compte</b> : touche « Connexion / Inscription » dans le cadre « Tes records » (en haut de la page). Il faut un pseudo (3 à 16 lettres, chiffres ou _), un e-mail et un mot de passe de 6 caractères minimum. Ton compte sauvegarde tes records et tes succès en ligne, et te suit d'un appareil à l'autre. Mot de passe oublié ? Écris ton e-mail dans la fenêtre puis touche « Mot de passe oublié ? »."},
     {r:/(classement|meilleurs? scores?|top 10|leaderboard)/,a:"Le <b>Classement</b> est dans le cadre « Tes records » : choisis le Snake, le 2048 ou les Blocs pour voir le top 10. Pour y apparaître, connecte-toi à un compte et améliore ton record."},
@@ -786,7 +809,7 @@ const helper=(()=>{
     {r:/(tetris|\bblocs?\b|briques?|pieces? qui tombent|lignes? (pleines?|effacees?)|lignes?\b.*blocs?)/,a:"<b>Blocs</b> (onglet 06), le jeu de pièces qui tombent : déplace avec ◀ ▶, tourne avec ⟳ (ou touche le plateau), accélère avec ▼ et fais tomber d'un coup avec ⤓. Remplis une <b>ligne entière</b> pour l'effacer ; 4 lignes d'un coup rapportent le plus. Ça accélère tous les 10 lignes. Au clavier : flèches, Espace pour la chute, P pour la pause. Dis « lance les blocs » !"},
     {r:/(poker|balatro|manche|bonus|multiplicateur|jeu de cartes)/,a:"<b>Poker d'Arki</b> (onglet 04) : choisis jusqu'à <b>5 cartes</b> et joue-les, tes points = <b>points × multiplicateur</b>. Atteins l'objectif de la manche avant de manquer de mains (4 par manche, et 3 défausses). Entre deux manches, tu choisis un <b>bonus</b> parmi 3 (5 maximum, ils se combinent). Il y a 3 antes de 3 blindes (petite, grosse, boss) : tu peux passer les deux premières, mais pas le boss, qui a une règle spéciale. En boutique, les <b>planètes</b> font monter une combinaison de niveau. Réussis les <b>9 blindes</b> pour gagner. Astuce : double paire, couleur ou full rapportent gros, et les bonus ×mult sont les plus puissants !"},
     {r:/(memory|paire|cartes?)/,a:"<b>Memory</b> : retourne deux cartes, trouve les paires. Moins de coups = meilleur score. « Mélanger les cartes » relance."},
-    {r:/(comment (ca )?(marche|fonctionne)|mode d.?emploi|aide|help|utiliser|demarrer|commencer|c.?est quoi|arkade|a quoi ca sert)/,a:"<b>Arkade</b>, c'est 6 jeux (Snake, Morpion, Memory, Poker d'Arki, 2048, Blocs) et un <b>émulateur</b> pour tes propres ROMs.<br>Pour l'émulateur : onglet <b>08</b> → « Choisir une ROM » → le jeu se lance. Demande-moi où trouver des ROMs légales, les consoles, la manette ou le son."},
+    {r:/(comment (ca )?(marche|fonctionne)|mode d.?emploi|aide|help|utiliser|demarrer|commencer|c.?est quoi|arkade|a quoi ca sert)/,a:"<b>Arkade</b>, c'est 6 jeux (Snake, Morpion, Memory, Poker d'Arki, 2048, Blocs) et un <b>émulateur</b> pour tes propres ROMs.<br>Pour l'émulateur : onglet <b>09</b> → « Choisir une ROM » → le jeu se lance. Demande-moi où trouver des ROMs légales, les consoles, la manette ou le son."},
     {r:/(bonjour|salut|coucou|hello|hey|yo\b)/,a:"Salut ! Que veux-tu savoir ? Je peux t'aider pour les ROMs, les consoles, la manette, le son ou les jeux."},
     {r:/(merci|genial|parfait|\bcool\b|\btop\b)/,a:"Avec plaisir ! 🎮"}
   ];
@@ -854,7 +877,7 @@ const helper=(()=>{
     add('bot',"Youpi ! Maintenant je comprends tout ce que tu me dis 💜 Essaie-moi !");mood('happy');
   };
   document.getElementById('hDel').onclick=()=>{apiKey='';LS.del();hist=[];setBox.hidden=true;refreshUI();add('bot',"Clé retirée. Je repasse en mode simple.")};
-  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu réponds à TOUTES les questions (culture, école, maths, code, jeux, conseils, blagues, idées…) comme un assistant généraliste, en plus de l'aide sur le site. Si tu n'es pas sûr d'un fait, dis-le honnêtement. Réponds dans la langue de l'utilisateur (français par défaut), en général 1 à 4 phrases chaleureuses, avec parfois un emoji, et plus longues si la question le demande (explication, code, devoir, recette, conseil…). Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 8 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 3 antes de 3 blindes (petite, grosse, boss à règle spéciale, on peut passer les deux premières), une boutique avec bonus et planètes (qui font monter une combinaison de niveau) entre les blindes, record retenu), 05 2048 (glisser pour fusionner les tuiles, objectif 2048, record retenu), 06 Blocs (jeu de pièces qui tombent : ◀ ▶ ⟳ ▼ ⤓, lignes pleines effacées, niveaux, record retenu), 07 Puissance 4 (aligne 4 jetons ; contre l'ordinateur en 3 niveaux, à deux sur le même écran, ou en ligne avec un code de salle à 5 lettres, compte requis en ligne), 08 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on tourne avec la croix directionnelle sous le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nAmis : bouton 💬 en bas à droite (ajouter un ami par pseudo, demandes, chat privé, invitations à jouer au Puissance 4 ou au Morpion en ligne, point vert pour ceux qui sont en ligne ; compte requis). Autres fonctions : compte gratuit (inscription avec pseudo, e-mail et mot de passe ; bouton « Connexion / Inscription » en haut) qui sauvegarde les records et succès en ligne ; classement du Snake, du 2048 et des Blocs ; 14 succès ; Morpion en ligne avec code de salle ; styles au choix pour les Blocs (Néon, Classique, Game Boy, Bonbons, Verre), le Snake, le 2048 et le Memory ; niveaux du Morpion (facile, normal, difficile) ; bibliothèque des derniers jeux de l'émulateur ; boutons Sauvegarder/Charger de l'émulateur. Au Poker : chaque ante a 3 blindes (petite, grosse, boss) ; on peut passer les deux premières pour $4 et une planète ; les planètes (Mercure=paire, Uranus=double paire, Vénus=brelan, Saturne=suite, Jupiter=couleur, Terre=full, Mars=carré, Neptune=quinte flush, Pluton=carte haute) font monter une combinaison de niveau ; le boss a une règle (une seule main, aucune défausse, ♣ ou ♠ qui ne marquent pas, points de base divisés par 2, obligation de jouer 5 cartes, 2 cartes en moins). Le site garde seulement pseudo, e-mail et records.\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
+  const SYS="Tu es Arki, la petite mascotte-casque mignonne et joyeuse du site Arkade. Tu es l'assistant du site et tu réponds à TOUTES les questions (culture, école, maths, code, jeux, conseils, blagues, idées…) comme un assistant généraliste, en plus de l'aide sur le site. Si tu n'es pas sûr d'un fait, dis-le honnêtement. Réponds dans la langue de l'utilisateur (français par défaut), en général 1 à 4 phrases chaleureuses, avec parfois un emoji, et plus longues si la question le demande (explication, code, devoir, recette, conseil…). Format : texte simple, **gras** possible, pas de titres ni de tableaux.\n\nCe que tu sais d'Arkade : 8 onglets. 01 Snake (flèches ou croix, 10 points par pomme), 02 Morpion (l'utilisateur joue X contre l'ordinateur), 03 Memory (paires, moins de coups = mieux), 04 Poker d'Arki (jeu de cartes solo : jusqu'à 5 cartes par main, points × multiplicateur, 3 antes de 3 blindes (petite, grosse, boss à règle spéciale, on peut passer les deux premières), une boutique avec bonus et planètes (qui font monter une combinaison de niveau) entre les blindes, record retenu), 05 2048 (glisser pour fusionner les tuiles, objectif 2048, record retenu), 06 Blocs (jeu de pièces qui tombent : ◀ ▶ ⟳ ▼ ⤓, lignes pleines effacées, niveaux, record retenu), 07 Puissance 4 (aligne 4 jetons ; contre l'ordinateur en 3 niveaux, à deux sur le même écran, ou en ligne avec un code de salle à 5 lettres, compte requis en ligne), 08 Duel (jeux d'action à deux : Arène = combat façon plateforme où l'on éjecte l'adversaire de l'écran, Course = 3 tours de piste ; contre l'ordinateur, à deux sur le même écran ou en ligne avec un code de salle), 09 Émulateur (EmulatorJS, bouton « Choisir une ROM », .zip accepté, console détectée automatiquement, boutons Plein écran, Activer le son, Manette croix/joystick, Tester ma connexion). Consoles : NES, SNES, PSP, Game Boy/Color/Advance, N64, Nintendo DS (léger ou melonDS), Mega Drive, Master System, Game Gear, Saturn, PlayStation, Atari 2600, PC Engine, Arcade. La PSP (iso, cso) est très lourde et demande SharedArrayBuffer ; la page active toute seule un mode spécial (service worker) puis se recharge, Chrome sur ordinateur recommandé ; la PS2, PS3, Switch, Wii, Xbox et GameCube ne sont pas disponibles. Pour changer de jeu dans l'émulateur il faut recharger la page. Le premier lancement télécharge l'émulateur (jusqu'à 1 minute). Sur iPad et iPhone, tout marche avec Safari sauf la PSP (indisponible) ; on peut ajouter le site à l'écran d'accueil (Partager > Sur l'écran d'accueil). Au Snake, on tourne avec la croix directionnelle sous le jeu. Le site lance déjà tout seul les jeux et règle la console quand on écrit « lance le Snake » ou « mets la Game Boy ».\n\nAmis : bouton 💬 en bas à droite (ajouter un ami par pseudo, demandes, chat privé, invitations à jouer au Puissance 4 ou au Morpion en ligne, point vert pour ceux qui sont en ligne ; compte requis). Autres fonctions : compte gratuit (inscription avec pseudo, e-mail et mot de passe ; bouton « Connexion / Inscription » en haut) qui sauvegarde les records et succès en ligne ; classement du Snake, du 2048 et des Blocs ; 14 succès ; Morpion en ligne avec code de salle ; styles au choix pour les Blocs (Néon, Classique, Game Boy, Bonbons, Verre), le Snake, le 2048 et le Memory ; niveaux du Morpion (facile, normal, difficile) ; bibliothèque des derniers jeux de l'émulateur ; boutons Sauvegarder/Charger de l'émulateur. Au Poker : chaque ante a 3 blindes (petite, grosse, boss) ; on peut passer les deux premières pour $4 et une planète ; les planètes (Mercure=paire, Uranus=double paire, Vénus=brelan, Saturne=suite, Jupiter=couleur, Terre=full, Mars=carré, Neptune=quinte flush, Pluton=carte haute) font monter une combinaison de niveau ; le boss a une règle (une seule main, aucune défausse, ♣ ou ♠ qui ne marquent pas, points de base divisés par 2, obligation de jouer 5 cartes, 2 cartes en moins). Le site garde seulement pseudo, e-mail et records.\n\nRègle importante : Arkade ne fournit aucune ROM. Tu n'indiques jamais de site pour télécharger des jeux commerciaux piratés. Tu peux conseiller : ses propres jeux sauvegardés soi-même (selon la loi de son pays), les jeux homebrew gratuits (par exemple sur itch.io) et les jeux libres de Libretro.";
   async function callAI(q){
     hist.push({role:'user',content:q});
     if(hist.length>14)hist=hist.slice(-14);
@@ -876,6 +899,7 @@ const helper=(()=>{
     {re:/poker|balatro|jeu de cartes/,tab:'pk',label:"le Poker d'Arki",run:()=>pkOpen(),again:()=>pkNewRun(),tip:'Choisis jusqu\'à 5 cartes et joue-les.'},
     {re:/2048|fusion/,tab:'g48',label:'le 2048',run:()=>g48New(),tip:'Glisse pour fusionner les tuiles identiques.'},
     {re:/tetris|\bblocs?\b|briques?/,tab:'blk',label:'les Blocs',run:()=>bkStart(),tip:'◀ ▶ pour bouger, ⟳ pour tourner, ⤓ pour faire tomber.'},
+    {re:/duel|arene|smash|combat|bagarre|course|voiture|bomberman/,tab:'duel',label:'le Duel',run:()=>duel.open(),tip:'Choisis Arène ou Course, puis ordinateur, à deux ou en ligne.'},
     {re:/puissance ?4|connect ?4/,tab:'p4',label:'le Puissance 4',run:()=>p4Open(),tip:'Aligne 4 jetons : contre l\'ordinateur, à deux, ou en ligne.'},
     {re:/snake|serpent/,tab:'snake',label:'le Snake',run:()=>startSnake(),tip:'Tourne avec la croix sous le jeu ou les flèches du clavier.'},
     {re:/morpion|tic ?tac/,tab:'ttt',label:'le Morpion',run:()=>tReset(),tip:'Tu es les X, à toi de jouer.'},
@@ -2699,19 +2723,19 @@ var p4=(function(){
   }
   function chatView(){
     var f=friends[cur];if(!f){view='list';render();return}
-    P.innerHTML='<div class="soh"><button type="button" data-a="back" aria-label="Retour">←</button><b id="soHead">'+esc(f.n)+(online[cur]?' 🟢':'')+'</b><button type="button" data-a="close" aria-label="Fermer">×</button></div><div class="sob" id="soLog" aria-live="polite"></div><div class="sotools"><button class="sobtn sec" type="button" data-a="inv" data-g="p4">🔴 Inviter : Puissance 4</button><button class="sobtn sec" type="button" data-a="inv" data-g="tt">❌ Inviter : Morpion</button></div><form id="soForm" class="sofm"><input id="soIn" maxlength="300" placeholder="Écris un message…" aria-label="Message" autocomplete="off"><button class="sobtn" type="submit" aria-label="Envoyer">➤</button></form>';
+    P.innerHTML='<div class="soh"><button type="button" data-a="back" aria-label="Retour">←</button><b id="soHead">'+esc(f.n)+(online[cur]?' 🟢':'')+'</b><button type="button" data-a="close" aria-label="Fermer">×</button></div><div class="sob" id="soLog" aria-live="polite"></div><div class="sotools"><button class="sobtn sec" type="button" data-a="inv" data-g="p4">🔴 Inviter : Puissance 4</button><button class="sobtn sec" type="button" data-a="inv" data-g="tt">❌ Inviter : Morpion</button><button class="sobtn sec" type="button" data-a="inv" data-g="fight">⚔️ Inviter : Arène</button><button class="sobtn sec" type="button" data-a="inv" data-g="race">🏁 Inviter : Course</button></div><form id="soForm" class="sofm"><input id="soIn" maxlength="300" placeholder="Écris un message…" aria-label="Message" autocomplete="off"><button class="sobtn" type="submit" aria-label="Envoyer">➤</button></form>';
     if(chatRef)chatRef.off();chatRef=msgsRef(cur);
     chatRef.limitToLast(50).on('child_added',function(sn){addMsg(sn.val())});
   }
   function addMsg(m){
     var log=$('soLog');if(!log)return;var mine=m.f===me.uid,d=document.createElement('div');d.className='somsg '+(mine?'me':'fr');
-    var t=document.createElement('span');t.textContent=m.g?(mine?'Tu as invité ton ami : ':'')+(m.g==='p4'?'🔴 Puissance 4':'❌ Morpion')+' — code '+m.c:m.m;d.appendChild(t);
+    var t=document.createElement('span');t.textContent=m.g?(mine?'Tu as invité ton ami : ':'')+({p4:'🔴 Puissance 4',tt:'❌ Morpion',fight:'⚔️ Arène',race:'🏁 Course'}[m.g]||'Jeu')+' — code '+m.c:m.m;d.appendChild(t);
     if(m.g&&!mine&&m.t&&Date.now()-m.t<20*60000){var b=document.createElement('button');b.type='button';b.className='sobtn bt';b.textContent='Rejoindre la partie';b.dataset.a='join';b.dataset.g=m.g;b.dataset.c=m.c;d.appendChild(b)}
     log.appendChild(d);log.scrollTop=log.scrollHeight;
   }
   function send(extra){
     var inp=$('soIn'),txt=extra?'':(inp.value||'').trim();if(!extra&&!txt)return;
-    var o={f:me.uid,n:name(),m:extra?('Invitation : '+(extra.g==='p4'?'Puissance 4':'Morpion')):txt,t:window.firebase.database.ServerValue.TIMESTAMP};
+    var o={f:me.uid,n:name(),m:extra?('Invitation : '+({p4:'Puissance 4',tt:'Morpion',fight:'Arène',race:'Course'}[extra.g]||'jeu')):txt,t:window.firebase.database.ServerValue.TIMESTAMP};
     if(extra){o.g=extra.g;o.c=extra.c}
     msgsRef(cur).push(o);if(!extra)inp.value='';
   }
@@ -2719,6 +2743,7 @@ var p4=(function(){
   function wait(fn,ms){return new Promise(function(ok){var t=0,i=setInterval(function(){var v=fn();if(v||(t+=100)>=ms){clearInterval(i);ok(v)}},100)})}
   function invite(g){
     P.hidden=true;
+    if(g==='fight'||g==='race'){tab('duel');duel.create(g).then(function(c){P.hidden=false;if(c)send({g:g,c:c});else toastMsg('Impossible de créer la salle.')});return}
     if(g==='p4'){tab('p4');p4.go('menu');document.querySelector('#p4Root [data-a=create]').click();
       wait(function(){return p4.state.code&&p4.state.ref&&p4.state.code},4000).then(function(c){P.hidden=false;if(c)send({g:'p4',c:c});else toastMsg('Impossible de créer la salle.')})}
     else{tab('ttt');$('ttCreate').click();
@@ -2726,6 +2751,7 @@ var p4=(function(){
   }
   function join(g,c){
     P.hidden=true;
+    if(g==='fight'||g==='race'){tab('duel');duel.join(g,c);return}
     if(g==='p4'){tab('p4');p4.go('menu');$('p4Code').value=c;document.querySelector('#p4Root [data-a=join]').click()}
     else{tab('ttt');$('ttCode').value=c;$('ttJoin').click()}
   }
@@ -2785,6 +2811,263 @@ var p4=(function(){
     if(e.target.id==='soForm')send();else if(e.target.id==='soAdd')addFriend($('soNick').value);
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!P.hidden)P.hidden=true});
+})();
+</script>
+
+<script>
+/* Arkade : test de connexion du site (pour comprendre un réseau qui bloque) */
+(function(){
+  var T=[
+    ['Le site (hébergement)',location.origin+'/','sans ça, rien ne s\'affiche'],
+    ['Polices de caractères','https://fonts.googleapis.com/css2?family=Inter+Tight','seulement le style des textes'],
+    ['Comptes, amis, classement (code)','https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js','compte et amis indisponibles'],
+    ['Comptes (connexion)','https://identitytoolkit.googleapis.com/','inscription et connexion impossibles'],
+    ['Base de données en ligne','https://arkade-3d02b-default-rtdb.europe-west1.firebasedatabase.app/','records, amis et jeux en ligne indisponibles'],
+    ['Émulateur (moteurs)','https://cdn.jsdelivr.net/npm/@emulatorjs/core-desmume2015@4.2.3/package.json','émulateur indisponible'],
+    ['Émulateur (interface)','https://cdn.emulatorjs.org/stable/data/version.json','émulateur indisponible']
+  ];
+  var box=document.createElement('div');box.id='netBox';box.hidden=true;
+  box.innerHTML='<div class="acbox" role="dialog" aria-modal="true" aria-label="Test de connexion"><h2>Test de ta connexion</h2><pre id="netOut">…</pre><div class="acrow"><button type="button" class="sec" id="netClose">Fermer</button><button type="button" id="netAgain">Relancer</button></div></div>';
+  document.body.appendChild(box);
+  function ping(u){
+    var t0=Date.now(),ac=typeof AbortController==='function'?new AbortController():null,to=setTimeout(function(){if(ac)ac.abort()},8000);
+    return fetch(u,{mode:'no-cors',cache:'no-store',signal:ac?ac.signal:undefined}).then(function(){clearTimeout(to);return Date.now()-t0},function(){clearTimeout(to);return -1});
+  }
+  function run(){
+    var out=document.getElementById('netOut');out.textContent='Test en cours… (jusqu\'à 8 secondes)';
+    Promise.all(T.map(function(x){return ping(x[1])})).then(function(r){
+      var lines=[],bad=[];
+      T.forEach(function(x,i){var ok=r[i]>=0;lines.push((ok?'✅ ':'❌ ')+x[0]+(ok?' ('+r[i]+' ms)':' : bloqué ou injoignable'));if(!ok)bad.push(x)});
+      lines.push('');
+      if(!bad.length)lines.push('Tout est joignable. Si ça ne marche toujours pas, ferme et rouvre l\'onglet, ou désactive un bloqueur de publicités.');
+      else if(bad.length===T.length)lines.push('Aucun serveur ne répond : tu es probablement hors ligne, ou le réseau bloque tout. Essaie un autre Wi-Fi ou la 4G/5G.');
+      else{lines.push('Ce réseau bloque certains services :');bad.forEach(function(x){lines.push('• '+x[0]+' → '+x[2])});lines.push('');lines.push('C\'est typique d\'un Wi-Fi d\'école, de travail ou de contrôle parental, ou d\'un VPN. Essaie la 4G/5G, un autre Wi-Fi, ou désactive le VPN ou le filtre.')}
+      out.textContent=lines.join('\n');
+    });
+  }
+  var f=document.querySelector('footer');
+  if(f){var b=document.createElement('button');b.type='button';b.id='netLink';b.textContent='Problème de connexion ?';f.appendChild(b);b.onclick=function(){box.hidden=false;run()}}
+  document.getElementById('netClose').onclick=function(){box.hidden=true};
+  document.getElementById('netAgain').onclick=run;
+  box.addEventListener('click',function(e){if(e.target===box)box.hidden=true});
+  window.arkiNetTest=function(){box.hidden=false;run()};
+})();
+</script>
+
+<script>
+/* Arkade : Duel (Arène + Course), contre l'ordinateur, à deux ou en ligne */
+var duel=(function(){
+  var W=640,H=360,root=document.getElementById('duRoot'),$=function(i){return document.getElementById(i)};
+  var S={view:'menu',g:null,mode:null,msg:'',raf:0,acc:0,last:0,run:false,cd:0,over:0,t:0,me:1,code:'',ref:null,has2:false,names:['',''],go:0,sent:0};
+  var keys={},inp=[{},{}],F=[],R=[],opp=null,ctx=null;
+  function name(){var u=window.arkiNet&&arkiNet.user();return (u&&u.displayName)||'Joueur'}
+  /* ---------- ARÈNE ---------- */
+  var PL=[{x:130,y:250,w:380,h:18},{x:170,y:170,w:110,h:10},{x:360,y:170,w:110,h:10}];
+  function fnew(i){return{x:i?470:150,y:100,vx:0,vy:0,f:i?-1:1,j:0,st:3,d:0,a:0,cd:0,k:0,inv:90,on:false,lastK:0,dead:0,w:28,h:44}}
+  function fstep(f,c){
+    c=c||{};var ax=(c.r?1:0)-(c.l?1:0);
+    f.vx+=ax*.9;f.vx*=f.on?.84:.95;if(f.vx>6)f.vx=6;if(f.vx<-6)f.vx=-6;if(ax)f.f=ax;
+    if(f.on)f.j=0;
+    if(c.j&&!f.jp&&(f.on||f.j<2)){f.vy=-11;f.j++;f.on=false}f.jp=!!c.j;
+    f.vy+=.6;if(f.vy>14)f.vy=14;
+    var pb=f.y+f.h;f.x+=f.vx;f.y+=f.vy;f.on=false;
+    if(f.vy>=0)PL.forEach(function(p){if(f.x+f.w>p.x&&f.x<p.x+p.w&&pb<=p.y+4&&f.y+f.h>=p.y){f.y=p.y-f.h;f.vy=0;f.on=true}});
+    if(c.a&&f.cd<=0){f.a=20;f.cd=34;f.k++}
+    if(f.a>0)f.a--;if(f.cd>0)f.cd--;if(f.inv>0)f.inv--;
+    if(f.x<-90||f.x>730||f.y>450||f.y<-170){f.st--;f.d=0;f.x=W/2-14;f.y=40;f.vx=0;f.vy=0;f.inv=100;if(f.st<=0)f.dead=1}
+  }
+  function hit(att,def){
+    if(att.a<=0||def.inv>0||att.k===def.lastK)return;
+    var bx=att.f>0?att.x+att.w:att.x-42;
+    if(bx<def.x+def.w&&bx+42>def.x&&att.y+6<def.y+def.h&&att.y+36>def.y){
+      def.d+=9;var kb=5+def.d*.07;def.vx=att.f*kb*1.15;def.vy=-(4+def.d*.04);def.on=false;def.lastK=att.k;def.inv=8;
+    }
+  }
+  function fai(f,o){
+    var c={},dx=o.x-f.x;
+    if(f.x<150)c.r=1;else if(f.x>490)c.l=1;else if(Math.abs(dx)>40){if(dx>0)c.r=1;else c.l=1}
+    if(Math.abs(dx)<60&&Math.abs(o.y-f.y)<50&&Math.random()<.12)c.a=1;
+    if((f.y>270&&!f.on)||(Math.random()<.008)||(o.y<f.y-60&&Math.random()<.05))c.j=1;
+    return c;
+  }
+  function kin(p){var k=p?{l:keys.ArrowLeft,r:keys.ArrowRight,j:keys.ArrowUp,a:keys.Enter}:{l:keys.a||keys.q,r:keys.d,j:keys.w||keys.z,a:keys[' ']};return{l:k.l||inp[p].l,r:k.r||inp[p].r,j:k.j||inp[p].j,a:k.a||inp[p].a}}
+  function fightStep(){
+    if(S.mode==='online'){
+      var m=F[0];fstep(m,kin(0));
+      if(opp){var o={x:opp.x,y:opp.y,f:opp.f,a:opp.a,k:opp.k,w:28,h:44};hit(o,m)}
+      var q=F[1];if(opp){q.x+=(opp.x-q.x)*.4;q.y+=(opp.y-q.y)*.4;q.f=opp.f;q.a=opp.a;q.d=opp.d;q.st=opp.st;q.inv=opp.inv||0;q.dead=opp.dead}
+      send({x:m.x,y:m.y,f:m.f,a:m.a,k:m.k,d:m.d,st:m.st,inv:m.inv,dead:m.dead});
+      if(m.dead)finish(2);else if(q.dead)finish(1);
+    }else{
+      fstep(F[0],kin(0));fstep(F[1],S.mode==='bot'?fai(F[1],F[0]):kin(1));hit(F[0],F[1]);hit(F[1],F[0]);
+      if(F[0].dead)finish(2);else if(F[1].dead)finish(1);
+    }
+  }
+  function fightDraw(){
+    var g=ctx;var gr=g.createLinearGradient(0,0,0,H);gr.addColorStop(0,'#1c0b3a');gr.addColorStop(1,'#5b2a86');g.fillStyle=gr;g.fillRect(0,0,W,H);
+    PL.forEach(function(p,i){g.fillStyle=i?'#8a7bff':'#3b2a8f';g.fillRect(p.x,p.y,p.w,p.h);g.fillStyle='#d9d3ff';g.fillRect(p.x,p.y,p.w,3)});
+    F.forEach(function(f,i){
+      if(f.dead)return;g.globalAlpha=f.inv>0&&(S.t>>2)%2?.4:1;
+      g.fillStyle=i?'#ff5d8f':'#3be8ff';g.fillRect(f.x,f.y,f.w,f.h);g.fillStyle='#0d0820';g.fillRect(f.x+(f.f>0?16:4),f.y+10,8,8);
+      if(f.a>0){g.fillStyle='rgba(255,255,255,.8)';g.fillRect(f.f>0?f.x+f.w:f.x-42,f.y+8,42,26)}g.globalAlpha=1});
+    g.font='700 18px Inter Tight,sans-serif';g.textAlign='left';
+    F.forEach(function(f,i){g.fillStyle=i?'#ff9ab8':'#8ff3ff';var nm=S.mode==='online'?(S.names[i]||'J'+(i+1)):(S.mode==='bot'?(i?'Ordi':'Toi'):'J'+(i+1));g.fillText(nm+'  '+f.d+'%  '+'●'.repeat(Math.max(0,f.st)),i?W-250:14,H-12)});
+  }
+  /* ---------- COURSE ---------- */
+  var CX=320,CY=180,ORX=290,ORY=160,IRX=150,IRY=62;
+  function rnew(i){return{x:CX+205+(i?30:-30)*0,y:CY+(i?18:-18),a:-Math.PI/2,s:0,t:0,sec:0,fin:0,lap:0}}
+  function onTrack(x,y){var dx=x-CX,dy=y-CY;return (dx*dx)/(ORX*ORX)+(dy*dy)/(ORY*ORY)<=1&&(dx*dx)/(IRX*IRX)+(dy*dy)/(IRY*IRY)>=1}
+  function sector(x,y){var a=Math.atan2(-(y-CY),x-CX);if(a<0)a+=2*Math.PI;return Math.floor(a/(Math.PI/2))}
+  function rstep(c,k){
+    if(c.fin)return;k=k||{};
+    c.a+=((k.r?1:0)-(k.l?1:0))*.05*Math.min(1,c.s/1.5);
+    c.s+=k.b?-.2:.1;c.s=Math.max(0,Math.min(4.4,c.s));
+    if(!onTrack(c.x,c.y))c.s*=.93;
+    c.x+=Math.cos(c.a)*c.s;c.y+=Math.sin(c.a)*c.s;
+    var sc=sector(c.x,c.y);
+    if(sc===(c.sec+1)%4){c.t++;c.sec=sc}else if(sc===(c.sec+3)%4){c.t--;c.sec=sc}
+    c.lap=Math.min(3,Math.floor(Math.max(0,c.t)/4));
+    if(c.t>=12){c.fin=S.t}
+  }
+  function rai(c){
+    var ang=Math.atan2(-(c.y-CY),c.x-CX)+.45,tx=CX+220*Math.cos(ang),ty=CY-111*Math.sin(ang),d=Math.atan2(ty-c.y,tx-c.x)-c.a;
+    while(d>Math.PI)d-=2*Math.PI;while(d<-Math.PI)d+=2*Math.PI;
+    return{l:d<-.05,r:d>.05,b:Math.abs(d)>1.1&&c.s>2.2};
+  }
+  function rkey(p){var k=p?{l:keys.ArrowLeft,r:keys.ArrowRight,b:keys.ArrowDown}:{l:keys.a||keys.q,r:keys.d,b:keys.s};return{l:k.l||inp[p].l,r:k.r||inp[p].r,b:k.b||inp[p].b}}
+  function raceStep(){
+    if(S.cd>0)return;
+    if(S.mode==='online'){
+      rstep(R[0],rkey(0));
+      if(opp){var q=R[1];q.x+=(opp.x-q.x)*.4;q.y+=(opp.y-q.y)*.4;q.a=opp.a;q.t=opp.t;q.lap=Math.min(3,Math.floor(Math.max(0,opp.t)/4));q.fin=opp.fin}
+      send({x:R[0].x,y:R[0].y,a:R[0].a,t:R[0].t,fin:R[0].fin});
+      if(R[0].fin&&(!R[1].fin||R[0].fin<=R[1].fin))finish(1);else if(R[1].fin)finish(2);
+    }else{
+      rstep(R[0],rkey(0));rstep(R[1],S.mode==='bot'?rai(R[1]):rkey(1));
+      if(R[0].fin||R[1].fin)finish(R[0].fin&&(!R[1].fin||R[0].fin<=R[1].fin)?1:2);
+    }
+  }
+  function raceDraw(){
+    var g=ctx;g.fillStyle='#1e5b2c';g.fillRect(0,0,W,H);
+    g.fillStyle='#3a3a4a';g.beginPath();g.ellipse(CX,CY,ORX,ORY,0,0,7);g.fill();
+    g.fillStyle='#1e5b2c';g.beginPath();g.ellipse(CX,CY,IRX,IRY,0,0,7);g.fill();
+    g.strokeStyle='#fff';g.setLineDash([12,10]);g.lineWidth=2;g.beginPath();g.ellipse(CX,CY,220,111,0,0,7);g.stroke();g.setLineDash([]);
+    g.fillStyle='#fff';g.fillRect(CX+IRX+4,CY-3,ORX-IRX-8,6);
+    R.forEach(function(c,i){g.save();g.translate(c.x,c.y);g.rotate(c.a);g.fillStyle=i?'#ff5d8f':'#3be8ff';g.fillRect(-12,-7,24,14);g.fillStyle='#0d0820';g.fillRect(2,-5,6,10);g.restore()});
+    g.font='700 18px Inter Tight,sans-serif';g.textAlign='left';g.fillStyle='#fff';
+    R.forEach(function(c,i){var nm=S.mode==='online'?(S.names[i]||'J'+(i+1)):(S.mode==='bot'?(i?'Ordi':'Toi'):'J'+(i+1));g.fillText(nm+' : tour '+Math.min(3,c.lap+1)+'/3',i?W-190:14,24)});
+    if(S.cd>0){g.fillStyle='rgba(0,0,0,.5)';g.fillRect(0,0,W,H);g.fillStyle='#fff';g.font='800 90px Inter Tight,sans-serif';g.textAlign='center';g.fillText(String(Math.ceil(S.cd/60)),W/2,H/2+30)}
+  }
+  /* ---------- Boucle & état ---------- */
+  function send(o,force){
+    S.lastObj=o;if(!S.ref||(!force&&S.t-S.sent<5))return;S.sent=S.t;
+    var u=window.arkiNet.db().ref('arooms/'+S.code+'/s'+S.me);u.set(o);
+  }
+  function finish(w){if(S.over)return;S.over=w;if(S.ref&&S.mode==='online'&&S.lastObj)send(S.lastObj,true);render(true)}
+  function tick(n){
+    for(var i=0;i<n;i++){
+      S.t++;
+      if(S.cd>0){S.cd--;continue}
+      if(S.over)break;
+      if(S.g==='fight')fightStep();else raceStep();
+    }
+  }
+  function loop(ts){
+    if(!S.run)return;
+    var dt=S.last?Math.min(100,ts-S.last):16;S.last=ts;S.acc+=dt;var n=0;
+    while(S.acc>=16.67&&n<6){S.acc-=16.67;n++}
+    if(S.view==='play'){
+      if(S.mode!=='online'||S.go)tick(n);
+      if(S.g==='fight')fightDraw();else raceDraw();
+    }
+    S.raf=requestAnimationFrame(loop);
+  }
+  function startGame(){
+    S.over=0;S.t=0;S.sent=0;opp=null;S.cd=S.g==='race'?180:60;
+    F=[fnew(0),fnew(1)];R=[rnew(0),rnew(1)];inp=[{},{}];S.view='play';render();
+    S.run=true;S.last=0;cancelAnimationFrame(S.raf);S.raf=requestAnimationFrame(loop);
+  }
+  function stat(){
+    if(S.over){var win=S.over;return S.mode==='online'?(win===1?'Tu as gagné ! 🎉':(S.names[1]||'Ton adversaire')+' gagne'):S.mode==='bot'?(win===1?'Tu as gagné ! 🎉':"L'ordinateur gagne"):'Le joueur '+win+' gagne ! 🎉'}
+    if(S.mode==='online'&&!S.has2)return "En attente d'un adversaire… code : "+S.code;
+    return S.g==='fight'?'Éjecte ton adversaire de l\'écran !':'Premier à 3 tours !';
+  }
+  function padHtml(){
+    var two=S.mode==='local',f=S.g==='fight';
+    function grp(p,t){return '<div class="duG">'+(two?'<small>'+t+'</small>':'')+'<button data-p="'+p+'" data-k="l" aria-label="Gauche">◀</button><button data-p="'+p+'" data-k="r" aria-label="Droite">▶</button>'+(f?'<button data-p="'+p+'" data-k="j" aria-label="Sauter">⤒</button><button data-p="'+p+'" data-k="a" aria-label="Frapper">⚔</button>':'<button data-p="'+p+'" data-k="b" aria-label="Freiner">■</button>')+'</div>'}
+    return '<div class="duPad" id="duPad">'+grp(S.mode==='online'?0:0,'Joueur 1')+(two?grp(1,'Joueur 2'):'')+'</div>';
+  }
+  function menu(){
+    function card(g,t,d){return '<div class="box"><b>'+t+'</b><p class="info" style="margin:0 0 6px">'+d+'</p><div class="row"><button class="btn primary" data-g="'+g+'" data-m="bot">🤖 Ordinateur</button><button class="btn" data-g="'+g+'" data-m="local">👥 À deux</button></div><div class="row"><button class="btn" data-g="'+g+'" data-m="create">🌐 Créer une salle</button><button class="btn" data-g="'+g+'" data-m="join">Rejoindre</button></div></div>'}
+    return '<div class="p4t">Duel</div><div class="p4m">'+card('fight','⚔️ Arène','Frappe ton adversaire : plus il est blessé (%), plus il vole loin. Éjecte-le de l\'écran, 3 vies chacun.')+card('race','🏁 Course','3 tours de piste. Tourne avec ◀ ▶, freine avec ■. La voiture accélère toute seule.')+'<div class="box"><b>Rejoindre une salle</b><div class="row"><input id="duCode" maxlength="5" placeholder="CODE" aria-label="Code de la salle" autocomplete="off"></div><p class="info" style="margin:6px 0 0">'+(S.msg||'Écris le code puis touche « Rejoindre » sur le bon jeu. Un compte est nécessaire en ligne.')+'</p></div></div>';
+  }
+  function render(keep){
+    if(S.view==='menu'){root.innerHTML=menu();return}
+    root.innerHTML='<div class="p4t">'+(S.g==='fight'?'Arène':'Course')+'</div><div class="duS" role="status">'+stat()+'</div><canvas id="duCv" width="'+W+'" height="'+H+'" aria-label="Zone de jeu"></canvas>'+padHtml()+'<div class="row">'+(S.over?'<button class="btn primary" data-a="again">Rejouer</button>':'')+'<button class="btn" data-a="menu">Menu</button></div>';
+    ctx=$('duCv').getContext('2d');
+  }
+  function stop(){S.run=false;cancelAnimationFrame(S.raf);leave()}
+  function leave(){if(S.ref){try{S.ref.off();if(S.me===1&&!S.has2)S.ref.remove()}catch(e){}S.ref=null}}
+  /* ---------- En ligne ---------- */
+  function code(){var a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',s='';for(var i=0;i<5;i++)s+=a[Math.random()*a.length|0];return s}
+  function listen(){
+    S.ref.on('value',function(sn){
+      var v=sn.val();
+      if(!v){if(S.mode==='online'){S.msg='La salle a été fermée.';stop();S.view='menu';render()}return}
+      var u=arkiNet.user();S.me=v.p1===u.uid?1:2;S.has2=!!v.p2;S.names=[v.n1||'',v.n2||''];S.g=v.g;
+      var o=v['s'+(3-S.me)];opp=o||null;
+      if(S.me===2){var t=opp;if(t&&F[0]&&false){}}
+      if(S.me===1&&S.has2&&!v.go)S.ref.update({go:Date.now()});
+      if(v.go&&S.go!==v.go){S.go=v.go;if(S.view!=='play'||S.over){startGame2()}}
+      var st=$('duRoot').querySelector('.duS');if(st)st.textContent=stat();
+    });
+  }
+  function startGame2(){var go=S.go;startGame();S.go=go;
+    /* côté « moi » = index 0 dans la simulation, adversaire = index 1 */
+  }
+  function online(kind,g){
+    var N=window.arkiNet;if(!N){S.msg='Service en ligne indisponible.';render();return Promise.resolve()}
+    return N.init().then(function(){
+      var u=N.user();if(!u){S.msg='Connecte-toi d\'abord (bouton en haut de la page).';render();N.login();return}
+      var db=N.db();S.g=g;S.mode='online';
+      if(kind==='create'){
+        S.code=code();S.has2=false;S.go=0;S.ref=db.ref('arooms/'+S.code);
+        return S.ref.set({g:g,p1:u.uid,n1:name(),t:Date.now()}).then(function(){S.view='play';startGame();S.go=0;listen();return S.code});
+      }
+      var c=($('duCode')&&$('duCode').value||'').trim().toUpperCase();if(c.length!==5){S.msg='Écris le code à 5 caractères.';render();return}
+      var ref=db.ref('arooms/'+c);
+      return ref.once('value').then(function(sn){
+        var v=sn.val();if(!v){S.msg='Salle introuvable.';S.mode=null;render();return}
+        if(v.g!==g){S.msg='Cette salle est pour l\'autre jeu ('+(v.g==='fight'?'Arène':'Course')+').';S.mode=null;render();return}
+        if(v.p1!==u.uid&&v.p2&&v.p2!==u.uid){S.msg='Cette salle est complète.';S.mode=null;render();return}
+        var p=(v.p1===u.uid||v.p2===u.uid)?Promise.resolve():ref.update({p2:u.uid,n2:name()});
+        return p.then(function(){S.code=c;S.ref=ref;S.go=0;S.has2=true;S.view='play';startGame();S.go=0;listen();return c});
+      });
+    }).catch(function(){S.msg='Impossible de joindre le service en ligne.';render()});
+  }
+  /* ---------- Entrées ---------- */
+  addEventListener('keydown',function(e){if($('duel').classList.contains('on')&&S.view==='play'){keys[e.key.length>1?e.key:e.key.toLowerCase()]=1;if(e.key===' '||e.key.indexOf('Arrow')===0)e.preventDefault()}});
+  addEventListener('keyup',function(e){keys[e.key.length>1?e.key:e.key.toLowerCase()]=0});
+  function padSet(e,v){var b=e.target.closest&&e.target.closest('[data-k]');if(!b)return;e.preventDefault();inp[+b.dataset.p][b.dataset.k]=v;b.classList.toggle('on',!!v)}
+  root.addEventListener('pointerdown',function(e){padSet(e,1)});
+  ['pointerup','pointercancel','pointerleave'].forEach(function(t){root.addEventListener(t,function(e){if(t==='pointerleave'&&!e.target.closest)return;padSet(e,0)},true)});
+  root.addEventListener('contextmenu',function(e){e.preventDefault()});
+  root.addEventListener('click',function(e){
+    var b=e.target.closest('[data-m],[data-a]');if(!b)return;
+    if(b.dataset.a==='menu'){stop();S.view='menu';S.mode=null;S.msg='';render();return}
+    if(b.dataset.a==='again'){
+      if(S.mode==='online'){if(S.ref&&S.has2){S.ref.update({go:Date.now(),s1:null,s2:null})}}else startGame();return}
+    var g=b.dataset.g,m=b.dataset.m;
+    if(m==='bot'||m==='local'){S.g=g;S.mode=m;S.has2=true;startGame()}
+    else online(m,g);
+  });
+  render();
+  return{
+    open:function(){if(S.view!=='menu'&&!S.run)S.view='menu';render()},
+    create:function(g){return online('create',g)},
+    join:function(g,c){S.view='menu';render();$('duCode').value=c;return online('join',g)},
+    state:S,_tick:tick,_f:function(){return F},_r:function(){return R},_start:function(g,m){S.g=g;S.mode=m;S.has2=true;startGame()},_opp:function(o){opp=o}
+  };
 })();
 </script>
 </body>
